@@ -1,0 +1,161 @@
+
+Scene_TitleFunc <-  // Can add anything, but it will become a function only with Finalize()
+{
+	IsDone = 0, // Load success
+	Count = 0,
+};
+
+// Init
+function Scene_TitleFunc::Initialize()
+{
+	local p = Scene_TitleFunc;
+	local fnc = tPAni;
+
+	p.IsDone = 1; // Set true for now
+
+	local prio = 0; // visual priority
+
+	// create frame
+	p.PA_Bg <- tPAni.CDat();
+	// p.PA_BgFlowers <- tPAni.CDat();
+	p.PA_Manager <- fnc.CAniManager();
+
+	// pani data
+	local sFilePath = "./grpdat/Title";
+	local sPcFile;
+	local ret=0;
+
+	// title00.pat
+	sPcFile = format( "%s/title00.pat", sFilePath ); // 
+	if( p.PA_Bg.Load( sPcFile ) == 0 )
+	{
+		p.IsDone = 0;
+	}
+	
+	// sPcFile = format( "%s/bg.pat", sFilePath ); // BG
+	// if( p.PA_BgFlowers.Load( sPcFile ) == 0 )
+	// {
+		// print( format( "\n >> %s Load error.", sFilePath ) );
+		// p.IsDone = 0;
+	// }
+
+
+	if( p.IsDone != 0 )
+	{
+		// 中心表示位置設定
+		local cx = 1280/2;
+		local cy = (720/2); //下に16ドットズラす
+		p.PA_Bg.SetPosition( cx, cy ); //
+		// p.PA_BgFlowers.SetPosition( cx, cy ); //
+	
+		local framestep = 1.0/60; // 1フレーム
+		local fWait = 0.0;
+		local fr = 0;
+	
+		// フレーム登録
+		
+		// fr = p.PA_Manager.Add( p.PA_BgFlowers, "bg" );
+
+		// logo
+		fr = p.PA_Manager.Add( p.PA_Bg, "logo00" );
+		fr.SetPrio( prio+20 );
+		fr.AddFrame( "logo00_000", framestep * 50 ); //ちょい待ち
+		fr.AddSe( 155 ); //タイトルロゴの入りSE呼び出し
+		fWait = framestep * 8;		
+		fr.AddFrame( "logo00_100", framestep * 4 );
+		fr.AddFrame( "logo00_101", framestep * 4 );
+		fr.AddFrame( "logo00_102", framestep * 4 );
+		fr.AddFrame( "logo00_103", fWait );
+		fr.AddFrame( "logo00_104", fWait );
+		fr.AddFrame( "logo00_105", fWait );
+		fr.AddFrame( "logo00_106", fWait );
+		fr.AddFrame( "logo00_107", fWait );
+		fr.AddFrame( "logo00_108", fWait );
+		fr.AddFrame( "logo00_109", fWait );
+		fr.AddFrame( "logo00_110", fWait );
+		fr.AddFrame( "logo00_111", fWait );
+		fr.AddFrame( "logo00_112", fWait );
+		fr.AddFrame( "logo00_113", fWait );
+		fr.AddJump( -1 );//停止	
+
+
+		// ロゴ2 もやっとEF
+		fr = p.PA_Manager.Add( p.PA_Bg, "logo01" );
+		fr.SetPrio( prio+19 );
+
+		fWait = framestep * 0;
+		fr.AddFrame( "logo01_000", fWait );
+		fr.AddJump( -1 );//停止	
+
+
+		// bg00 ビル
+		fr = p.PA_Manager.Add( p.PA_Bg, "building00" );
+		fr.SetPrio( prio+5 );
+
+		fWait = framestep * 12;
+		fr.AddFrame( "building_000", fWait );
+		fr.AddFrame( "building_001", fWait );
+		fr.AddFrame( "building_002", fWait );
+		fr.AddFrame( "building_003", fWait );
+		fr.AddFrame( "building_004", fWait );
+		fr.AddFrame( "building_005", fWait );
+		fr.AddTag("loop");
+		fr.AddFrame( "building_100", fWait * 2 );
+		fr.AddFrame( "building_101", fWait * 2 );
+		fr.AddFrame( "building_102", fWait * 2 );
+		fr.AddFrame( "building_103", fWait * 2 );
+		fr.AddFrame( "building_104", fWait * 2 );
+		fr.AddFrame( "building_105", fWait * 2 );
+		fr.AddFrame( "building_106", fWait * 2 );
+		fr.AddFrame( "building_107", fWait * 2 );
+		fr.AddFrame( "building_108", fWait * 2 );
+		fr.AddFrame( "building_109", fWait * 2 );
+		fr.AddFrame( "building_110", fWait * 2 );
+		fr.AddFrame( "building_111", fWait * 2 );
+		fr.AddTagJump("loop");
+		
+		//fr.SetView( 0 );
+	
+	
+	}
+}
+
+// 終了処理
+function Scene_TitleFunc::Finalize()
+{
+	local p = Scene_TitleFunc;
+	local fnc = tPAni;
+
+	// アニメマネージャの解放、登録した中身も全部消える
+	delete p.PA_Manager;
+
+	// PAniオブジェクトの解放
+	delete p.PA_Bg;
+
+	delete Scene_TitleFunc;
+
+	print("\nScene_TitleFunc::Finalize()");
+}
+
+//
+function Scene_TitleFunc::Update()
+{
+	local p = Scene_TitleFunc;
+	local fnc = tPAni;
+
+	p.PA_Manager.Update();
+	p.Count++;
+}
+
+//
+function Scene_TitleFunc::Render()
+{
+	local p = Scene_TitleFunc;
+	local fnc = tPAni;
+
+	p.PA_Manager.Render();
+
+	//print( format( "\n[Count:%d]", p.Count ) );
+}
+
+print("\n\ntitle.txt Running!!!");

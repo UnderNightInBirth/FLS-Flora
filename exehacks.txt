@@ -1,0 +1,3 @@
+0x54B074 string "FLS Flora"
+ico.
+0x245AF7 struct 0x20 -> 0x7F
