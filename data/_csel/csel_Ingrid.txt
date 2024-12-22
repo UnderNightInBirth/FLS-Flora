@@ -1,0 +1,10 @@
+[System]
+ProjectName=csel_Ingrid
+[DataFile]
+FileNum= 1
+File00=csel_Ingrid.HA6
+[BmpcutFile]
+FileNum= 1
+File00=../Ingrid/Ingrid.cg
+[PAniFile]
+FileNum= 0

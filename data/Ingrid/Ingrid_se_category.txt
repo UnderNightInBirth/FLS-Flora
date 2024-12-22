@@ -1,0 +1,71 @@
+//-----------------------------------------------------------------------------
+// ＳＥ定義
+//-----------------------------------------------------------------------------
+
+Battle_Std.SeTable[Def_ChrNo_Ing] = {};
+local se = Battle_Std.SeTable[Def_ChrNo_Ing];
+    
+se["立ち弱攻撃"] <- { //Standing Weak
+	Param0 = 10,
+	average = 75,
+	selist = { common = [200], }
+};
+se["立ち中攻撃"] <- { //Standing Medium
+	Param0=10,
+	selist = { common = [201], }
+};
+se["立ち強攻撃"] <- { //Standing Heavy
+    Param0=10,
+    selist = { common = [202], }
+};
+
+se["しゃがみ弱攻撃"] <- { //Cro A
+	Param0=10,
+	average = 75,
+	selist = { common = [204], }
+};
+se["しゃがみ中攻撃"] <- { //Cro B
+	Param0=10,
+	selist = { common = [203], }
+};
+se["しゃがみ強攻撃"] <- { //Cro C
+	Param0=10,
+	selist = { common = [207], }
+};
+se["ジャンプ弱攻撃"] <- { //Ja
+	Param0=10,
+	average = 75,
+	selist = { common = [205], }
+};
+se["ジャンプ中攻撃"] <- { //Jb
+	Param0=10,
+	selist = { common = [206], }
+};
+se["Mv_Atk_JB_JB"] <- { //Jb
+	Param0=10,
+	selist = { common = [206], }
+};
+se["ジャンプ強攻撃"] <- //Jc
+[
+	{
+		Param0=10,
+        selist = { common = [202], }
+	},
+	{
+		Param0=20,
+        selist = { common = [231], }
+	}
+];
+
+se["ダッシュ中攻撃"] <- {
+	Param0=10,
+	selist = { common = [100], }
+};
+se["ダッシュ強攻撃"] <- {
+	Param0=10,
+	selist = { common = [100], }
+};
+
+se["コンセントレーション"] <- {
+    selist = { common = [211, 208], }
+}
