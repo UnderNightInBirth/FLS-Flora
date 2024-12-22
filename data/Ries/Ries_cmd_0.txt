@@ -1,0 +1,243 @@
+//コマンドテーブル skillは格ゲーコマンド表記
+//
+btl_debPrint2("\n[RIE_CommandTable.txt]");
+
+local t =
+{
+	Atk_Std6B = {},
+	Atk_Cro3B = {},
+	Atk_Std6C = {},
+	Atk_Air6B = {},
+	Atk_Air6C = {},
+
+	Skill_236A = {},
+	Skill_236BorC = {},
+	Skill_236EX = {},
+
+	Skill_623EX =
+    {
+        num = def_CN_Skill_623EX,
+        name = "Cmd_Skill_623EX",
+        command = ["623C"],
+        usegauge = 10000,
+        UpdateTable = { name = "Mv_Skill_623EX", }
+        CmdCheck = { Cost = { ComboGauge = 10000 }, SkillType = "ExSpecial" },
+	},
+    Skill_623BorC = {},
+	Skill_623A = {},
+
+
+	Skill_214A = {},
+	Skill_214B = {},
+	Skill_214C = {},
+	Skill_63214EX = {
+        command = ["214214C","214+B+C"],
+	},
+
+    Skill_0202D = {}, // Debug, hide cockpit
+
+	Throw_A = {},
+	
+	Skill_CancelRoll =
+	{
+		num = def_CN_Atk_DashAdd,
+		command = ["6+A+B"],
+		flags = [ "lastdelay" ],
+		function CmdBeforeFunc()
+		{
+			// 6ABのボタンダッシュの操作ではそのまま発動しないようにする
+			// 66>6ABか、6AB>6ABが必要
+			if( BMvTbl.GetPP(def_PP_CmdStatus)&def_PP_CS_DoujiDash_F )
+			{
+				return 0;
+			}
+			
+			// いくらVORPAL状態でも
+			// 必殺技空振りキャンセルでは出せないようにしたい
+			// MVが必殺技でヒット情報が無かったら失敗
+			if( Battle_Std.MoveCode.CheckFlag(def_MC_Skill) )
+			{
+				// _dp("\n 必殺技");
+				local hs = BMvTbl.GetMvHitStatus();
+				if( !(  hs.Type & _HitType_Hit ) )
+				{
+					// _dp(" -> nohit");
+					return 0;
+				}
+			}
+			return 1;
+		},
+		CmdCheck = 
+		{
+			SkillType = "None", MvCheck = { DoujiOnly = ["Mv_DashWait_F","Mv_Dash_F"] }
+		},
+		
+		UpdateTable = { name = "Mv_Skill_CancelRoll", }	
+	}
+
+
+	Atk_StdBandC = {},
+    //Atk_CroBandC = { command="6+B+C" }, //2+B+C
+    //Atk_DashStdBandC = {}, //0606B+C
+    Atk_AirBandC = {
+		function CmdBeforeFunc()
+		{
+			local isAnyCancel = BCMDTbl.CheckCancel( _SkillType_ExSpecial|_SkillType_Special|_SkillType_Normal );
+			local movable = Battle_Std.MoveCodeEx.CheckFlag( 3, def_MC3_FromNoCancelMv );	
+			if (isAnyCancel && movable == 1) 
+			{ return 0; }
+			
+		}
+	}, // reused as air dodge, not the air bc
+
+	Skill_41236SP = {},
+    Skill_41236SP_ABC = {},
+	Skill_0202EX = {},
+	
+	Skill_020202EX = {
+		// command = [Def_CMD_22BC, "020202C"], nah
+		// command = "@T, v, 10@^C@D, 11@", 
+		command = [ "@R,1@C","41236^C","63214^C", "4136^C","6314^C","4236^C","4126^C","6214^C","6324^C" ], usegauge = 20000,
+		Cost = { ComboGauge = 20000 },
+		CmdCheck = { SkillType="ExSpecialJump", Cost = { ComboGauge = "OverLiberate" } } , //idk about exspecialjump, but this wont be air usable anyway :D
+		function CmdBeforeFunc()
+		{
+			// return (BMvTbl.GetPP(CDef_Rie_PP_InstallLimit) != 1) && (BMvEff.Liberate_Get() == 2) ? 1 : 0;
+			// return( ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 1 ) && (BMvEff.Liberate_Get() == 2) ) ? 1 : 0;
+			return( (BMvEff.Liberate_Get() == 2) ) ? 1 : 0;
+			// local p = BMvCore.GetPlayerCharaData();
+			// if( p.push() )
+			// {
+				// local isVO = ( Battle_Std.GetPSFlag(def_PP_PS_isOverLiberate) || Battle_Std.GetPSFlag(def_PP_PS_isLiberate) )
+				// p.pop()
+				
+				// if( isVo )
+				// {
+					// return 1;
+				// }
+				// else
+				// {
+					// return 0;
+				// }
+			// }
+			
+			// if (BMvTbl.GetPP(CDef_Rie_PP_InstallLimit) == 0) {
+				// if ( isVO )
+				// {
+					// return 1;
+				// }
+				// else
+				// {
+					// return 0;
+				// }
+			// }
+			// else
+			// {
+				// return 0;
+			// }
+		},
+	},	
+	
+
+	MultiJump_F =
+	{
+		function CmdBeforeFunc()
+		{
+			// if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 0) return 0;
+			return 1;
+		},
+	},
+	MultiJump_N =
+	{
+		function CmdBeforeFunc()
+		{
+			// if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 0) return 0;
+			return 1;
+		},
+	},
+	MultiJump_B =
+	{
+		function CmdBeforeFunc()
+		{
+			// if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 0) return 0;
+			return 1;
+		},
+	},
+
+	MultiJumpCancel_F =
+	{
+		function CmdBeforeFunc()
+		{
+			// if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 0) return 0;
+			return 1;
+		},
+	},
+	MultiJumpCancel_N =
+	{
+		function CmdBeforeFunc()
+		{
+			// if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 0) return 0;
+			return 1;
+		},
+	},
+	MultiJumpCancel_B =
+	{
+		function CmdBeforeFunc()
+		{
+			// if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 0) return 0;
+			return 1;
+		},
+	},
+
+
+
+}
+
+
+
+
+//Check and Reset are the same thing, Mv and Tmpl
+//UpdateMoveName appears when CheckMoveName
+local ar =
+[
+	{
+		CheckMoveName="Mv_Atk_StdA",
+		UpdateMoveName="Mv_Atk_StdB",
+	},
+	{
+		ResetTmplName="Atk_StdB",
+		CheckMoveName="Mv_Atk_StdB",
+		UpdateMoveName="Mv_Atk_Std6B",
+	},
+	{
+		ResetTmplName="Atk_Std6B",
+		CheckMoveName="Mv_Atk_Std6B",
+		UpdateMoveName="Mv_Atk_StdC",
+	},
+	{
+		ResetTmplName="Atk_StdC",
+		CheckMoveName="Mv_Atk_StdC",
+		UpdateMoveName="Mv_Skill_SSRelayAtk",
+		CmdCheck = 
+		{
+			SkillType = "AddCommand",
+			FrameIDCheck = { Only = [900,910] },
+		}
+		CmdTmplFlags=def_CMDFlags_AnnounceSmaetSteer, //スマートステアアナウンスの追加
+	},
+	{
+		CheckMoveName="Mv_Skill_SSRelayAtk",
+		UpdateMoveName="Mv_Skill_41236SP",
+		CmdCheck = 
+		{
+			Cost = { ComboGauge = 20000 },
+			SkillType = "SpSpecial",
+			HitStatus="Damage",
+		}
+	},
+]
+
+Battle_Std.MakeStdCombo( t, ar );
+
+//TODO rie
+RIES_CommandTable <- Battle_Std.MakeCommandTable( { command=t } );

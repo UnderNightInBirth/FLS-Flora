@@ -1,0 +1,10 @@
+[System]
+ProjectName=csel_Ries
+[DataFile]
+FileNum= 1
+File00=csel_Ries.HA6
+[BmpcutFile]
+FileNum= 1
+File00=../Ries/Ries.cg
+[PAniFile]
+FileNum= 0

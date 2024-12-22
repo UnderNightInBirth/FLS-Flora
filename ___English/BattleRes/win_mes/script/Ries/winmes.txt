@@ -1,0 +1,174 @@
+WinMesScript
+
+
+WinMes00:
+This shield is called Gamaliel, the True Apocrypha.
+It is the embodiment of order and justice, and rhythmically repels all impurity.
+Even with an entire lifetime, your could never best it.
+\e
+
+WinMes01:
+You mocked my slim figure. I'll have you know that these fists can generate around five tons...
+Ah, that's overdoing it... Um, TWO tons of force.
+...Don't underestimate the strength of a musician.
+\e
+
+WinMes02:
+This isn't storytelling at all... Mindless violence is no more than noise.
+I may not be one to talk, but you lack in romance.
+\e
+
+WinMes03:
+Defeating them is one thing, but being unable to care for my body?
+No camp sites, no aid workers, no chiropractors...
+No one ever told me that my solitary duty would be so severe...
+\e
+
+WinMes04:
+...Really now, you guys just keep on coming...
+You don't even know the proper manners for dueling.
+If all you do is fight, you're no better than a parrot.
+\e
+
+WinMes05:
+My mission shall not fail.
+Carrying the two scattered gospels, I will make known the will of my Lord.
+Hmm... Is this what victory lines are supposed to sound like?
+\e
+
+WinMes06:
+How strong...
+There was no way I should have won, especially with a spine far sturdier than mine and superior magical power.
+But as a pile bunker wielder, it appears that Gamaliel's abilities barely won out.
+\e
+
+WinMes07:
+It looks like I won this time, Sion.
+...By the way, I was wondering if you could teach me Japanese when you have the time.
+...Um, I just can't get the hang of reading and writing kanji...
+\e
+
+WinMes08:
+...Sleep, Sion. There is no value in a life devoid of sunlight.
+\e
+
+WinMes09:
+You've fallen to the ranks of a C-list actor, like a stagehand being given a role.
+\e
+
+WinMes10:
+What's... your name? ...I see.
+I'm a knight of the church, but we're not strict about everything.
+...Um. If you'd like, how about we get some tea after this?
+\e
+
+WinMes11:
+I don't really have a true grudge against you, but...
+...Maybe I should beat him up a little bit more...
+\e
+
+WinMes12:
+Creepy... cute... creepy... cute...
+...creepy-cute......... ...huh?!
+I think I just saw a really happy creature... I-It was just a dream...
+...That paradise had to be a dream.
+\e
+
+WinMes13:
+Haa... This constant string of men is depressing...
+\e
+
+WinMes14:
+I've finished treating your wounds.
+...Don't look so upset; I was careful.
+What kind of knight would I be if I injured such a pretty face?
+\e
+
+WinMes15:
+There's no need to repent. Just return to ash, vampire.
+The melody of purgatory's anguish suits your kind.
+\e
+
+WinMes16:
+...She ran away so quickly. I'm glad her wounds were light, but...
+Calling me ""Mister"" was pretty rude.
+\e
+
+WinMes17:
+...Silence is not a sound.
+If it were, it would be nothing but the sound of death...
+Perhaps you were the embodiment of that concept.
+\e
+
+WinMes18:
+...It's broken... Oh, but what... ...what artistic molding it has.
+...I wonder if I could fix it... It sure would be great to have one...
+\e
+
+WinMes19:
+This again... What's wrong with this town? ...No, that's not it.
+Is it my own body that has something wrong with it?....
+\e
+
+WinMes20:
+Even with these deep wounds, I don't feel a single bit of pain.
+No matter how I feel about it, it doesn't change who I am.
+\e
+
+WinMes21:
+I've made you suffer alone for all this time.
+Sleep well, Sion... I'll be joining you soon.
+Yes... As soon as the dawn breaks.
+\e
+
+WinMes22:
+...I won...?
+I thought you had it in you, but you have no hope
+of even matching Osiris if you can't beat me.
+...No, I'm sure you'll be happier disappearing without meeting that thing.
+\e
+
+WinMes23:
+Eh? You know of a Dead Apostle who came in by plane?
+You're kidding! You won't fool me that easily.
+Now show me around this new millennium like you promised.
+\e
+
+WinMes24:
+Allow me to correct you. I am no well-bred lady.
+I myself don't even know how I lived in the days before the Cardinal took me in.
+\e
+
+WinMes25:
+Alright... I've finally obtained the Japanese art...
+This molding, this appearance...
+If this is a dream, don't wake me up...
+Yeah... I'll have to buy a dedicated display case for it when I get back.
+\e
+
+WinMes26:
+I beat them... a part of this planet, with my own hands...
+...Haha, how ridiculous...
+Why couldn't I pull off this kind of miracle back then...?!.
+\e
+
+WinMes27:
+She was clearly dodgy. Was she one of the poachers?
+\e
+
+WinMes28:
+How did it come to this......? Ohh, now I really am a thief!
+What am I going to tell Sion...
+\e
+
+WinMes29:
+Whew, that sure was exhausting. But it's all worth it if you guys can be safe.
+\e
+
+WinMes30:
+Damn it...... I'm feeling so strange.
+I accidentally put my full strength into that...
+...She flew off into the sky and isn't coming down, but she's probably fine...
+She's fine... right?
+\e
+

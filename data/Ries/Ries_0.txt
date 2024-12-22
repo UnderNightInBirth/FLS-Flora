@@ -1,0 +1,11 @@
+[System]
+ProjectName=Ries
+[DataFile]
+FileNum= 1
+File00=Ries.ha6
+[BmpcutFile]
+FileNum= 1
+File00=Ries.cg
+[PAniFile]
+FileNum= 1
+File00=RiesPat.pat
