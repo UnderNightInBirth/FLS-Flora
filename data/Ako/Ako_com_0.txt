@@ -1,0 +1,24 @@
+//__dofile__( "./data/_combase.txt" );
+
+local nowskillnum = 0;
+
+//-------------------------------------------------------------
+// com動作生成
+
+local comcount = 200; // 最大数 できるだけギリギリに
+local com = CCom(comcount); // COM用オブジェクト
+
+com.SetGuardAvg( 40 ); // ガード確率
+
+
+local stmp = 0;
+local mtmp = 0;
+
+
+nowskillnum = 80;
+
+// 最後にglobal_com_tmpへ渡す
+ComBase_GlobalComTmp_Set( com );
+
+print("\n\n>com Loaded<\n")
+

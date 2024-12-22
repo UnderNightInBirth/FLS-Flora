@@ -1,0 +1,219 @@
+__dofile__("./script/btl_SEDefine.txt"); //SE Constant
+
+SeList_Table <-
+{
+	TableNum = 1, // For program side reference in SE_Select and etc, put the maximum value in the table.
+	UseTable = 0, // How many tables to use
+	Path = [], // Simplified path setting
+	Status = [], // Array used for actual playback
+};
+
+
+SeList_Table.Path.append( "./se/normal_se/" ); // 0: Global SE
+SeList_Table.Path.append( "./se/battle_se/Ako/" ); // 1: Character Voice
+SeList_Table.Path.append( "./se/battle_se/" ); // 2: Battle SE
+
+SeList_Table.Status.resize(650); // 確保
+local st = SeList_Table.Status; // 登録しやすいように省略
+
+
+st[90] = { volumetype=1, path=1, file="Ako00_2076", type=0, category=1}; // リア充ネットゲーマー……敵ですね。
+st[91] = { volumetype=1, path=1, file="Ako00_2077", type=0, category=1}; // あ、ニート師匠！こんにちわー！！
+st[92] = { volumetype=1, path=1, file="Ako00_2079", type=0, category=1}; // 可愛いは……正義です！
+st[93] = { volumetype=1, path=1, file="Ako00_2080", type=0, category=1}; // 人生って超難関クエストですね……
+
+
+st[100] = { volumetype=1, path=1, file="Ako00_2000", type=0, category=1}; // 負けても怒られないですよね？
+st[101] = { volumetype=1, path=1, file="Ako00_2001", type=0, category=1}; // 私だって一度ぐらいは勝ってみせます！
+st[102] = { volumetype=1, path=1, file="Ako00_2002", type=0, category=1}; // ルシアンには手を出させません！
+st[103] = { volumetype=1, path=1, file="Ako00_2003", type=0, category=1}; // そのきれいな頭をふっとばしてやります！
+
+st[110] = { volumetype=1, path=1, file="Ako00_2100", type=0, category=1}; // リア充だいばくはつです！
+st[111] = { volumetype=1, path=1, file="Ako00_2101", type=0, category=1}; // やりましたー！
+st[112] = { volumetype=1, path=1, file="Ako00_2102", type=0, category=1}; // つ、疲れましたー
+st[113] = { volumetype=1, path=1, file="Ako00_2103", type=0, category=1}; // アコちゃん大勝利ですね！
+
+st[122] = { volumetype=1, path=1, file="Ako00_2152", type=0, category=1}; // れ、レベルアップしました！
+st[123] = { volumetype=1, path=1, file="Ako00_2153", type=0, category=1}; // せ、成長しましたー！
+
+st[130] = { volumetype=1, path=1, file="Ako00_2200", type=0, category=1}; // たはー……。
+st[131] = { volumetype=1, path=1, file="Ako00_2201", type=0, category=1}; // 時すでに時間切れです……。
+
+st[140] = { volumetype=1, path=1, file="Ako00_2300", type=0, category=1}; // は 
+st[141] = { volumetype=1, path=1, file="Ako00_2301", type=0, category=1}; // よ 2a
+st[142] = { volumetype=1, path=1, file="Ako00_2302", type=0, category=1}; // ふ
+st[143] = { volumetype=1, path=1, file="Ako00_2303", type=0, category=1}; // や 5a
+st[144] = { volumetype=1, path=1, file="Ako00_2304", type=0, category=1}; // た 
+
+st[150] = { volumetype=1, path=1, file="Ako00_2400", type=0, category=1}; // えいっ
+st[151] = { volumetype=1, path=1, file="Ako00_2401", type=0, category=1}; // ていっ 5b
+st[152] = { volumetype=1, path=1, file="Ako00_2402", type=0, category=1}; // やあっ 2b
+st[153] = { volumetype=1, path=1, file="Ako00_2403", type=0, category=1}; // せいっ 5b
+st[154] = { volumetype=1, path=1, file="Ako00_2404", type=0, category=1}; // とうっ 2b
+st[155] = { volumetype=1, path=1, file="Ako00_2405", type=0, category=1}; // てやっ
+st[156] = { volumetype=1, path=1, file="Ako00_2406", type=0, category=1}; // はあっ
+
+st[160] = { volumetype=1, path=1, file="Ako00_2500", type=0, category=1}; // えーいっ！ 5c
+st[161] = { volumetype=1, path=1, file="Ako00_2501", type=0, category=1}; // とーっ！
+st[162] = { volumetype=1, path=1, file="Ako00_2502", type=0, category=1}; // やぁーっ！ 5c
+st[163] = { volumetype=1, path=1, file="Ako00_2503_c", type=0, category=1}; // えいやーっ！ 
+st[164] = { volumetype=1, path=1, file="Ako00_2504", type=0, category=1}; // はぁーっ！
+st[165] = { volumetype=1, path=1, file="Ako00_2505", type=0, category=1}; // たぁーっ！
+st[166] = { volumetype=1, path=1, file="Ako00_2506", type=0, category=1}; // てやーっ！
+
+st[170] = { volumetype=1, path=1, file="Ako00_2600_b", type=0, category=1}; // わわわっ！2c
+
+st[176] = { volumetype=1, path=1, file="Ako00_2606", type=0, category=1}; // こうして……
+st[177] = { volumetype=1, path=1, file="Ako00_2607", type=0, category=1}; // こうです！
+
+st[180] = { volumetype=1, path=1, file="Ako00_2700_s0", type=0, category=1}; // えいやっ　たあっ！
+st[181] = { volumetype=1, path=1, file="Ako00_2700_s1", type=0, category=1}; // えいやっ　たあっ！
+st[182] = { volumetype=1, path=1, file="Ako00_2701_s0", type=0, category=1}; // 刺しますっ　せやっ！
+st[183] = { volumetype=1, path=1, file="Ako00_2701_s1", type=0, category=1}; // 刺しますっ　せやっ！
+st[184] = { volumetype=1, path=1, file="Ako00_2702_s0", type=0, category=1}; // 動かない　でっ！
+st[185] = { volumetype=1, path=1, file="Ako00_2702_s1", type=0, category=1}; // 動かない　でっ！
+
+
+st[200] = { volumetype=1, path=1, file="Ako00_2900", type=0, category=1}; // いやっ！
+st[201] = { volumetype=1, path=1, file="Ako00_2901", type=0, category=1}; // 触らないで！
+
+st[230] = { volumetype=1, path=1, file="Ako00_3300", type=0, category=1}; // ふえええ
+st[232] = { volumetype=1, path=1, file="Ako00_3302", type=0, category=1}; // わーんっ
+
+st[240] = { volumetype=1, path=1, file="Ako00_3400", type=0, category=1}; // よっ
+st[241] = { volumetype=1, path=1, file="Ako00_3401", type=0, category=1}; // おっと
+st[242] = { volumetype=1, path=1, file="Ako00_3402", type=0, category=1}; // ささっ
+
+st[250] = { volumetype=1, path=1, file="Ako00_3500", type=0, category=1}; // ふふ
+st[251] = { volumetype=1, path=1, file="Ako00_3501", type=0, category=1}; // 甘いです
+st[252] = { volumetype=1, path=1, file="Ako00_3502", type=0, category=1}; // 平気です
+
+st[260] = { volumetype=1, path=1, file="Ako00_3600", type=0, category=1}; // わわ！？
+st[261] = { volumetype=1, path=1, file="Ako00_3601", type=0, category=1}; // まだです！
+st[262] = { volumetype=1, path=1, file="Ako00_3602", type=0, category=1}; // むぅー
+
+st[270] = { volumetype=1, path=1, file="Ako00_3700", type=0, category=1}; // いた…っ
+st[271] = { volumetype=1, path=1, file="Ako00_3701", type=0, category=1}; // つよ…っ
+st[272] = { volumetype=1, path=1, file="Ako00_3702", type=0, category=1}; // あぶな…っ
+
+st[280] = { volumetype=1, path=1, file="Ako00_3800", type=0, category=1}; // 見えます
+st[281] = { volumetype=1, path=1, file="Ako00_3801", type=0, category=1}; // ふふーん
+st[282] = { volumetype=1, path=1, file="Ako00_3802", type=0, category=1}; // 甘いですね
+
+st[290] = { volumetype=1, path=1, file="Ako00_3900", type=0, category=1}; // うそっ！？
+st[291] = { volumetype=1, path=1, file="Ako00_3901", type=0, category=1}; // あれれっ！？
+st[292] = { volumetype=1, path=1, file="Ako00_3902", type=0, category=1}; // なんでっ！？
+
+st[300] = { volumetype=1, path=1, file="Ako00_4000", type=0, category=1}; // うんしょ
+st[301] = { volumetype=1, path=1, file="Ako00_4001", type=0, category=1}; // 失敗しました
+st[302] = { volumetype=1, path=1, file="Ako00_4002", type=0, category=1}; // まさに外道です
+
+st[330] = { volumetype=1, path=1, file="Ako00_4300", type=0, category=1}; // きゃっ！
+st[331] = { volumetype=1, path=1, file="Ako00_4301", type=0, category=1}; // ひゃっ！
+st[332] = { volumetype=1, path=1, file="Ako00_4302", type=0, category=1}; // わぁっ！
+
+st[340] = { volumetype=1, path=1, file="Ako00_4400", type=0, category=1}; // ひいっ！
+st[341] = { volumetype=1, path=1, file="Ako00_4401", type=0, category=1}; // きゃんっ！
+st[342] = { volumetype=1, path=1, file="Ako00_4402", type=0, category=1}; // ひゃうっ！
+
+st[350] = { volumetype=1, path=1, file="Ako00_4500", type=0, category=1}; // きゃーっ！
+st[351] = { volumetype=1, path=1, file="Ako00_4501", type=0, category=1}; // 無理ですー！
+st[352] = { volumetype=1, path=1, file="Ako00_4502", type=0, category=1}; // 痛いですっ！
+
+st[370] = { volumetype=1, path=1, file="Ako00_4700", type=0, category=1 }; // いやーっ！
+st[371] = { volumetype=1, path=1, file="Ako00_4701", type=0, category=1 }; // ルシアーンっ！
+st[372] = { volumetype=1, path=1, file="Ako00_4702", type=0, category=1 }; // 嘘ですーっ！
+
+st[380] = { volumetype=1, path=1, file="Ako00_4800", type=0, category=1 }; // 無理でずうぅぅぅ
+st[381] = { volumetype=1, path=1, file="Ako00_4801", type=0, category=1 }; // 出荷は嫌です……
+st[382] = { volumetype=1, path=1, file="Ako00_4802", type=0, category=1 }; // 明日から本気出します……
+
+st[390] = { volumetype=1, path=1, file="Ako00_4900", type=0, category=1}; // いたた…
+st[391] = { volumetype=1, path=1, file="Ako00_4901", type=0, category=1}; // よいしょ
+st[392] = { volumetype=1, path=1, file="Ako00_4902", type=0, category=1}; // ううう
+
+
+st[410] = { volumetype=1, path=1, file="Ako00_5100", type=0, category=1}; // 本気出します！
+st[411] = { volumetype=1, path=1, file="Ako00_5101", type=0, category=1}; // バフをかけます！
+st[412] = { volumetype=1, path=1, file="Ako00_5102", type=0, category=1}; // はああああっ！
+
+st[420] = { volumetype=1, path=1, file="Ako00_5200", type=0, category=1}; // 続けます！
+st[421] = { volumetype=1, path=1, file="Ako00_5201", type=0, category=1}; // まだまだ！
+
+st[430] = { volumetype=1, path=1, file="Ako00_5300", type=0, category=1}; // 来ないでっ！
+st[431] = { volumetype=1, path=1, file="Ako00_5301", type=0, category=1}; // やめてください！
+st[432] = { volumetype=1, path=1, file="Ako00_5302", type=0, category=1}; // 待ってください！
+
+st[440] = { volumetype=1, path=1, file="Ako00_5400", type=0, category=1}; // 今です！
+st[441] = { volumetype=1, path=1, file="Ako00_5401", type=0, category=1}; // 行ってください！
+st[442] = { volumetype=1, path=1, file="Ako00_5402", type=0, category=1}; // そこ！
+
+
+st[465] = { volumetype=1, path=1, file="Ako00_5700", type=0, category=1}; // 助けてルシアン！
+st[466] = { volumetype=1, path=1, file="Ako00_5701", type=0, category=1}; // ルシアン愛してる
+st[467] = { volumetype=1, path=1, file="Ako00_5702", type=0, category=1}; // ルシアン！
+
+st[470] = { volumetype=1, path=1, file="Ako00_6100", type=0, category=3}; // テンション上がってきました！
+st[471] = { volumetype=1, path=1, file="Ako00_6101", type=0, category=3}; // いい感じです！
+st[472] = { volumetype=1, path=1, file="Ako00_6102", type=0, category=3}; // 来ました！
+st[480] = { volumetype=1, path=1, file="Ako00_6200", type=0, category=3}; // まだ諦めません
+st[481] = { volumetype=1, path=1, file="Ako00_6201", type=0, category=3}; // 負けられないです！
+st[482] = { volumetype=1, path=1, file="Ako00_6202", type=0, category=3}; // 私の怒りが有頂天です！
+
+st[510] = { volumetype=1, path=1, file="Ako00_7000", type=0, category=1}; // アイスボルト！
+st[511] = { volumetype=1, path=1, file="Ako00_7001", type=0, category=1}; // サンダースピア！
+st[512] = { volumetype=1, path=1, file="Ako00_7002", type=0, category=1}; // フレイムチャージ！
+st[513] = { volumetype=1, path=1, file="Ako00_7003_b", type=0, category=1}; // メテオストライク！
+
+
+st[520] = { volumetype=1, path=1, file="Ako00_7100", type=0, category=1}; // ヒール！
+st[521] = { volumetype=1, path=1, file="Ako00_7101", type=0, category=1}; // 回復します！
+st[522] = { volumetype=1, path=1, file="Ako00_7102", type=0, category=1}; // やります！　※ヒールじゃないときこれにする
+st[523] = { volumetype=1, path=1, file="Ako00_7103_b", type=0, category=1}; // ハイヒール！
+
+st[530] = { volumetype=1, path=1, file="Ako00_7200_b", type=0, category=1}; // 回ります！
+st[531] = { volumetype=1, path=1, file="Ako00_7201", type=0, category=1}; // とりゃー！
+st[532] = { volumetype=1, path=1, file="Ako00_7202", type=0, category=1}; // あわわわ！
+st[533] = { volumetype=1, path=1, file="Ako00_7203", type=0, category=1}; // えいえいっ！
+
+st[540] = { volumetype=1, path=1, file="Ako00_7300", type=0, category=1}; // 突撃ですー！
+// st[541] = { volumetype=1, path=1, file="Ako00_7301", type=0, category=1}; // いっきまーす！
+st[542] = { volumetype=1, path=1, file="Ako00_7302", type=0, category=1}; // どいてください！
+st[543] = { volumetype=1, path=1, file="Ako00_7303", type=0, category=1}; // 邪魔しないで！
+
+st[550] = { volumetype=1, path=1, file="Ako00_7400_b", type=0, category=1}; // そいや！
+// st[551] = { volumetype=1, path=1, file="Ako00_7401", type=0, category=1}; // 飛ばします！
+st[552] = { volumetype=1, path=1, file="Ako00_7402_b", type=0, category=1}; // それっ！
+// st[553] = { volumetype=1, path=1, file="Ako00_7303", type=0, category=1}; // よいしょ！
+
+st[560] = { volumetype=1, path=1, file="Ako00_7600_b", type=0, category=1}; // これが課金の力です！
+st[561] = { volumetype=1, path=1, file="Ako00_7601_b", type=0, category=1}; // どーん！
+// st[562] = { volumetype=1, path=1, file="Ako00_7602", type=0, category=1}; // せーの！
+st[563] = { volumetype=1, path=1, file="Ako00_7603_b", type=0, category=1}; // カキーン！
+
+st[570] = { volumetype=1, path=1, file="Ako00_8000_s0", type=0, category=1}; // ルシアン愛してる！
+st[571] = { volumetype=1, path=1, file="Ako00_8000_s1", type=0, category=1}; // ずっと一緒です！
+st[572] = { volumetype=1, path=1, file="Ako00_8000_s2", type=0, category=1}; // エクストラダメージ！
+st[573] = { volumetype=1, path=1, file="Ako00_8001_s0", type=0, category=1}; // ルシアンお願いします！
+st[574] = { volumetype=1, path=1, file="Ako00_8001_s1", type=0, category=1}; // 頑張って！
+st[575] = { volumetype=1, path=1, file="Ako00_8001_s2", type=0, category=1}; // いっけええー！
+st[576] = { volumetype=1, path=1, file="Ako00_8002_s0", type=0, category=1}; // ルシアーン！
+st[577] = { volumetype=1, path=1, file="Ako00_8002_s1", type=0, category=1}; // メイン盾来た！
+st[578] = { volumetype=1, path=1, file="Ako00_8002_s2", type=0, category=1}; // これで勝つります！
+
+// st[580] = { volumetype=1, path=1, file="Rus00_8010_s0", type=0, category=2}; // 急に呼ぶな！
+// st[581] = { volumetype=1, path=1, file="Rus00_8010_s1", type=0, category=2}; // ああもぅ、喰らえー！
+st[582] = { volumetype=1, path=1, file="Rus00_8011_s0", type=0, category=2}; // せえいっ！
+st[583] = { volumetype=1, path=1, file="Rus00_8011_b_s1", type=0, category=2}; // オーバード！　シールドォ！！
+st[584] = { volumetype=1, path=1, file="Rus00_8012_s0", type=0, category=2}; // でりゃぁっ！
+st[585] = { volumetype=1, path=1, file="Rus00_8012_s1", type=0, category=2}; // トドメだぁぁーーっ！
+
+st[590] = { volumetype=1, path=1, file="Ako00_8100_s0", type=0, category=1}; // いきます！
+st[591] = { volumetype=1, path=1, file="Ako00_8100_s1", type=0, category=1}; // やぁぁぁー！
+st[592] = { volumetype=1, path=1, file="Ako00_8100_s2", type=0, category=1}; // これが愛の力です
+st[593] = { volumetype=1, path=1, file="Ako00_8101_s0", type=0, category=1}; // 逃がしません！
+st[594] = { volumetype=1, path=1, file="Ako00_8101_s1", type=0, category=1}; // そいやぁーーーっ！
+st[595] = { volumetype=1, path=1, file="Ako00_8101_s2", type=0, category=1}; // どんどんいきます！
+st[596] = { volumetype=1, path=1, file="Ako00_8102_s0", type=0, category=1}; // これでっ！
+st[597] = { volumetype=1, path=1, file="Ako00_8102_s1", type=0, category=1}; // たぁぁぁー！
+st[598] = { volumetype=1, path=1, file="Ako00_8102_s2", type=0, category=1}; // 出し惜しみはなしです！
