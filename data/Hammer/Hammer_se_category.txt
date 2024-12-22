@@ -1,0 +1,8 @@
+Battle_Std.SeTable[Def_ChrNo_Fat] = {};
+local se = Battle_Std.SeTable[Def_ChrNo_Fat];
+
+
+
+se["Mv_Skill_623B_FU"] <-  { Param0=10, selist = { common = [600], } };
+se["Mv_Skill_623A_FU"] <-  { Param0=10, selist = { common = [610], } };
+se["Mv_Skill_623EX_FU"] <-  { Param0=10, selist = { common = [620], } };

@@ -1,0 +1,8 @@
+local nowskillnum = 0;
+local comcount = 200;
+local com = CCom(comcount);
+com.SetGuardAvg( 40 );
+local stmp = 0;
+local mtmp = 0;
+nowskillnum = 80;
+ComBase_GlobalComTmp_Set( com );

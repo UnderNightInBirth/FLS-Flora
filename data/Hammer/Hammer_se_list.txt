@@ -1,0 +1,26 @@
+__dofile__("./script/btl_SEDefine.txt"); //SE Constant
+
+SeList_Table <-
+{
+	TableNum = 1, // For program side reference in SE_Select and etc, put the maximum value in the table.
+	UseTable = 0, // How many tables to use
+	Path = [], // Simplified path setting
+	Status = [], // Array used for actual playback
+};
+
+SeList_Table.Path.append( "./se/normal_se/" ); // 0: Global SE
+SeList_Table.Path.append( "./se/battle_se/Hammer/" ); // 1: Character Voice
+SeList_Table.Path.append( "./se/battle_se/" ); // 2: Battle SE
+
+SeList_Table.Status.resize(750); // As much as needed
+local st = SeList_Table.Status; // Easy Register
+
+// SFX
+st[0] = { volumetype=0, path=1, file="shiki96", type=0, category=3, };
+st[35] = { volumetype=0, path=1, file="035", type=1, category=1, };
+st[72] = { volumetype=0, path=1, file="072", type=1, category=1, };
+
+
+st[600] = { volumetype=0, path=1, file="shiinken", type=0, category=3, };
+st[610] = { volumetype=0, path=1, file="desuuuu", type=0, category=3, };
+st[620] = { volumetype=0, path=1, file="imgonna", type=0, category=3, };
