@@ -1,0 +1,370 @@
+__dofile__("./script/btl_SEDefine.txt"); //ＳＥ定数
+
+SeList_Table <-
+{
+	TableNum = 1, // SEセレクトとかでのプログラム側参照用、テーブル最大値を入れておく
+	UseTable = 0, // 何番目のテーブルを使うか	
+	Path = [], // パス設定簡略化用
+	Status = [], // 実際に再生時に使われる配列
+};
+
+SeList_Table.Path.append( "./se/normal_se/" ); // 0:汎用SE
+SeList_Table.Path.append( "./se/battle_se/Dantes/" ); // 1:キャラ音声
+SeList_Table.Path.append( "./se/battle_se/" ); // 2:バトルSE
+
+SeList_Table.Status.resize(750); // てきとう
+local st = SeList_Table.Status; // 登録しやすいように
+
+st[20] = {  volumetype=0, type=-1, file="Move_LandingArmor", }; // 着地
+st[42] = {  volumetype=0, type=-1, file="Move_Slide", }; // 前ダッシュ
+st[44] = {  volumetype=0, type=-1, file="Move_DashStop"     }; // ダッシュ停止
+
+
+st[50] = { volumetype=0, type=-1, path=2, file="Atk_DarkIgnitionA" }; // 黒炎1
+st[51] = { volumetype=0, type=-1, path=2, file="Atk_DarkIgnitionB" }; // 黒炎2
+st[52] = { volumetype=0, type=-1, path=2, file="Atk_ShotFlame" }; // 黒炎弾
+st[53] = { volumetype=0, type=-1, path=2, file="Atk_SparkBeam" }; // LA用黒炎弾前ビリビリ
+st[54] = { volumetype=0, type=-1, path=2, file="Cmn_RushForward" }; // 衝撃波を伴う高速移動
+st[55] = { volumetype=0, type=-1, path=2, file="Cmn_BigBang" }; // LAフィニッシュビーム発射
+st[56] = { volumetype=0, type=-1, path=2, file="Cmn_HolyField" }; // LA移動中ふわふわ
+st[57] = { volumetype=0, type=-1, path=2, file="Atk_MagicBullet" }; // LA最後爆発
+
+st[58] = { volumetype=0, type=-1, path=2, file="Cmn_HolyField" }; // AD光の玉出現～パワー集中
+st[59] = { volumetype=0, type=-1, path=2, file="Atk_MetalImpact" }; // AD投げつかみ
+
+st[60] = { volumetype=0, type=-1, path=2, file="Cmn_LandBreak" }; // 地面破壊
+st[61] = { volumetype=0, type=-1, path=2, file="Cmn_BigBang" }; // LA発動パワー
+
+//登場
+st[100] = { volumetype=1, path=1, file="edo00_2000", type=0, category=1, userparam=226 }; // 「貴様は、我が姿に何を見る！」
+st[101] = { volumetype=1, path=1, file="edo00_2001", type=0, category=1, userparam=196 }; // 「世に地獄の種は尽きぬらしい！」
+st[102] = { volumetype=1, path=1, file="edo00_2002", type=0, category=1, userparam=301 }; // 「我が名は復讐者、巌窟王エドモン・ダンテス！」
+st[103] = { volumetype=1, path=1, file="edo00_2003", type=0, category=1, userparam=186 }; // 「捜し物は、貴様ではない……」
+st[104] = { volumetype=1, path=1, file="edo00_2004", type=0, category=1, userparam=282 }; // 「話し合いより、こちらの方が早い人種か」
+st[105] = { volumetype=1, path=1, file="edo00_2005", type=0, category=1, userparam=208 }; // 「ははは、ははははははははははは！」
+
+//登場 特殊
+
+//対死徒
+st[110] = { volumetype=1, path=1, file="edo00_2007", type=0, category=1, userparam=182 }; // 「吸血鬼か！　来るがいい！」
+st[111] = { volumetype=1, path=1, file="edo00_2008", type=0, category=1, userparam=217 }; // 「同類だとも！　オレも、貴様も！」
+
+//対牛若丸
+st[112] = { volumetype=1, path=1, file="edo00_2010", type=0, category=1, userparam=298 }; // （牛若丸「サーヴァントか？　見覚えのない顔だが……」） 「文字通りエキストラというヤツだ。気にするな」
+st[113] = { volumetype=1, path=1, file="edo00_2011", type=0, category=1, userparam=225 }; // 「……今回は……自重しているな」（牛若丸「？　なんの話をしているのです？」）
+
+//対遠野志貴
+st[114] = { volumetype=1, path=1, file="edo00_2013", type=0, category=1, userparam=384 }; // 「忘れているのか。貴様の深奥にある、その怒りを」 （志貴「覚えがないのなら、そういうコトだよ」）
+
+//対ロア
+st[115] = { volumetype=1, path=1, file="edo00_2015", type=0, category=1, userparam=316 }; // 「どのような世界であろうと、蛇は蛇という事か」 （ロア「おや。見知らぬ顔ですが、私と面識が？」）
+st[116] = { volumetype=1, path=1, file="edo00_2016", type=0, category=1, userparam=264 }; // （ロア「ひでぇ有様だ。英霊というより亡霊だな？」） 「貴様もな。神学者の面影もない」
+
+//対ネコアルク
+st[117] = { volumetype=1, path=1, file="edo00_2018", type=0, category=1, userparam=375 }; // 「馬鹿な……！　恩讐反応が……皆無……だと！？」 （ネコアルク「ニャんだよ、その恩讐反応って」）
+
+//対マシュ
+st[118] = { volumetype=1, path=1, file="edo00_2019", type=0, category=1, userparam=71 }; // （マシュ「この方もサーヴァント……なのでしょうか？」） 「………さて」
+
+
+//後が無くなったラウンドの開幕
+st[120] = { volumetype=1, path=1, file="edo00_2020", type=0, category=3 }; // 「よかろう、ここからだ！」
+st[121] = { volumetype=1, path=1, file="edo00_2021", type=0, category=3 }; // 「見事だ。だが死ね。」
+st[122] = { volumetype=1, path=1, file="edo00_2022", type=0, category=3 }; // 「全力が望みか？　度しがたい。」
+
+//ラウンド勝利
+st[125] = { volumetype=1, path=1, file="edo00_2023", type=0, category=1, userparam=261 }; // 「燃やし甲斐がある。さあ、立て。」
+st[126] = { volumetype=1, path=1, file="edo00_2024", type=0, category=1, userparam=137 }; // 「本性を出すがいい！」
+st[127] = { volumetype=1, path=1, file="edo00_2025", type=0, category=1, userparam=195 }; // 「……一服、させてもらおうか」
+st[128] = { volumetype=1, path=1, file="edo00_2026", type=0, category=1, userparam=114 }; // 「……コーヒーはないのか」
+
+//決着勝利・汎用
+st[130] = { volumetype=1, path=1, file="edo00_2029", type=0, category=1, userparam=245 }; // 「倒れてなお救われぬ。憐れなことだ。」
+st[131] = { volumetype=1, path=1, file="edo00_2030", type=0, category=1, userparam=250 }; // 「情けはかけぬ。存分に、朽ち果てよ」
+st[132] = { volumetype=1, path=1, file="edo00_2031", type=0, category=1, userparam=214 }; // 「フン。幾ばくかの癒やしにはなろう。」
+st[133] = { volumetype=1, path=1, file="edo00_2032", type=0, category=1, userparam=263 }; // 「眠れるとはな。羨ましい話だ。」
+
+//決着勝利・辛勝
+st[134] = { volumetype=1, path=1, file="edo00_2033", type=0, category=1, userparam=327 }; // 「やってくれたな。懐かしき地獄が見えたぞ。」
+
+//決着勝利・楽勝
+st[135] = { volumetype=1, path=1, file="edo00_2034", type=0, category=1, userparam=409 }; // 「ハ。ハハハ。クハハハハハハハハハ！」
+
+//決着勝利 掛け合い
+
+//対死徒
+st[136] = { volumetype=1, path=1, file="edo00_2035", type=0, category=1, userparam=246 }; // 「絶望せよ。それが地獄だ。」
+st[137] = { volumetype=1, path=1, file="edo00_2036", type=0, category=1, userparam=318 }; // 「恩讐の炎は、そのすべてを燃やし尽くそう！」
+
+//待機モーション
+st[155] = { volumetype=1, path=1, file="edo00_2038", type=0, category=1 }; // 「懺悔か？　聞く耳も心もない。」
+st[156] = { volumetype=1, path=1, file="edo00_2039", type=0, category=1 }; // 「エデ……少し……休む……」
+
+//タイムアップ判定負け
+st[160] = { volumetype=1, path=1, file="edo00_2040", type=0, category=1 }; // 「手ぬるい！　神は何をしている！」
+st[161] = { volumetype=1, path=1, file="edo00_2041", type=0, category=1 }; // 「逃がしはしない……逃がしはしないとも……」
+
+//弱攻撃
+st[170] = { volumetype=1, path=1, file="edo00_2100", type=0, category=1 }; // 「しっ」
+st[171] = { volumetype=1, path=1, file="edo00_2101", type=0, category=1 }; // 「はっ」
+st[172] = { volumetype=1, path=1, file="edo00_2102", type=0, category=1 }; // 「ふっ」
+// st[173] = { volumetype=1, path=1, file="edo00_2100_a", type=0, category=1 }; // 「しっ」
+st[174] = { volumetype=1, path=1, file="edo00_2101_a", type=0, category=1 }; // 「はっ」
+st[175] = { volumetype=1, path=1, file="edo00_2102_a", type=0, category=1 }; // 「ふっ」
+
+//中攻撃
+st[180] = { volumetype=1, path=1, file="edo00_2103", type=0, category=1 }; // 「おぉっ！」
+st[181] = { volumetype=1, path=1, file="edo00_2104", type=0, category=1 }; // 「ぬんっ！」
+st[182] = { volumetype=1, path=1, file="edo00_2105", type=0, category=1 }; // 「ふん！」
+st[183] = { volumetype=1, path=1, file="edo00_2103_a", type=0, category=1 }; // 「おぉっ！」
+st[184] = { volumetype=1, path=1, file="edo00_2104_a", type=0, category=1 }; // 「ぬんっ！」
+st[185] = { volumetype=1, path=1, file="edo00_2105_a", type=0, category=1 }; // 「ふん！」
+
+//強攻撃
+st[190] = { volumetype=1, path=1, file="edo00_2106", type=0, category=1 }; // 「でやっ！」
+st[191] = { volumetype=1, path=1, file="edo00_2107", type=0, category=1 }; // 「ぜぇやっ！」
+st[192] = { volumetype=1, path=1, file="edo00_2108", type=0, category=1 }; // 「づあぁっ！」
+// st[193] = { volumetype=1, path=1, file="edo00_2106_a", type=0, category=1 }; // 「でやっ！」
+st[194] = { volumetype=1, path=1, file="edo00_2107_a", type=0, category=1 }; // 「ぜぇやっ！」
+st[195] = { volumetype=1, path=1, file="edo00_2108_a", type=0, category=1 }; // 「づあぁっ！」
+
+//浮かせ攻撃
+st[200] = { volumetype=1, path=1, file="edo00_2109", type=0, category=3 }; // 「はあぁっ！」
+st[201] = { volumetype=1, path=1, file="edo00_2110", type=0, category=3 }; // 「飛ぶがいい！」
+st[202] = { volumetype=1, path=1, file="edo00_2111", type=0, category=3 }; // 「受けよ！」
+st[203] = { volumetype=1, path=1, file="edo00_2112", type=0, category=3 }; // 「許さぬ！」
+
+//吹き飛ばし攻撃
+st[210] = { volumetype=1, path=1, file="edo00_2113", type=0, category=1 }; // 「おおぉっ！」
+st[211] = { volumetype=1, path=1, file="edo00_2114", type=0, category=1 }; // 「邪魔だ！」4C・LA攻撃
+st[212] = { volumetype=1, path=1, file="edo00_2115", type=0, category=1 }; // 「貴様！」
+st[213] = { volumetype=1, path=1, file="edo00_2116", type=0, category=1 }; // 「砕けよ！」
+
+//その他特殊攻撃
+// st[220] = { volumetype=1, path=1, file="edo00_2120", type=0, category=1 }; // 「うおぉぉっ！」
+// st[221] = { volumetype=1, path=1, file="edo00_2121", type=0, category=1 }; // 「終わりだ！」
+// st[222] = { volumetype=1, path=1, file="edo00_2122", type=0, category=1 }; // 「残酷な事だ」
+// st[223] = { volumetype=1, path=1, file="edo00_2123", type=0, category=1 }; // 「笑わせる！」
+// st[224] = { volumetype=1, path=1, file="edo00_2124", type=0, category=1 }; // 「脆い」
+// st[225] = { volumetype=1, path=1, file="edo00_2125", type=0, category=1 }; // 「泣き言か？」
+// st[226] = { volumetype=1, path=1, file="edo00_2126", type=0, category=1 }; // 「にぶい！」
+// st[227] = { volumetype=1, path=1, file="edo00_2127", type=0, category=1 }; // 「（目を）逸らすな！」
+st[228] = { volumetype=1, path=1, file="edo00_2128", type=0, category=1 }; // 「ハハハ！」 RB1
+
+//投げ成功（空中投げも）
+st[240] = { volumetype=1, path=1, file="edo00_2200", type=0, category=1 }; // 「捕らえたぞ！」
+st[241] = { volumetype=1, path=1, file="edo00_2201", type=0, category=1 }; // 「苦痛を知れ！」
+st[242] = { volumetype=1, path=1, file="edo00_2202", type=0, category=1 }; // 「覚悟！」
+st[243] = { volumetype=1, path=1, file="edo00_2203", type=0, category=1 }; // 「（貴様には）相応しい！」
+
+//投げ失敗（空中投げも）
+st[250] = { volumetype=1, path=1, file="edo00_2204", type=0, category=1 }; // 「む……」
+st[251] = { volumetype=1, path=1, file="edo00_2205", type=0, category=1 }; // 「いない……」
+st[252] = { volumetype=1, path=1, file="edo00_2206", type=0, category=1 }; // 「なん……だと？」
+
+//敵の投げ技を回避
+st[260] = { volumetype=1, path=1, file="edo00_2207", type=0, category=1, prio=Def_SEP_ThrowTech, check=1 }; // 「浅い」
+st[261] = { volumetype=1, path=1, file="edo00_2208", type=0, category=1, prio=Def_SEP_ThrowTech, check=1 }; // 「遅い」
+
+//振り向き
+st[270] = { volumetype=1, path=1, file="edo00_2300", type=0, category=1, prio=Def_SEP_Furimuki }; // 「ほう」
+st[271] = { volumetype=1, path=1, file="edo00_2301", type=0, category=1, prio=Def_SEP_Furimuki }; // 「ふん……」
+
+//ダッシュ（空中ダッシュも）
+st[290] = { volumetype=1, path=1, file="edo00_2305", type=0, category=1 }; // 「クハハ！」
+st[291] = { volumetype=1, path=1, file="edo00_2306", type=0, category=1 }; // 「ゆくぞ！」
+st[292] = { volumetype=1, path=1, file="edo00_2307", type=0, category=1 }; // 「だろうよ！（その程度だろうよ、という怒り）」
+st[293] = { volumetype=1, path=1, file="edo00_2308", type=0, category=1 }; // 「フッ……！（不敵な笑いで）」
+
+//バックステップ（空中バックダッシュも）
+st[300] = { volumetype=1, path=1, file="edo00_2309", type=0, category=1 }; // 「待て」
+st[301] = { volumetype=1, path=1, file="edo00_2310", type=0, category=1 }; // 「ふん……（テンション低い。見下し）」
+st[302] = { volumetype=1, path=1, file="edo00_2311", type=0, category=1 }; // 「よかろう！（ザザッ、と後退して仕切り直すイメージ）」
+
+//弱攻撃ガード
+st[310] = { volumetype=1, path=1, file="edo00_2400", type=0, category=1, prio=Def_SEP_GuardLv1, check=1 }; // 「ぬ」
+st[311] = { volumetype=1, path=1, file="edo00_2401", type=0, category=1, prio=Def_SEP_GuardLv1, check=1 }; // 「む」
+st[312] = { volumetype=1, path=1, file="edo00_2402", type=0, category=1, prio=Def_SEP_GuardLv1, check=1 }; // 「く」
+
+//中攻撃ガード
+st[320] = { volumetype=1, path=1, file="edo00_2403", type=0, category=1, prio=Def_SEP_GuardLv2, check=1 }; // 「くっ」
+st[321] = { volumetype=1, path=1, file="edo00_2404", type=0, category=1, prio=Def_SEP_GuardLv2, check=1 }; // 「ふん」
+st[322] = { volumetype=1, path=1, file="edo00_2405", type=0, category=1, prio=Def_SEP_GuardLv2, check=1 }; // 「うっ」
+
+//強攻撃ガード
+st[330] = { volumetype=1, path=1, file="edo00_2406", type=0, category=1, prio=Def_SEP_GuardLv3, check=1 }; // 「貴様……」
+st[331] = { volumetype=1, path=1, file="edo00_2407", type=0, category=1, prio=Def_SEP_GuardLv3, check=1 }; // 「全力か」
+st[332] = { volumetype=1, path=1, file="edo00_2408", type=0, category=1, prio=Def_SEP_GuardLv3, check=1 }; // 「ちぃっ」
+
+//攻撃を見切り余裕でガード
+st[340] = { volumetype=1, path=1, file="edo00_2409", type=0, category=1, prio=Def_SEP_NiceGuard, check=1 }; // 「どうした？」
+st[341] = { volumetype=1, path=1, file="edo00_2410", type=0, category=1, prio=Def_SEP_NiceGuard, check=1 }; // 「工夫がない」
+st[342] = { volumetype=1, path=1, file="edo00_2411", type=0, category=1, prio=Def_SEP_NiceGuard, check=1 }; // 「笑わせるな」
+
+//ガード失敗ダメージ
+st[350] = { volumetype=1, path=1, file="edo00_2412", type=0, category=1, prio=Def_SEP_GuardMiss, check=1 }; // 「ぐあっ！？」
+st[351] = { volumetype=1, path=1, file="edo00_2413", type=0, category=1, prio=Def_SEP_GuardMiss, check=1 }; // 「不覚……！」
+st[352] = { volumetype=1, path=1, file="edo00_2414", type=0, category=1, prio=Def_SEP_GuardMiss, check=1 }; // 「ぬあぁっ！？」
+
+//受け身
+st[360] = { volumetype=1, path=1, file="edo00_2500", type=0, category=1, prio=Def_SEP_Recover }; // 「ッハハ！」
+st[361] = { volumetype=1, path=1, file="edo00_2501", type=0, category=1, prio=Def_SEP_Recover }; // 「そうでなくては！」
+st[362] = { volumetype=1, path=1, file="edo00_2502", type=0, category=1, prio=Def_SEP_Recover }; // 「クハハハハ！（殴られてハイテンション）」
+st[363] = { volumetype=1, path=1, file="edo00_2503", type=0, category=1, prio=Def_SEP_Recover }; // 「不足はない！（相手にとって不足はない）」
+
+//シールド発動
+st[370] = { volumetype=1, path=1, file="edo00_2504", type=0, category=1 }; // 「フッ」
+st[371] = { volumetype=1, path=1, file="edo00_2505", type=0, category=1 }; // 「……受けよう」
+st[372] = { volumetype=1, path=1, file="edo00_2506", type=0, category=1 }; // 「慣れている」
+
+//シールド成功
+st[380] = { volumetype=1, path=1, file="edo00_2507", type=0, category=1, prio=Def_SEP_ShieldSuccess }; // 「甘い！」
+st[381] = { volumetype=1, path=1, file="edo00_2508", type=0, category=1, prio=Def_SEP_ShieldSuccess }; // 「馬鹿め！」
+st[382] = { volumetype=1, path=1, file="edo00_2509", type=0, category=1, prio=Def_SEP_ShieldSuccess }; // 「承知！」
+st[383] = { volumetype=1, path=1, file="edo00_2510", type=0, category=1, prio=Def_SEP_ShieldSuccess }; // 「本命だ！」
+
+//シールド取って反撃
+st[390] = { volumetype=1, path=1, file="edo00_2511", type=0, category=1 }; // 「返すぞ！」
+st[391] = { volumetype=1, path=1, file="edo00_2512", type=0, category=1 }; // 「受け取れ！」
+st[392] = { volumetype=1, path=1, file="edo00_2513", type=0, category=1 }; // 「足りなかったな！」
+
+//シールド取って回り込んで反撃
+st[395] = { volumetype=1, path=1, file="edo00_2514", type=0, category=1 }; // 「愚か！」
+st[396] = { volumetype=1, path=1, file="edo00_2515", type=0, category=1 }; // 「きしみを上げろ！」
+st[397] = { volumetype=1, path=1, file="edo00_2516", type=0, category=1 }; // 「ハハハハハハ！」
+st[398] = { volumetype=1, path=1, file="edo00_2517", type=0, category=1 }; // 「待っていたぞ！」
+
+//弱攻撃ダメージ
+//※巌窟王はこの項目の動作では音声を使用しません
+
+//中攻撃ダメージ
+st[410] = { volumetype=1, path=1, file="edo00_2603", type=0, category=1, prio=Def_SEP_DamageLv2, check=1 }; // 「ぬ」
+st[411] = { volumetype=1, path=1, file="edo00_2604", type=0, category=1, prio=Def_SEP_DamageLv2, check=1 }; // 「ぐ」
+st[412] = { volumetype=1, path=1, file="edo00_2605", type=0, category=1, prio=Def_SEP_DamageLv2, check=1 }; // 「ッ……」
+
+//強攻撃ダメージ
+st[420] = { volumetype=1, path=1, file="edo00_2606", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 }; // 「ぬぅ！」
+st[421] = { volumetype=1, path=1, file="edo00_2607", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 }; // 「はあ……！」
+st[422] = { volumetype=1, path=1, file="edo00_2608", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 }; // 「おおぅ！」
+
+//ダウン
+st[430] = { volumetype=1, path=1, file="edo00_2609", type=0, category=1, prio=Def_SEP_KO }; // 「敵の力を、見誤るとは……！」
+st[431] = { volumetype=1, path=1, file="edo00_2610", type=0, category=1, prio=Def_SEP_KO }; // 「不覚……！」
+st[432] = { volumetype=1, path=1, file="edo00_2611", type=0, category=1, prio=Def_SEP_KO }; // 「炎は、決して消えぬ……！」
+
+//ダウン・ノックアウト
+st[440] = { volumetype=1, path=1, file="edo00_2612", type=0, category=1, prio=Def_SEP_KO }; // 「おおぉおおおお…………！！！！」
+st[441] = { volumetype=1, path=1, file="edo00_2613", type=0, category=1, prio=Def_SEP_KO }; // 「生き延びるというのか、貴様が……！」
+
+//起き上がり
+st[450] = { volumetype=1, path=1, file="edo00_2614", type=0, category=1 }; // 「それでいい」
+st[451] = { volumetype=1, path=1, file="edo00_2615", type=0, category=1 }; // 「上出来だ」
+
+//起き上がり・瀕死
+st[460] = { volumetype=1, path=1, file="edo00_2616", type=0, category=1 }; // 「真価を問う！」
+
+//ムーンドライブ発動
+st[470] = { volumetype=1, path=1, file="edo00_2700", type=0, category=3 }; // 「いいだろう！」
+st[471] = { volumetype=1, path=1, file="edo00_2701", type=0, category=3 }; // 「炎よ！」
+
+//ゲージ溜め
+st[480] = { volumetype=1, path=1, file="edo00_2702", type=0, category=1 }; // 「朽ちる事はない……ないのだ……！」
+st[481] = { volumetype=1, path=1, file="edo00_2703", type=0, category=1 }; // 「クフッ……ハハハハハハ！」
+
+//強制開放
+st[490] = { volumetype=1, path=1, file="edo00_2704", type=0, category=3 }; // 「慈悲などいらぬ！」
+st[491] = { volumetype=1, path=1, file="edo00_2705", type=0, category=3 }; // 「運命の時だ！」
+st[492] = { volumetype=1, path=1, file="edo00_2706", type=0, category=3 }; // 「おいつたいぞ！」
+st[493] = { volumetype=1, path=1, file="edo00_2707", type=0, category=3 }; // 「虎よ、虎よ！」
+
+//必殺技
+
+//（技名：未定 黒炎のビームを連続発射）
+st[500] = { volumetype=1, path=1, file="edo00_3001", type=0, category=1 }; // 「見よ…」
+// st[501] = { volumetype=1, path=1, file="edo00_3002", type=0, category=1 }; // 「はああああ！」
+st[502] = { volumetype=1, path=1, file="edo00_3003", type=0, category=1 }; // 「焼かれよ！」
+
+//（技名：未定 黒炎のビームを連続発射EX）
+st[510] = { volumetype=1, path=1, file="edo00_3007", type=0, category=1 }; // 「我が炎、尽きぬ事はない！」
+st[511] = { volumetype=1, path=1, file="edo00_3008", type=0, category=1 }; // 「暗き恩讐の光よ！」
+
+//（技名：未定 上空に飛び上がる対空技）
+st[520] = { volumetype=1, path=1, file="edo00_3012", type=0, category=1 }; // 「そこまでだ」
+st[521] = { volumetype=1, path=1, file="edo00_3013", type=0, category=1 }; // 「落ちよ！」
+st[522] = { volumetype=1, path=1, file="edo00_3014", type=0, category=1 }; // 「つまらぬ！」
+
+//（技名：未定 上空に飛び上がる対空技EX）
+st[530] = { volumetype=1, path=1, file="edo00_3019", type=0, category=1 }; // 「羽を千切る……！」
+st[531] = { volumetype=1, path=1, file="edo00_3020", type=0, category=1 }; // 「墜落の時だ……！」
+
+//（技名：未定 高速で移動する突進技）
+st[540] = { volumetype=1, path=1, file="edo00_3025", type=0, category=1 }; // 「逃がさん！」
+st[541] = { volumetype=1, path=1, file="edo00_3026", type=0, category=1 }; // 「どこに行く……」
+st[542] = { volumetype=1, path=1, file="edo00_3027", type=0, category=1 }; // 「望みを言え！」
+
+//（技名：未定 高速で移動する突進技EX）
+st[550] = { volumetype=1, path=1, file="edo00_3031", type=0, category=1 }; // 「薄氷と知れ！」
+st[551] = { volumetype=1, path=1, file="edo00_3032", type=0, category=1 }; // 「逃亡など……！（させないぞ、という怒り）」
+st[552] = { volumetype=1, path=1, file="edo00_3033", type=0, category=1 }; // 「剥がせはしまい……！」
+
+//（技名：未定 黒炎を四肢にまとわせて連続攻撃・一段目）
+st[560] = { volumetype=1, path=1, file="edo00_3037", type=0, category=1 }; // 「せいっ！」
+st[561] = { volumetype=1, path=1, file="edo00_3038", type=0, category=1 }; // 「ふんっ！」
+
+//
+st[570] = { volumetype=1, path=1, file="edo00_3039", type=0, category=1 }; // 「黙れ！（次に続く　３つで１セットのセリフになります）」
+st[571] = { volumetype=1, path=1, file="edo00_3040", type=0, category=1 }; // 「黙れ！！（次に続く）」
+st[572] = { volumetype=1, path=1, file="edo00_3041", type=0, category=1 }; // 「黙れ！！！」
+
+//（技名：未定 黒炎を四肢にまとわせて連続攻撃・二段目）
+// st[580] = { volumetype=1, path=1, file="edo00_3042", type=0, category=1 }; // 「でやぁぁっ！」
+// st[581] = { volumetype=1, path=1, file="edo00_3043", type=0, category=1 }; // 「はあぁぁっ！」
+
+//（技名：未定 黒炎を四肢にまとわせて連続攻撃・三段目）
+st[590] = { volumetype=1, path=1, file="edo00_3047", type=0, category=1 }; // 「祈るがいい！（下段派生）」
+st[591] = { volumetype=1, path=1, file="edo00_3048", type=0, category=1 }; // 「叫ぶがいい！（下段派生）」
+st[592] = { volumetype=1, path=1, file="edo00_3049", type=0, category=1 }; // 「そうらっ！（中段派生）」
+st[593] = { volumetype=1, path=1, file="edo00_3050", type=0, category=1 }; // 「崩れろ！（中段派生）」
+st[594] = { volumetype=1, path=1, file="edo00_3051", type=0, category=1 }; // 「終わりだ！（投げ派生）」
+st[595] = { volumetype=1, path=1, file="edo00_3052", type=0, category=1 }; // 「無駄だ！（投げ派生）」
+
+//（技名：未定 黒炎を四肢にまとわせて連続攻撃EX）
+st[600] = { volumetype=1, path=1, file="edo00_3058", type=0, category=1 }; // 「我が意志は不滅…（次に続く）」
+st[601] = { volumetype=1, path=1, file="edo00_3059", type=0, category=1 }; // 「永劫の鋼鉄なれば…！」
+
+//
+st[610] = { volumetype=1, path=1, file="edo00_3061", type=0, category=1 }; // 「この四肢もろとも……！（次に続く）」
+st[611] = { volumetype=1, path=1, file="edo00_3062", type=0, category=1 }; // 「燃え尽きるか！」
+
+//（技名：未定 相手の足元から黒炎の火柱を発生させる）
+// st[620] = { volumetype=1, path=1, file="edo00_3066", type=0, category=1 }; // 「残酷な事だ…！」
+// st[621] = { volumetype=1, path=1, file="edo00_3067", type=0, category=1 }; // 「笑い話だ！」
+// st[622] = { volumetype=1, path=1, file="edo00_3068", type=0, category=1 }; // 「そういうものだ！（人生、とつぜん落とし穴にはまるよ、という教訓）」
+
+//（技名：未定 相手の足元から黒炎の火柱を発生させるEX）
+// st[630] = { volumetype=1, path=1, file="edo00_3075_s0", type=0, category=1 }; // 「折角だ、派手に散れ！」
+st[630] = { volumetype=1, path=1, file="edo00_3075_s1", type=0, category=1 }; // 「折角だ、派手に散れ！」
+st[631] = { volumetype=1, path=1, file="edo00_3076", type=0, category=1 }; // 「これが、教訓だ……！」
+st[632] = { volumetype=1, path=1, file="edo00_3077", type=0, category=1 }; // 「あいにくだったな！」
+
+//超必殺技
+
+//アークドライブ （技名：未定 乱舞攻撃からのビーム）
+st[640] = { volumetype=1, path=1, file="edo00_3101_s0", type=0, category=1 }; // 「懺悔は不要！」
+st[641] = { volumetype=1, path=1, file="edo00_3101_s1", type=0, category=1 }; // 「興味もない！　ただ苦悶の声をあげよ！」
+st[642] = { volumetype=1, path=1, file="edo00_3102", type=0, category=1 }; // 「恩讐、果てることなし！」
+
+//
+st[650] = { volumetype=1, path=1, file="edo00_3104_s0", type=0, category=1 }; // 「囚われる事はない。」
+st[651] = { volumetype=1, path=1, file="edo00_3104_s1", type=0, category=1 }; // 「捉えられぬものはない！」
+st[652] = { volumetype=1, path=1, file="edo00_3105", type=0, category=1 }; // 「そして、我が炎に慈悲はない！」
+
+//ラストアーク （技名：虎よ、煌々と燃え盛れ）
+st[660] = { volumetype=1, path=1, file="edo00_3111", type=0, category=1 }; // 「我が行くは恩讐の彼方！ （次に続く）」
+st[661] = { volumetype=1, path=1, file="edo00_3112_s0", type=0, category=1 }; // 「アンフェル・シャトー・ディフ！」
+st[662] = { volumetype=1, path=1, file="edo00_3112_s1", type=0, category=1 }; // 「アンフェル・シャトー・ディフ！」
+
+//
+st[670] = { volumetype=1, path=1, file="edo00_3114", type=0, category=1 }; // 「忘却の罪を、俺は許さぬ！（次に続く）」
+st[671] = { volumetype=1, path=1, file="edo00_3115_s0", type=0, category=1 }; // 「いかなる時空であろうと、報復を果たすのみだ！」
+st[672] = { volumetype=1, path=1, file="edo00_3115_s1", type=0, category=1 }; // 「いかなる時空であろうと、報復を果たすのみだ！」
