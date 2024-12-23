@@ -25,6 +25,9 @@ FLS Flora transforms the UNI2 experience with:
 
 Not everything is complete, and many more things are to come as contributors add their edits to the game.
 
+![image](https://github.com/user-attachments/assets/e6cd74ff-6541-4a00-9cc3-82fa474f20d9)
+
+
 # Installing
 
 To download and try out the mod in its current state, clone the repo or [click here to download the pack](https://github.com/UnderNightInBirth/FLS-Flora/archive/refs/heads/game.zip). Navigate to your game's installation folder and unpack the *contents* of FLS-Flora-game in there (overwrite), so your folder should end up looking a bit like this:
