@@ -52,6 +52,7 @@ t.Mv_Startup <-
             BMvEff.GRD_SetBreak( 0, def_GRDBF_NormalAtkDmg, def_GRDBF_NormalAtkDmg ); // GRD Break
             BMvTbl.SetPP(CDef_Rie_PP_DragonInstall, 1); // Installed
             BMvTbl.SetPP(CDef_Rie_PP_InstallTimer, 999999); // Practically Infinite Timer
+			BMvTbl.SetLP(10,1);
             BMvEff.CreateObject( { mvname="Mv_Obj_BeastMode" } );
         }
     }
@@ -1135,6 +1136,7 @@ t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
                 BMvEff.SetBoundSt( { addtime = 300 } ); // ‚Ì‚¯‚¼‚è‘‰Á
                 enemy.pop();
             }
+			BMvTbl.SetLP(10,1);
             BMvEff.CreateObject( { mvname="Mv_Obj_BeastMode" } );
             break;
         }
@@ -1275,6 +1277,7 @@ t.Mv_Obj_BeastMode <- // TODO This is the visual timer, time to make it into a r
         BMvEff.AttackInfoString_Set({ word = og });
         if (player.push() )
         {
+			BMvTbl.SetLP(10,0);
             Battle_Std.MoveCodeEx.DelFlag(6, def_MC6_EnableCansel_JumpMoveable);
             Battle_Std.MoveCode.DelFlag( def_MC_EnableCansel_SkilltoSkill);
             Battle_Std.MoveCode.DelFlag( def_MC_EnableCansel_SkilltoAtk);

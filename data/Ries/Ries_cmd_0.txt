@@ -141,51 +141,51 @@ local t =
 
 	MultiJump_F =
 	{
-		function CmdBeforeFunc()
+		function CmdBeforeStdFunc()
 		{
-			// if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 0) return 0;
-			return 1;
+			if ( BMvTbl.GetLP(10) == 1 ) return 1;
+			return 0;
 		},
 	},
 	MultiJump_N =
 	{
-		function CmdBeforeFunc()
+		function CmdBeforeStdFunc()
 		{
-			// if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 0) return 0;
-			return 1;
+			if ( BMvTbl.GetLP(10) == 1 ) return 1;
+			return 0;
 		},
 	},
 	MultiJump_B =
 	{
-		function CmdBeforeFunc()
+		function CmdBeforeStdFunc()
 		{
-			// if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 0) return 0;
-			return 1;
+			if ( BMvTbl.GetLP(10) == 1 ) return 1;
+			return 0;
 		},
 	},
 
 	MultiJumpCancel_F =
 	{
-		function CmdBeforeFunc()
+		function CmdBeforeStdFunc()
 		{
-			// if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 0) return 0;
-			return 1;
+			if ( BMvTbl.GetLP(10) == 1 ) return 1;
+			return 0;
 		},
 	},
 	MultiJumpCancel_N =
 	{
-		function CmdBeforeFunc()
+		function CmdBeforeStdFunc()
 		{
-			// if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 0) return 0;
-			return 1;
+			if ( BMvTbl.GetLP(10) == 1 ) return 1;
+			return 0;
 		},
 	},
 	MultiJumpCancel_B =
 	{
-		function CmdBeforeFunc()
+		function CmdBeforeStdFunc()
 		{
-			// if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 0) return 0;
-			return 1;
+			if ( BMvTbl.GetLP(10) == 1 ) return 1;
+			return 0;
 		},
 	},
 
