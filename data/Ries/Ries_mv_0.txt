@@ -1147,15 +1147,15 @@ t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
     }
 }
 
-t.DamageImpact <- function(info) : (chrFunc)
-{
-    if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 1 )
-    {
-        BMvEff.SetCharaFlash( { color = 0xFF50FF, type = 0, time = 10 } );
-        BMvEff.SetCharaColor( { color = 0x0000FF, type = 0, intime = 60, time = 90 } );
-        BMvTbl.SetPP(CDef_Rie_PP_InstallTimer, -1);
-    }
-}
+// t.DamageImpact <- function(info) : (chrFunc)
+// {
+    // if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 1 )
+    // {
+        // BMvEff.SetCharaFlash( { color = 0xFF50FF, type = 0, time = 10 } );
+        // BMvEff.SetCharaColor( { color = 0x0000FF, type = 0, intime = 60, time = 90 } );
+        // BMvTbl.SetPP(CDef_Rie_PP_InstallTimer, -1);
+    // }
+// }
 
 //t.GeneralInterrupt
 t.AttackImpact <- function(info) : (chrFunc) // Called whenever the enemy is attacked in any way

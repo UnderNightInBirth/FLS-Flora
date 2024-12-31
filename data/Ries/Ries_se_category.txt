@@ -21,11 +21,12 @@ se["Mv_Atk_Cro3B_FU"] <- { Param0=10, selist = { common = [315], } },
 
 
 // Jumping
-se["ƒWƒƒƒ“ƒvŽãUŒ‚"] <- { Param0=10, average = 75, selist = { common = [302], } };
-se["ƒWƒƒƒ“ƒv’†UŒ‚"] <- { Param0=10, selist = { common = [311], } };
+se["ƒWƒƒƒ“ƒvŽãUŒ‚"] <- { Param0=10, average = 75, selist = { common = [311], } };
+se["ƒWƒƒƒ“ƒv’†UŒ‚"] <- { Param0=10, selist = { common = [310], } };
 se["ƒWƒƒƒ“ƒv‹­UŒ‚"] <- [ { Param0=10, selist = { common = [323], } },
                        { Param0=20, selist = { common = [320], } } ];
-se["Mv_Atk_Air6B_FU"] <- { Param0=10, selist = { common = [310], } },
+// se["Mv_Atk_Air6B_FU"] <- { Param0=10, selist = { common = [310], } },
+se["Mv_Atk_Air2A_FU"] <- { Param0=10, selist = { common = [302], } },
 se["Mv_Atk_Air6C_FU"] <- { Param0=10, selist = { common = [321], } };
 
 

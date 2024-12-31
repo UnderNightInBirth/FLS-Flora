@@ -8,19 +8,20 @@ local t =
 	Atk_Cro3B = {},
 	Atk_Std6C = {},
 	Atk_Air2A = {
-		name = "Cmd_Atk_Air2A", command = "2+A", posstatus = _PosState_Air,
-		flags = [ "lastdelay","airskill" ],
-		CmdCheck = { SkillType = "Normal", PosState = "Air", ComboLimit = DEF_BS_CL_ATKJ6A, },
-		CmdAfterStdFunc = function()
-		{
-			local pos = BMvTbl.GetPosition();
-			local vec = BMvTbl.GetVector(0);
-			if( pos.y + vec.y >= 0 ) return 0;
-			if( !Battle_Std.CheckEnableFlag_AssaultAirA() ) return 0;
-			return 1;
-		},
-		UpdateTable = { name = "Mv_Atk_Air2A", }
+	command = "2+A", posstatus = _PosState_Air,
+	flags = [ "lastdelay" ],
+	CmdCheck = { SkillType = "Normal", PosState = "Air", ComboLimit = DEF_BS_CL_AIRA, },
+	CmdAfterStdFunc = function()
+	{
+		local pos = BMvTbl.GetPosition();
+		local vec = BMvTbl.GetVector(0);
+		if( pos.y + vec.y >= 0 ) return 0;
+		if( !Battle_Std.CheckEnableFlag_AssaultAirA() ) return 0;
+		return 1;
 	},
+	UpdateTable = { name = "Mv_Atk_Air2A", }
+}
+
 	Atk_Air6C = {},
 
 	Skill_236A = {},
