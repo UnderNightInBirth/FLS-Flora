@@ -261,18 +261,15 @@ IsLoop = 1
 LoopPos = 03.42
 
 //シーンＢＧＭ
-//File = sys_main //メインメニュー
-[BGM_040]
-// File = WelcometothisLateshow
+[BGM_040] //Mainmenu
+File = 
+IsLoop = 1
+LoopPos = 00.00
+
+[BGM_041] //Net
 File = Menu_GUN_AkitoBass
 IsLoop = 1
 LoopPos = 03.78
-
-
-[BGM_041]
-File = sys_network //ネットワーク
-IsLoop = 1
-LoopPos = 00.739
 
 //ストーリー関係
 [BGM_050]
@@ -381,13 +378,10 @@ File = sys_windemo //勝利デモ
 IsLoop = 1
 LoopPos = 01.777
 
-[BGM_099]
-//File = sys_chrselect //キャラクターセレクト
+[BGM_099] //Charasel
 IsLoop = 1
-//LoopPos = 04.587
-File = asayake // bgmme99 //Actor's Anteroom
-LoopPos = 08.885  //5.481
-
+File = asayake
+LoopPos = 05.590
 
 //100以降はやめとく=======
 
