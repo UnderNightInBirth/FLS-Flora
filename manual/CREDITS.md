@@ -14,3 +14,8 @@ This modification relies on plenty of external sources for its assets. Without t
 - Sourced from the Street Fighter franchise
 - Sprites and some palettes collected from [LyricaSky's MUGEN port](https://lyricasky.neocities.org/)
 - Portrait Art: Feguimel (18+⚠️)
+
+### Ako
+
+- Ported from DFCI
+- Portrait Art: [JuNjUnBeAr](https://www.pixiv.net/en/artworks/56407234)
