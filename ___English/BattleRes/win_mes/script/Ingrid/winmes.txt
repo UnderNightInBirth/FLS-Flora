@@ -1,0 +1,47 @@
+WinMesScript
+
+
+WinMes00:
+The heavens can see through everything,
+including all there is to know about you.
+No matter how dark the void is, a single glint from the sky
+is enough to reveal your undraped methodology.
+\e
+
+WinMes01:
+Nyohohohoho! An unlucky one you are!
+Believe me when I say I'm a bit regretful you had
+to encounter a rare bird such as myself.
+Aren't you surprised? Isn't it surprising?
+\e
+
+WinMes02:
+Does it sit well with you to continuously expose your weak spots?
+I'm going to poke at them, you know?
+*Poke*. *Poke*.
+\e
+
+WinMes03:
+This was for my job. You have my apologies.
+Perhaps once the morning sun shines upon you,
+you'll be able to let bygones be.
+\e
+
+WinMes04:
+That wasn't exciting at all!
+I cant believe this is the end of that!
+\e
+
+WinMes05:
+Oh my, that was too boring!
+Now what am I supposed to do?
+\e
+
+WinMes06:
+I know everything you are going to do, even before you do it.
+Knowing that, are you going to try again?
+\e
+
+WinMes07:
+This was for my job. You have my apologies.
+\e
