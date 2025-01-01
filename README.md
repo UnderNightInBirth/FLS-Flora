@@ -46,3 +46,7 @@ This mod is a joint effort among those who spent the time learning the intricaci
 
 [![Steam](https://img.shields.io/badge/Steam-231f20?logo=steam)](https://steamcommunity.com/id/Fatih120/)
 [![Discord](https://img.shields.io/badge/Discord-220077?logo=discord)](https://discord.com/invite/Cy27FNfQtc)
+
+# Credits
+
+Check [CREDITS.md](manual/CREDITS.md).

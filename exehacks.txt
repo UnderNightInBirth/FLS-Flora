@@ -1,3 +1,11 @@
-0x54B074 string "FLS Flora"
-ico.
+Palette Select Fix
+0x24086A opcode 0x75 -> 0xEB
+- switching from jne to jmp instruction to avoid some weird check
+- Fixes modded characters unable to select slots higher than 10
+
+Chara Slot Limit
 0x245AF7 struct 0x20 -> 0x7F
+
+0x54B074 string "Sys:Celes" -> "FLS Flora"
+
+ico hack tbd
