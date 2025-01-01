@@ -12,11 +12,11 @@ Chara_Table <-
 	// ・配列数は縦x横が100未満になるように
 	SelectTable = 
 	[
-        [ 26,27,28,29,30,31,99,32,33,34,35,36,37 ],
-		[ 23,24,12,08,02,00,25,01,03,09,13,21,22 ],  // この列が初期位置
+        [ 28,29,30,31,32,33,99,34,35,36,37,38,39 ],
+		[ 23,24,12,08,02,00,27,01,03,09,13,21,22 ],  // この列が初期位置
 		[ 11,19,10,06,04,16,20,17,05,07,15,18,14 ],
 	],
-	SelectDefault = [ 25, 00 ],  // 初期位置 1P 2P
+	SelectDefault = [ 27, 00 ],  // 初期位置 1P 2P
 
 	// 強制でフラグを立てる仕様 ※セーブデータが上書きされる
 	_FileType = 0, //
@@ -436,7 +436,7 @@ chara_no[24] =
 	order = 14,
 }; // 
 
-chara_no[25] = 
+chara_no[27] = 
 {
 	name_short = "Ries",
 	name_long = "Riesbyfe",
@@ -450,7 +450,7 @@ chara_no[25] =
 	order = 100,
 }; // 
 
-chara_no[26] = 
+chara_no[28] = 
 {
 	name_short = "Ingrid",
 	name_long = "Ingrid",
@@ -464,7 +464,7 @@ chara_no[26] =
 	order = 101,
 };
 
-chara_no[27] = 
+chara_no[29] = 
 {
 	name_short = "Hammer",
 	name_long = "Hammer",
@@ -478,7 +478,7 @@ chara_no[27] =
 	order = 102,
 }; // 
 
-chara_no[28] =
+chara_no[30] =
 {
 	name_short = "Dantes",
 	name_long = "Edmond Dantes",
@@ -492,7 +492,7 @@ chara_no[28] =
 	order = 103,
 }; // 
 
-chara_no[29] = 
+chara_no[31] = 
 {
 	name_short = "Ako",
 	name_long = "Ako",
@@ -506,16 +506,8 @@ chara_no[29] =
 	order = 104,
 };
 
-// chara_no[30] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
-
-
-// chara_no[31] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
 // chara_no[32] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
-
 // chara_no[33] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
-
-
-
 // chara_no[34] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
 // chara_no[35] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
 // chara_no[36] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };

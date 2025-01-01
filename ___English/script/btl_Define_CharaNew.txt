@@ -1,16 +1,13 @@
-const Def_ChrNo_Riesbyfe	= 25;
-const Def_ChrNo_Rie	= 25;
+const Def_ChrNo_Riesbyfe	= 27;
+const Def_ChrNo_Rie	= 27;
 
-const Def_ChrNo_Ingrid	= 26;
-const Def_ChrNo_Ing	= 26;
+const Def_ChrNo_Ingrid	= 28;
+const Def_ChrNo_Ing	= 28;
 
-const Def_ChrNo_Hammer	= 27;
-const Def_ChrNo_Fat	= 27;
+const Def_ChrNo_Hammer	= 29;
+const Def_ChrNo_Fat	= 29;
 
-const Def_ChrNo_Dan	= 28;
-const Def_ChrNo_Dantes	= 28;
+const Def_ChrNo_Dan	= 30;
+const Def_ChrNo_Dantes	= 30;
 
-//const Def_ChrNo_Hermes	= 28;
-//const Def_ChrNo_Her	= 28;
-
-const Def_ChrNo_Ako = 29;
+const Def_ChrNo_Ako = 31;
