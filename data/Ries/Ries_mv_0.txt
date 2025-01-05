@@ -1118,7 +1118,11 @@ t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
             BMvTbl.SetPP(Installed, InstallTimer); // Set a bunch of variables
             BMvTbl.SetPP(CDef_Rie_PP_DragonInstall, 1);
             BMvTbl.SetPP(CDef_Rie_PP_InstallLimit, 1);
-            BMvTbl.SetPP(CDef_Rie_PP_InstallTimer, 999); // Lasts 999 frames
+			
+			
+			local HPmult = ( 100 - BCMDTbl.GetHPRatio() ) * 6.6; // Get inverse HP %, *6 multiplier
+            BMvTbl.SetPP(CDef_Rie_PP_InstallTimer, ( 420 + HPmult ) ); // 7 Seconds base, up to an additional 11s at 0 HP. Less in real-world given startup
+			
             break;
         case 20:
             BMvEff.BGM_Set( { num = 191 } ); // BLOOD HEAT BGM
@@ -1186,6 +1190,7 @@ t.AttackImpact <- function(info) : (chrFunc) // Called whenever the enemy is att
             enemy.pop()
         }
         //BMvTbl.SetFinalize();
+		BMvTbl.AddPP(CDef_Rie_PP_InstallTimer, 5); // Rewards successful hits with more time
         BMvTbl.SetAsStatusFlag( { normal=_CancelFlag_Always, special=_CancelFlag_Always, time=254, flag =_ClearFlag_ChangeFrame|_ClearFlag_ChangePattern|_ClearFlag_ChangeMv } )
         //Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoSkill); // Way too busted
         //Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoAtk); // I'd allow this if EX moves weren't included
