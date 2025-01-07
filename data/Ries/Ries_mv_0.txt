@@ -4,11 +4,18 @@ local chrFunc = {};
 //-----------------------------------------------------------------------------
 // Variables
 //-----------------------------------------------------------------------------
+// LP 0 - Air Throw Combo Counter
+//
+// LP 2 - BC Counter
+// LP 9 - BC Init
+// LP 10 - Is Beast Mode?
+// LP 11 - Beast Mode This Round?
+//
+
 
 chrFunc.DragonInstall <- false;
 
 const CDef_Rie_PP_DragonInstall = 0;
-const CDef_Rie_PP_InstallLimit = 0;
 const CDef_Rie_PP_InstallTimer = 800;
 
 const Installed = 0;
@@ -47,15 +54,30 @@ t.Mv_Startup <-
 {
     function Init_After()
     {
+		BMvTbl.SetLP(11, 0); // Reset the Beast Mode once-per-round counter
+		
         if( Battle_Std.CheckTrainingCharaGaugeMode() ) // Check if we're in training with character specifics on
         {
             BMvEff.GRD_SetBreak( 0, def_GRDBF_NormalAtkDmg, def_GRDBF_NormalAtkDmg ); // GRD Break
             BMvTbl.SetPP(CDef_Rie_PP_DragonInstall, 1); // Installed
             BMvTbl.SetPP(CDef_Rie_PP_InstallTimer, 999999); // Practically Infinite Timer
-			BMvTbl.SetLP(10,1);
+			BMvTbl.SetLP(10,1); // Installed
             BMvEff.CreateObject( { mvname="Mv_Obj_BeastMode" } );
+			Battle_Std.CreateObjectEX( { x=-130, y=-512, pat=962, mvname="Mv_Obj_Farts",  flags=_Position_ToolShift } );
+			Battle_Std.CreateObjectEX( { x=-128, y=-512, pat="Timer", mvname="Mv_Obj_Timer", flags=_Position_ToolShift } );
+
+
         }
     }
+}
+
+t.Mv_Obj_Farts <-
+{
+	function Init()
+	{
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_MoveTimeStopAll|_ObjFlags_NoGround|_ObjFlags_NoCamera|_ObjFlags_NoRenderOrder|_ObjFlags_NoRenderBlackOut } );
+		BMvTbl.SetPrio( _CharaPrio_None );
+	}
 }
 
 t.Mv_Neutral <- // TODO I need to get rid of this
@@ -1063,7 +1085,7 @@ t.Mv_Skill_IWEXIST_Hit2 <-
         BMvEff.FadeProc_Erase( { type=0 } );
         BMvEff.SetCharaDrawType( { type=0 } );
         BMvEff.SetCharaColor( { time=0 } );
-        BMvTbl.SetLP( 1, 255 ); //‰Ô‚Ñ‚ç‚ÉI—¹‚ð“`‚¦‚é
+        // BMvTbl.SetLP( 1, 255 ); //‰Ô‚Ñ‚ç‚ÉI—¹‚ð“`‚¦‚é
         //Battle_Std.FinalizeIWExistSkill();
     }
     function Finalize() //
@@ -1084,13 +1106,6 @@ t.Mv_Skill_IWEXIST_End <- {
 // Beast Mode Easter Egg
 //-----------------------------------------------------------------------------
 
-Install.Timer <- function()
-{
-    local timeLeft = BMvTbl.GetPP(InstallTimer);
-    BMvEff.AttackInfoString_Set({ word = timeLeft });
-}
-
-
 t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
 {
     function Init_After()
@@ -1107,7 +1122,7 @@ t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
             break;
         case 15:
             BMvEff.FadeProc_Set({type=0, time=[0,5,10] color=0xFFFFFF});
-            BMvEff.PcAuraEffect_Set( { type=0, time=2000, power=3.2, color=0x555555FF, colorB=0x88FF4444, color_chara=0x001F0505, blendmode=1, delay=120 } );
+            
             BMvEff.Slowmotion_Set( { time=75, power=9999 } );
             BMvEff.SetCamera_Focus( { charapos=1, zoom=1.25, time=[30,def_FL_SPCutinStopTime-40,10], type_in=3, type_out=1 } );
             //BMvEff.SetStopTime({ time=10, });
@@ -1117,11 +1132,12 @@ t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
             BMvEff.GRD_SetBreak( 0, breaktime, breaktime ); // GRD break
             BMvTbl.SetPP(Installed, InstallTimer); // Set a bunch of variables
             BMvTbl.SetPP(CDef_Rie_PP_DragonInstall, 1);
-            BMvTbl.SetPP(CDef_Rie_PP_InstallLimit, 1);
+            BMvTbl.SetLP(11, 1); // Set limit once per round
 			
 			
 			local HPmult = ( 100 - BCMDTbl.GetHPRatio() ) * 6.6; // Get inverse HP %, *6 multiplier
             BMvTbl.SetPP(CDef_Rie_PP_InstallTimer, ( 420 + HPmult ) ); // 7 Seconds base, up to an additional 11s at 0 HP. Less in real-world given startup
+			BMvEff.PcAuraEffect_Set( { type=0, time=420 + HPmult, power=3.2, color=0x555555FF, colorB=0x88FF4444, color_chara=0x001F0505, blendmode=1, delay=120 } );
 			
             break;
         case 20:
@@ -1142,7 +1158,12 @@ t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
             }
 			BMvTbl.SetLP(10,1);
             BMvEff.CreateObject( { mvname="Mv_Obj_BeastMode" } );
-            break;
+			Battle_Std.CreateObjectEX( { x=-128, y=-480, pat="Timer", mvname="Mv_Obj_Timer", flags=_Position_ToolShift } );
+			BMvEff.SetBgSpeculer( { color=0x00999999 } );
+
+		case 2:
+			BMvTbl.JumpFrameID(3);
+			break;
         }
     }
     function LastUpdate_After()
@@ -1232,12 +1253,69 @@ t.Mv_Obj_BeastModeOnHit <-
     }
 }
 
+t.Mv_Obj_Timer <-
+{
+	function Init()
+	{
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_MoveTimeStopAll|_ObjFlags_NoGround|_ObjFlags_NoCamera|_ObjFlags_NoRenderOrder|_ObjFlags_NoRenderBlackOut } );
+		BMvTbl.SetPosition( x=-128 * 128, y=-480 * 1024 );
+		BMvTbl.SetMuki( _Direction_Right );
+		BMvTbl.SetPrio( _CharaPrio_Parent_BG );
+		
+	}
+	function FrameUpdate_After()
+	{
+	
+		local time = BMvTbl.GetPP(CDef_Rie_PP_InstallTimer) / 100;
+
+		switch(time)
+		{
+		case 0:
+			BMvTbl.JumpFrameID(0);
+			break;
+		case 1:
+			BMvTbl.JumpFrameID(1);
+			break;
+		case 2:
+			BMvTbl.JumpFrameID(3);
+			break;
+		case 3:
+			BMvTbl.JumpFrameID(3);
+			break;
+		case 4:
+			BMvTbl.JumpFrameID(4);
+			break;			
+		case 5:
+			BMvTbl.JumpFrameID(5);
+			break;
+		case 6:
+			BMvTbl.JumpFrameID(6);
+			break;			
+		case 7:
+			BMvTbl.JumpFrameID(7);
+			break;			
+		case 8:
+			BMvTbl.JumpFrameID(8);
+			break;			
+		case 9:
+			BMvTbl.JumpFrameID(9);
+			break;
+		default:
+			BMvTbl.JumpFrameID(9);
+			break;
+		}
+		
+		if ( BMvTbl.GetPP(CDef_Rie_PP_InstallTimer) <= 0 )
+		{
+			BMvTbl.JumpFrameID( 100 );
+			BMvTbl.SetFinalize();
+		}
+	
+	}
+}
+
 t.Mv_Obj_BeastMode <- // TODO This is the visual timer, time to make it into a real gauge
 {
-    function Init_After()
-    {
-    //  Battle_Std.CreateObjectEX( { y = 24000, datatype=1, pat=973} );
-    }
     function FrameUpdate_After()
     {
         Battle_Std.SetPos_MarkingPlayer();
@@ -1252,8 +1330,6 @@ t.Mv_Obj_BeastMode <- // TODO This is the visual timer, time to make it into a r
         Battle_Std.CreateObjectEX( { y = 24000, angle=-2500, datatype=1, pat=30} );
 
         BMvTbl.AddPP(CDef_Rie_PP_InstallTimer, -1);
-        BMvTbl.SetScale({ x=(100*BMvTbl.GetPP(CDef_Rie_PP_InstallTimer)) });
-        // BMvEff.AttackInfoString_Set({ word = BMvTbl.GetPP(CDef_Rie_PP_InstallTimer) });
 
         if ( BMvTbl.GetPP(CDef_Rie_PP_InstallTimer) <= 0 )
         {
@@ -1291,6 +1367,7 @@ t.Mv_Obj_BeastMode <- // TODO This is the visual timer, time to make it into a r
             //BMvTbl.SetNextMoveTable(Mv_BeastMode_End);
             BMvEff.SetCharaFlash( { color = 0xFF50FF, type = 0, time = 10 } );
             BMvEff.SetCharaColor( { color = 0x0000FF, type = 0, intime = 60, time = 90 } );
+			BMvEff.SetBgSpeculer( { color=0x000000 } );
             player.pop();
         }
     }
@@ -1321,23 +1398,6 @@ t.Mv_BeastMode_End <-
     }
 
 }
-
-// t.Mv_Liberate <-
-// {
-    // function Init_After()
-    // {
-       // BMvEff.SetBgSpeculer( { color=0x888888 } );
-       // BMvEff.SetBgColor( { color=0x808080 } ); // Filter rgb
-    // }
-// }
-
-// t.Mv_Skill_0202D <-
-// {
-    // function Finalize_After()
-    // {
-        // BMvEff.Cockpit_SetView( { mode=0 } );
-    // }
-// }
 
 //-----------------------------------------------------------------------------
 // Finish
