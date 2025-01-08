@@ -1,0 +1,22 @@
+
+BgObject <-
+{
+	panidata = "./bg/Underground/bg014_ef.pat", // ややこしくなるので、できるだけ同じフォルダに入れるように
+
+	data000 =
+	[
+		{ tag="frm", name="cloud000", wait=800 }, // 
+		{ tag="frm", name="cloud001", wait=800 }, // 
+		{ tag="frm", name="cloud002", wait=800 }, // 
+		{ tag="frm", name="cloud003", wait=800 }, // 
+		{ tag="frm", name="cloud004", wait=800 }, // 
+		{ tag="frm", name="cloud005", wait=800 }, // 
+
+		{ tag="prio", val=310 }, // プライオリティ 奥0 手前700くらい
+
+		{ tag="startpos", x=0, y=-400 ,z=-500 }, // 
+		{ tag="startdelay", val=0 }, // 開始時の待ちフレーム
+	]
+
+
+}
