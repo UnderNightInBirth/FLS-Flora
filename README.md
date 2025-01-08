@@ -2,25 +2,28 @@
 
 <img src="https://github.com/user-attachments/assets/0ce958e8-e2f4-4f7b-a095-f958366e3cf0">
 
-<br>Under Night In-Birth II **FLS Flora** ("False Flora") is a modpack, for the curious, by the curious.
+<br>Under Night In-Birth II **FLS Flora** ("False Flora") is a modpack, made by a few curious minds.
 
-It's the culmination of the minds behind [the only based and open-oriented UNIB research](https://github.com/Fatih120/undernightinbirth), intended to put together a humble but sweeping modpack so that future visionaries are encouraged to make their own mods for the world of the Hollow Night.
+From those behind [the only based UNIB resource out there](https://github.com/Fatih120/undernightinbirth), these mods are a humble culmination of sweeping changes to give the game a new coat of paint, while encouraging other visionaries to crack things open and make their own mods for the world of the Hollow Night.
 
 <img src="https://github.com/user-attachments/assets/910eea11-de55-41d4-9f73-1ca1abc3cb00">
 
 </div>
 
+:warning: This repo is in an ALPHA STATE. Some functions are release-ready, some things are not. Character progress is here and there depending on who you ask. That said, you can still launch the game and enjoy without worrying about crashes or Network, but there will be bugs.
+
 <br>
 
 FLS Flora transforms the UNI2 experience with:
-- Custom characters, both ported and from-scratch
-- A unique look and feel
+- Custom characters, both ported and from-scratch (Workin' on it!)
+- A unique look and feel (Workin' on it!)
 - Lots of BGMs to tune in to
-- An unhealthy amount of seamlessly bringing everything together 
+- Stages ported from a familiar game and edited to feel "nightly"
+- Neat touches and an attempt to make edits seem not-out-of-place
 - Network play with users of the same mod
-- Working Missions and other customizable goodies
-- Characters with their own Arcade Stories
-- Potential secrets and bosses to fight
+- Working Missions and other customizable goodies (Workin' on it!)
+- Characters with their own Arcade Stories (Workin' on it!)
+- ~~Potential secrets and bosses to fight~~ (Workin' on it!)
 - A wonderful and relaxed support community
 
 Not everything is complete, and many more things are to come as contributors add their edits to the game.
