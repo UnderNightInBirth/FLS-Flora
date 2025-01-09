@@ -1,0 +1,134 @@
+WinMesScript
+
+
+WinMes00:
+What can you see in the gutter?!
+NOTHING! Nothing at all...!
+\e
+
+WinMes01:
+Not enough rage or suffering!
+I want to hear you to scream until your throat is raw!
+\e
+
+WinMes02:
+A diamond in the rough!
+Impressive! Next time, try to kill me!
+\e
+
+WinMes03:
+Though you are extinguished,
+the flame of your fighting spirit continues to burn.
+Hmph. Very well. You can go first.
+Your flames appear to lack the strength of mine.
+\e
+
+WinMes04:
+Laws are drafted to be perfect.
+But that does not ensure they will actually work.
+For all of time, humans have continued to remain volatile beings.
+\e
+
+WinMes05:
+Good is common, and evil is rare.
+And thus good goes unseen while evil flourishes.
+And what a struggle it is to stay good...
+\e
+
+WinMes06:
+Speed itself is my weapon.
+The pace of this era suits me.
+\e
+
+WinMes07:
+What a strange city. Horrible, yet beautiful...
+I do not intend to lose myself in battle, but
+I can't think of a better way to keep my night interesting.
+\e
+
+WinMes08:
+Enemies of human order...
+You seek to leave the path set for you.
+If you are not my prey, then do as you like.
+\e
+
+WinMes09:
+Your kind are difficult to incinerate.
+That just means I'll have to make my flames even hotter.
+\e
+
+WinMes10:
+All is well, if you are unharmed.
+Let my flames be a guiding light for your way home.
+That said...
+Please don't let your destiny multiply endlessly.
+\e
+
+WinMes11:
+What could a man once called a child prodigy
+want so badly as to be reborn for it?
+Or... could it be, that this city is the answer you sought?
+\e
+
+WinMes12:
+Your flame burns bright.
+\e
+
+WinMes13:
+Is the sin ignorance, or is it innocence?
+You're a boy on the edge, and your destined love
+is far too powerful.
+\e
+
+WinMes14:
+Waiter! Coffee for her, please!
+\e
+
+WinMes15:
+Stop with the snow, you'll put out my smoke.
+I'll warm you up... No, actually...
+There will be no light on your path.
+\e
+
+WinMes16:
+This noise is awful.
+Haydee, could you stop the music?
+\e
+
+WinMes17:
+So my flames cannot burn your resolve, huh?!
+Haha, ahahahahahahahaha!
+Now go, and atone for your sins!
+Call my name if you have need of me!
+\e
+
+WinMes18:
+Ahh... What fun!
+What happier scene could there be,
+than having crushed your plot to attain eternal life?!
+Suffer forever, in this eternal instant!
+\e
+
+WinMes19:
+// So that was a Dead Apostle.
+I seem to have come to a world I know nothing of.
+I may be a restless man, but this is too much, even for me.
+\e
+
+WinMes20:
+A conceptual holy scripture against rebirth...
+Seven deadly sins, seven weapons, and a single...
+Unbelievable.
+The church's inquisition of heretics has no limits.
+\e
+
+WinMes3WinStreak00:
+What are you happy about?! Three wins is just the start!
+Faster now, and no stopping!
+\e
+
+WinMes10WinStreak00:
+Ten wins! Meaningless! But well done!
+With you as my opponent,
+collecting wins to the far end of my limits feels possible!
+\e
