@@ -1,0 +1,50 @@
+print("\n[Battle_Std.txt]");
+
+local chrcount = 50; //多めに確保
+
+// 接続用
+Battle_Std <- {}; // 空
+Battle_Std.SeTable <- []; //キャラ別の音声リスト
+Battle_Std.SeTable.resize(chrcount,{}); //キャラ分、{}で初期化
+
+BtlPl <- {}; // 空
+BtlOb <- {}; // 空
+BtlPt <- {}; // 空
+
+/*
+  dofile() → コンパイル＋実行
+
+  このソースが実行されないといけないので
+  #include みたいには使えない
+
+  const定数 を別テキストに書くとかは無理
+  （コンパイル時点ではdofile()が実行されないので const定数 が存在しないことになる）
+*/
+
+// 外部
+__dofile__( "./script/btl_CmdCheck.txt" ); //コマンドチェックかませ関数
+__dofile__( "./script/btl_ChrTableFunc.txt"); //キャラテーブル作成関係の関数
+__dofile__( "./script/btl_MvInitFunc.txt"); //通常技や必殺技の共通初期化処理
+__dofile__( "./script/btl_MvFunc.txt"); //Mvでよく使う関数
+__dofile__( "./script/btl_StdCommdandTbl.txt" ); //コマンドテーブル
+__dofile__( "./script/btl_StdMoveTbl.txt" ); //行動テーブル
+__dofile__( "./script/btl_Std_BattleStatusTbl.txt" ); //SCテーブル
+
+__dofile__( "./script/cmn_SetPosition.txt");
+
+__dofile__( "./script/sq_stagebgm.txt" ); //ステージBGM変更関数
+
+if( _DevWindows && Def_Dbg_LocalDebugScriptPath && BtlMvStd.IsFileAlive( Def_Dbg_LocalDebugScriptPath+"BtlFunc.txt" ) )
+{
+	__dofile__( Def_Dbg_LocalDebugScriptPath+"BtlFunc.txt" );	
+	__dofile__( Def_Dbg_LocalDebugScriptPath+"BtlFuncSaveData.txt" );
+}
+
+//__dofile__( "./script/btl_UkemiFunc.txt" ); // StdMoveのあと
+//__dofile__( "./script/btl_MvSkill.txt" ); // StdMoveのあと
+
+// __dofile__( "./___NotProject/DaihonData/MissionText.txt" );
+// __dofile__( "./___NotProject/DaihonData/TutorialText.txt" );
+
+
+print( "\nStd_MoveTable Running." );
