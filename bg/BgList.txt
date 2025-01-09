@@ -849,7 +849,7 @@ BgList <-
 		// キャラに乗せるグラデカラー
 		BgCharaYBaseColor   = [  0,   0,   0, 255],	// 足元
 		BgCharaYHeightColor = [255, 255, 255, 255],	// 頭先
-		StageSelTex = 2,
+		StageSelTex = 30,
 	}
 	Bg_031 =
 	{
@@ -888,7 +888,7 @@ BgList <-
 		// キャラに乗せるグラデカラー
 		BgCharaYBaseColor   = [  0,   0,   0, 255],	// 足元
 		BgCharaYHeightColor = [255, 255, 255, 255],	// 頭先
-		StageSelTex = 27,
+		StageSelTex = 31,
 	}
 	/////////////////////////////////////////////////////////
 	Bg_032 =
@@ -926,7 +926,7 @@ BgList <-
 		// キャラに乗せるグラデカラー
 		BgCharaYBaseColor   = [  0,   0,   0, 255],	// 足元
 		BgCharaYHeightColor = [255, 255, 255, 255],	// 頭先
-		StageSelTex = 3,
+		StageSelTex = 32,
 	}
 	/////////////////////////////////////////////////////////
 	Bg_033 =
@@ -965,7 +965,7 @@ BgList <-
 		// キャラに乗せるグラデカラー
 		BgCharaYBaseColor   = [  0,   0,   0, 255],	// 足元
 		BgCharaYHeightColor = [255, 255, 255, 255],	// 頭先
-		StageSelTex = 29,
+		StageSelTex = 33,
 	}
 	/////////////////////////////////////////////////////////
 	Bg_034 =
@@ -1004,7 +1004,7 @@ BgList <-
 		// キャラに乗せるグラデカラー
 		BgCharaYBaseColor   = [  0,   0,   0, 255],	// 足元
 		BgCharaYHeightColor = [255, 255, 255, 255],	// 頭先
-		StageSelTex = 16,
+		StageSelTex = 34,
 	}
 	/////////////////////////////////////////////////////////
 	Bg_035 =
@@ -1043,7 +1043,7 @@ BgList <-
 		// キャラに乗せるグラデカラー
 		BgCharaYBaseColor   = [  0,   0,   0, 255],	// 足元
 		BgCharaYHeightColor = [255, 255, 255, 255],	// 頭先
-		StageSelTex = 26,
+		StageSelTex = 35,
 	}
 	/////////////////////////////////////////////////////////
 	Bg_036 =
@@ -1086,7 +1086,7 @@ BgList <-
 		// キャラに乗せるグラデカラー
 		BgCharaYBaseColor   = [  0,   0,   0, 255],	// 足元
 		BgCharaYHeightColor = [255, 255, 255, 255],	// 頭先
-		StageSelTex = 24,
+		StageSelTex = 36,
 	}
 	/////////////////////////////////////////////////////////
 	Bg_037 =
@@ -1125,7 +1125,7 @@ BgList <-
 		// キャラに乗せるグラデカラー
 		BgCharaYBaseColor   = [  0,   0,   0, 255],	// 足元
 		BgCharaYHeightColor = [255, 255, 255, 255],	// 頭先
-		StageSelTex = 10,
+		StageSelTex = 37,
 	}
 		/////////////////////////////////////////////////////////
 	Bg_038 =
@@ -1164,7 +1164,7 @@ BgList <-
 		// キャラに乗せるグラデカラー
 		BgCharaYBaseColor   = [  0,   0,   0, 255],	// 足元
 		BgCharaYHeightColor = [255, 255, 255, 255],	// 頭先
-		StageSelTex = 6,
+		StageSelTex = 38,
 	}
 	/////////////////////////////////////////////////////////
 	Bg_039 =
@@ -1201,7 +1201,7 @@ BgList <-
 		// キャラに乗せるグラデカラー
 		BgCharaYBaseColor   = [  0,   0,   0, 255],	// 足元
 		BgCharaYHeightColor = [255, 255, 255, 255],	// 頭先
-		StageSelTex = 25,
+		StageSelTex = 39,
 	}
 	/////////////////////////////////////////////////////////
 	Bg_040 =
@@ -1238,7 +1238,7 @@ BgList <-
 		// キャラに乗せるグラデカラー
 		BgCharaYBaseColor   = [  0,   0,   0, 255],	// 足元
 		BgCharaYHeightColor = [255, 255, 255, 255],	// 頭先
-		StageSelTex = 22,
+		StageSelTex = 40,
 	}
 	/////////////////////////////////////////////////////////
 	// Bg_041 = Will be added when I figure out the pat
@@ -1303,7 +1303,7 @@ BgList <-
 		// キャラに乗せるグラデカラー
 		BgCharaYBaseColor   = [  0,   0,   0, 255],	// 足元
 		BgCharaYHeightColor = [255, 255, 255, 255],	// 頭先
-		StageSelTex = 20,
+		StageSelTex = 29,
 	}
 	// Bg_099 = Tatami
 }
