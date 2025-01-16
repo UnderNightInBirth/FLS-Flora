@@ -29,6 +29,8 @@ FLS Flora transforms the UNI2 experience with:
 Not everything is complete, and many more things are to come as contributors add their edits to the game.
 
 ![image](https://github.com/user-attachments/assets/e6cd74ff-6541-4a00-9cc3-82fa474f20d9)
+![image](https://github.com/user-attachments/assets/e35b130e-ab66-4b3c-9e17-764192a0be3e)
+![image](https://github.com/user-attachments/assets/f24655d4-ce5a-49d3-862f-9d033d8308ca)
 
 
 # Installing
