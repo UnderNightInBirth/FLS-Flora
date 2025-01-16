@@ -1,3 +1,6 @@
+Change Hit View Limit to 999
+0x1507F3 struct 0x6300 -> 0xE703
+
 Palette Select Fix
 0x24086A opcode 0x75 -> 0xEB
 - switching from jne to jmp instruction to avoid some weird check
@@ -6,6 +9,7 @@ Palette Select Fix
 Chara Slot Limit
 0x245AF7 struct 0x20 -> 0x7F
 
-0x54B074 string "Sys:Celes" -> "FLS Flora"
+0x54B074 string "FLS Flora"
+- i wonder if we should stylize as FLS-Flora but eehhh
 
 ico hack tbd
