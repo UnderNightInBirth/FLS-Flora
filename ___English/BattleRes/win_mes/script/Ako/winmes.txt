@@ -2,5 +2,54 @@ WinMesScript
 
 
 WinMes00:
-yay :D
+Could this be... a real victory?!
+I-If that's so, then the loser pays for shipping!
+\e
+
+WinMes01:
+I'm leveling up even in this getup!
+I bet I'm surprisingly strong for a healer! Aren't I?
+\e
+
+WinMes02:
+Online marriage, online lovey-doveys...
+Isn't that the ideal play style!?
+What web page has the strategy guide?
+\e
+
+WinMes03:
+Well then, Rusian. Let's go home!
+\e
+
+WinMes04:
+This rod's cuteness...
+I've only now begun to understand it!
+I need to hurry and save before I forget!
+\e
+
+WinMes05:
+Life may be a kusoge...
+But as long as I'm with Rusian, the two of
+us will aim to clear the game with smiles!!
+\e
+
+WinMes06:
+See, isn't my life always stuck on hard mode?
+Isn't this a bug? Should I go contact an admin?
+...Huh? There's no such thing?
+\e
+
+WinMes07:
+Even though I was just a little closer to making the kusoge of life more ideal...
+Sigh... These normies will never understand...
+\e
+
+WinMes3WinStreak00:
+Wow, amazing! Three straight wins!
+Is this an EXP grinding spot?!
+\e
+
+WinMes10WinStreak00:
+Rusian, did you see that!?
+Ten straight wins! Ten straight!
 \e

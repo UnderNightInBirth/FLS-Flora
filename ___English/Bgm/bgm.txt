@@ -157,6 +157,12 @@ File = stage_fountain
 IsLoop = 1
 LoopPos = 7.505
 
+
+[BGM_120]
+File = prisontower //Dantes
+IsLoop = 1
+LoopPos = 10.927
+
 [BGM_160]
 File = ravens
 IsLoop = 1

@@ -146,6 +146,13 @@ name = <GR_BGM_btl_chr014> (<GR_CH_Chr014>)
 num = 170
 name = Raven's Nest (Riesbyfe)
 
+
+
+[39]
+num = 120
+name = The Astral Prison (Edmond Dantes)
+
+
 [52]
 num = 191
 name = Blood heat!
