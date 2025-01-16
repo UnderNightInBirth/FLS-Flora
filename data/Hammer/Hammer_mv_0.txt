@@ -4,7 +4,7 @@ t.Mv_Atk_StdB <-
 {
 	function Init_After()
 	{
-		local player = BMvCore.GetPlayerCharaData();
+		local player = BMvCore.GetEnemyCharaData();
 			if( player.push() )
 			{
 				BMvEff.SetHpGauge( { value=-1000 } );
@@ -438,7 +438,7 @@ t.Mv_Startup <-
 		Battle_Std.CreateObjectEX( { x=0, y=0, pat="CardGlow", mvname="Mv_CardSelect", LP={ slot=1, val=0 } } );
 		BMvTbl.SetLP(3,0); 
 		
-		local heater = Battle_Std.CreateObjectEX( { mvname="Mv_HEAT" } );
+		// local heater = Battle_Std.CreateObjectEX( { mvname="Mv_HEAT" } );
 	}
 }
 
