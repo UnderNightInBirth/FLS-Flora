@@ -523,7 +523,6 @@ t.Mv_Atk_StdBandC <-
 		BMvTbl.ClearHitStatus(); //ヒット情報初期化
 		BMvEff.SetPlayerTimer( { muteki_nage=0, muteki_nageX=0 } ); //投げ無敵を消す
 		// 汎用判定00使用、12F
-		BMvTbl.SetAtkCatchFlag( { hantei=5, catch_flags=_CatchFlag_AtkAllGuard|_CatchFlag_Invalid_Through_ExceptBound/*_CatchFlag_AtkStandGuard|_CatchFlag_AtkStandShield*/, success_flags=_CatchSuccess_HitSub|_CatchSuccess_HitSub_Enemy|_CatchSuccess_FlagHit_Enemy, time=20, flag=_ClearFlag_ChangePattern|_ClearFlag_ChangeMv } );
 		BMvTbl.SetLP(9,0); // 0:相殺できる 1:相殺できない ※HitInterruptで1になる
 		
 		BMvTbl.SetLP(0,0); //当身とったかどうか
@@ -550,7 +549,7 @@ t.Mv_Atk_StdBandC <-
 			BMvTbl.SetMoveableFlag( { move=1, time=6, flag=_ClearFlag_ChangeFrame|_ClearFlag_ChangePattern|_ClearFlag_ChangeMv } );
 		}
 		
-		BMvTbl.SetAtkCatchFlag( { hantei=5, catch_flags=_CatchFlag_AtkAllGuard|_CatchFlag_Invalid_Through_ExceptBound/*_CatchFlag_AtkStandGuard|_CatchFlag_AtkStandShield*/, success_flags=_CatchSuccess_HitSub|_CatchSuccess_HitSub_Enemy|_CatchSuccess_FlagHit_Enemy, time=20, flag=_ClearFlag_ChangePattern|_ClearFlag_ChangeMv } );
+		BMvTbl.SetAtkCatchFlag( { hantei=5, catch_flags=_CatchFlag_AtkStandGuard|_CatchFlag_AtkStandShield|_CatchFlag_Invalid_Through_ExceptBound, success_flags=0, time=20, flag=_ClearFlag_ChangePattern|_ClearFlag_ChangeMv } );
 		
 		BMvTbl.SetLP(9,0);
 		
@@ -570,8 +569,6 @@ t.Mv_Atk_StdBandC <-
 				//BMvEff.SetCamera_Focus( { charapos=0, zoom=-0.1, time=[10,40-10,15], type_in=3, type_out=1, x=0, y=0 } ); //?J???‰?W’†
 
 	}
-	
-	
 	
 	function HitInterrupt_After()
 	{
@@ -602,7 +599,10 @@ t.Mv_Atk_StdBandC <-
 			
 			// local ret = atemi_check( atemi_param );
 
-			BMvTbl.SetLP(4,0); // 飛び道具をとったかどうか
+			local st = BMvTbl.MvHitStatus();
+			st.Count = 3; // ヒットストップ発生
+			BMvTbl.SetMvHitStatus( st );
+			BMvTbl.ClearHitStatus(); //ヒット情報初期化
 			
 			// if( ret == 100 )
 			// {
@@ -616,15 +616,12 @@ t.Mv_Atk_StdBandC <-
 		}
 		
 	}
-	
-	
-	//Finalize
+
 	function Finalize()
 	{
-		Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Atk_BCParry"]); //デフォ,[code,mv]...
+		Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Atk_BCParry"]);
 
 	}
-	
 }
 
 t.Mv_Atk_BCParry <-
