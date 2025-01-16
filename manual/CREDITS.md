@@ -19,3 +19,16 @@ This modification relies on plenty of external sources for its assets. Without t
 
 - Ported from DFCI
 - Portrait Art: [JuNjUnBeAr](https://www.pixiv.net/en/artworks/56407234)
+
+### Edmond Dantes (by ReallyReal)
+
+- Ported from MBTL
+
+## BGM
+
+## UI
+
+## Shoutouts to
+
+- StockSoul for the huge help with CSel
+- All Flower Viewers

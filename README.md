@@ -4,13 +4,13 @@
 
 <br>Under Night In-Birth II **FLS Flora** ("False Flora") is a modpack, made by a few curious minds.
 
-From those behind [the only based UNIB resource out there](https://github.com/Fatih120/undernightinbirth), these mods are a humble culmination of sweeping changes to give the game a new coat of paint, while encouraging other visionaries to crack things open and make their own mods for the world of the Hollow Night.
+From those behind [the comfiest UNIB resource out there](https://github.com/Fatih120/undernightinbirth), we've added sweeping changes to give the game a new coat of paint, while encouraging other visionaries to crack things open and make their own mods for the world of the Hollow Night.
 
 <img src="https://github.com/user-attachments/assets/910eea11-de55-41d4-9f73-1ca1abc3cb00">
 
 </div>
 
-:warning: This repo is in an ALPHA STATE. Some functions are release-ready, some things are not. Character progress is here and there depending on who you ask. That said, you can still launch the game and enjoy without worrying about crashes or Network, but there will be bugs.
+:warning: This repo is in an ALPHA STATE. Some functions are release-ready, some things are not. Character progress is here and there depending on who you ask. That said, you can still launch the game and enjoy, even on Network, but there will be bugs and potentially crashes for the WIP characters.
 
 <br>
 
@@ -24,7 +24,7 @@ FLS Flora transforms the UNI2 experience with:
 - Working Missions and other customizable goodies (Workin' on it!)
 - Characters with their own Arcade Stories (Workin' on it!)
 - ~~Potential secrets and bosses to fight~~ (Workin' on it!)
-- A wonderful and relaxed support community
+- A wonderful and relaxed support community which consistently predicts the future(?)
 
 Not everything is complete, and many more things are to come as contributors add their edits to the game.
 
@@ -41,7 +41,7 @@ Launch the game and you should be good to go! Just avoid playing online with str
 
 # Wiki
 
-[maybe some day](https://undernightinbirth.github.io/FLS-Flora-Wiki/)
+[Workin' on it!](/manual/wiki)
 
 # Contributing
 
