@@ -25,7 +25,7 @@ local maketmpl_Spinner = function( param={} )
 	case "A":
 		break;
 	case "B":
-		break;
+		break;	
 	case "EX":
 		break;
 	}
@@ -44,7 +44,7 @@ local maketmpl_Spinner = function( param={} )
 	{
 		if( Battle_Std.CheckDamageTiming() )
 		{
-			Battle_Std.SetPosition_DamageHanteiRect({ power=150 });
+			Battle_Std.SetPosition_DamageHanteiRect({ power=50 });
 		}
 	}
 	
@@ -2152,15 +2152,16 @@ local maketmpl_Heal = function( param={} ) : (pat_num_healLoop, buffParam)
 				
 				healVal = calcHealVal( healVal ); // 状況に応じてヒール量を計算
 				
+				local vorpal = BMvEff.GRD_GetJudgeResult();
 				
 				if( use_param.isHeal )
 				{
-					BMvEff.SetHpGauge( { value=15 } );
+					BMvEff.SetHpGauge( { value=15 + (vorpal/33) } ); // heal here. 15% -> 20%
 				}
 				
 				if( use_param.isConvert )
 				{
-					BMvEff.SetHpGauge( { value=-30 } );
+					BMvEff.SetHpGauge( { value=-30 } ); //exs here
 					BMvEff.SetSpGauge( { value=54,limitval=0.0, } );
 				}
 
@@ -2586,22 +2587,34 @@ t.Mv_Skill_41236SP_Hit <-
 			BMvTbl.SetLP(1,2);
 		}
 	}
+	function LastUpdate_After() //カットイン消去を上書き
+	{
+		BMvEff.AttackInfoString_Set({ word = "F" });
+		BMvEff.FadeProc_Set({type=0, time=[0,5,20] color=0xFFFFFF});		
+		BMvEff.ThrowRelease( { type="垂直吹き飛び", airrecover=0, flags=_ThrowRelease_NoGroundRecover|_ThrowRelease_NoAttackHit });
+		BMvEff.CutInProc_Erase(); //カットインがあったら消去する	
+		BMvEff.SetCamera_Clipping( 1 ); //画面端のクリッピング補正をかける
+		BMvEff.SetExist( { level = _Exist_NoWall, mode=_ExistMode_Erase } ); // 壁チェックを戻す
+		
+		BMvEff.CameraShift_Clear();
+	}
 	function Finalize()
 	{
 		BMvTbl.SetNextMoveTable( "Mv_Skill_41236SP_End" );
 	}
-	function LastUpdate_After()
-	{
-		// 解放処理
-		BMvEff.ThrowParam( { pattern=320, x=550, y=-500, } );
-		BMvEff.ThrowRelease( { type="叩き付け強", airrecover=0, flags=_ThrowRelease_NoAttackHit|_ThrowRelease_NoGroundRecover } );
+	
+	// function LastUpdate_After()
+	// {
+		// // 解放処理
+		// BMvEff.ThrowParam( { pattern=320, x=550, y=-500, } );
+		// BMvEff.ThrowRelease( { type="叩き付け強", airrecover=0, flags=_ThrowRelease_NoAttackHit|_ThrowRelease_NoGroundRecover } );
 		
-		BMvEff.SetCamera_Clipping( 1 ); //画面端のクリッピング補正を戻す
-		BMvEff.SetExist( { level = _Exist_NoWall, mode=_ExistMode_Erase } ); // 画面外判定チェックを戻す
-		BMvEff.CameraShift_Clear();
+		// BMvEff.SetCamera_Clipping( 1 ); //画面端のクリッピング補正を戻す
+		// BMvEff.SetExist( { level = _Exist_NoWall, mode=_ExistMode_Erase } ); // 画面外判定チェックを戻す
+		// BMvEff.CameraShift_Clear();
 		
-		BMvEff.FadeProc_Set( { type=0, time=[0,2,5] color=0xFFFFFF } ); // 演出終了のフラッシュ
-	}
+		// BMvEff.FadeProc_Set( { type=0, time=[0,2,5] color=0xFFFFFF } ); // 演出終了のフラッシュ
+	// }
 }
 
 t.Mv_Skill_41236SP_End <-
@@ -3936,5 +3949,4 @@ t.Mv_Walk_B <-
 
 
 AKO_MoveTable <- Battle_Std.MakeMoveTable( t, AKO_CommandTable, Def_ChrNo_Ako );
-
-//__dofile__("./data/Ako/Ako_se_list.txt"); //ＳＥ定義
+__dofile__("./data/Ako/Ako_se_category.txt");
