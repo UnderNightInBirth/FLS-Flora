@@ -31,4 +31,9 @@ This modification relies on plenty of external sources for its assets. Without t
 ## Shoutouts to
 
 - StockSoul for the huge help with CSel
+- Hitbox Viewer by U4 / Ported by Pixloen
 - All Flower Viewers
+
+### Paletting Crew
+
+- InvertedKnight

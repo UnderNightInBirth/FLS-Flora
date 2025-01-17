@@ -1,0 +1,340 @@
+Battle_Std.DrawHitboxChecker <- function()
+{
+	local boxtype = BMvEff.TM_GetCharaGauge(5);
+	if (boxtype != 1)
+	{
+		local eff = BMvEff.CreateObject( { datatype=1, start_pat=995, mvname="Mv_CheckHitbox_Debug" } );
+		if(eff.isdone())
+		{
+			if(eff.push())
+			{
+				BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround | _ObjFlags_ParentMove | _ObjFlags_ParentMuki|_ObjFlags_MukiXPosMove | _ObjFlags_MoveTimeStopAll|_ObjFlags_MoveTimeStop  } );
+				BMvEff.ObjProcFlags_Set( { flags=_ObjProcFlags_EraseParentNull|_ObjProcFlags_EraseChangeParentMv|_ObjProcFlag_EraseParentDelete } );
+				eff.pop();
+			}
+		}
+	}
+}
+
+Battle_Std.DrawRect <- function( tbl= {} )
+{
+	local x = ("x" in tbl)? tbl.x : 100;
+	local y = ("y" in tbl)? tbl.y : -100;
+	local prio = ("prio" in tbl)? tbl.prio : 0;
+	local alpha = ("alpha" in tbl)? tbl.alpha : 0;
+	local width = ("width" in tbl)? tbl.width : 100;
+	local height = ("height" in tbl)? tbl.height : 100;
+	local color = ("color" in tbl)? tbl.color : 0x000000;
+	local mvname = ("mvname" in tbl)? tbl.mvname : "Mv_Obj_HitboxBox_Debug";
+	local pat = ("pat" in tbl)? tbl.pat : "dbg_rect2";
+	local eff = BMvEff.CreateObject( { datatype=1, start_pat=pat, x=x*128, y=y*128, mvname=mvname } );
+	if(eff.push())
+	{
+		BMvEff.SetCharaColor( { color=color, time=9999, type=0 } );
+		BMvTbl.SetScale( { x=width*10000, y=height*10000 } );
+		BMvTbl.SetLP(7,prio);
+		BMvTbl.SetLP(8,alpha);
+		eff.pop();
+	}
+	return eff;
+}
+
+Battle_Std.DrawHanteiRect <- function( rc, color )
+{
+	local alpha2 = 100
+	               if (color == 0xFF4040)
+	{
+		alpha2 = 200
+	}
+	local eff = Battle_Std.DrawRect({ x=rc.sx, y=rc.sy, width=(rc.ex - rc.sx), height=(rc.ey - rc.sy), color=color, alpha = alpha2 });
+	if(eff.push())
+	{
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround | _ObjFlags_ParentMove | _ObjFlags_MoveTimeStopAll } );
+		BMvEff.ObjProcFlags_Set( { flags=_ObjProcFlags_EraseParentNull|_ObjProcFlags_EraseChangeParentMv|_ObjProcFlag_EraseParentDelete } );
+		eff.pop();
+	}
+	local eff = Battle_Std.DrawRect({ x=rc.sx, y=rc.sy, width=(rc.ex - rc.sx), height=(rc.ey - rc.sy), color=color, prio = 1 });
+	if(eff.push())
+	{
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround | _ObjFlags_ParentMove | _ObjFlags_MoveTimeStopAll } );
+		BMvEff.ObjProcFlags_Set( { flags=_ObjProcFlags_EraseParentNull|_ObjProcFlags_EraseChangeParentMv|_ObjProcFlag_EraseParentDelete } );
+		eff.pop();
+	}
+	return eff;
+}
+
+Battle_Std.DrawHanteiRect_Outline <- function( rc, color )
+{
+	local eff = Battle_Std.DrawRect({ x=rc.sx, y=rc.sy, width=(rc.ex - rc.sx), height=1, color=color, pat="dbg_rect2opaque" });
+	if(eff.push())
+	{
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround | _ObjFlags_ParentMove | _ObjFlags_MoveTimeStopAll } );
+		BMvEff.ObjProcFlags_Set( { flags=_ObjProcFlags_EraseParentNull|_ObjProcFlags_EraseChangeParentMv|_ObjProcFlag_EraseParentDelete } );
+		eff.pop();
+	}
+	local eff1 = Battle_Std.DrawRect({ x=rc.sx, y=rc.sy, width=1, height=(rc.ey - rc.sy), color=color, pat="dbg_rect2opaque" });
+	if(eff1.push())
+	{
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround | _ObjFlags_ParentMove | _ObjFlags_MoveTimeStopAll } );
+		BMvEff.ObjProcFlags_Set( { flags=_ObjProcFlags_EraseParentNull|_ObjProcFlags_EraseChangeParentMv|_ObjProcFlag_EraseParentDelete } );
+		eff1.pop();
+	}
+	local eff2 = Battle_Std.DrawRect({ x=rc.ex, y=rc.ey, width=(rc.ex - rc.sx)*-1, height=1, color=color, pat="dbg_rect2opaque" });
+	if(eff2.push())
+	{
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround | _ObjFlags_ParentMove | _ObjFlags_MoveTimeStopAll } );
+		BMvEff.ObjProcFlags_Set( { flags=_ObjProcFlags_EraseParentNull|_ObjProcFlags_EraseChangeParentMv|_ObjProcFlag_EraseParentDelete } );
+		eff2.pop();
+	}
+	local eff3 = Battle_Std.DrawRect({ x=rc.ex, y=rc.ey, width=1, height=(rc.ey - rc.sy)*-1, color=color, pat="dbg_rect2opaque" });
+	if(eff3.push())
+	{
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround | _ObjFlags_ParentMove | _ObjFlags_MoveTimeStopAll } );
+		BMvEff.ObjProcFlags_Set( { flags=_ObjProcFlags_EraseParentNull|_ObjProcFlags_EraseChangeParentMv|_ObjProcFlag_EraseParentDelete } );
+		eff3.pop();
+	}
+	return eff;
+}
+
+Battle_Std.DrawHitBoxes <- function()
+{
+	local specialtype = BMvEff.TM_GetCharaGauge(6);
+	local s = BMvTbl.GetMvStatus();
+	local mvcnt = s.MvCount;
+	local frame = s.GetDataFrame();
+	local pat = s.GetDataPattern();
+	for( local i=0; i<8; i++ )
+	{
+		local rc2 = BMvEff.GetHanteiRect ( { check=[ _Hantei_Attack, i ], flags=_HanteiFlag_NoMukiChange | _HanteiFlag_Tool } );
+		if( rc2.sx != _Hantei_Error )
+		{
+			local eff = Battle_Std.DrawHanteiRect( rc2, 0xFF4040 );
+			if(eff.push())
+			{
+				BMvTbl.SetLP(0,frame);
+				BMvTbl.SetLP(1,pat);
+				BMvTbl.SetLP(2,mvcnt);
+				eff.pop();
+			}
+		}
+	}
+	for( local i=0; i<8; i++ )
+	{
+		local rc = BMvEff.GetHanteiRect ( { check=[ _Hantei_Kurai, i ], flags=_HanteiFlag_NoMukiChange | _HanteiFlag_Tool  } );
+		if( rc.sx != _Hantei_Error )
+		{
+			local eff = Battle_Std.DrawHanteiRect( rc, 0x40FF40 );
+			if(eff.push())
+			{
+				BMvTbl.SetLP(0,frame);
+				BMvTbl.SetLP(1,pat);
+				BMvTbl.SetLP(2,mvcnt);
+				eff.pop();
+			}
+		}
+	}
+	if (specialtype == 0 || specialtype == 2)
+	{
+		for( local i=0; i<15; i++ )
+		{
+			local rc = BMvEff.GetHanteiRect ( { check=[ _Hantei_Etc, i ], flags=_HanteiFlag_NoMukiChange | _HanteiFlag_Tool  } );
+			if( rc.sx != _Hantei_Error )
+			{
+				local eff = Battle_Std.DrawHanteiRect( rc, 0x4040FF );
+				if(eff.push())
+				{
+					BMvTbl.SetLP(0,frame);
+					BMvTbl.SetLP(1,pat);
+					BMvTbl.SetLP(2,mvcnt);
+					eff.pop();
+				}
+			}
+		}
+	}
+	if (specialtype == 0 || specialtype == 3)
+	{
+		local rccol = BMvEff.GetHanteiRect ( { check=[ _Hantei_Kasanari, 0 ], flags=_HanteiFlag_NoMukiChange | _HanteiFlag_Tool } );
+		if( rccol.sx != _Hantei_Error )
+		{
+			local eff = Battle_Std.DrawHanteiRect( rccol, 0xFFFFFF );
+			if(eff.push())
+			{
+				BMvTbl.SetLP(0,frame);
+				BMvTbl.SetLP(1,pat);
+				BMvTbl.SetLP(2,mvcnt);
+				eff.pop();
+			}
+		}
+	}
+}
+Battle_Std.DrawHitBoxes_Outlined <- function()
+{
+	local specialtype = BMvEff.TM_GetCharaGauge(6);
+	local s = BMvTbl.GetMvStatus();
+	local mvcnt = s.MvCount;
+	local frame = s.GetDataFrame();
+	local pat = s.GetDataPattern();
+	for( local i=0; i<8; i++ )
+	{
+		local rc2 = BMvEff.GetHanteiRect ( { check=[ _Hantei_Attack, i ], flags=_HanteiFlag_NoMukiChange | _HanteiFlag_Tool } );
+		if( rc2.sx != _Hantei_Error )
+		{
+			local eff = Battle_Std.DrawHanteiRect_Outline( rc2, 0xFF4040 );
+			if(eff.push())
+			{
+				BMvTbl.SetLP(0,frame);
+				BMvTbl.SetLP(1,pat);
+				BMvTbl.SetLP(2,mvcnt);
+				eff.pop();
+			}
+		}
+	}
+	for( local i=0; i<8; i++ )
+	{
+		local rc = BMvEff.GetHanteiRect ( { check=[ _Hantei_Kurai, i ], flags=_HanteiFlag_NoMukiChange | _HanteiFlag_Tool  } );
+		if( rc.sx != _Hantei_Error )
+		{
+			local eff = Battle_Std.DrawHanteiRect_Outline( rc, 0x40FF40 );
+			if(eff.push())
+			{
+				BMvTbl.SetLP(0,frame);
+				BMvTbl.SetLP(1,pat);
+				BMvTbl.SetLP(2,mvcnt);
+				eff.pop();
+			}
+		}
+	}
+	if (specialtype == 0||specialtype==2)
+	{
+		for( local i=0; i<15; i++ )
+		{
+			local rc = BMvEff.GetHanteiRect ( { check=[ _Hantei_Etc, i ], flags=_HanteiFlag_NoMukiChange | _HanteiFlag_Tool  } );
+			if( rc.sx != _Hantei_Error )
+			{
+				local eff = Battle_Std.DrawHanteiRect_Outline( rc, 0x4040FF );
+				if(eff.push())
+				{
+					BMvTbl.SetLP(0,frame);
+					BMvTbl.SetLP(1,pat);
+					BMvTbl.SetLP(2,mvcnt);
+					eff.pop();
+				}
+			}
+		}
+	}
+	if (specialtype==0||specialtype==3)
+	{
+		local rccol = BMvEff.GetHanteiRect ( { check=[ _Hantei_Kasanari, 0 ], flags=_HanteiFlag_NoMukiChange | _HanteiFlag_Tool } );
+		if( rccol.sx != _Hantei_Error )
+		{
+			local eff = Battle_Std.DrawHanteiRect_Outline( rccol, 0xFFFFFF );
+			if(eff.push())
+			{
+				BMvTbl.SetLP(0,frame);
+				BMvTbl.SetLP(1,pat);
+				BMvTbl.SetLP(2,mvcnt);
+				eff.pop();
+			}
+		}
+	}
+}
+
+function Battle_Std::GetHanteiTable( _ChrNo=0, ) {
+	local Std_MoveTable = {}
+	Std_MoveTable.Mv_CheckHitbox_Debug <-
+	{
+		function Init()
+		{
+			BMvTbl.SetPattern(995);
+		}
+		function FrameUpdate()
+		{
+			local boxtype = BMvEff.TM_GetCharaGauge(5);
+			local oya = BMvCore.GetParentCharaData();
+			local s = BMvTbl.GetMvStatus();
+			if(s.CallCount==0)
+			{
+				if(oya.push())
+				{
+					local ps = BMvTbl.GetMvStatus();
+					if(oya.isPlayer())
+					{
+						if( oya.isPlayer() )
+						{
+							if (boxtype == 0 || boxtype == 3 )
+							{
+								Battle_Std.DrawHitBoxes_Outlined();
+							}
+							if (boxtype == 0 || boxtype == 2  )
+							{
+								Battle_Std.DrawHitBoxes();
+							}
+						}
+					}
+					else
+					{
+						if( ps.DataPattern != 0 )
+						{
+							if (boxtype == 0 || boxtype == 3 )
+							{
+								Battle_Std.DrawHitBoxes_Outlined();
+							}
+							if (boxtype == 0 || boxtype == 2  )
+							{
+								Battle_Std.DrawHitBoxes();
+							}
+						}
+					}
+					oya.pop();
+				}
+				else
+				{
+					//
+				}
+			}
+		}
+		function Finalize()
+		{
+			BMvTbl.SetDeleteMoveTable();
+		}
+	}
+	
+	Std_MoveTable.Mv_Obj_HitboxBox_Debug <-
+	{
+		function Init()
+		{
+			BMvTbl.SetLP(4,BMvTbl.GetLP(0));
+			if (BMvTbl.GetLP(7) == 1)
+			{
+				BMvTbl.SetPrio( _CharaPrio_GaugeHP_P1 );
+			}
+			else
+			{
+				BMvTbl.SetPrio( _CharaPrio_GaugeCombo_P1 );
+			}
+			BMvTbl.JumpFrameID(BMvTbl.GetLP(8));
+		}
+		function FrameUpdate()
+		{
+			local s = BMvTbl.GetMvStatus();
+			if(s.CallCount==0)
+			{
+				local oya = BMvCore.GetParentCharaData();
+				if(oya.push())
+				{
+					local bs = BMvTbl.GetMvStatus();
+					oya.pop();
+					if(s.MvCount > 0) {
+						BMvTbl.SetFinalize(0);
+					}
+				}
+			}
+		}
+		function Finalize()
+		{
+			BMvTbl.SetDeleteMoveTable();
+		}
+	}
+
+	return Std_MoveTable;
+}
