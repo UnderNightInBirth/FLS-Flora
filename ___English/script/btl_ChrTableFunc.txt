@@ -606,7 +606,14 @@ function Battle_Std::GetMvFromTmpl( tmpl, tmpl_name )
 	
 		ret.Init <- function() : (tmpl,tmpl_name,isdebug) // @@@@@@@@@@@@@@@@@@@ //
 		{
-			if(isdebug==0) { Battle_Std.DrawHitboxChecker() } // @@@@@@@@@@@@@@@@@@@ //
+			local isTraining = BMvTbl.GetMvStageStatus().IsTrainingBattle()==1;
+			if(isdebug==0)
+			{
+				if(isTraining)
+				{
+					Battle_Std.DrawHitboxChecker();
+				}	
+			}
 			if( "Init_Before" in tmpl )
 			{
 				tmpl.Init_Before();
@@ -634,7 +641,14 @@ function Battle_Std::GetMvFromTmpl( tmpl, tmpl_name )
 	{
 		ret.Init <- function() : (tmpl,isdebug) // @@@@@@@@@@@@@@@@@@@ //
 		{
-			if(isdebug==0) { Battle_Std.DrawHitboxChecker() } // @@@@@@@@@@@@@@@@@@@ //
+			local isTraining = BMvTbl.GetMvStageStatus().IsTrainingBattle()==1;
+			if(isdebug==0)
+			{
+				if(isTraining)
+				{
+					Battle_Std.DrawHitboxChecker();
+				}	
+			}
 			tmpl.Init();
 		}
 	}
