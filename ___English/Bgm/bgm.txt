@@ -131,151 +131,152 @@ LoopPos = 01.202
 
 
 
+// @@@@@@@@@@@@@@@@ Additional BGM @@@@@@@@@@@@@@@@ //
 
 
 
+////////////// Character specific //////////////
 
-
-
-[BGM_031]
-File = MissingYou
+[BGM_140] // Ries
+File = chr_ries
 IsLoop = 1
-LoopPos = 30.34
+LoopPos = 00.451
 
-[BGM_065]
-File = BDRies
+[BGM_141] // Ries 2
+File = chr_ravensWillFox
+IsLoop = 1
+LoopPos = 00.00
+
+[BGM_142] // Ingrid
+File = chr_heathaze
+IsLoop = 1
+LoopPos = 00.00
+
+[BGM_143] // Hammer
+File = chr_Yuuya
+IsLoop = 1
+LoopPos = 03.42
+
+[BGM_144] // Dantes
+File = chr_prisontower
+IsLoop = 1
+LoopPos = 10.927
+
+// Nothing for Ako
+
+[BGM_146] // M but not really
+File = stage_lesvagas
+IsLoop = 1
+LoopPos = 08.577
+
+[BGM_150] // Ries IWEX
+File = ex_BDRies
 IsLoop = 0
 LoopPos = 60.000
 
-[BGM_112]
-File = stage_grassland_night //青子・夜
+[BGM_151] // Ries BM
+File = ex_bgmme26 // BLOOD HEAT!!
 IsLoop = 1
-LoopPos = 14.308
+LoopPos = 04.786
 
-[BGM_113]
+[BGM_155] // Ries vs Elt
+File = ex_MBtribreath
+IsLoop = 1
+LoopPos = 00.000
+
+[BGM_198] // Hermes
+File = chr_GPA
+IsLoop = 1
+LoopPos = 43.20
+
+[BGM_199] // Hermes
+File = chr_hermes //Gigantic Power
+IsLoop = 1
+LoopPos = 33.600
+
+
+
+////////////// Generic //////////////
+
+[BGM_160]
+File = mbaa_stage_bgm28 //Modernism Street
+IsLoop = 1
+LoopPos = 08.020
+
+[BGM_161]
+File = mbaa_stage_bgm39 //Strange Dreamer
+IsLoop = 1
+LoopPos = 07.110
+
+[BGM_162]
+File = mbaa_stage_bgm41 //SAKURA-KOI-UTA
+IsLoop = 1
+LoopPos = 13.629
+
+[BGM_163]
+File = mbaa_stage_bgm42 //Rhythmical Bustle
+IsLoop = 1
+LoopPos = 06.436
+
+[BGM_164]
+File = mbaa_stage46 //Uncommon Sense
+IsLoop = 1
+LoopPos = 22.587
+
+[BGM_165]
+File = mbaa_stage47 //tsukimori no toki ni
+IsLoop = 1
+LoopPos = 07.384
+
+[BGM_166]
+File = mb_stage_oldcapital
+IsLoop = 1
+LoopPos = 09.608
+
+[BGM_170]
+File = stage_GlasG
+IsLoop = 1
+LoopPos = 00.00
+
+[BGM_171]
+File = stage_missingyou
+IsLoop = 1
+LoopPos = 30.34
+
+[BGM_172]
 File = stage_fountain
 IsLoop = 1
 LoopPos = 7.505
 
-
-[BGM_120]
-File = prisontower //Dantes
-IsLoop = 1
-LoopPos = 10.927
-
-[BGM_160]
-File = ravens
-IsLoop = 1
-LoopPos = 00.00
-
-
-[BGM_161]
+[BGM_173]
 File = stage_catacombs
 IsLoop = 1
-LoopPos = 00.00
+LoopPos = 14.170
 
-
-[BGM_162]
-File = bgmme44 //Gigantic Power
+[BGM_174]
+File = stage_moonlight
 IsLoop = 1
-LoopPos = 33.600
+LoopPos = 01.670
 
-[BGM_170]
-File = bgmme37 //Raven's Nest
+[BGM_175]
+File = stage_rabbitburrows
 IsLoop = 1
-LoopPos = 00.451
+LoopPos = 05.11
 
-[BGM_171]
-File = heathaze
-IsLoop = 1
-LoopPos = 00.0
-
-[BGM_180]
-File = bgmme09 // PE RI CA
-IsLoop = 1
-LoopPos = 00.451
-
-[BGM_181]
-File = bgmme18 //Beat from "Melty Blood"
-IsLoop = 1
-LoopPos = 01.076
-
-[BGM_182]
-File = bgmme28 //Modernism Street
-IsLoop = 1
-LoopPos = 08.020
-
-[BGM_183]
-File = bgmme39 //Strange Dreamer
-IsLoop = 1
-LoopPos = 07.110
-
-[BGM_184]
-File = bgmme41 //SAKURA-KOI-UTA
-IsLoop = 1
-LoopPos = 13.629
-
-[BGM_185]
-File = bgmme42 //Rhythmical Bustle
-IsLoop = 1
-LoopPos = 06.436
-
-[BGM_186]
-File = bgmme46 //Uncommon Sense
-IsLoop = 1
-LoopPos = 22.587
-
-[BGM_187]
-File = bgmme47 //tsukimori no toki ni
-IsLoop = 1
-LoopPos = 07.384
-
-[BGM_188]
-File = bgmme53 //WABI-SABI Brand new Everyday
-IsLoop = 1
-LoopPos = 03.529
-
-[BGM_189]
-File = bgmme56 //O-sutra Hit
-IsLoop = 1
-LoopPos = 19.125
-
-[BGM_190]
-File = bgmme73 //Recollection
-IsLoop = 1
-LoopPos = 00.000
-
-[BGM_191]
-File = bgmme26 // BLOOD HEAT!!
-IsLoop = 1
-LoopPos = 04.786
-
-[BGM_192]
-File = EHZ2
-IsLoop = 1
-LoopPos = 05.190
-
-[BGM_193]
-File = GlasG
-IsLoop = 1
-LoopPos = 00.00
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ //
 
 
-[BGM_199]
-File = Yuuya //yuuyake
-IsLoop = 1
-LoopPos = 03.42
 
 //シーンＢＧＭ
-[BGM_040] //Mainmenu
-File = 
-IsLoop = 1
-LoopPos = 00.00
-
-[BGM_041] //Net
+[BGM_040]
 File = Menu_GUN_AkitoBass
 IsLoop = 1
 LoopPos = 03.78
+
+[BGM_041]
+File = Menu_WiFi
+IsLoop = 1
+LoopPos = 17.498
 
 //ストーリー関係
 [BGM_050]
@@ -379,15 +380,17 @@ IsLoop = 1
 LoopPos = 01.614
 
 //デモＢＧＭ
-[BGM_098]
-File = sys_windemo //勝利デモ
+[BGM_098] // I prefer Underdog! but...
+File = Menu_EasyJob
 IsLoop = 1
-LoopPos = 01.777
+LoopPos = 06.465
 
-[BGM_099] //Charasel
+[BGM_099]
+//File = sys_chrselect //キャラクターセレクト
 IsLoop = 1
-File = asayake
-LoopPos = 05.590
+//LoopPos = 04.587
+File = Menu_asayake // bgmme99 //Actor's Anteroom
+LoopPos = 05.590  //5.481
 
 //100以降はやめとく=======
 
@@ -403,4 +406,4 @@ LoopPos = 05.590
 
 
 
-//199番まで使用可能です。200番以降はプログラムの修正が必要です
+//200+ Requires exe modding. Maybe.

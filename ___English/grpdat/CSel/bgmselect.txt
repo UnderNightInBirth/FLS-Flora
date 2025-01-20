@@ -38,16 +38,13 @@ name = <GR_BGM_btl_chr008> (<GR_CH_Chr008>)
 num = 10
 name = <GR_BGM_btl_chr009> (<GR_CH_Chr009>)
 
-
 [10]
 num = 11
 name = <GR_BGM_btl_chr010> (<GR_CH_Chr010>)
 
-
 [11]
 num = 16
 name = <GR_BGM_btl_chr015> (<GR_CH_Chr015>)
-
 
 [12]
 num = 91
@@ -57,118 +54,157 @@ name = <GR_BGM_btl_chr005_vs_chr015> (<GR_CH_Chr005>vs<GR_CH_Chr015>)
 num = 13
 name = <GR_BGM_btl_chr012> (<GR_CH_Chr012>)
 
-
 [14]
 num = 14
 name = <GR_BGM_btl_chr013> (<GR_CH_Chr013>)
-
 
 [15]
 num = 25
 name = <GR_BGM_btl_chr024> (<GR_CH_Chr024>)
 
-
 [16]
 num = 92
 name = <GR_BGM_btl_chr000_vs_chr008> (<GR_CH_Chr000>vs<GR_CH_Chr008>)
-
 
 [17]
 num = 22
 name = <GR_BGM_btl_chr021> (<GR_CH_Chr021>)
 
-
 [18]
 num = 17
 name = <GR_BGM_btl_chr016> (<GR_CH_Chr016>)
-
 
 [19]
 num = 18
 name = <GR_BGM_btl_chr017> (<GR_CH_Chr017>)
 
-
 [20]
 num = 19
 name = <GR_BGM_btl_chr018> (<GR_CH_Chr018>)
-
 
 [21]
 num = 93
 name = <GR_BGM_btl_chr016_vs_chr018> (<GR_CH_Chr016>vs<GR_CH_Chr018>)
 
-
 [22]
 num = 20
 name = <GR_BGM_btl_chr019> (<GR_CH_Chr019>)
 
-
 [23]
 num = 23
 name = <GR_BGM_btl_chr022> (<GR_CH_Chr022>)
-
 
 [24]
 num = 24
 name = <GR_BGM_btl_chr023> (<GR_CH_Chr023>)
 DLC = 1
 
-
 [25]
 num = 21
 name = <GR_BGM_btl_chr020> (<GR_CH_Chr020>)
 DLC = 4
 
-
 [26]
 num = 12
 name = <GR_BGM_btl_chr011> (<GR_CH_Chr011>)
-
 
 [27]
 num = 15
 name = <GR_BGM_btl_chr014> (<GR_CH_Chr014>)
 
+//////////// // Order num
+// Modded // // BGM ID
+//////////// // String
 
-
-
-//
-// Modded
-//
-
-
-
-
-
-
-
-[36]
-num = 170
-name = Raven's Nest (Riesbyfe)
-
-
-
-[39]
-num = 120
-name = The Astral Prison (Edmond Dantes)
-
-
-[52]
-num = 191
-name = Blood heat!
-
-[60]
+[30]
 num = 60
 name = Unknown Actor
-
-[61]
+[31]
 num = 61
 name = False Infinite Parallel
-
-[62]
+[32]
 num = 62
 name = The End of Reincarnation
 
+// Chara first
+
+[35]
+num = 140
+name = Raven's Nest (Riesbyfe)
+
+[37]
+num = 142
+name = Heat Haze (Ingrid)
+
+[38]
+num = 143
+name = There's No Sunrise or Sunset (Hammer)
+
+[39]
+num = 144
+name = The Astral Prison (Edmond Dantes)
+
+[45]
+num = 199
+name = Gigantic Power
+
+[49]
+num = 155
+name = Melty Blood (Tribreath) (Riesbyfe vs Eltnum)
+
+//tbd
+[50]
+num = 146
+name = Les Vagas
+
+///////////
+// Stage //
+///////////
+
+[51]
+num = 163
+name = Rhythmical Bustle
+
+[52]
+num = 160
+name = Modernism Street
+
+[44]
+num = 162
+name = SAKURA-KOI-UTA
+
+[53]
+num = 161
+name = Strange Dreamer
+
+[54]
+num = 164
+name = Uncommon Sense
+
+[55]
+num = 165
+name = While the Moon Hides
+
+[56]
+num = 166
+name = Old Capital
+
+[57]
+num = 172
+name = Play a Little?
+
+[58]
+num = 173
+name = Luminous Moon Requiem
+
+[59]
+num = 174
+name = Moonlit Temple
+
+[60]
+num = 175
+name = rabbit burrow
+
 [90]
-num = 41
+num = 40
 name = Gathers Under Night (Lounge)
