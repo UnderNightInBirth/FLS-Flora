@@ -15,6 +15,9 @@ local chrFunc = {};
 
 chrFunc.DragonInstall <- false;
 
+const BDries = 150;
+const BloodHeat = 151;
+
 const CDef_Rie_PP_DragonInstall = 0;
 const CDef_Rie_PP_InstallTimer = 800;
 
@@ -862,7 +865,7 @@ t.Mv_Skill_IWEXIST <-
                 // TODO check currently playing bgm
                 if ( ( round.Round >= 2 || training == 1 ) && hp_ratio <= 25 ) // Check round/training and enemy HP for KO threshold
                 {
-                    BMvEff.BGM_Set( { num = 65 } ); // Set anime music
+                    BMvEff.BGM_Set( { num = BDries } ); // Set anime music
                 }
             }
         Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Skill_IWEXIST_Hit"]);
@@ -1141,7 +1144,7 @@ t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
 			
             break;
         case 20:
-            BMvEff.BGM_Set( { num = 191 } ); // BLOOD HEAT BGM
+            BMvEff.BGM_Set( { num = BloodHeat } ); // BLOOD HEAT BGM
             break;
         case 40:
             BMvEff.AttackInfoString_Set({ word=def_AISW_Invincibility,} );
@@ -1266,6 +1269,7 @@ t.Mv_Obj_Timer <-
 	function FrameUpdate_After()
 	{
 	
+	// BMvTbl.SetScale({ x=(10000+(BMvTbl.GetPP(CDef_Rie_PP_InstallTimer)*20)), y=(10000+(BMvTbl.GetPP(CDef_Rie_PP_InstallTimer)*20)) });
 		local time = BMvTbl.GetPP(CDef_Rie_PP_InstallTimer) / 100;
 
 		switch(time)
@@ -1330,6 +1334,8 @@ t.Mv_Obj_BeastMode <- // TODO This is the visual timer, time to make it into a r
         Battle_Std.CreateObjectEX( { y = 24000, angle=-2500, datatype=1, pat=30} );
 
         BMvTbl.AddPP(CDef_Rie_PP_InstallTimer, -1);
+        // BMvTbl.SetScale({ x=(100*BMvTbl.GetPP(CDef_Rie_PP_InstallTimer)) });
+        BMvEff.AttackInfoString_Set({ word = BMvTbl.GetPP(CDef_Rie_PP_InstallTimer) });
 
         if ( BMvTbl.GetPP(CDef_Rie_PP_InstallTimer) <= 0 )
         {
@@ -1397,6 +1403,23 @@ t.Mv_BeastMode_End <-
         }
     }
 
+}
+
+// t.Mv_Liberate <-
+// {
+    // function Init_After()
+    // {
+       // BMvEff.SetBgSpeculer( { color=0x888888 } );
+       // BMvEff.SetBgColor( { color=0x808080 } ); // Filter rgb
+    // }
+// }
+
+t.Mv_Skill_0202D <-
+{
+    function Finalize_After()
+    {
+        BMvEff.Cockpit_SetView( { mode=0 } );
+    }
 }
 
 //-----------------------------------------------------------------------------

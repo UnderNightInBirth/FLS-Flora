@@ -47,6 +47,7 @@ local t =
 	// Skill_Kirifuda = {},
 	
 	Skill_41236SP = {},
+	Skill_41236SP_ABC = {},
 	Skill_41236EX = {},
 	Skill_J41236EX = {},
 	Skill_63214EX = {
@@ -77,26 +78,33 @@ local ar =
 		UpdateMoveName="Mv_Atk_StdB",
 	},
 	{
+		ResetTmplName="Atk_StdB",
 		CheckMoveName="Mv_Atk_StdB",
 		UpdateMoveName="Mv_Atk_CroC",
-		ResetTmplName="Std_Atk_StdB"
 	},
 	{
+		ResetTmplName="Atk_CroC",
 		CheckMoveName="Mv_Atk_CroC",
-		UpdateMoveName="Mv_Skill_623B",
-		ResetTmplName="Std_Atk_CroC",
+		UpdateMoveName="Mv_Skill_214B",
+	},
+	{
+		ResetTmplName="Skill_214B",
+		CheckMoveName="Mv_Skill_214B",
+		UpdateMoveName="Mv_Skill_SSRelayAtk",
+		CmdCheck = 
+		{
+			SkillType = "AddCommand",
+		}
 		CmdTmplFlags=def_CMDFlags_AnnounceSmaetSteer, //スマートステアアナウンスの追加
 	},
 	{
-		CheckMoveName="Mv_Skill_623B",
-		UpdateMoveName="Mv_Skill_41236EX",
-		ResetTmplName="Mv_Skill_623B",
+		CheckMoveName="Mv_Skill_SSRelayAtk",
+		UpdateMoveName="Mv_Skill_41236SP",
 		CmdCheck = 
 		{
-			SkillType = "ExSpecial",
+			Cost = { ComboGauge = "OverLiberate" },
+			SkillType = "SpSpecial",
 			HitStatus="Damage",
-			FrameIDCheck = { Only = [200] },
-			Cost = { ComboGauge = 10000 },
 		}
 	},
 ]

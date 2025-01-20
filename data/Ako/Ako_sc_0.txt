@@ -6,7 +6,7 @@ Battle_Status <-
 	ScratchDamageVal_Atk = 75, // 削りダメージ、攻撃時
 	ScratchDamageVal_Def = 100, // 削りダメージ、防御時
 	ScratchDamageVal_ExDef = 100, // 削りダメージ、ジャストディフェンス
-	HpDivValue = [ 11000 ],
+	HpDivValue = [ 9900 ],
 }
 
 Battle_Std.InsertTable( Battle_Status, Battle_Std.GetStd_BattleStatusTable() );

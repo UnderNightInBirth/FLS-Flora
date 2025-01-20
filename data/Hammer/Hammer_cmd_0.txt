@@ -2,6 +2,7 @@ local t =
 {
 	Atk_Std1C = { command = ["1+C"], },
 	//Atk_Std2C = {},
+	Atk_Air2B = {},
 	Atk_Std3C = {},
 	Atk_Std4C = {},
 	Atk_StdC = {},

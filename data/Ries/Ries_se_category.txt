@@ -141,10 +141,13 @@ se["Mv_Skill_63214EX_FU"] <- { Param0=10, selist = { common = [383], } };
 se["Mv_Skill_236A_FU"] <- [ { Param0=20, selist = { common = [311], } },
 							{ Param0=10, selist = { common = [350], } }, ];
 							
+se["Mv_Skill_236A_Hit_FU"] <-  { Param0=30, selist = { common = [8], } };					
+							
 se["Mv_Skill_236B_FU"] <- [ { Param0=10, selist = { common = [350], } }, { Param0=20, selist = { common = [352], } },];
 
 se["Mv_Skill_236EX_FU"] <- [ { Param0=20, selist = { common = [351], } },
 							{ Param0=30, selist = { common = [323], } },
+							{ Param0=55, selist = { common = [8], } },
 							{ Param0=10, selist = { common = [351], } }, ];// no worky??
 
 

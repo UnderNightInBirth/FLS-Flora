@@ -12,7 +12,7 @@ Battle_Status <-
 	// HpDivValue = [ 9500 ], // EL
 	// HpDivValue = [ 10000 ], // st3.11
 	// HpDivValue = [ 10000 ], // st3.20
-	HpDivValue = [ 10000 ],
+	HpDivValue = [ 10500 ],
 
 }
 

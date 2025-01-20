@@ -22,16 +22,16 @@ st[1] = { volumetype=0, path=1, file="sion97", type=0, category=3, };
 st[2] = { volumetype=0, path=1, file="Ries_B0AA310a", type=0, category=3, }; // SBAM
 st[3] = { volumetype=0, path=1, file="Ries_B0AA310b", type=0, category=3, }; // BAM
 st[4] = { volumetype=0, path=1, file="Ries_B0AA311a", type=0, category=3, }; // 623
-st[5] = { volumetype=0, path=1, file="Ries_B0AA312", type=0, category=2, }; // 
+st[5] = { volumetype=0, path=1, file="Ries_B0AA312", type=0, category=2, }; // shield
 st[6] = { volumetype=0, path=1, file="Ries_B0AA313a", type=0, category=3, };  // grinding
 st[7] = { volumetype=0, path=1, file="Ries_B0AA314", type=0, category=3, };  // coil
-st[8] = { volumetype=0, path=1, file="Ries_B0AA314a", type=0, category=3, }; // pin
 
+st[8] = { volumetype=0, path=1, file="Ries_B0AA314a", type=0, category=1, }; // 236 confirm
 st[9] = { volumetype=0, path=1, file="Ries_B0AA315a", type=0, category=3, };  // 236 whbang
 st[10] = { volumetype=0, path=1, file="Ries_B0AA315b", type=0, category=3, };  // 236 whbang higher
 
 st[11] = { volumetype=0, path=1, file="Ries_B0AA316a", type=0, category=3, };  // whoof
-st[12] = { volumetype=0, path=1, file="Ries_B0AA317", type=0, category=3, };   // whiff
+st[12] = { volumetype=0, path=1, file="Ries_B0AA317", type=0, category=3, };   // whiff 236
 st[13] = { volumetype=0, path=1, file="Ries_B0AA317a", type=0, category=3, };  // who-of jc 5c
 st[14] = { volumetype=0, path=1, file="Ries_B0AA318a", type=0, category=3, };  // whuff  j6b j6c 5b 5a
 
@@ -42,6 +42,11 @@ st[18] = { volumetype=0, path=1, file="Ries_B0AA350_la", type=0, category=3, }; 
 
 st[20] = { volumetype=0, path=2, file="SE051", type=1, category=3, };
 st[21] = { volumetype=0, path=2, file="SE052", type=1, category=3, };
+
+st[23] = { path=2, file="SE_Bomb", type=1, category=-2, }; // IWEフィニッシュ前の爆発
+st[24] = { path=2, file="SE_BombEnergy", type=1, category=-2, }; // IW拘束球の収縮
+st[25] = { path=2, file="SE_BigBomb_Short", type=1, category=-1, }; //とどめ爆発
+st[26] = { path=2, file="SE_BigBomb", type=1, category=-1, }; //とどめ爆発
 
 
 
