@@ -1,0 +1,81 @@
+
+
+stage_bgm <- {};
+
+//-----------------------------------------------------------------------------
+// Desc: stage_bgm.initround()
+//
+// 戦闘BGMの変更がある場合はここで設定、戦闘テーブルでのBGM設定よりも優先度が高い
+// 呼ばれた時点で戦闘が始まっていないと情報が無効
+//
+//-----------------------------------------------------------------------------
+stage_bgm.initround <- function()
+{
+	local btlobj = BMvTbl.CBtlInfo();//戦闘情報
+	local bgmnum = 0;
+
+	local private_bgm = 0;
+
+	//-----------------------------------------------------------------------------
+	// 組み合わせ専用BGMの取得
+	
+	// 戦闘情報の取得
+	local stage_st = BMvTbl.GetMvStageStatus();
+	local stagetype = stage_st.IsTrainingBattle(); // 1-Training  2-Tutorial  3-Mission
+
+	if( stagetype != 2  &&  stagetype != 3 ) // Tutorial Mission は除外
+	{
+		// ケイアスvsゴルドー
+		if( btlobj.CheckCharaAlive_str("chr015") != 0  &&  btlobj.CheckCharaAlive_str("chr005") != 0 )
+		{
+			private_bgm = 91; // 専用BGMへ変更
+		}
+		// ハイドvsセト
+		else
+		if( btlobj.CheckCharaAlive_str("chr000") != 0  &&  btlobj.CheckCharaAlive_str("chr008") != 0 )
+		{
+			private_bgm = 92; // 専用BGMへ変更
+		}
+		// ワーグナーvsロンドレキア
+		else
+		if( btlobj.CheckCharaAlive_str("chr016") != 0  &&  btlobj.CheckCharaAlive_str("chr018") != 0 )
+		{
+			private_bgm = 93; // 専用BGMへ変更
+		}
+		// Ries vs Eltnum
+		else
+		if( btlobj.CheckCharaAlive_str("chr011") != 0  &&  btlobj.CheckCharaAlive(27) != 0 ) // The demon summoning program doesn't find her using _str
+		{
+			private_bgm = 155;
+		}
+		// fatty vs Hermes
+		else
+		if( btlobj.CheckCharaAlive(29)!= 0  &&  btlobj.CheckCharaAlive(40) != 0 )
+		{
+			private_bgm = 177;
+		}
+	}
+
+	//-----------------------------------------------------------------------------
+
+	if( btlobj.IsBgmAuto() )
+	{
+		// オートだった
+		if( private_bgm != 0 ) // 組み合わせ固定BGMがあった
+		{
+			bgmnum = private_bgm;
+		}
+		if( bgmnum == 0 )
+		{
+			bgmnum = btlobj.GetFixStageBGM(); // 各モードに合わせて変更
+		}
+	}
+
+	// ここで決定があったら戦闘BGMに採用する
+	if( bgmnum != 0 )
+	{
+		btlobj.SetBattleBgm( bgmnum );
+	}
+}
+
+btl_debPrint( "\n>>> sq_stagebgm." );
