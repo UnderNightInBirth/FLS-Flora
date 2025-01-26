@@ -11,3 +11,5 @@ const Def_ChrNo_Dantes	= 30;
 const Def_ChrNo_Edo	= 30;
 
 const Def_ChrNo_Ako = 31;
+
+const Def_ChrNo_Ryu = 32;

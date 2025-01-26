@@ -1,0 +1,158 @@
+local t =
+{
+	Atk_DashStdC_Normal = {
+		function CmdBeforeFunc()
+		{
+			return 0;
+		}
+	},
+	Atk_DashStdB_Normal = {
+		function CmdBeforeFunc()
+		{
+			return 0;
+		}
+	},
+	Atk_DashStdC_Direct = {
+		function CmdBeforeFunc()
+		{
+			return 0;
+		}
+	},
+	Atk_DashStdB_Direct = {
+		function CmdBeforeFunc()
+		{
+			return 0;
+		}
+	},
+	
+	Skill_DyingIWEAtk = {
+		function CmdBeforeFunc()
+		{
+			return 0;
+		}
+	},
+	
+	Skill_SSRelayAtk = {
+		function CmdBeforeFunc()
+		{
+			return 0;
+		}
+	},
+	DirectSSSkill = {
+		function CmdBeforeFunc()
+		{
+			return 0;
+		}
+	},
+	ForwardShift = {
+		function CmdBeforeFunc()
+		{
+			return 0;
+		}
+	},
+	
+	
+	Atk_StdBandC = {},
+	Atk_CroBandC = 
+	{
+		command = ["4+B+C", "1+B+C"],
+	},
+	
+	Skill_41236SP_ABC = {},
+	Skill_41236SP = {}, //command = ["A,A,6,B,C"]
+	
+	Skill_63214SP = 
+	{ //-------------------------------
+		num = def_CN_Skill_63214SP, name = "Cmd_Skill_63214SP", command = ["63@D,12@214D","3214D","6214D"], usegauge = 20000,
+		CmdCheck = { MvCheck={ SkillFail="Mv_Skill_63214SP"}, Cost = { ComboGauge = "OverLiberate" }, SkillType = "SpSpecial", CommandButton = def_PP_CBS_ButtonC },
+		UpdateTable = { name = "Mv_Skill_63214SP", }
+	},
+
+	Skill_236EX = 
+	{ 
+		CmdCheck = { BallLimit = { [5] = 1 } } 
+	},
+	Skill_236B = { CmdCheck = { BallLimit = { [4] = 1 } } },
+	Skill_236A = { CmdCheck = { BallLimit = { [4] = 1 } } },
+	
+	Skill_214EX = 
+	{
+		//command = ["214B+C"],
+	},
+	Skill_214B = {},
+	Skill_214A = {},	
+
+	//Skill_J236EX = 
+	//{ 
+	//	//command = ["236B+C"],
+	//	CmdCheck = { BallLimit = { [7] = 1 } } 
+	//},
+	//Skill_J236B = { CmdCheck = { BallLimit = { [6] = 1 } } },
+	//Skill_J236A = { CmdCheck = { BallLimit = { [6] = 1 } } },
+
+	Skill_J214EX = {},
+	Skill_J214BorC = {},
+	Skill_J214A = {},
+	
+	//Unused For Now
+	Skill_J63214A = {},
+	Skill_J63214B = {},
+
+	Atk_Std4B = {},
+	Atk_Std6B = {},
+	Atk_Std4C = {},
+	Atk_Std6C = {},
+	Atk_Cro3B = {},
+	Atk_Cro3C = {},
+	Atk_Air2B = {},
+	
+	Skill_623A = {},
+	Skill_623B = {},
+	Skill_623EX = {},
+	
+	Skill_41236A = {},
+	Skill_41236B = {},
+	Skill_41236EX = {command = ["412@N,2@@D,8@36C"],},
+	
+}
+
+local ar =
+[
+	{
+		CheckMoveName="Mv_Atk_StdA",
+		UpdateMoveName="Mv_Atk_StdB",
+	},
+	{
+		CheckMoveName="Mv_Atk_StdB",
+		UpdateMoveName="Mv_Atk_Cro3B",
+		ResetTmplName="Atk_StdB",
+	},
+	{
+		CheckMoveName="Mv_Atk_Cro3B",
+		UpdateMoveName="Mv_Atk_StdC",
+		ResetTmplName="Atk_Cro3B",
+	},
+	{
+		CheckMoveName="Mv_Atk_StdC",
+		UpdateMoveName="Mv_Skill_41236A",
+		ResetTmplName="Atk_StdC",
+		CmdTmplFlags=def_CMDFlags_AnnounceSmaetSteer, //スマートステアアナウンスの追加
+	},
+	{
+		CheckMoveName="Mv_Skill_41236A",
+		UpdateMoveName="Mv_Skill_623EX",
+		ResetTmplName="Skill_41236A",
+		CmdCheck = 
+		{
+			Cost = { ComboGauge = 10000 },
+			SkillType = "ExSpecial",
+			HitStatus="Hit",
+			FrameIDCheck = { Only = 100 },
+		},
+	},
+
+]
+Battle_Std.MakeStdCombo( t, ar );
+
+RYU_CommandTable <- Battle_Std.MakeCommandTable( {command = t} );
+

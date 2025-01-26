@@ -169,6 +169,11 @@ File = stage_lesvagas
 IsLoop = 1
 LoopPos = 08.577
 
+[BGM_147]
+File = stage_moonlight
+IsLoop = 1
+LoopPos = 01.670
+
 [BGM_150] // Ries IWEX
 File = ex_BDRies
 IsLoop = 0
@@ -252,11 +257,6 @@ LoopPos = 7.505
 File = stage_catacombs
 IsLoop = 1
 LoopPos = 14.170
-
-[BGM_174]
-File = stage_moonlight
-IsLoop = 1
-LoopPos = 01.670
 
 [BGM_175]
 File = stage_rabbitburrows

@@ -157,54 +157,54 @@ name = Melty Blood (Tribreath) (Riesbyfe vs Eltnum)
 num = 146
 name = Les Vagas
 
+[51]
+num = 147
+name = Moonlit Temple (FLS Ryu)
+
 ///////////
 // Stage //
 ///////////
 
-[51]
+[80]
 num = 163
 name = Rhythmical Bustle
 
-[52]
+[81]
 num = 160
 name = Modernism Street
 
-[44]
+[82]
 num = 162
 name = SAKURA-KOI-UTA
 
-[53]
+[83]
 num = 161
 name = Strange Dreamer
 
-[54]
+[84]
 num = 164
 name = Uncommon Sense
 
-[55]
+[85]
 num = 165
 name = While the Moon Hides
 
-[56]
+[86]
 num = 166
 name = Old Capital
 
-[57]
+[87]
 num = 172
 name = Play a Little?
 
-[58]
+[88]
 num = 173
 name = Luminous Moon Requiem
 
-[59]
-num = 174
-name = Moonlit Temple
-
-[60]
+[90]
 num = 175
 name = rabbit burrow
 
-[90]
+[99]
 num = 40
 name = Gathers Under Night (Lounge)

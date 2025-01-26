@@ -1,0 +1,75 @@
+print("\n>>_se_list");
+
+__dofile__("./script/btl_SEDefine.txt"); //ＳＥ定数
+
+local path = "./se/normal_se/"; // ファイルパス、登録しやすいように
+local btlpath = "./se/battle_se/";
+local chrpath = btlpath + "FLS Ryu/";
+local spepath = chrpath + "Special/";
+
+SeList_Table <-
+{
+	TableNum = 1, // SEセレクトとかでのプログラム側参照用、テーブル最大値を入れておく
+	UseTable = 0, // 何番目のテーブルを使うか
+	Path = [],	// パス設定簡略化用
+	Status = [],	// 実際に再生時に使われる配列
+};
+
+SeList_Table.Path.append( path ); //Path[0]
+SeList_Table.Path.append( chrpath ); //Path[1]
+SeList_Table.Path.append( btlpath ); //Path[2]
+SeList_Table.Path.append( spepath ); //Path[3]
+
+SeList_Table.Status.resize(650); // 確保
+local st = SeList_Table.Status; // 登録しやすいように省略
+
+
+st[1] = {volumetype=1, path=1, file="SND_PL0F_0", type=0, category=1, };
+st[2] = {volumetype=1, path=1, file="SND_PL0F_1", type=0, category=1, prio=Def_SEP_DamageLv1};
+st[3] = {volumetype=1, path=1, file="SND_PL0F_2", type=0, category=1, prio=Def_SEP_DamageLv2, check=1 };
+st[4] = {volumetype=1, path=1, file="SND_PL0F_3", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 };
+st[5] = {volumetype=1, path=1, file="SND_PL0F_4", type=0, category=1, };
+st[6] = {volumetype=1, path=1, file="SND_PL0F_5", type=0, category=1, };
+st[7] = {volumetype=1, path=1, file="SND_PL0F_6", type=0, category=1, };
+st[8] = {volumetype=1, path=1, file="SND_PL0F_7", type=0, category=1, };
+st[9] = {volumetype=1, path=1, file="SND_PL0F_8", type=0, category=1, };
+st[10] = {volumetype=1, path=1, file="SND_PL0F_9", type=0, category=1, };
+st[11] = {volumetype=1, path=1, file="SND_PL0F_10", type=0, category=1, };
+st[12] = {volumetype=1, path=1, file="SND_PL0F_11", type=0, category=1, };
+st[13] = {volumetype=1, path=1, file="SND_PL0F_12", type=0, category=1, };
+st[14] = {volumetype=1, path=1, file="SND_PL0F_13", type=0, category=1, };
+st[15] = {volumetype=1, path=1, file="SND_PL0F_14", type=0, category=1, };
+st[16] = {volumetype=1, path=1, file="SND_PL0F_15", type=0, category=1, };
+st[17] = {volumetype=1, path=1, file="SND_PL0F_16", type=0, category=1, };
+st[18] = {volumetype=1, path=1, file="SND_PL0F_17", type=0, category=1, };
+st[19] = {volumetype=1, path=1, file="SND_PL0F_18", type=0, category=1, };
+st[20] = {volumetype=1, path=1, file="SND_PL0F_19", type=0, category=1, };
+st[21] = {volumetype=1, path=1, file="SND_PL0F_20", type=0, category=1, };
+st[22] = {volumetype=1, path=1, file="SND_PL0F_21", type=0, category=1, };
+st[23] = {volumetype=1, path=1, file="SND_PL0F_23", type=0, category=1, };
+st[24] = {volumetype=1, path=1, file="SND_PL0F_24", type=0, category=1, };
+st[25] = {volumetype=1, path=1, file="SND_PL0F_25", type=0, category=1, };
+st[26] = {volumetype=1, path=1, file="SND_PL0F_26", type=0, category=1, prio=Def_SEP_KO };
+st[27] = {volumetype=1, path=1, file="SND_PL0F_27", type=0, category=1, };
+st[28] = {volumetype=1, path=1, file="SND_PL0F_28", type=0, category=1, };
+st[29] = {volumetype=1, path=1, file="SND_PL0F_29", type=0, category=1, };
+st[30] = {volumetype=1, path=1, file="SND_PL0F_30", type=0, category=1, };
+st[31] = {volumetype=1, path=1, file="SND_PL0F_31", type=0, category=-1, };
+st[32] = {volumetype=1, path=1, file="SND_PL0F_32", type=0, category=-1, };
+
+//st[10] = { volumetype=0, path=2, file="SE_BigBomb_Short", type=1, category=-1, }; //神風とどめ爆発
+//
+//st[15] = { volumetype=0, path=0, file="SE011", type=1, category=-1, }; // ビリビリ
+
+//st[20] = { volumetype=0, path=0, file="SE220", type=1, category=-1, }; // 飛び道具発射音
+//st[22] = { volumetype=0, path=0, file="SE011", type=1, category=-1, }; // 飛び道具着地とかヒットの爆発
+//
+//st[25] = { volumetype=0, path=0, file="SE193_GuardShieldInit", type=1, category=-1, }; // 攻勢防御発動音
+//st[30] = { volumetype=0, path=0, file="SE011", type=1, category=-1, }; // 対空防御ビリビリＳＥ
+
+//st[50] = { volumetype=0, path=0, file="SE011", type=1, category=-1, }; // IWE地面ゆれ
+//st[51] = { volumetype=0, path=2, file="SE_BigBomb_Short", type=1, category=-1, }; // IWE発動落雷
+//st[52] = { volumetype=0, path=2, file="SE_ChargeUp", type=1, category=-1, }; // IWE発動落雷ビリビリ
+//st[55] = { volumetype=0, path=2, file="SE_EarthQuake", type=1, category=-1, }; // IWE崩壊
+//st[56] = { volumetype=0, path=2, file="SE_VanishDiscBall", type=1, category=-1, }; // アップアカツキ念力集中
+

@@ -12,7 +12,7 @@ Chara_Table <-
 	// E”z—ñ”‚Ícx‰¡‚ª100–¢–‚É‚È‚é‚æ‚¤‚É
 	SelectTable = 
 	[
-        [ 28,29,30,31,32,33,99,34,35,36,37,38,39 ],
+        [ 28,29,30,31,32,34,99,35,36,38,39,40,41 ],
 		[ 23,24,12,08,02,00,27,01,03,09,13,21,22 ],  // ‚±‚Ì—ñ‚ª‰ŠúˆÊ’u
 		[ 11,19,10,06,04,16,20,17,05,07,15,18,14 ],
 	],
@@ -506,7 +506,20 @@ chara_no[31] =
 	order = 104,
 };
 
-// chara_no[32] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
+chara_no[32] = 
+{
+	name_short = "Ryu",
+	name_long = "Ryu",
+	name_str = "Ryu",
+	name_master = "Ryu",
+	isAlive = 1,
+	
+	stage = 24, //uzuki
+	bgm = 146, //vagas
+	
+	order = 105,
+}; // 
+
 // chara_no[33] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
 // chara_no[34] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
 // chara_no[35] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
