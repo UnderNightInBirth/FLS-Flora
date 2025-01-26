@@ -514,8 +514,8 @@ chara_no[32] =
 	name_master = "Ryu",
 	isAlive = 1,
 	
-	stage = 24, //uzuki
-	bgm = 146, //vagas
+	stage = 40, //waves
+	bgm = 147, //temple
 	
 	order = 105,
 }; // 
