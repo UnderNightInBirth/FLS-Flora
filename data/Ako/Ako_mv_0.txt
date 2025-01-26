@@ -2529,6 +2529,7 @@ t.Mv_Skill_J214EX <- maketmpl_SpinAttack( { type="EX" } );
 // 超必殺技
 //-----------------------------------------------------------------------------
 
+
 t.Mv_Skill_41236SP <-
 {
 	function Init_After()
@@ -2587,34 +2588,22 @@ t.Mv_Skill_41236SP_Hit <-
 			BMvTbl.SetLP(1,2);
 		}
 	}
-	function LastUpdate_After() //カットイン消去を上書き
-	{
-		BMvEff.AttackInfoString_Set({ word = "F" });
-		BMvEff.FadeProc_Set({type=0, time=[0,5,20] color=0xFFFFFF});		
-		BMvEff.ThrowRelease( { type="垂直吹き飛び", airrecover=0, flags=_ThrowRelease_NoGroundRecover|_ThrowRelease_NoAttackHit });
-		BMvEff.CutInProc_Erase(); //カットインがあったら消去する	
-		BMvEff.SetCamera_Clipping( 1 ); //画面端のクリッピング補正をかける
-		BMvEff.SetExist( { level = _Exist_NoWall, mode=_ExistMode_Erase } ); // 壁チェックを戻す
-		
-		BMvEff.CameraShift_Clear();
-	}
 	function Finalize()
 	{
 		BMvTbl.SetNextMoveTable( "Mv_Skill_41236SP_End" );
 	}
-	
-	// function LastUpdate_After()
-	// {
-		// // 解放処理
+	function LastUpdate_After()
+	{
+		// 解放処理
 		// BMvEff.ThrowParam( { pattern=320, x=550, y=-500, } );
 		// BMvEff.ThrowRelease( { type="叩き付け強", airrecover=0, flags=_ThrowRelease_NoAttackHit|_ThrowRelease_NoGroundRecover } );
 		
-		// BMvEff.SetCamera_Clipping( 1 ); //画面端のクリッピング補正を戻す
-		// BMvEff.SetExist( { level = _Exist_NoWall, mode=_ExistMode_Erase } ); // 画面外判定チェックを戻す
-		// BMvEff.CameraShift_Clear();
+		BMvEff.SetCamera_Clipping( 1 ); //画面端のクリッピング補正を戻す
+		BMvEff.SetExist( { level = _Exist_NoWall, mode=_ExistMode_Erase } ); // 画面外判定チェックを戻す
+		BMvEff.CameraShift_Clear();
 		
-		// BMvEff.FadeProc_Set( { type=0, time=[0,2,5] color=0xFFFFFF } ); // 演出終了のフラッシュ
-	// }
+		BMvEff.FadeProc_Set( { type=0, time=[0,2,5] color=0xFFFFFF } ); // 演出終了のフラッシュ
+	}
 }
 
 t.Mv_Skill_41236SP_End <-
