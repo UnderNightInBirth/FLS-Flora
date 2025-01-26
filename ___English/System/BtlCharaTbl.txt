@@ -440,12 +440,12 @@ chara_no[27] =
 {
 	name_short = "Ries",
 	name_long = "Riesbyfe",
-	name_str = "リーズバイフェ",
-	name_master = "リーズバイフェ",
+	name_str = "Riesbyfe",
+	name_master = "Riesbyfe",
 	isAlive = 1,
 	
-	stage = 9, // 電影のカフェテリア
-	bgm = 170, // raven's nest
+	stage = 32, // rain
+	bgm = 140, // raven's nest
 	
 	order = 100,
 }; // 
@@ -454,12 +454,12 @@ chara_no[28] =
 {
 	name_short = "Ingrid",
 	name_long = "Ingrid",
-	name_str = "イングリッド",
-	name_master = "イングリッド",
+	name_str = "Ingrid",
+	name_master = "Ingrid",
 	isAlive = 1,
 	
-	stage = 15, // 電影のカフェテリア
-	bgm = 171, // heat haze
+	stage = 33, // fountain
+	bgm = 142, // heat haze
 	
 	order = 101,
 };
@@ -468,12 +468,12 @@ chara_no[29] =
 {
 	name_short = "Hammer",
 	name_long = "Hammer",
-	name_str = "ファティ",
-	name_master = "ファティ",
+	name_str = "Fat",
+	name_master = "Fat",
 	isAlive = 1,
 	
-	stage = 1,
-	bgm = 199,
+	stage = 36, //arena
+	bgm = 143, //yuuya
 	
 	order = 102,
 }; // 
@@ -481,13 +481,13 @@ chara_no[29] =
 chara_no[30] =
 {
 	name_short = "Dantes",
-	name_long = "Edmond Dantes",
+	name_long = "Dantes",
 	name_str = "Dantes",
 	name_master = "Dantes",
 	isAlive = 1,
 
-	stage = 1, // 市街地中枢・交差点
-	bgm = 120, // The Astral Prison
+	stage = 38, // hideout
+	bgm = 144, // The Astral Prison
 
 	order = 103,
 }; // 
@@ -500,8 +500,8 @@ chara_no[31] =
 	name_master = "Ako",
 	isAlive = 1,
 
-	stage = 23,
-	bgm = 162,
+	stage = 7, //mall
+	bgm = 162, //sakura just cuz
 	
 	order = 104,
 };

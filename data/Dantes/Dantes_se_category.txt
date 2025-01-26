@@ -2,8 +2,8 @@
 // ‚r‚d’è‹`
 //-----------------------------------------------------------------------------
 
-Battle_Std.SeTable[Def_ChrNo_Dan] = {};
-local se = Battle_Std.SeTable[Def_ChrNo_Dan];
+Battle_Std.SeTable[Def_ChrNo_Edo] = {};
+local se = Battle_Std.SeTable[Def_ChrNo_Edo];
 
 se["“oêƒsƒ“ƒ`"] <- {
 	selist = {

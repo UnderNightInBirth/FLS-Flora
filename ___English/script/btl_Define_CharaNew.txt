@@ -7,7 +7,7 @@ const Def_ChrNo_Ing	= 28;
 const Def_ChrNo_Hammer	= 29;
 const Def_ChrNo_Fat	= 29;
 
-const Def_ChrNo_Dan	= 30;
 const Def_ChrNo_Dantes	= 30;
+const Def_ChrNo_Edo	= 30;
 
 const Def_ChrNo_Ako = 31;

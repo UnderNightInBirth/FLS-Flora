@@ -1,1 +1,1 @@
-__dofile__( "./data/Morrig/Morrig_com_0.txt" );
+__dofile__( "./data/Dantes/Dantes_com_0.txt" );
