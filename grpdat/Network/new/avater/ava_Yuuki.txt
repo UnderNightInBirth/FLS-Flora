@@ -1,0 +1,10 @@
+[System]
+ProjectName=ava_Yuuki
+[DataFile]
+FileNum= 1
+File00=Dummy.ha6
+[BmpcutFile]
+FileNum= 1
+File00=Dummy.cg
+[PAniFile]
+FileNum= 0

@@ -1,0 +1,11 @@
+[System]
+ProjectName=Yuuki
+[DataFile]
+FileNum= 1
+File00=Yuuki.ha6
+[BmpcutFile]
+FileNum= 1
+File00=Yuuki.cg
+[PAniFile]
+FileNum= 1
+File00=Yuuki.pat

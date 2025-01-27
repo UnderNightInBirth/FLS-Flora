@@ -13,3 +13,6 @@ const Def_ChrNo_Edo	= 30;
 const Def_ChrNo_Ako = 31;
 
 const Def_ChrNo_Ryu = 32;
+
+const Def_ChrNo_Yuuki = 38;
+const Def_ChrNo_Yuu = 38;

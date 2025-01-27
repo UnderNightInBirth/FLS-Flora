@@ -520,6 +520,21 @@ chara_no[32] =
 	order = 105,
 }; // 
 
+
+chara_no[38] = 
+{
+	name_short = "Yuuki",
+	name_long = "Yuuki",
+	name_str = "Yuuki",
+	name_master = "Yuuki",
+	isAlive = 1,
+	
+	stage = 33,
+	bgm = 162,
+	
+	order = 109,
+}; // 
+
 // chara_no[33] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
 // chara_no[34] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
 // chara_no[35] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };

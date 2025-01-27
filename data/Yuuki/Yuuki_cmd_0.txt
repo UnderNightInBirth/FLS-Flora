@@ -1,0 +1,73 @@
+local t =
+{
+	Skill_236A = {},
+	Skill_236BorC = {},
+	Skill_236EX = {},
+	
+	Skill_623EX = {},
+	Skill_623BorC = {},
+	Skill_623A = {},
+
+	Skill_J236A =  {},
+	Skill_J236BorC =  {},
+	Skill_J236EX = {},
+
+	Skill_214A = {},
+	Skill_214BorC = {},
+	Skill_214EX = {},
+	
+	Skill_Sousai = {},
+	Skill_Sousai2 = {},
+	Skill_Sousai4 = {},
+	Skill_Sousai4_JAdd = {},
+	Skill_Kirifuda = {},
+	
+	Skill_63214SP = {},	
+	Skill_41236SP_ABC = {},
+	Skill_41236SP = {},
+	
+	Atk_Air2C = {},
+	Atk_StdBandC = {}
+}
+
+local ar =
+[
+	{
+		CheckMoveName="Mv_Atk_StdA",
+		UpdateMoveName="Mv_Atk_StdB",
+	},
+	{
+		ResetTmplName="Atk_StdB",
+		CheckMoveName="Mv_Atk_StdB",
+		UpdateMoveName="Mv_Atk_StdC",
+	},
+	{
+		ResetTmplName="Atk_StdC",
+		CheckMoveName="Mv_Atk_StdC",
+		UpdateMoveName="Mv_Skill_236A",
+	},
+	{
+		ResetTmplName="Skill_236A",
+		CheckMoveName="Mv_Skill_236A",
+		UpdateMoveName="Mv_Skill_SSRelayAtk",
+		CmdCheck = 
+		{
+			SkillType = "AddCommand",
+			FrameIDCheck = { Only = [110,120] },
+		}
+		CmdTmplFlags=def_CMDFlags_AnnounceSmaetSteer, //スマートステアアナウンスの追加
+	},
+	{
+		CheckMoveName="Mv_Skill_SSRelayAtk",
+		UpdateMoveName="Mv_Skill_41236SP",
+		CmdCheck = 
+		{
+			Cost = { ComboGauge = "OverLiberate" },
+			SkillType = "SpSpecial",
+			HitStatus="Damage",
+		}
+	},
+]
+Battle_Std.MakeStdCombo( t, ar );
+
+YUUKI_CommandTable <- Battle_Std.MakeCommandTable( { command=t } );

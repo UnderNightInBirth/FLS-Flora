@@ -1,0 +1,19 @@
+Battle_Status <-
+{
+	AttackRate = 100, // 最終攻撃力修正係数
+	SeedGaugeCorrectValue_Plus = 100, // seedgaugeプラス方向の変動補正値
+	SeedGaugeCorrectValue_Minus = 100, // seedgaugeマイナス方向の変動補正値
+
+	ScratchDamageVal_Atk = 65, // 削りダメージ、攻撃時
+	ScratchDamageVal_Def = 110, // 削りダメージ、防御時
+	ScratchDamageVal_ExDef = 110, // 削りダメージ、ジャストディフェンス
+
+	// HP分割値と総体力（上位から見る）
+	// HpDivValue = [ 9500 ], // EL
+	// HpDivValue = [ 10000 ], // st3.11
+	// HpDivValue = [ 10000 ], // st3.20
+	HpDivValue = [ 10300 ],
+
+}
+
+Battle_Std.InsertTable( Battle_Status, Battle_Std.GetStd_BattleStatusTable() ); //デフォルト
