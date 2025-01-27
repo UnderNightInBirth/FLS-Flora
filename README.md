@@ -26,6 +26,15 @@ FLS Flora transforms the UNI2 experience with:
 - ~~Potential secrets and bosses to fight~~ (Workin' on it!)
 - A wonderful and relaxed support community which consistently predicts the future(?)
 
+## Characters
+
+- Riesbyfe Strindvari
+- Ingrid (Capcom)
+- Edmond Dantes
+- Ako (DFCI)
+- FLS Ryu (a.k.a. Evil Ryu)
+- And more to come!
+
 Not everything is complete, and many more things are to come as contributors add their edits to the game.
 
 ![image](https://github.com/user-attachments/assets/e6cd74ff-6541-4a00-9cc3-82fa474f20d9)
