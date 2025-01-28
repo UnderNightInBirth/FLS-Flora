@@ -162,6 +162,18 @@ t.Mv_Atk_Std6B <-
     }
 }
 
+t.Mv_Atk_CroC <-
+{
+    function FrameUpdate_After()
+    {
+        local s = BMvTbl.GetMvStatus();
+        if( (s.FrameID==50 || s.FrameID==500) && (BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 1) ) // Check if we're installed on either version of the move for more distance
+        {
+            BMvTbl.SetVector( { x=200, flags=_Vector_Normal|_VecFlag_Add } );
+        }
+    }
+}
+
 t.Mv_Atk_Std6C <-
 {
     function FrameUpdate_After()
