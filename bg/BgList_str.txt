@@ -37,4 +37,4 @@
 041 = Hillside Under the Hollow Night
 090 = <GR_BG_Stage090>
 091 = Moonlit Training Stage
-099 = Tatami Room
+045 = Tatami Room
