@@ -83,17 +83,6 @@ t.Mv_Obj_Farts <-
 	}
 }
 
-t.Mv_Neutral <- // TODO I need to get rid of this
-{
-    function FrameUpdate_After()
-    {
-        local s = BMvTbl.GetMvStatus();
-        if ( (s.FrameID == 10) && (s.MvCount >= 200) && (BMvEff.Random_Limit(90) == 1) ) // Randomize Taunt
-        {
-            BMvTbl.JumpFrameID( 20 );
-        }
-    }
-}
 
 t.Mv_Walk_F <- { function FrameUpdate_After() { BMvTbl.SetVector( { x=1000, y=0, addx=0, addy=0, flags=_Vector_Normal } ); } }
 t.Mv_Walk_B <- { function FrameUpdate_After() { BMvTbl.SetVector( { x=-880, y=0, addx=0, addy=0, flags=_Vector_Normal } ); } }
