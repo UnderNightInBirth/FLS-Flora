@@ -431,33 +431,6 @@ t.Mv_Throw_A_Hit <-
 	}
 }
 
-
-t.Mv_ComboLiberate <- 	//Veil Off Combo
-{
-	function FrameUpdate_After()
-	{
-		switch( Battle_Std.GetUpdateFrameID() )
-		{
-		case 40:
-			BMvEff.CreateObject( { mvname="Mv_BloodCutin" } );
-			break;
-		}
-	}
-}
-
-t.Mv_Liberate <- 	//Veil Off
-{
-	function FrameUpdate_After()
-	{
-		switch( Battle_Std.GetUpdateFrameID() )
-		{
-		case 40:
-			BMvEff.CreateObject( { mvname="Mv_BloodCutin" } );
-			break;
-		}
-	}
-}
-
 //-----------------------------------------------------------------------------
 // 空中ダッシュ
 //-----------------------------------------------------------------------------
@@ -484,52 +457,6 @@ t.Mv_MultiJump_B <-
 	}
 }
 
-t.Mv_Skill_J0202B <- 
-{
-	function Init_After()
-	{
-		BMvTbl.AddAirCount( 1, 1 ); // 空中で何度も出せないようにする
-		Battle_Std.MoveCodeEx.AddFlag( 7, def_MC7_AirAssult ); // 空中アサルト扱い
-		
-		Battle_Std.MoveCode.AddFlag( def_MC_CharaFlag2 ); //エリアル属性を解除するMv
-	}
-	function FrameUpdate_After()
-	{
-		switch( Battle_Std.GetUpdateFrameID() )
-		{
-		case 100:
-			break;
-		case 500:
-			//行動可能にして先行入力を受け付ける
-			BMvTbl.SetCommandLongDelay(2); //受付時間増加（先行入力用）
-			break;
-		}
-	}
-}
-
-t.Mv_Skill_Melty_AirDash_F <-
-{
-	function Init_After()
-	{
-		BMvTbl.AddAirCount( 1, 1 ); // 空中で何度も出せないようにする
-		Battle_Std.MoveCodeEx.AddFlag( 7, def_MC7_AirAssult ); // 空中アサルト扱い
-		
-		Battle_Std.MoveCode.AddFlag( def_MC_CharaFlag2 ); //エリアル属性を解除するMv
-	}
-	function FrameUpdate_After()
-	{
-		switch( Battle_Std.GetUpdateFrameID() )
-		{
-		case 100:
-			break;
-		case 500:
-			//行動可能にして先行入力を受け付ける
-			BMvTbl.SetCommandLongDelay(2); //受付時間増加（先行入力用）
-			break;
-		}
-	}
-}
-
 //-----------------------------------------------------------------------------
 // イベント
 //-----------------------------------------------------------------------------
@@ -540,16 +467,6 @@ t.Mv_Startup <-
 	{
 		BMvEff.CreateObject( { mvname="Mv_Null_BattleMain" } );
 	}
-}
-
-//-----------------------------------------------------------------------------
-// 連打コンボ
-//-----------------------------------------------------------------------------
-
-t.Mv_Atk_SSRelayAtk <- {};
-
-t.Mv_Atk_RapidFinishAtk <-
-{
 }
 
 //-----------------------------------------------------------------------------
@@ -592,22 +509,6 @@ t.Mv_Atk_StdA <-
 	}
 }
 
-t.Mv_Atk_StdB <-
-{
-	function Init_After()
-	{
-	}
-}
-
-
-t.Mv_Atk_StdC <-
-{
-	function Init_After()
-	{
-	}
-}
-
-
 t.Mv_Atk_CroA <-
 {
 	function Init_After()
@@ -640,23 +541,6 @@ t.Mv_Atk_CroA <-
 	function LastUpdate_After()
 	{
 		BMvTbl.SetHan6LayerMask( { val = 0 } ); // レイヤーマスクを元に戻す
-	}
-}
-
-t.Mv_Atk_CroB <-
-{
-	function Init_After()
-	{
-	}
-	function HitInterrupt_After()
-	{
-	}
-}
-
-t.Mv_Atk_CroC <-
-{
-	function Init_After()
-	{
 	}
 }
 
@@ -710,13 +594,6 @@ t.Mv_Atk_AirA <-
 	}
 }
 
-t.Mv_Atk_AirB <-
-{
-	function Init_After()
-	{
-	}
-}
-
 t.Mv_Atk_AirC <-
 {
 	function Init_After()
@@ -727,8 +604,6 @@ t.Mv_Atk_AirC <-
 		Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<2), CheckFrameID=50, EndFrameID=60, SetPattern="AirC_End" } ); // ボタンホールドしてなかったらパターンジャンプ
 	}
 }
-
-t.Mv_Atk_Cro3C <- {};
 
 t.Mv_Atk_Std4C <-
 {
@@ -1710,8 +1585,6 @@ t.Mv_Skill_41236SP_End <-
 	{
 	}
 }
-
-t.Mv_Skill_SSRelayAtk <- {};
 
 //-----------------------------------------------------------------------------
 // インフィニットワースＥＸＳ

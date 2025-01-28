@@ -8,25 +8,6 @@ local t =
 	MultiJumpCancel_N = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, }	},
 	MultiJumpCancel_B = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, }	},
 	
-	// Skill_Melty_AirDash_F = { command = ["6+A+B","606", "6+D"], posstatus = _PosState_Air, flags = [ "lastdelay" ], };
-	
-	Skill_J0202B =
-	{	
-		command = ["0404","4+A+B"],
-		flags = [ "lastdelay" ],
-		function CmdBeforeFunc()
-		{
-			if( BMvTbl.AddAirCount( 1, 0 ) != 0 ) return 0; // 回数制限チェック
-				
-			return 1;
-		}
-		//高度制限をつける
-		CmdCheck = {
-			HeightLimit = 64*128, //def_POS_AirDashLimitHeight だとDBから出せないので制限をゆるくした
-			SkillType="SpecialDouji",
-		}
-	},
-	
 	Skill_236A = {},
 	Skill_236BorC = {},
 	Skill_236EX = {},
@@ -151,23 +132,6 @@ local t =
 	Atk_Cro3C = {},
 	Atk_Std4C = {},
 	Throw_A = {},
-	
-	Assault_Std =
-	{
-		command = ["null"],
-		function CmdBeforeStdFunc() { return 0; },
-	}
-	
-	Assault_Air =
-	{
-		num = def_CN_Assault_Air, name = "null", command = [ "null" ],
-		Check = function()
-		{
-			return 0;
-		}
-		UpdateTable = { name = "null", }
-	},
-	
 	
 	Skill_41236SP = {},	
 	Skill_41236SP_ABC = {},	
