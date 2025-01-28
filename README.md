@@ -2,6 +2,8 @@
 
 <img src="https://github.com/user-attachments/assets/0ce958e8-e2f4-4f7b-a095-f958366e3cf0">
 
+[![Download Latest Version](https://img.shields.io/github/last-commit/UnderNightInBirth/FLS-Flora/game?style=for-the-badge&logo=steam&logoColor=white&label=Download%20Latest%20Version&color=9370DB)](https://github.com/UnderNightInBirth/FLS-Flora/archive/refs/heads/game.zip)
+
 <br>Under Night In-Birth II **FLS Flora** ("False Flora") is a modpack, made by a few curious minds.
 
 From those behind [the comfiest UNIB resource out there](https://github.com/Fatih120/undernightinbirth), we've added sweeping changes to give the game a new coat of paint, while encouraging other visionaries to crack things open and make their own mods for the world of the Hollow Night.
