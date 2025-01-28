@@ -93,6 +93,7 @@ local t =
 	Skill_J214EX = {},
 	Skill_J214BorC = {},
 	Skill_J214A = {},
+	Skill_J63214EX = {},
 	
 	//Unused For Now
 	Skill_J63214A = {},
