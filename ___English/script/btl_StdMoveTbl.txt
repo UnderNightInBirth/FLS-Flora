@@ -354,9 +354,9 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 }
 
 {
-	local type = "立ち挑発タイプ";
+	local type = "立ち挑発タイプ"; // @@@ APPEAL / TAUNT @@@ //
 	chrparam.Param[type] <- array(CHRMAX, 0); // 0:モーション無し・挑発無し 1:モーションあり(512)・挑発あり　2:モーション無し・挑発あり
-	chrparam.Param[type][Def_ChrNo_Hyd] = 1;
+	chrparam.Param[type][Def_ChrNo_Hyd] = 1;  // 0: No taunt or sound (same as not adding) 1: Taunt and Sound 2: No taunt but voice sound
 	chrparam.Param[type][Def_ChrNo_Lin] = 1;
 	chrparam.Param[type][Def_ChrNo_Wal] = 1;
 	chrparam.Param[type][Def_ChrNo_Car] = 1;
@@ -381,6 +381,13 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Tsu] = 1;
 	chrparam.Param[type][Def_ChrNo_Kuo] = 1;
 	chrparam.Param[type][Def_ChrNo_Udu] = 1;
+	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ //
+	chrparam.Param[type][Def_ChrNo_Rie] = 1;
+	chrparam.Param[type][Def_ChrNo_Ing] = 1;
+	chrparam.Param[type][Def_ChrNo_Fat] = 1;
+	chrparam.Param[type][Def_ChrNo_Edo] = 1;
+	chrparam.Param[type][Def_ChrNo_Ako] = 1;
+	chrparam.Param[type][Def_ChrNo_Ryu] = 1;
 }
 
 {
