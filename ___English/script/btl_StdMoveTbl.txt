@@ -388,6 +388,9 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Edo] = 1;
 	chrparam.Param[type][Def_ChrNo_Ako] = 1;
 	chrparam.Param[type][Def_ChrNo_Ryu] = 1;
+	chrparam.Param[type][Def_ChrNo_Cel] = 1;
+	chrparam.Param[type][Def_ChrNo_Sak] = 1;
+	chrparam.Param[type][Def_ChrNo_Yuu] = 1;
 }
 
 {
@@ -11356,6 +11359,8 @@ Std_MoveTable.Mv_ComboLiberate <- 	//リベレート　ヴェールオフ
 		//【トロフィー】実戦でクロスキャストヴェールオフを使用した。
 		// BMvTbl.Achievement_Unlock(2);
 		
+		Battle_Std.SetEXCutinGrp( { x=0, y=-200, frame=def_FL_EXCutinBGChangeTime } ); // @@@@@@@@ HYPE @@@@@@@@ //
+
 		Battle_Std.MoveCode.AddFlag( def_MC_EXAction ); // 行動コード(ＥＸ)を追加
 		BMvTbl.SetMvAction( def_MVA_EXSystem );
 		Battle_Std.MoveCodeEx.AddFlag( 2, def_MC2_SysAtk ); // システム的な攻撃
