@@ -1,3 +1,6 @@
+# This file needs to exist to make sure people can download the repo properly
+# without github messing up the line endings and causing issues ingame.
+# You can safely delete this file after downloading, if you want.
 *.csv text=auto eol=crlf
 *.ini text=auto eol=crlf
 *.txt text=auto eol=crlf
