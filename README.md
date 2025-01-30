@@ -4,29 +4,21 @@
 
 [![Download Latest Version](https://img.shields.io/github/last-commit/UnderNightInBirth/FLS-Flora/game?style=for-the-badge&logo=steam&logoColor=white&label=Download%20Latest%20Version&color=9370DB)](https://github.com/UnderNightInBirth/FLS-Flora/archive/refs/heads/game.zip)
 
-<br>Under Night In-Birth II **FLS Flora** ("False Flora") is a modpack, made by a few curious minds.
-
-From those behind [the comfiest UNIB resource out there](https://github.com/Fatih120/undernightinbirth), we've added sweeping changes to give the game a new coat of paint, while encouraging other visionaries to crack things open and make their own mods for the world of the Hollow Night.
+<br>**FLS Flora** ("False Flora") is a modpack for Under Night In-Birth II. It's a group effort behind the humble [documentation repo](https://github.com/Fatih120/undernightinbirth), adding sweeping changes to the game to show off some cool new characters in a fresh coat of paint - all while showcasing how easy it is for anyone to jump in and start modding UNI2 for themselves.
 
 <img src="https://github.com/user-attachments/assets/910eea11-de55-41d4-9f73-1ca1abc3cb00">
 
 </div>
 
-:warning: This repo is in an ALPHA STATE. Some functions are release-ready, some things are not. Character progress is here and there depending on who you ask. That said, you can still launch the game and enjoy, even on Network, but there will be bugs and potentially crashes for the WIP characters.
-
-<br>
+:warning: This repo is in an [ALPHA STATE](manual/ROADMAP.md). Characters are in varied progress. You can still launch the game and enjoy, even on Network, but not everything is ready!
 
 FLS Flora transforms the UNI2 experience with:
-- Custom characters, both ported and from-scratch (Workin' on it!)
-- A unique look and feel (Workin' on it!)
+- Custom (in-progress) characters, both ported and from-scratch
+- A new look and feel
 - Lots of BGMs to tune in to
-- Stages ported from a familiar game and edited to feel "nightly"
-- Neat touches and an attempt to make edits seem not-out-of-place
+- Ported Type Lumina stages with nighttime edits
 - Network play with users of the same mod
-- Working Missions and other customizable goodies (Workin' on it!)
-- Characters with their own Arcade Stories (Workin' on it!)
-- ~~Potential secrets and bosses to fight~~ (Workin' on it!)
-- A wonderful and relaxed support community which consistently predicts the future(?)
+- The most relaxed support community around
 
 ## Characters
 
@@ -35,14 +27,13 @@ FLS Flora transforms the UNI2 experience with:
 - Edmond Dantes
 - Ako (DFCI)
 - FLS Ryu (a.k.a. Evil Ryu)
-- And more to come!
-
-Not everything is complete, and many more things are to come as contributors add their edits to the game.
+- [And more to come!](manual/ROADMAP.md)
 
 ![image](https://github.com/user-attachments/assets/e6cd74ff-6541-4a00-9cc3-82fa474f20d9)
 ![image](https://github.com/user-attachments/assets/e35b130e-ab66-4b3c-9e17-764192a0be3e)
 ![image](https://github.com/user-attachments/assets/f24655d4-ce5a-49d3-862f-9d033d8308ca)
 
+[A VOD of some online matches in action can be watched here.](https://youtu.be/mOypLX7B9Ok?t=1454)
 
 # Installing
 
@@ -58,7 +49,7 @@ Launch the game and you should be good to go! Just avoid playing online with str
 
 # Contributing
 
-This mod is a joint effort among those who spent the time learning the intricacies of the game engine. If you have ideas, want to learn how to add content, or just have a few small contributions such as palettes, you are free to make a pull request, discussion, or a shout-out within or outside the repo. Certain things might need heavy considerations such as characters that skew the game plenty, but we'll do our best to communicate.
+This mod is a joint effort among those who spent the time learning the intricacies of the game engine. If you have ideas, want to learn how to add content, or just have a few small contributions such as palettes, you are free to make a pull request or join the discussion on (unfortunately) Discord. Any shoutouts, playtests, and videos are welcome and appreciated!
 
 [![Steam](https://img.shields.io/badge/Steam-231f20?logo=steam)](https://steamcommunity.com/id/Fatih120/)
 [![Discord](https://img.shields.io/badge/Discord-220077?logo=discord)](https://discord.com/invite/Cy27FNfQtc)
