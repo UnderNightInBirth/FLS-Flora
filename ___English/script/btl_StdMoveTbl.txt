@@ -388,8 +388,8 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Edo] = 1;
 	chrparam.Param[type][Def_ChrNo_Ako] = 1;
 	chrparam.Param[type][Def_ChrNo_Ryu] = 1;
-	chrparam.Param[type][Def_ChrNo_Cel] = 1;
-	chrparam.Param[type][Def_ChrNo_Sak] = 1;
+	// chrparam.Param[type][Def_ChrNo_Cel] = 1;
+	// chrparam.Param[type][Def_ChrNo_Sak] = 1;
 	chrparam.Param[type][Def_ChrNo_Yuu] = 1;
 }
 
