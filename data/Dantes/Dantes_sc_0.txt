@@ -1,10 +1,10 @@
-_dp("\n[_sc.txt]");
-
 Battle_Status <-
 {
-	HpDivValue = [ 12000 ],
-	VS_AtkVal = 36, // デフォルト38　※やや回復エリアが残りやすい
+	AttackRate = 100, // ATK output
+	SeedGaugeCorrectValue_Plus = 100, // seedgaugeプラス方向の変動補正値
+	SeedGaugeCorrectValue_Minus = 100, // seedgaugeマイナス方向の変動補正値
+
+	HpDivValue = [ 10700 ],
 }
 
 Battle_Std.InsertTable( Battle_Status, Battle_Std.GetStd_BattleStatusTable() ); //デフォルト
-_dp(" -> Load OK");

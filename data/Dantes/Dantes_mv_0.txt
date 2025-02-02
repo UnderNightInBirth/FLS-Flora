@@ -1685,3 +1685,4 @@ t.Mv_Skill_IWEXIST_End <-
 
 
 DANTES_MoveTable <- Battle_Std.MakeMoveTable( t, DANTES_CommandTable, Def_ChrNo_Edo );
+__dofile__("./data/Dantes/Dantes_se_category.txt");
