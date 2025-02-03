@@ -8,7 +8,8 @@ Even with an entire lifetime, your could never best it.
 \e
 
 WinMes01:
-You mocked my slim figure. I'll have you know that these fists can generate around five tons...
+You mocked my slim figure.
+I'll have you know that these fists can generate around five tons...
 Ah, that's overdoing it... Um, TWO tons of force.
 ...Don't underestimate the strength of a musician.
 \e
@@ -38,7 +39,8 @@ Hmm... Is this what victory lines are supposed to sound like?
 
 WinMes06:
 How strong...
-There was no way I should have won, especially with a spine far sturdier than mine and superior magical power.
+There was no way I should have won,
+especially with a spine far sturdier than mine and superior magical power.
 But as a pile bunker wielder, it appears that Gamaliel's abilities barely won out.
 \e
 
