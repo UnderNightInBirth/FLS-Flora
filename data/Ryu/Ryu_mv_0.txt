@@ -4,6 +4,20 @@ local t = {};
 // 固有関数
 //-----------------------------------------------------------------------------
 
+// Vorpal Lower Jump Arc
+local VTrait = function()
+{
+    local win = BMvEff.GRD_GetJudgeResult();
+
+    if( win )
+    {
+		BMvTbl.SetVector( { y=60, flags=_Vector_Normal|_VecFlag_Add } );
+    }
+}
+
+t.Mv_Jump_N <- { function FrameUpdate_After() : (VTrait) { VTrait(); } }
+t.Mv_Jump_F <- { function FrameUpdate_After() : (VTrait) { VTrait(); } }
+t.Mv_Jump_B <- { function FrameUpdate_After() : (VTrait) { VTrait(); } }
 
 // ニュートラルジャンプからの攻撃かチェック
 local check_BackJump = function()
@@ -109,10 +123,10 @@ t.Mv_Throw_F_Hit <-
 		//	BMvEff.CameraShift_Set( { x=0, y=-550*128, flags=_Position_ChangeMuki } );
 		//	break;
 		case 500: //切り離し
-			Battle_Std.SetThrowEnemyMuteki( 0 ); // 投げ中の相手に無敵時間を設定
+			// Battle_Std.SetThrowEnemyMuteki( 0 ); // 投げ中の相手に無敵時間を設定
 			//BMvEff.CameraShift_Clear(); //ここで叩きつけ
 			BMvEff.ThrowParam( { pattern=332, x=350, y=-100, } );
-			BMvEff.ThrowRelease( { type="斜め下バウンド", airrecover=0, flags=_ThrowRelease_NoGroundRecover } );
+			BMvEff.ThrowRelease( { type="鋭角斜め下バウンド", airrecover=0, flags=_ThrowRelease_NoGroundRecover } );
 			break;
 		}
 	}
@@ -230,34 +244,8 @@ t.Mv_Atk_StdC <-
 	//}
 }
 
-t.Mv_Atk_AirA <-
-{
-}
-
-t.Mv_Atk_AirB <-
-{
-	//function Init_After() //: (check_NeutralJump)
-	//{
-	//	//垂直ジャンプからだったら別パターンにする
-	//	//if( check_NeutralJump()==1 )
-	//	//{
-	//	//	BMvTbl.SetPattern("JumpN_JB");
-	//	//	Battle_Std.MoveCodeEx.AddFlag( 1, def_MC1_CharaFlag3 );
-	//	//}
-	//}
-	//function FrameUpdate_After()
-	//{
-	//	//地上アサルトJBは、でかかり屈に空振りするように
-	//	local mvs = BMvTbl.GetMvStatus();
-	//	if( mvs.Param2&4 )
-	//	{
-	//		if( Battle_Std.ChangeMoveCodeEx_CheckFlag( 7, def_MC7_StdAssult ) )
-	//		{
-	//			BMvTbl.SetAtkGuardFlag( { guard=_GuardFlag_ThroughCrouch, time=4, flag=_ClearFlag_ChangeFrame } );
-	//		}
-	//	}
-	//}
-}
+t.Mv_Atk_AirA <- { function FrameUpdate_After() : (VTrait) { VTrait(); } }
+t.Mv_Atk_AirB <- { function FrameUpdate_After() : (VTrait) { VTrait(); } }
 
 t.Mv_Atk_Air2B <-
 {
@@ -265,23 +253,50 @@ t.Mv_Atk_Air2B <-
 	{
 		Battle_Std.EnemyDamageFlag_Del( def_DF_JumpCanseled ); // 「ジャンプキャンセルをされた」を相手に記憶
 	}
+	function FrameUpdate_After() : (VTrait) { VTrait(); }
 }
 
-t.Mv_Atk_AirC <-
-{
-	function Init_After() //: (check_NeutralJump)
-	{
-		//垂直ジャンプからだったら別パターンにする
-		//if( check_NeutralJump()==1 )
-		//{
-		//	BMvTbl.SetPattern("JumpN_JC");
-		//	Battle_Std.MoveCodeEx.AddFlag( 1, def_MC1_CharaFlag3 );
-		//}
-	}
-}
+t.Mv_Atk_AirC <- { function FrameUpdate_After() : (VTrait) { VTrait(); } }
 
 t.Mv_Atk_CroA <-
 {
+	function Init_Before()
+	{
+		BMvTbl.SetLP(0,0); //FrameIDの飛び先指定
+		local s = BMvTbl.GetMvStatus();
+		if( s.DataPattern == def_PAT_Atk_CroA )
+		{
+			//FrameIDみてどっちに派生するか決める
+			local s = BMvTbl.GetMvStatus();
+			if( s.FrameID==100 || s.FrameID==110 )
+			{
+				BMvTbl.SetLP(0,1);
+			}
+			else if( s.FrameID==200 || s.FrameID==210 )
+			{
+				BMvTbl.SetLP(0,2);
+			}
+		}
+	}
+	function Init_After()
+	{
+		switch( BMvTbl.GetLP(0) )
+		{
+			case 1: //２回目
+				{
+					BMvTbl.JumpFrameID(101);
+				}
+				break;
+			case 2: //３回目
+				{
+					BMvTbl.JumpFrameID(201);				
+				}
+				break;
+		}
+		BMvTbl.SetLP(0,0); //一応初期化
+		
+		BMvTbl.SetHitCheckFlag( { type=1, val=_HitCheckFlag_Legs|Def_HitCheckFlag_LightLegs, time=255, flag=_ClearFlag_ChangeMv } ); // 足無敵と小足無敵にスカる
+	}
 }
 
 t.Mv_Atk_CroB <-
@@ -303,33 +318,6 @@ t.Mv_Atk_CroC <-
 //-----------------------------------------------------------------------------
 // 二段ジャンプ
 //-----------------------------------------------------------------------------
-
-t.Mv_Jump_F <-
-{
-	function Init_After()
-	{
-		//BMvTbl.SetLP(0,1);
-		//BMvEff.AttackInfoString_Set({word="LP 0 = 1",});
-	}
-}
-
-t.Mv_Jump_N <-
-{
-	function Init_After()
-	{
-		//BMvTbl.SetLP(0,1);
-		//BMvEff.AttackInfoString_Set({word="LP 0 = 1",});
-	}
-}
-
-t.Mv_Jump_B <-
-{
-	function Init_After()
-	{
-		//BMvTbl.SetLP(10,1);
-		//BMvEff.AttackInfoString_Set({word="LP 0 = 1",});
-	}
-}
 
 t.Mv_Jump_Land <-
 {
@@ -976,13 +964,23 @@ t.Mv_Skill_623EX <-
 		switch( Battle_Std.GetUpdateFrameID() )
 		{
 			case 10:
-				BMvTbl.SetMuki(_Direction_Auto );
+				if ( BMvEff.GRD_GetJudgeResult() )
+				{
+					BMvTbl.SetMuki(_Direction_Auto );
+				}
 				break;	
 		}
 	}
 	function LastUpdate_After()
 	{
 		BMvEff.PcAfterImage_Clear();
+	}
+	function HitInterrupt()
+	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			Battle_Std.SetPosition_DamageHanteiRect( { power=100 } );
+		}
 	}
 }
 

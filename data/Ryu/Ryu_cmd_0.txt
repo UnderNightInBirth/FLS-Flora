@@ -103,7 +103,7 @@ local t =
 	Atk_Std6B = {},
 	Atk_Std4C = {},
 	Atk_Std6C = {},
-	Atk_Cro3B = {},
+	// Atk_Cro3B = {},
 	Atk_Cro3C = {},
 	Atk_Air2B = {},
 	
@@ -114,6 +114,25 @@ local t =
 	Skill_41236A = {},
 	Skill_41236B = {},
 	Skill_41236EX = {command = ["412@N,2@@D,8@36C"],},
+	
+	Skill_CroA_A = 
+	{
+		num = def_CN_Atk_AddCommand1,
+		command = ["v+A"],
+		flags = ["lastdelay"],
+		function CmdBeforeFunc()
+		{
+			local s = BMvTbl.GetMvStatus();
+			if( s.FrameID != 110 && s.FrameID != 210 ) return 0;
+			return 1;
+		},
+		CmdCheck = 
+		{
+			SkillType = "AddCommand", MvCheck = { Only = ["Mv_Atk_CroA"] },
+		},
+		UpdateTable = { name = "Mv_Atk_CroA", }
+	},
+	
 	
 }
 
