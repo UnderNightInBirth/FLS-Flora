@@ -115,65 +115,23 @@ local t =
 	},
 	
 	Skill_020202EX = {
-		command = [ "@R,1@C","41236^C","63214^C", "4136^C","6314^C","4236^C","4126^C","6214^C","6324^C" ], usegauge = 20000,
+		command = [ "@R,1@C","41236^C","63214^C", "4136^C","6314^C","4236^C","4126^C","6214^C","6324^C", ], usegauge = 20000,
 		Cost = { ComboGauge = 20000 },
 		CmdCheck = { SkillType="ExSpecialJump", Cost = { ComboGauge = "OverLiberate" } } , //idk about exspecialjump, but this wont be air usable anyway :D
 		function CmdBeforeFunc()
 		{ // Check that we're in VO from 200% and we did not Beast Mode this round
-			return( (BMvEff.Liberate_Get() == 2) && BMvTbl.GetLP(11) != 1 ) ? 1 : 0;
+			return( (BMvEff.Liberate_Get() == 2) && (BMvTbl.GetPP(11) == 0)  ) ? 1 : 0;
 		},
 	},	
 	
 
-	MultiJump_F =
-	{
-		function CmdBeforeStdFunc()
-		{
-			if ( BMvTbl.GetLP(10) == 1 ) return 1;
-			return 0;
-		},
-	},
-	MultiJump_N =
-	{
-		function CmdBeforeStdFunc()
-		{
-			if ( BMvTbl.GetLP(10) == 1 ) return 1;
-			return 0;
-		},
-	},
-	MultiJump_B =
-	{
-		function CmdBeforeStdFunc()
-		{
-			if ( BMvTbl.GetLP(10) == 1 ) return 1;
-			return 0;
-		},
-	},
+	MultiJump_F = { function CmdBeforeStdFunc() { return BMvTbl.GetPP(10) == 1 ? 1 : 0; } },
+	MultiJump_N = { function CmdBeforeStdFunc() { return BMvTbl.GetPP(10) == 1 ? 1 : 0; } },
+	MultiJump_B = { function CmdBeforeStdFunc() { return BMvTbl.GetPP(10) == 1 ? 1 : 0; } },
+	MultiJumpCancel_F = { function CmdBeforeStdFunc() { return BMvTbl.GetPP(10) == 1 ? 1 : 0; } },
+	MultiJumpCancel_N = { function CmdBeforeStdFunc() { return BMvTbl.GetPP(10) == 1 ? 1 : 0; } },
+	MultiJumpCancel_B = { function CmdBeforeStdFunc() { return BMvTbl.GetPP(10) == 1 ? 1 : 0; } },
 
-	MultiJumpCancel_F =
-	{
-		function CmdBeforeStdFunc()
-		{
-			if ( BMvTbl.GetLP(10) == 1 ) return 1;
-			return 0;
-		},
-	},
-	MultiJumpCancel_N =
-	{
-		function CmdBeforeStdFunc()
-		{
-			if ( BMvTbl.GetLP(10) == 1 ) return 1;
-			return 0;
-		},
-	},
-	MultiJumpCancel_B =
-	{
-		function CmdBeforeStdFunc()
-		{
-			if ( BMvTbl.GetLP(10) == 1 ) return 1;
-			return 0;
-		},
-	},
 
 
 

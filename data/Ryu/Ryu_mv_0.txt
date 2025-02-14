@@ -7,7 +7,7 @@ local t = {};
 // Vorpal Lower Jump Arc
 local VTrait = function()
 {
-    local win = BMvEff.GRD_GetJudgeResult();
+    local win = BMvEff.GRD_GetJudgeResult() > 0;
 
     if( win )
     {

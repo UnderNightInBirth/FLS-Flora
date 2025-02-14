@@ -1,19 +1,16 @@
-//コマンドテーブル skillは格ゲーコマンド表記
-btl_debPrint2("\n[ING_CommandTable]");
-
 local t =
 {
 
-	MultiJump_F = {},
-	MultiJump_N = {},
-	MultiJump_B = {},
+	MultiJump_F = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, } },
+	MultiJump_N = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, } },
+	MultiJump_B = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, } },
 
 	MultiJumpCancel_F = { function CmdBeforeFunc()
-	{ if (BMvEff.GRD_GetJudgeResult()==0) {return 0}; } },
+	{ if (BMvEff.GRD_GetJudgeResult()<=0) {return 0}; } },
 	MultiJumpCancel_N = { function CmdBeforeFunc()
-	{ if (BMvEff.GRD_GetJudgeResult()==0) {return 0}; } },
+	{ if (BMvEff.GRD_GetJudgeResult()<=0) {return 0}; } },
 	MultiJumpCancel_B = { function CmdBeforeFunc()
-	{ if (BMvEff.GRD_GetJudgeResult()==0) {return 0}; } },
+	{ if (BMvEff.GRD_GetJudgeResult()<=0) {return 0}; } },
 
 	Skill_236236EX =
     {

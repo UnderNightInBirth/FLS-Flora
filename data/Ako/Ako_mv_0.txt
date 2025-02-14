@@ -2152,7 +2152,7 @@ local maketmpl_Heal = function( param={} ) : (pat_num_healLoop, buffParam)
 				
 				healVal = calcHealVal( healVal ); // 状況に応じてヒール量を計算
 				
-				local vorpal = BMvEff.GRD_GetJudgeResult();
+				local vorpal = BMvEff.GRD_GetJudgeResult() > 0;
 				
 				if( use_param.isHeal )
 				{

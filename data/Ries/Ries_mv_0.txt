@@ -58,17 +58,18 @@ t.Mv_Startup <-
     function Init_After()
     {
 		BMvTbl.SetLP(11, 0); // Reset the Beast Mode once-per-round counter
-		
+		BMvTbl.SetPP(10, 0); // Set flag to not allow multijump
+
         if( Battle_Std.CheckTrainingCharaGaugeMode() ) // Check if we're in training with character specifics on
         {
             BMvEff.GRD_SetBreak( 0, def_GRDBF_NormalAtkDmg, def_GRDBF_NormalAtkDmg ); // GRD Break
             BMvTbl.SetPP(CDef_Rie_PP_DragonInstall, 1); // Installed
             BMvTbl.SetPP(CDef_Rie_PP_InstallTimer, 999999); // Practically Infinite Timer
-			BMvTbl.SetLP(10,1); // Installed
+			BMvTbl.SetPP(10,1); // Installed
             BMvEff.CreateObject( { mvname="Mv_Obj_BeastMode" } );
 			Battle_Std.CreateObjectEX( { x=-130, y=-512, pat=962, mvname="Mv_Obj_Farts",  flags=_Position_ToolShift } );
 			Battle_Std.CreateObjectEX( { x=-128, y=-512, pat="Timer", mvname="Mv_Obj_Timer", flags=_Position_ToolShift } );
-
+			
 
         }
     }
@@ -1136,7 +1137,7 @@ t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
             BMvEff.GRD_SetBreak( 0, breaktime, breaktime ); // GRD break
             BMvTbl.SetPP(Installed, InstallTimer); // Set a bunch of variables
             BMvTbl.SetPP(CDef_Rie_PP_DragonInstall, 1);
-            BMvTbl.SetLP(11, 1); // Set limit once per round
+            BMvTbl.SetPP(11, 1); // Set limit once per round
 			
 			
 			local HPmult = ( 100 - BCMDTbl.GetHPRatio() ) * 6.6; // Get inverse HP %, *6 multiplier
@@ -1160,7 +1161,7 @@ t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
                 BMvEff.SetBoundSt( { addtime = 300 } ); // ‚Ì‚¯‚¼‚è‘‰Á
                 enemy.pop();
             }
-			BMvTbl.SetLP(10,1);
+			BMvTbl.SetPP(10,1);
             BMvEff.CreateObject( { mvname="Mv_Obj_BeastMode" } );
 			Battle_Std.CreateObjectEX( { x=-128, y=-480, pat="Timer", mvname="Mv_Obj_Timer", flags=_Position_ToolShift } );
 			BMvEff.SetBgSpeculer( { color=0x00999999 } );
@@ -1365,7 +1366,7 @@ t.Mv_Obj_BeastMode <- // TODO This is the visual timer, time to make it into a r
         BMvEff.AttackInfoString_Set({ word = og });
         if (player.push() )
         {
-			BMvTbl.SetLP(10,0);
+			BMvTbl.SetPP(10,0);
             Battle_Std.MoveCodeEx.DelFlag(6, def_MC6_EnableCansel_JumpMoveable);
             Battle_Std.MoveCode.DelFlag( def_MC_EnableCansel_SkilltoSkill);
             Battle_Std.MoveCode.DelFlag( def_MC_EnableCansel_SkilltoAtk);
