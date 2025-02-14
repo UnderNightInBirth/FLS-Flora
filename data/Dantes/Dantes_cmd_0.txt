@@ -1,6 +1,10 @@
 local t =
 {
 
+	Atk_StdBandC = {},
+	Atk_AirBandC = {},
+
+
 	MultiJump_F = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, }	},
 	MultiJump_N = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, }	},
 	MultiJump_B = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, }	},
@@ -11,14 +15,14 @@ local t =
 	Skill_236A = {},
 	Skill_236BorC = {},
 	Skill_236EX = {},
-	Skill_236BC = { 
-		command = ["6+B+C"],
-		function CmdBeforeFunc()
-		{
-			if( BMvEff.GRD_CheckStock({val=-1}) < 1 ) return 0;
-			return 1;
-		}
-	},
+	// Skill_236BC = { 
+		// command = ["6+B+C"],
+		// function CmdBeforeFunc()
+		// {
+			// if( BMvEff.GRD_CheckStock({val=-1}) < 1 ) return 0;
+			// return 1;
+		// }
+	// },
 	Skill_236A_AddA = {
 		num = def_CN_Skill_AddCommand8,
 		command = ["A"],
@@ -40,14 +44,14 @@ local t =
 	Skill_623A = {},
 	Skill_623BorC = {},
 	Skill_623EX = {},
-	Skill_623BC = { 
-		command = ["3+B+C"],
-		function CmdBeforeFunc()
-		{
-			if( BMvEff.GRD_CheckStock({val=-1}) < 1 ) return 0;
-			return 1;
-		}
-	},
+	// Skill_623BC = { 
+		// command = ["3+B+C"],
+		// function CmdBeforeFunc()
+		// {
+			// if( BMvEff.GRD_CheckStock({val=-1}) < 1 ) return 0;
+			// return 1;
+		// }
+	// },
 	
 	Skill_214A = {},
 	Skill_214A_Add = {
@@ -93,38 +97,38 @@ local t =
 	
 	Skill_214BorC = {},
 	Skill_214EX = {},
-	Skill_214BC = { 
-		command = ["4+B+C"],
-		function CmdBeforeFunc()
-		{
-			if( BMvEff.GRD_CheckStock({val=-1}) < 1 ) return 0;
-			return 1;
-		}
-	},
+	// Skill_214BC = { 
+		// command = ["4+B+C"],
+		// function CmdBeforeFunc()
+		// {
+			// if( BMvEff.GRD_CheckStock({val=-1}) < 1 ) return 0;
+			// return 1;
+		// }
+	// },
 	
 	Skill_J236A = {},
 	Skill_J236BorC = {},
 	Skill_J236EX = {},
-	Skill_J236BC = { 
-		posstatus = _PosState_Air, command = ["6+B+C"],
-		function CmdBeforeFunc()
-		{
-			if( BMvEff.GRD_CheckStock({val=-1}) < 1 ) return 0;
-			return 1;
-		}
-	},
+	// Skill_J236BC = { 
+		// posstatus = _PosState_Air, command = ["6+B+C"],
+		// function CmdBeforeFunc()
+		// {
+			// if( BMvEff.GRD_CheckStock({val=-1}) < 1 ) return 0;
+			// return 1;
+		// }
+	// },
 	
 	Skill_J214A = {},
 	Skill_J214BorC = {},
 	Skill_J214EX = {},
-	Skill_J214BC = { 
-		posstatus = _PosState_Air, command = ["4+B+C"],
-		function CmdBeforeFunc()
-		{
-			if( BMvEff.GRD_CheckStock({val=-1}) < 1 ) return 0;
-			return 1;
-		}
-	},
+	// Skill_J214BC = { 
+		// posstatus = _PosState_Air, command = ["4+B+C"],
+		// function CmdBeforeFunc()
+		// {
+			// if( BMvEff.GRD_CheckStock({val=-1}) < 1 ) return 0;
+			// return 1;
+		// }
+	// },
 	
 	Skill_0202EX = {},
 	

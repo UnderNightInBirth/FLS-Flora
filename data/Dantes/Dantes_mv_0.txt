@@ -4,6 +4,54 @@ local t = {}; // Collects all the move data
 // å≈óLä÷êî
 //-----------------------------------------------------------------------------
 
+t.Mv_Atk_StdBandC <-
+{
+    function FrameUpdate()
+    {
+        local s = BMvTbl.GetMvStatus();
+        if( s.FrameID==10 )
+        {
+			local corner_distance = 0; // init, we don't want to corner steal
+			local enemy = BMvCore.GetEnemyCharaData();
+			if( enemy.push() )
+			{
+				corner_distance = def_POS_GamenHajiX - ( -BMvTbl.GetPosition().x * BMvTbl.GetMuki() ); // Calc distance to corner
+				enemy.pop()
+			}
+			
+			local epos = Battle_Std.GetEnemyPosition();
+			local muki = BMvTbl.GetMuki();
+			local set_posx = 200*128*muki; // teleport offset
+			BMvTbl.SetPosition({ x=epos.x+set_posx, y=0 }); // teleport beside enemy
+
+			if ( corner_distance >= 10000 ) // Only turn around if we went around the opponent
+			{
+				BMvTbl.SetMuki( _Direction_Reverse );
+			}
+			// TODO this makes the opponent turn at a very tight margin even if we end up on same-side
+        }
+    }
+}
+
+t.Mv_Atk_AirBandC <-
+{
+    function FrameUpdate()
+    {
+        local s = BMvTbl.GetMvStatus();
+        if( s.FrameID==10 )
+        {
+			local epos = Battle_Std.GetEnemyPosition();
+			local muki = BMvTbl.GetMuki();
+			local set_posx = 256*128*muki; // teleport offset
+			local set_posy = -256*128; // teleport offset
+			BMvTbl.SetPosition({ x=epos.x+set_posx, y=epos.y+set_posy }); // teleport beside enemy
+			BMvTbl.SetMuki( _Direction_Reverse );
+			// TODO - black flame randomly appears mid teleport and idk why
+        }
+    }
+}
+
+
 t.Mv_Null_BattleMain <-
 {
 	function Init_After()

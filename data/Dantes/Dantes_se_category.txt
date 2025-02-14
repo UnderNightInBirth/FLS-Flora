@@ -5,6 +5,11 @@
 Battle_Std.SeTable[Def_ChrNo_Edo] = {};
 local se = Battle_Std.SeTable[Def_ChrNo_Edo];
 
+// se["Mv_Atk_StdBandC_FU"] <- [ { Param0=10, selist = { common = [390,370], } }, // TODO can you just work jesus christ
+							  // { Param0=20, selist = { common = [540,572], } } ];
+// se["Mv_Atk_AirBandC_FU"] <- [ { Param0=10, selist = { common = [360,370], } },
+							  // { Param0=20, selist = { common = [521,540], } } ];
+
 se["“oêƒsƒ“ƒ`"] <- {
 	selist = {
 		common = [120,121,122],
