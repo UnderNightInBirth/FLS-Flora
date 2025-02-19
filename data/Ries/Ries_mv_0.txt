@@ -142,7 +142,7 @@ t.Mv_ConvertCharge <-
                 local GRD = BMvEff.GRD_CheckStock( { val=-1 } ); // Gain proportional to GRD count
                 local distance = ( Battle_Std.GetEnemyDistance() / 10000 ); // Gain proportional to opponent proximity
                 //BMvEff.AttackInfoString_Set({ word = HP });
-                local SPadd = 25 - (HP * 0.25) + (GRD * 4) + (8 - (distance * 0.45) ); // Quick Maths
+                local SPadd = 17 - (HP * 0.17) + (GRD * 3) + (8 - (distance * 0.45) ); // Quick Maths // from 25 hp 4 grd
                 BMvEff.SetSpGauge( { value=SPadd,limitval=0.0, } );
                 //BMvEff.AttackInfoString_Set({ word = SPadd});
                 BMvCore.PopCharaData();
