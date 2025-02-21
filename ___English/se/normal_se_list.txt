@@ -133,7 +133,15 @@ st[120] =	{  file=anopath+"sys_010_s_0220", type=0, volumetype=1  }; //
 st[121] =	{  file=anopath+"sys_010_s_0221", type=0, volumetype=1  }; // 
 st[122] =	{  file=anopath+"sys_010_s_0222", type=0, volumetype=1  }; // 
 st[123] =	{  file=anopath+"sys_010_s_0223", type=0, volumetype=1  }; // 
-st[124] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // Winner
+st[124] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // 
+st[125] =	{  file=anopath+"sys_010_s_0225", type=0, volumetype=1  }; // Winner
+
+st[125] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // Winner
+st[126] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // Winner
+st[127] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // Winner
+st[128] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // Winner
+st[129] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // Winner
+st[130] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // Winner
 
 st[131] =	{  file=anopath+"sys_010_s_0301", type=-1, volumetype=1  }; // カウンターヒット
 st[132] =	{  file=anopath+"sys_010_s_0303", type=-1, volumetype=1  }; // 投げぬけ

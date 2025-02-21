@@ -12,11 +12,11 @@ Chara_Table <-
 	// ・配列数は縦x横が100未満になるように
 	SelectTable = 
 	[
-        [ 28,29,30,31,32,34,99,35,36,38,39,40,41 ],
-		[ 23,24,12,08,02,00,27,01,03,09,13,21,22 ],  // この列が初期位置
-		[ 11,19,10,06,04,16,20,17,05,07,15,18,14 ],
+        [ -1,-1,-1,38,31,29,27,28,30,32,-1,-1,-1.-1,41 ],
+		[ 11,23,24,12,08,02,00,01,03,09,13,21,22,14,99 ],
+		[ 99,20,19,10,06,04,16,17,05,07,15,18,25,99,-1 ],
 	],
-	SelectDefault = [ 27, 00 ],  // 初期位置 1P 2P
+	SelectDefault = [ 0, 1 ],  // 初期位置 1P 2P
 
 	// 強制でフラグを立てる仕様 ※セーブデータが上書きされる
 	_FileType = 0, //
@@ -34,35 +34,23 @@ Chara_Table <-
 Chara_Table.Status.resize(100); // てきとう
 local chara_no = Chara_Table.Status; // 登録しやすいように
 
-
 /*
-	Fails if name_short, name_long, and strings are missing.
-
-	name_short = is internally converted to all lowercase letters when read.
-	name_long = Full name for niche cases
-	name_str = see below
-	name_master = is used when the program wants to use a Japanese character name and its data (mainly used in the victory message chooser).
-
-	isAlive = Is the definition valid? 	1 = Valid (0 just kills the game?)
-
-	unselect = The cursor will not fit and random drawing will not be performed.
-	norandom = No longer selected in random lottery (demo lottery, character selection random).
-
-	SecretFlag = (UNUSED, DEPRACATED)
-	hide = Hidden character. -1 = Not a hidden character
-
-	hideScenario = ID of the B scenario that is unlocked when you clear the A scenario.
-	releaseScenario = Character ID of A scenario that is a release condition for B scenario.
+	※ name_short, name_long, の文字列がないと失敗
+	※ name_short は読み込み時に内部で全て小文字にされる
+	※ name_master はプログラム側から日本語キャラ名を使用したい場合とそのデータで使用される(主に勝利メッセージ抽選で使用される)
+	norandom : ランダムの抽選で選ばれなくなる（デモ抽選、キャラセレランダム）
 	
-	init = Initial character or not. 1 = Initial character (for release conditions after update, etc.)
-	DLCCharaFlag = Treats it as a DLC character and makes it unselectable if you don't own it.
+	SecretFlag : 隠しキャラ 1:隠しキャラ（昔の仕様で今は未使用）
+	isAlive : 定義が有効か 1:有効
+	hide : 隠しキャラ　-1:隠しキャラではない
+	DLCCharaFlag : DLCキャラ扱いにして非所持で選択不可にする 1:クオン　3:シーズンパス　4:ウヅキ　5:オーガ
 	
-	stage = default stage
-	bgm = default bgm
+	unselect = 1, //カーソルが合わなくなりランダム抽選もされない
 	
-	order = order in the character selection tab for Training and etc.
+	hideScenario : Aシナリオをクリアすると開放するBシナリオのID
+	releaseScenario : Bシナリオの開放条件になっているＡシナリオのキャラID
+	init : 初期キャラかどうか　1:初期キャラ(=アプデ後の解放条件など用)
 */
-
 
 // 
 chara_no[0] =
@@ -245,7 +233,7 @@ chara_no[11] =
 	stage = 6, // 琥珀色の高架下
 	bgm = 12, // Blood Drain -Again-（エルトナム）
 
-	order = 22,
+	order = 24,
 }; // 
 
 chara_no[12] = 
@@ -287,7 +275,7 @@ chara_no[14] =
 	stage = 12, // 鳴動の工業施設
 	bgm = 15, // 開戰 -Again-（アカツキ）
 
-	order = 23,
+	order = 25,
 	//norandom=1, //キャラセレ・デモのランダム抽選に入れない
 	//SecretFlag = (1<<1), // このフラグを使って出す予定はない
 }; // 
@@ -377,6 +365,8 @@ chara_no[20] =
 	bgm = 21, // （ウヅキ）	
 
 	order = 22,
+	
+	DLCCharaFlag=4, //DLCキャラ扱いにして非所持で選択不可にする
 }; // 
 
 chara_no[21] = 
@@ -420,6 +410,8 @@ chara_no[23] =
 	bgm = 24, // （クオン）
 
 	order = 21,
+
+	DLCCharaFlag=1, //DLCキャラ扱いにして非所持で選択不可にする
 }; // 
 
 chara_no[24] = 
@@ -435,6 +427,23 @@ chara_no[24] =
 	
 	order = 14,
 }; // 
+
+chara_no[25] = 
+{
+	name_short="chr025",
+	name_long="Ogre",
+	name_str="オーガ",
+	name_master="オーガ",
+	isAlive=1,
+	
+	stage = 25, // オーガステージ
+	bgm = 26, // （オーガ）	
+
+	order = 23,
+	
+	DLCCharaFlag=5, //DLCキャラ扱いにして非所持で選択不可にする
+}; // 
+
 
 chara_no[27] = 
 {
@@ -519,7 +528,6 @@ chara_no[32] =
 	
 	order = 105,
 }; // 
-
 
 chara_no[38] = 
 {

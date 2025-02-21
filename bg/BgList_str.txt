@@ -23,6 +23,7 @@
 022 = <GR_BG_Stage022>
 023 = <GR_BG_Stage023>
 024 = <GR_BG_Stage024>
+025 = <GR_BG_Stage025>
 030 = University's Gathering Spot
 031 = Metropolitan Center: Silent Crossing
 032 = Rainy Shelter by the Theatre
@@ -35,6 +36,7 @@
 039 = Sougetsu Clan Dojo
 040 = Crashing Waves by the Shoreline
 041 = Hillside Under the Hollow Night
+050 = ???
 090 = <GR_BG_Stage090>
 091 = Moonlit Training Stage
 045 = Tatami Room

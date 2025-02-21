@@ -1,0 +1,122 @@
+// COM_09:相手が行動可能の時にダッシュで近付いて特定の行動をする
+//-------------------------------------------------------------
+// com動作生成
+
+local comcount = 2; // 最大数
+local com = CCom(comcount); // COM用オブジェクト
+
+com.SetGuardAvg( 100 ); // ガード確率
+
+local stmp = 0;
+local mtmp = 0;
+
+//--------------------------------------------------------------
+{ // 何もしない
+	stmp = com.GetSkill(0);
+	stmp.checkfunc = function() // チェック
+	{
+		return 0;
+	}
+	stmp.updatefunc = function() // 採用時の更新
+	{
+		return 0;
+	}
+
+	// 
+	mtmp = stmp.PlusMove(); // 動き追加
+	mtmp.Set( 0, 0, 2, 0,  _eComMoveFlag_StickHold | _eComMoveFlag_MoveEnd );
+}
+
+// 相手が行動可能の時にダッシュで近付いて特定の行動をする
+//--------------------------------------------------------------
+{ // A>B>C>iFF
+	stmp = com.GetSkill(1);
+	stmp.checkfunc = function() // チェック
+	{
+		local st = BCom.GetStatus();
+		if( !st.IsPMoveable() ) return 0; // 行動可能じゃないとダメ
+		if( !st.CheckEState( _eComState_MoveAble ) ) return 0; // 相手が行動可能じゃないとダメ
+		if( !st.CheckPosState_Enemy( _PosState_Ground ) ) return 0; // 相手が地上じゃないとダメ
+		
+		if( st.GetMove() == 1 ) return 0; // 同じ行動中は採用しない
+	
+		return 10;
+	}
+	stmp.updatefunc = function() // 採用時の更新
+	{
+		local st = BCom.GetStatus();
+		
+		local tag = BCom.GetMoveTag();
+		
+		// 途中でダメージを受けたら抜ける
+		if( st.IsPBound() == 1 )
+		{
+			BCom.Move_End(-1);
+			return 0;
+		}
+		
+		if( tag == "dash" )
+		{
+			if( !st.CheckEState( _eComState_MoveAble ) )
+			{
+				// BCom.Move_End(-1); // 相手が行動可能じゃないとダメ
+			}
+			if( !st.CheckPosState_Enemy( _PosState_Ground ) )
+			{
+				BCom.Move_End(-1); // 相手が地上じゃないとダメ
+			}
+			if( st.GetELenX() < 128*128 ) // 近づいたら別の行動へ
+			{
+				if( !st.IsPMoveable() ) return 0; // 行動可能じゃないとダメ
+				if( !st.CheckPosState_Enemy( _PosState_Ground ) ) return 0; // 相手が地上じゃないとだめ
+				if( st.CheckEState( _eComState_Damage ) ) return 0; // 相手がやられ中はダメ
+				
+				BCom.Move_Jump("move");
+			}
+		}
+		
+		return 1;
+	}
+
+	// 特定の位置まで移動する処理
+	mtmp = stmp.PlusMove(); // 動き追加
+	mtmp.SetTag( "act_wait" );
+	mtmp.Set( 0, 0, 30, 0, 0 ); // ウェイト
+	
+	mtmp = stmp.PlusMove(); // 動き追加
+	mtmp.SetTag( "dash" );
+	mtmp.SetSpSkill( def_CN_Dash_F );
+	mtmp.Set( 6, 0,  180, 0,  _eComMoveFlag_StickHold|_eComMoveFlag_MoveEnd );
+
+	// ダッシュ後に近くでやること
+	mtmp = stmp.PlusMove(); // 動き追加
+	mtmp.SetTag( "move" );
+	mtmp.Set( 0, 0, 0, 0, 0 ); // 
+
+	// 
+	mtmp = stmp.PlusMove(); // 動き追加
+	mtmp.SetTag( "a" );
+	mtmp.Set( 0, _eComButton_A, 60, 0, _eComMoveFlag_HitNext|_eComMoveFlag_MoveEnd|_eComMoveFlag_ThroughEnd ); // 
+
+	// 
+	mtmp = stmp.PlusMove(); // 動き追加
+	mtmp.SetTag( "b" );
+	mtmp.Set( 0, _eComButton_B, 60, 0, _eComMoveFlag_HitNext|_eComMoveFlag_MoveEnd|_eComMoveFlag_ThroughEnd ); // 
+	
+	// 
+	mtmp = stmp.PlusMove(); // 動き追加
+	mtmp.SetTag( "c" );
+	mtmp.Set( 0, _eComButton_C, 60, 0, _eComMoveFlag_HitNext|_eComMoveFlag_MoveEnd|_eComMoveFlag_ThroughEnd ); // 
+
+	// 
+	mtmp = stmp.PlusMove(); // 動き追加
+	mtmp.SetTag( "6C" );
+	mtmp.Set( 6, _eComButton_C, 60, 0, _eComMoveFlag_HitNext|_eComMoveFlag_MoveEnd|_eComMoveFlag_ThroughEnd ); // 
+	
+}
+
+// 最後にglobal_com_tmpへ渡す
+ComBase_GlobalComTmp_Set( com );
+
+print("\n\n>専用com Loaded<\n")
+

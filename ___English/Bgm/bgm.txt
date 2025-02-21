@@ -129,6 +129,11 @@ File = btl_chr024 // フォノン
 IsLoop = 1
 LoopPos = 01.202
 
+[BGM_026]
+File = btl_chr025 // オーガ
+IsLoop = 1
+LoopPos = 04.434
+
 
 
 // @@@@@@@@@@@@@@@@ Additional BGM @@@@@@@@@@@@@@@@ //
@@ -386,11 +391,9 @@ IsLoop = 1
 LoopPos = 06.465
 
 [BGM_099]
-//File = sys_chrselect //キャラクターセレクト
+File = Menu_asayake
 IsLoop = 1
-//LoopPos = 04.587
-File = Menu_asayake // bgmme99 //Actor's Anteroom
-LoopPos = 05.590  //5.481
+LoopPos = 05.590
 
 //100以降はやめとく=======
 

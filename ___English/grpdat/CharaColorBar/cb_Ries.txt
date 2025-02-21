@@ -4,7 +4,7 @@ Color <- [
 // CAPE , JACKET, PANTS
 
 { // 1
-	name = "Raven's Nest"
+	name = "Nattramnar"
 	rgb = [	[ 255,255,255 ], [ 58,49,56 ], [ 247,247,239 ] ],
 }
 ,

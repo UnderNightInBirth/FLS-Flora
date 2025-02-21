@@ -1,0 +1,214 @@
+local tmp = [];
+
+{	tmp.append( { title =  Def_Tactics_Title_Footsies,
+	cat = Def_TCNum_TacticsLv1,
+	expl = Def_TCInfo_Expl_BattleTactics,
+	stringID = "rie_tactics_footsies",
+	endtype = 1,
+	start_csv = 1,//CSVの定義あり
+skill= { recipe = [
+		{ skill="B", add={ reset=0 } },
+		{ skill="2B", add={ reset=0 } },
+		{ skill="C", add={ reset=0 } },
+		{ skill="236A", add={ reset=0 } },
+		{ skill="i6B", add={ reset=0 } },
+		{ skill="66C", add={ reset=0 } },
+		] }
+	} );
+}
+
+// 戦術指南
+{	tmp.append( { title =  Def_Tactics_Title_Sequence,
+	cat = Def_TCNum_TacticsLv1,
+	expl = Def_TCInfo_Expl_BattleTactics,
+	stringID = "rie_tactics_pressure",
+	enemy="COM",
+	
+	skilltype = 0,//1ステップずつチェック
+	endtype = 1,
+	viewtype = 0, //矢型
+	start_csv = 1,//CSVの定義あり
+skill= { recipe = [
+		// ガード時の固め連携
+		{ skill="B", add={ reset=3, instext=TCW_Pressure_Guard } },
+		{ skill="C", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill="2B", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill="A", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill="checkpoint" },
+		// ヒット時の固め連携
+		{ skill="rB", add={ instext=TCW_Pressure_Hit } },
+		{ skill="C", add={ postype=1 } },
+		{ skill="2B", add={ postype=1 } },
+		{ skill="2C", add={ postype=1 } },
+		{ skill="214A", add={ postype=1 } },
+		{ skill="236A", add={ postype=1 } },
+		] }
+	} );
+}
+
+// 戦術指南
+{	tmp.append( { title =  Def_Tactics_Title_Mixup,
+	cat = Def_TCNum_TacticsLv1,
+	expl = Def_TCInfo_Expl_BattleTactics,
+	stringID = "rie_tactics_mixup",
+	enemy="COM",
+ 
+	skilltype = 0,//1ステップずつチェック
+	endtype = 1,
+	viewtype = 0, //矢型
+	start_csv = 1,//CSVの定義あり
+
+skill= { recipe = [
+		{ skill="B", add={ reset=3, resetX=(1<<8), postype=1, instext=TCW_Mixup_Low } },
+		{ skill="2B", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill="C", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill="i6B", add={ reset=3, resetX=(1<<8), postype=1, mvcode1=def_MC1_SidouHitSkill } },
+		{ skill="checkpoint" }
+		
+		{ skill="rB", add={ reset=3, instext=TCW_Mixup_Overhead } },
+		{ skill="2B", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill="2C", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill="i6C", add={ reset=3, resetX=(1<<8), postype=1, mvcode1=def_MC1_SidouHitSkill } },
+		{ skill="checkpoint" }
+		
+		{ skill="rB", add={ reset=3, instext=TCW_Mixup_Overhead } },
+		{ skill="6B", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill="C", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill="214C", add={ reset=3, resetX=(1<<8), postype=1, mvcode1=def_MC1_SidouHitSkill } },
+		{ skill="checkpoint" }
+		
+		{ skill="i6B", add={ reset=3, instext=TCW_Mixup_Overhead } },
+		{ skill="2C", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill="i236B", add={ reset=3, resetX=(1<<8), postype=1, mvcode1=def_MC1_SidouHitSkill  } },
+		] }
+	} );
+}
+
+// 戦術指南
+{	tmp.append( { title =  Def_Tactics_Title_Invincible,
+	cat = Def_TCNum_TacticsLv1,
+	expl = Def_TCInfo_Expl_BattleTactics,
+	gauge = "EXCS",
+	stringID = "rie_tactics_invincible",
+	enemy="COM",
+	
+	endtype=1,
+	start_csv = 1,//CSVの定義あり
+
+skill= { recipe = [
+		{ skill="623B", add={ mvcode1=def_MC1_SidouHitSkill } },
+		{ skill="623EX", add={ mvcode1=def_MC1_SidouHitSkill } },
+		] }
+	} );
+}
+
+
+// 戦術指南
+{	tmp.append( { title =  Def_Tactics_Title_Antiair,
+	cat = Def_TCNum_TacticsLv1,
+	expl = Def_TCInfo_Expl_BattleTactics,
+	stringID = "rie_tactics_antiair",
+	enemy="COM",
+	
+	skilltype = 0,//1ステップずつチェック
+	endtype = 1,
+	viewtype = 0, //矢型
+	start_csv = 1,//CSVの定義あり
+
+skill= { recipe = [
+		{ skill="cFF", add={ mvcode1=def_MC1_SidouHitSkill } },
+		{ skill="2C", add={ postype=1 } },
+		{ skill="236A", add={ postype=1 } },
+		{ skill=">236_AddA", add={ postype=1 } },
+		{ skill=">236Add_AddA", add={ postype=1 } },
+		{ skill="checkpoint" },
+		
+		{ skill="4C", add={ mvcode1=def_MC1_SidouHitSkill } },
+		{ skill="checkpoint" }
+		] }
+	} );
+}
+
+// 戦術指南
+{	tmp.append( { title =  Def_Tactics_Title_BallInvincible,
+	cat = Def_TCNum_TacticsLv1,
+	expl = Def_TCInfo_Expl_BattleTactics,
+	stringID = "rie_tactics_ball_invincible",
+	gauge="EX",
+	enemy="COM",
+	enemy_chr=Def_ChrNo_Hyd,
+	
+	skilltype = 0,//1ステップずつチェック
+	endtype = 1,
+	viewtype = 0, //矢型
+	start_csv = 1,//CSVの定義あり	
+
+skill= { recipe = [
+		{ skill="FF", add={ reset=0, mvcode1=def_MC1_TutoBallMuteki|def_MC1_SidouHitSkill, instext=TCW_BallInvincible } },
+		{ skill="r236EX", add={ postype=1 } },
+		] }
+	} );
+}
+
+// 戦術指南
+{	tmp.append( { title = "Strategy: Anti-Anti-Air",
+	cat = Def_TCNum_TacticsLv1,
+	expl = Def_TCInfo_Expl_BattleTactics,
+	stringID = "rie_tactics_aaa",
+	enemy="COM",
+	enemy_chr=Def_ChrNo_Hyd,
+	
+	skilltype = 0,//1ステップずつチェック
+	endtype = 1,
+	viewtype = 0, //矢型
+	start_csv = 1,//CSVの定義あり	
+
+skill= { recipe = [
+		{ skill="JFF", add={ reset=0, instext="Before getting hit: " } },
+		] }
+	} );
+}
+
+
+
+
+
+
+
+
+
+{	tmp.append( { title=Def_TCInfo_Title_Punishment,
+	pos="端背負い",cat=Def_TCNum_Level2,
+	stringID="cornered_2c_sideswap_", 
+	expl = Def_TCInfo_Expl_ChangePosSide,
+	skill= { recipe = ["2C","3B","i6B","i236B","2C","C","236B"] } } );
+}
+
+
+
+
+
+
+
+
+Table  <- GetMissionListTable(); // ミッションのカテゴリーの定義は共通
+
+local skillParam = 
+{
+	charaNo = Def_ChrNo_Rie,
+}
+
+Table.listcount = tmp.len();
+Table.list.resize( Table.listcount );
+for( local i=0; i<tmp.len(); i++ )
+{
+	if( "skill" in tmp[i] )
+	{
+		tmp[i].skill.param <- skillParam;
+	}
+	tmp[i].player <- Def_ChrNo_Rie;
+	tmp[i].num <- i;
+	local skillTable = GetSkillCheckTable( tmp[i] );
+	Table.list[i] = skillTable;
+}
+

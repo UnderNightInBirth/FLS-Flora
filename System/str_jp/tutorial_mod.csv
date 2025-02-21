@@ -1,0 +1,215 @@
+tutorial_define_ttt000,Novice
+tutorial_define_ttt001,Beginner
+tutorial_define_ttt002,Intermediate
+tutorial_define_ttt003,Advanced
+tutorial_define_ttt004,Expert
+tutorial_define_ttt005,Display all
+tutorial_define_tcn000,Recommendation
+tutorial_define_tcn005,Check moves
+tutorial_define_tcn006,Beginner Combo
+tutorial_define_tcn007,Intermediate Combo
+tutorial_define_tcn008,Advanced Combo
+tutorial_define_tcn009,Expert Combo
+tutorial_define_tcn010,Coaching
+tutorial_define_tcn011,Intermediate Coaching
+tutorial_define_tcn012,Advanced Coaching
+tutorial_define_tci000,A combo recommended for beginners.
+tutorial_define_tci001,A combo recommended for intermediate players.
+tutorial_define_tci002,A combo recommended for advanced players.
+tutorial_define_tci003,A combo recommended for experts.
+tutorial_define_tci004,A simple combo suitable for beginners.
+tutorial_define_tci005,A simple combo suitable for intermediate players.
+tutorial_define_tci006,A slightly challenging combo suitable for advanced players.
+tutorial_define_tci007,A challenging combo suitable for expert players.
+tutorial_define_tci008,An explanation of combat.
+tutorial_define_tci009,An explanation of combat for intermediate players.
+tutorial_define_tci010,An explanation of combat for advanced players.
+tutorial_define_tci011,Confirm special attacks.
+tutorial_define_tci012,Risky
+tutorial_define_tci013,Overhead mixup
+tutorial_define_tci014,Low mixup
+tutorial_define_tci015,Cross-up mixup
+tutorial_define_tci016,Throw
+tutorial_define_tci017,Neutral poke
+tutorial_define_tci018,Command throw
+tutorial_define_tci019,Punish
+tutorial_define_tci020,Frame trap
+tutorial_define_tci021,Damage increase
+tutorial_define_tci024,Anti-air
+tutorial_define_tci025,Reversal
+tutorial_define_tci026,Veil Off incorporated
+tutorial_define_tat000,Strategy: Neutral
+tutorial_define_tat001,Strategy: Block Strings
+tutorial_define_tat002,Strategy: Mix-ups (Low/Overhead)
+tutorial_define_tat003,Strategy: Mix-ups (Cross-ups)
+tutorial_define_tat004,Strategy: Throws
+tutorial_define_tat005,Strategy: Command Throws
+tutorial_define_tat006,Strategy: Reversal
+tutorial_define_tat007,Strategy: Anti-Air
+tutorial_define_tat008,Strategy: Projectile Evasion
+tutorial_define_tcie000,This combo starts from an attack with a fast startup. \nDrive the opponent away and go on the offensive.
+tutorial_define_tcie001,This combo starts from a neutral poke attack. \nDrive the opponent away and go on the offensive.
+tutorial_define_tcie002,This combo starts from a neutral poke attack. \nTurn your main neutral attacks into significant damage.
+tutorial_define_tcie003,This combo starts from a neutral poke attack. \nUse EX special attacks to deal significant damage.
+tutorial_define_tcie004,This combo starts from a neutral poke attack. \nUse Infinite Worth to deal significant damage.
+tutorial_define_tcie005,This aerial combo works on airborne opponents. \nIt can deal significant damage.
+tutorial_define_tcie006,This combo starts from an attack with a fast startup. \nTry this after blocking your opponent's attack.
+tutorial_define_tcie007,This combo starts from Assault. \nYou can catch the opponent off-guard with a surprise overhead attack.
+tutorial_define_tcie008,This combo starts from a neutral poke attack. \nTurn your main neutral attacks into significant damage.
+tutorial_define_tcie009,This combo starts from an overhead attack. \nBreak through a crouching opponent's guard to deal significant damage.
+tutorial_define_tcie010,This combo starts from a low attack. \nBreak through a standing opponent's guard to deal significant damage.
+tutorial_define_tcie011,Use this combo after mixing up your opponent's guard \nby moving behind them and reversing their guard direction.
+tutorial_define_tcie012,This combo starts from a throw. \nYou can mix up the opponent's guard to deal significant damage.
+tutorial_define_tcie013,This combo starts from a command throw. \nYou can mix up the opponent's guard to deal significant damage.
+tutorial_define_tcie014,Use this combo after guarding an attack that leaves your opponent wide open.
+tutorial_define_tcie015,Use your EXS gauge to deal significant damage.
+tutorial_define_tcie016,This combo uses Cross Cast Veil Off to increase damage.
+tutorial_define_tcie017,This combo uses Cross Cast Veil Off when HP is low to increase damage.
+tutorial_define_tcie018,This combo uses attack sequences that create gaps \nso that you can frame trap your opponent.
+tutorial_define_tcie019,Deal significant damage after deflecting your opponent's jump-in attack.
+tutorial_define_tcie020,This combo starts from a well-timed reversal against your opponent's attack. \nUse it when you have a good read on their attack timing!
+tutorial_define_tcie021,This combo hits your opponent with Veil Off. \nYou can end your opponent's Vorpal state.
+tutorial_define_tcie022,An explanation of main special attacks.
+tutorial_define_tcie023,An explanation of basic combat strategy.
+tutorial_define_tcie024,This combo switches your character's side with your opponent's. \nUse this when your back is against the wall to turn the tables \nand put your opponent in the corner instead!
+tutorial_define_tcie025,This combo carries your opponent far across the stage. \nYou can carry them into the corner to gain an advantage.
+tutorial_define_tcie026,This combo hits your opponent while avoiding their throw attempt.
+tutorial_define_tcie027,This combo starts from trap setups.
+tutorial_define_tag000,\cEAE9FFEdge\cX
+tutorial_define_tag001,\cEAE9FFCenter\cX
+tutorial_define_tag002,\cEAE9FFBacked into corner\cX
+tutorial_define_tag003,\cEAE9FFMid-range\cX
+tutorial_define_tag004,\cEAE9FFLong range\cX
+tutorial_define_tag006,\cEAE9FF100%\cX
+tutorial_define_tag007,\cEAE9FFVorpal\cX
+tutorial_define_tag008,\cEAE9FF200%\cX
+tutorial_define_tag009,\cEAE9FF200% Vorpal\cX
+tutorial_define_tag010,\cEAE9FFLow HP 200% Vorpal\cX
+tutorial_define_tag011,\cEAE9FF100% Vorpal\cX
+tutorial_define_tag012,\cEAE9FF200%\cX
+tutorial_define_tag013,\cEAE9FFOverhead\cX
+tutorial_define_tag014,\cEAE9FFLow\cX
+tutorial_define_tag015,\cEAE9FFAnti-Air\cX
+tutorial_define_w000,Aerial
+tutorial_define_w001,Standing
+tutorial_define_w004,Whiff
+tutorial_define_w005,Additional
+tutorial_define_w006,Hold
+tutorial_define_w007,Charge and release
+tutorial_define_w008,Release charge
+tutorial_define_w009,（\@A@Release charge）
+tutorial_define_w010,（\@B@Release charge）
+tutorial_define_w011,（\@C@Release charge）
+tutorial_define_w012,After landing
+tutorial_define_w013,Setup
+tutorial_define_w014,Hit
+tutorial_define_w015,(Cover Opening)
+tutorial_define_w016,(Counter Hit)
+tutorial_define_w017,Hit
+tutorial_define_w018,Start
+tutorial_define_w019,Plinking
+tutorial_define_w020,Release
+tutorial_define_w021,Guard
+tutorial_define_w022,Charge slightly
+tutorial_define_hint000,■ Explanation
+tutorial_define_hint003,■ Icon Explanation
+tutorial_define_hint004,"\@Z@Increase　/　\@Y@Chain Shift　/　\@X@Jump Cancel\n
+\@W@Hold　/　\@V@Delay　/　\@U@Veil Off\n
+\@T@Cross Cast Veil Off"
+tutorial_define_tcw000,(After Assault)
+tutorial_define_tcw001,(After Dash)
+tutorial_define_tcw002,(On Guard)
+tutorial_define_tcw003,(On Hit)
+tutorial_define_tcw004,(Low option)
+tutorial_define_tcw005,(Overhead option)
+tutorial_define_tcw006,(Anti-Shield option)
+tutorial_define_tcw007,(Along with projectile)
+tutorial_define_tagb000,Walk forward
+tutorial_define_tagb001,Walk backward
+tutorial_define_tagb002,Forward jump
+tutorial_define_tagb003,Neutral jump
+tutorial_define_tagb004,Backward jump
+tutorial_define_tagb005,Dash
+tutorial_define_tagb006,Backstep
+tutorial_define_tagb007,Assault
+tutorial_define_tagb008,Aerial Assault
+tutorial_define_tagb009,Forward jump
+tutorial_define_tagb010,Throw
+tutorial_define_tagb011,Air Throw
+tutorial_define_tagb012,While hovering
+tutorial_define_tagb013,Press and release
+tutorial_define_tagb014,Hold the button
+tutorial_define_tagb015,While holding the button
+tutorial_define_tagb018,Close range
+tutorial_define_tagb019,Long range
+tutorial_define_tagb021,Charge
+tutorial_define_tagb022,Before hit
+tutorial_define_tagb025,Circular input
+tutorial_define_tagb026,
+tutorial_define_tagb027,
+tutorial_define_tagb028,
+tutorial_define_lvi000,"In the \cFFCD40Novice Course,\cX new players\n
+will learn the \c40FFCDmain objectives and controls\cX for the game.\n
+This is where you'll learn how to deal damage to your opponent ― and much more."
+tutorial_define_lvi001,"Congratulations on completing the Novice Course!\nOnce you're familiar with the basic controls, try your hand at Arcade Mode,\nor proceed to the Beginner Course to learn mechanics specific to fighting games."
+tutorial_define_lvi002,"In the \cFFCD40Beginner Course,\cX fighting game beginners will learn about\n
+\c40FFCDvarious mechanics and rules specific to fighting games.\cX"
+tutorial_define_lvi003,"Congratulations on completing the Beginner Course!\nIf you've come this far, you're really catching on to fighting games!\nHead over to the Intermediate Course to learn more challenging tactics."
+tutorial_define_lvi004,"In the \cFFCD40Intermediate Course,\cX we'll focus on \c40FFCDstrong moves that are useful in battle.\cX\n
+You'll learn the core principles of offense and defense in fighting games."
+tutorial_define_lvi005,Congratulations on completing the Intermediate Course!\nYou are now a bona fide fighting gamer!\nProceed to the Advanced Course to reach even greater heights.
+tutorial_define_lvi006,"The \cFFCD40Advanced Course\cX is designed for confident fighting game players\nwho wish to learn \c40FFCDtechniques specific to this game.\cX\nTake on each challenge one by one, as many of them are difficult."
+tutorial_define_lvi007,"Congratulations on completing the Advanced Course!\n If you made it this far, you're a fighting game master!\n
+If you're aiming to play at a professional level, check out the Expert Course."
+tutorial_define_lvi008,The \cFFCD40Expert Course\cX is designed for confident players who want to learn \n\c40FFCDdetailed mechanics and techniques that they can use in real matches\cX. 
+tutorial_define_lvi009,Congratulations on completing the Expert Course! You are officially an adept UNI player!\nNow go test your new skills in Versus and Network Modes!
+tutorial_define_lvi010,Display all course challenges.
+tutorial_define_tagc000,Viewing the screen
+tutorial_define_tagc001,Movement
+tutorial_define_tagc002,Attacks
+tutorial_define_tagc003,Special attacks
+tutorial_define_tagc004,Combination attacks
+tutorial_define_tagc005,Guard
+tutorial_define_tagc006,Throws
+tutorial_define_tagc007,Mix-ups
+tutorial_define_tagc008,Block Strings
+tutorial_define_tagc009,Retaliation
+tutorial_define_tagc010,Recovery
+tutorial_define_tagc011,Okizeme
+tutorial_define_tagc012,GRD
+tutorial_define_tagc013,Shield
+tutorial_define_tagc014,Chain Shift
+tutorial_define_tagc015,Veil Off
+tutorial_define_tagc016,Special rules
+tutorial_define_tagc017,Command input
+tutorial_define_tti000,This tutorial explains\cFFCD40 how to look at the game screen\cX.\nFamiliarize yourself with 1P and 2P sides and each of their gauges so that you \c40FFCDdon't miss any important details\cX. 
+tutorial_define_tti001,"This tutorial explains how to \cFFCD40move your character.\cX \nMoving toward or away from the opponent is the most basic, \nyet \c40FFCDmost important, mechanic.\cX"
+tutorial_define_tti002,This tutorial explains \cFFCD40attacks.\cX\nFamiliarize yourself with various attacks and their merits\nto learn how to \c40FFCDdeal damage to your opponent\cX properly.
+tutorial_define_tti003,"This tutorial explains \cFFCD40special attacks.\cX\n
+Special attacks are performed via command inputs,\n
+and they can be \c40FFCDvery powerful,\cX so be sure to master them!"
+tutorial_define_tti004,"This tutorial goes over the techniques necessary to perform \cFFCD40combos.\cX\n
+Once you master combos, you can \c40FFCDdeal a lot of damage to your opponents\n
+efficiently.\cX Learn how combos work and how to execute them."
+tutorial_define_tti005,"This tutorial explains how to \cFFCD40guard\cX against an opponent's attack.\n
+Guarding can \c40FFCDnullify any damage, no matter how strong the attack you're\n
+defending against is.\cX Learn how to guard properly to avoid taking damage."
+tutorial_define_tti006,"This tutorial explains how to break through your opponent's guard using\n
+\cFFCD40throws.\cX Throwing is the best way to \c40FFCDbreak through an opponent's guard.\cX"
+tutorial_define_tti007,"This tutorial explains\cFFCD40 more ways to break an opponent's guard\cX\n
+other than throwing. Learn various \c40FFCDmix-up techniques and how to counter them.\cX"
+tutorial_define_tti008,This tutorial explains how to perform \cFFCD40block strings\cX that keep your opponent in a continuous guarding state.
+tutorial_define_tti009,This tutorial explains how to \cFFCD40interrupt\cX your opponent's offense.
+tutorial_define_tti010,This tutorial explains how to \cFFCD40recover\cX from a hit to avoid \ntaking additional damage.
+tutorial_define_tti011,This tutorial explains how to perform \cFFCD40Okizeme\cX against your opponent \nas they recover or stand up from being knocked down.\nLearn how \c40FFCDOkizeme works offensively\cX and how to counter it.
+tutorial_define_tti012,This tutorial explains the \cFFCD40GRD Gauge\cX that shows who has the upper hand \nin a match.
+tutorial_define_tti013,This tutorial explains how to avoid damage using \cFFCD40Shield\cX.
+tutorial_define_tti014,This tutorial explains how to use \cFFCD40Chain Shift\cX during Vorpal \nto deal massive damage.
+tutorial_define_tti015,"This tutorial explains a comeback mechanic called \cFFCD40Veil Off\cX.\n
+Going into the Veil Off state will grant you \c40FFCDopportunities \n
+to deal massive damage.\cX
+"
+tutorial_define_tti016,This tutorial explains \cFFCD40detailed rules\cX that apply under special conditions.\nFamiliarize yourself with the rules related to \c40FFCDtime limits and draws\cX.
+tutorial_define_tti017,"This tutorial explains \cFFCD40command input technique.\cX\n
+Here, you will learn how to execute complex commands like \@236+A@ \n
+and \@623+A@."

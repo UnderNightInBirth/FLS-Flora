@@ -9,3 +9,65 @@ battlevoice_chr027_111,"Riesbyfe: My shield is a citadel that repels all evil!"
 battlevoice_chr027_112,"Riesbyfe: Like I thought... This performance has gotten out of hand."
 battlevoice_chr027_113,"Riesbyfe: Hmm? Not going to shake on it?..."
 battlevoice_chr027_114,"Riesbyfe: No matter how many times you try, the result is always the same."
+
+rie_tactics_footsies_start,"\\@MESSAGE@
+Riesbyfe is a powerhouse character that has several tools to regain pressure at mid-range.\n
+She has a plethora of attacks and options at her disposal, making her well-rounded in combat.\n
+\n
+\k
+\\@MESSAGE@
+Gauge your opponent by poking with long-reaching attacks such as standing \@B@, \@2+B@, and \@C@.\n
+You can also try for \@236+A@ at a safe range, which could lead to a hard knockdown.\n
+\n
+Catch standing opponents by surprise with an Increased \@6+B@, which is a low attack.\n
+If you need to close the gap, you can try to get close with dashing \@C@ into a safe special.\n
+\k"
+
+rie_tactics_pressure_start,"\\@MESSAGE@
+Once you've made contact with standing \@B@, you can continue into \@B@>\@C@>\@2B@.\n
+If your opponent blocks, use a standing or crouching \@A@ to keep Riesbyfe safe.\n
+\n
+If your attacks hit, proceed to use \@2+C@>\@214+A@>\@236+A@ to deal more damage.\n
+\k"
+
+rie_tactics_mixup_start,"\\@MESSAGE@
+Once you get close to your opponent, try to confuse them with a low \@Z6+B@,\n
+or \@Z+6C@, \@Z236B@, and \@214C@ as overhead options.\n
+\n
+As \@214C@ and \@Z236B@ are heavy hits, you should be careful while using them without access to Chain Shift.\n
+\n
+From an Assault, you can try use jumping \@C@ for a slow but reliable overhead attack.\n
+\k"
+
+rie_tactics_invincible_start,"\\@MESSAGE@
+When your opponent gets aggressive, try reversing the situation\n
+with your invulnerable attacks, \@623+B@ or \@623+C@.\n
+\n
+If you use Chain Shift to confirm the situation first,\n
+you won't miss a chance to deal damage.\n
+\k"
+
+rie_tactics_antiair_start,"\\@MESSAGE@
+If your opponent attacks from the air, take them down with \@B+C@ or \@4+C@ anti-air attacks.\n
+If your \@B+C@ lands a counter hit, you can follow it with \@2+C@.\n
+\n
+Compared to \@B+C@, \@4+C@ can win out against jump attacks even when performed a bit later.\n
+This makes it a useful anti-air choice in the heat of the moment.\n
+\k"
+
+rie_tactics_ball_invincible_start,"\\@MESSAGE@
+If your opponent is threatening you with their projectiles, a properly-timed \@B+C@\n
+will grant you a window of invulnerability to evade such attacks\n
+and give an opportunity to strike back.\n
+\n
+Try to hit the projectile with the Force Function, then attempt to follow-up with a powerful attack.\n
+\k"
+
+rie_tactics_aaa,"\\@MESSAGE@
+If you're stuck in an unfortunate position in the air, you might be able to evade a grounded opponent.\n
+Try using an aerial \@B+C@ to dodge oncoming attacks before landing.\n
+\n
+While this dodge makes you invulnerable, you're unable to act while in the air,
+and are put at risk even after you've just landed.\n
+Use your aerial Force Function with caution to make the opponent whiff.\n
+\k"

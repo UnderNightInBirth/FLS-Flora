@@ -1279,7 +1279,7 @@ function Battle_Std::MakeMoveTmpl( t, mvlist, _ChrNum )
 					}
 
 					Battle_Std.InitAtkSkillMv(); // 通常技や必殺技の共通初期化
-					Battle_Std.InitSkillMv();
+					Battle_Std.InitSkillMv( preParam );
 					
 					if( smart_stear ) //スマートステアＥＸより１つ前
 					{
@@ -1435,7 +1435,10 @@ function Battle_Std::MakeMoveTmpl( t, mvlist, _ChrNum )
 						if( !preParam.isAdd )
 						{
 							Battle_Std.MoveCodeEx.AddFlag( 1, def_MC1_CmdLvDZ_OK ); // 同時押しで他の行動に移れる行動
-							BMvEff.SetPlayerTimer( { muteki_nage=3, muteki_nageX=3 } ); //EX必殺技は雑に固定の投げ無敵
+							if( Def_Sys_ExSkillInitNageMutekiF )
+							{
+								BMvEff.SetPlayerTimer( { muteki_nage=Def_Sys_ExSkillInitNageMutekiF, muteki_nageX=Def_Sys_ExSkillInitNageMutekiF } ); //EX必殺技は雑に固定の投げ無敵
+							}
 						}
 						Battle_Std.PcAfterImage_EXSkillInit();
 						
@@ -1490,7 +1493,7 @@ function Battle_Std::MakeMoveTmpl( t, mvlist, _ChrNum )
 					//BMvTbl.ClearCommand(); //必殺技はコマンドバッファクリアする　※これをやるとタメコマンドとかも消えるので使ってはいけない
 					Battle_Std.MoveCode.AddFlag( preParam.setMvCode ); // 行動コード(必殺技)を設定
 					Battle_Std.InitAtkSkillMv(); // 通常技や必殺技の共通初期化
-					Battle_Std.InitSkillMv();
+					Battle_Std.InitSkillMv( preParam );
 					
 					if( preParam.enable_doujicancel ) // 同時押しのキャンセルを認める
 					{
@@ -1582,6 +1585,13 @@ function Battle_Std::MakeMoveTmpl( t, mvlist, _ChrNum )
 				if( Def_Sys_FastSkillVecPosShift && preParam.noSurinuke && !Battle_Std.CheckEnemyisDamage() )
 				{
 					Battle_Std.PosShiftFastVector(); // すり抜けないように座標調整
+				}
+				
+				local mvs = BMvTbl.GetMvStatus();
+				if( mvs.isLanding )
+				{
+					// 着地したら一応フラグを立てて色々やりやすいようにしておく
+					Battle_Std.MoveCodeEx.AddFlag( 5, def_MC5_SkillAfterLanding );
 				}
 			}
 			

@@ -105,10 +105,15 @@ name = <GR_BGM_btl_chr020> (<GR_CH_Chr020>)
 DLC = 4
 
 [26]
+num = 26
+name = <GR_BGM_btl_chr025> (<GR_CH_Chr025>)
+DLC = 5
+
+[27]
 num = 12
 name = <GR_BGM_btl_chr011> (<GR_CH_Chr011>)
 
-[27]
+[28]
 num = 15
 name = <GR_BGM_btl_chr014> (<GR_CH_Chr014>)
 
@@ -204,6 +209,10 @@ name = Luminous Moon Requiem
 [90]
 num = 175
 name = rabbit burrow
+
+[91]
+num = 171
+name = Missing You
 
 [99]
 num = 40
