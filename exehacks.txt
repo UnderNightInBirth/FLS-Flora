@@ -1,15 +1,17 @@
 Change Hit View Limit to 999
 0x1507F3 struct 0x6300 -> 0xE703
+(find 43 28 B9 63 00 00 00 3B C1 )
 
-Palette Select Fix
-0x24086A opcode 0x75 -> 0xEB
+Palette Select Fix !!!!!!!!!!!!!!!!!! NOT WORKING
+0x24668E opcode 0x75 -> 0xEB
+(find 85 C0 75 1F 69 CF 2C 0C 00 00 89 )
 - switching from jne to jmp instruction to avoid some weird check
 - Fixes modded characters unable to select slots higher than 10
 
 Chara Slot Limit
-0x245AF7 struct 0x20 -> 0x7F
+0x24B961 struct 0x20 -> 0x7F
 
-0x54B074 string "FLS Flora"
+0x5551A0 string "FLS Flora"
 - i wonder if we should stylize as FLS-Flora but eehhh
 
 ico hack tbd

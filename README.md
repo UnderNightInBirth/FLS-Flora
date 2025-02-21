@@ -41,7 +41,7 @@ To download and try out the mod in its current state, clone the repo or [click h
 
 ![image](https://github.com/user-attachments/assets/b1f98416-6103-4f71-8b89-a294e383555d)
 
-Launch the game and you should be good to go! Just avoid playing online with strangers or those who don't have the pack. __When you want to return to vanilla, clean up the extra folders from the repo and use Steam's "Verify Integrity" feature to get the game back to normal__.
+Launch the game (make sure your game language is in **ENGLISH**) and you should be good to go! Just avoid playing online with strangers or those who don't have the pack. __When you want to return to vanilla, clean up the extra folders from the repo and use Steam's "Verify Integrity" feature to get the game back to normal__.
 
 # Wiki
 
