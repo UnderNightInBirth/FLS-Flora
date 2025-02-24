@@ -6,11 +6,11 @@
 
 <br>**FLS Flora** ("False Flora") is a modpack for Under Night In-Birth II. It's a group effort behind the humble [documentation repo](https://github.com/Fatih120/undernightinbirth), adding sweeping changes to the game to show off some cool new characters in a fresh coat of paint - all while showcasing how easy it is for anyone to jump in and start modding UNI2 for themselves.
 
-<img src="https://github.com/user-attachments/assets/910eea11-de55-41d4-9f73-1ca1abc3cb00">
+![ezgif-6b8691991d4a38](https://github.com/user-attachments/assets/a473f24f-b52f-440d-9e6b-dc75dc301a7f)
 
 </div>
 
-:warning: This repo is in an [ALPHA STATE](manual/ROADMAP.md). Characters are in varied progress. You can still launch the game and enjoy, even on Network, but not everything is ready!
+:warning: This repo is in an [W.I.P. STATE](manual/ROADMAP.md). Characters are in varied progress. You can still launch the game and enjoy, even on Network, but not everything is polished!
 
 FLS Flora transforms the UNI2 experience with:
 - Custom (in-progress) characters, both ported and from-scratch
@@ -30,8 +30,10 @@ FLS Flora transforms the UNI2 experience with:
 - [And more to come!](manual/ROADMAP.md)
 
 ![image](https://github.com/user-attachments/assets/e6cd74ff-6541-4a00-9cc3-82fa474f20d9)
+![uni2_2025_0224-065415](https://github.com/user-attachments/assets/cd75ac86-8f3d-4e50-a539-ed692e4bc61c)
 ![image](https://github.com/user-attachments/assets/e35b130e-ab66-4b3c-9e17-764192a0be3e)
-![image](https://github.com/user-attachments/assets/f24655d4-ce5a-49d3-862f-9d033d8308ca)
+![uni2_2025_0224-072445](https://github.com/user-attachments/assets/d868e47b-8917-4918-ad21-f6ff6f5fba87)
+![uni2_2025_0224-072653](https://github.com/user-attachments/assets/ac860083-e771-4983-b797-ead0b5962d89)
 
 [A VOD of some online matches in action can be watched here.](https://youtu.be/mOypLX7B9Ok?t=1454)
 
