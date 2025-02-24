@@ -2152,11 +2152,12 @@ local maketmpl_Heal = function( param={} ) : (pat_num_healLoop, buffParam)
 				
 				healVal = calcHealVal( healVal ); // 状況に応じてヒール量を計算
 				
-				local vorpal = BMvEff.GRD_GetJudgeResult() > 0;
-				
+				// local vorpal = BMvEff.GRD_GetJudgeResult() > 0;
+				local vorpal = BMvEff.GRD_GetJudgeResult() > 0 ? 1 : 0; // This must've changed internally or something
+
 				if( use_param.isHeal )
 				{
-					BMvEff.SetHpGauge( { value=15 + (vorpal/33) } ); // heal here. 15% -> 20%
+					BMvEff.SetHpGauge( { value=15 + (vorpal*33) } ); // heal here. 15% -> 20%
 				}
 				
 				if( use_param.isConvert )
