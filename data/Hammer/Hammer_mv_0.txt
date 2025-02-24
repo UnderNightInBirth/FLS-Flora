@@ -125,6 +125,17 @@ t.Mv_Atk_Air6C_Hit <-
 
 
 
+t.Mv_Skill_623EX <-
+{
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			Battle_Std.SetPosition_DamageHanteiRect({ power=50 });
+		}
+	}
+}
+
 t.Mv_Skill_623B <-
 {
     function FrameUpdate_After()
