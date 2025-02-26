@@ -19,15 +19,15 @@ local t =
         command = ["236236C","236+B+C"],
         usegauge = 10000,
         UpdateTable = { name = "Mv_Skill_236236EX", }
-        CmdCheck = { BallLimit = { [1] = 1 }, MvCheck={ SkillFail="Mv_Skill_236236EX"}, Cost = { ComboGauge = 10000 }, SkillType = "ExSpecial" },
+        CmdCheck = { BallLimit = { [0] = 1 }, MvCheck={ SkillFail="Mv_Skill_236236EX"}, Cost = { ComboGauge = 10000 }, SkillType = "ExSpecial" },
 	},
-	Skill_236C = { CmdCheck = { BallLimit = { [4] = 1 } } },
-	Skill_236B = { CmdCheck = { BallLimit = { [4] = 1 } } },
-	Skill_236A = { CmdCheck = { BallLimit = { [4] = 1 } } },
+	Skill_236C = { CmdCheck = { BallLimit = { [1] = 1 } } },
+	Skill_236B = { CmdCheck = { BallLimit = { [1] = 1 } } },
+	Skill_236A = { CmdCheck = { BallLimit = { [1] = 1 } } },
     
-    Skill_J236EX = {},
-    Skill_J236BorC = {},
-    Skill_J236A = {
+    Skill_J214EX = {},
+    Skill_J214BorC = {},
+    Skill_J214A = {
         //command = ["6+A"],
         //CmdCheck = { SkillType = "SpecialAdd", MvCheck={ Only = ["Mv_Skill_214A"] } },
 	},

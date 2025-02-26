@@ -20,6 +20,14 @@ t.Mv_Atk_Air2C <-
     }	
 }
 
+t.Mv_Atk_Std6C <-
+{
+	function FrameUpdate_After()
+	{
+        Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<2), CheckFrameID=50, EndFrameID=60, SetPattern="6C_End" } );
+    }	
+}
+
 t.Mv_Skill_SSRelayAtk <-
 {
 	function FrameUpdate_After()
@@ -55,13 +63,8 @@ t.Mv_Standby <- {};
 //t.Mv_Atk_Air2B <- {};
 t.Mv_Atk_Cro1A <- {};
 t.Mv_Atk_Cro3B <- {};
-t.Mv_Atk_Std6C <- {};
 t.Mv_Atk_Std4B <- {};
 t.Mv_Atk_Std4C <- {};
-
-
-
-t.Mv_Skill_J236A <- {};
 
 t.Mv_Skill_66B_Add6B <-
 {
@@ -200,7 +203,7 @@ local maketmpl_236Series = function( param={} )
         switch( Battle_Std.GetUpdateFrameID() )
 		{
 		case 100:
-		    local ball = Battle_Std.CreateFireBall( { x=mvparam.pos.x, y=mvparam.pos.y, mv=mvparam.mover, pat=mvparam.patter, angle=BMvEff.Random_Limit(10000), } );
+		    local ball = Battle_Std.CreateFireBall( { x=mvparam.pos.x, y=mvparam.pos.y, mv=mvparam.mover, pat=mvparam.patter, angle=BMvEff.Random_Limit(10000), ball=1 });
 			break;
 		}
 	}
@@ -376,7 +379,7 @@ t.Mv_FireBall_236C <- {
     
     function Init_After()
     {
-    BMvTbl.SetVector( { x=-2000, y=2000, addx=100, addy=-100, flags = _Vector_Normal } );
+    BMvTbl.SetVector( { x=-2000, y=2000, addx=140, addy=-100, flags = _Vector_Normal } );
     }
     
     function FrameUpdate_After()
@@ -411,17 +414,26 @@ t.Mv_FireBall_236C <- {
                     local set_muki = ( muki == 1 )? _Direction_Right : _Direction_Left; //If parent is 1 (6), R (6), if 0 (4), L (4 )
                     BMvTbl.SetMuki( set_muki );
                 }
-
-                local vec_x = 0;
-                if( stick == 9 || stick == 6 || stick == 3 ) vec_x =  50;
-                if( stick == 7 || stick == 4 || stick == 1 ) vec_x = -50;
-                
-                local vec_y = 0;
-                if( stick == 7 || stick == 8 || stick == 9 ) vec_y = -50;
-                if( stick == 1 || stick == 2 || stick == 3 ) vec_y =  50;
-                
-                BMvTbl.SetVector( { x=vec_x, addx=0, y=vec_y, addy=0, flags=_Vector_Normal|_VecFlag_Add } );
-            
+				
+			local vec_x = 0;
+			local vec_y = 0;
+			
+			local new_x = BMvTbl.GetVector().x;
+			local new_y = BMvTbl.GetVector().y;
+			
+			new_x *= 0.994;
+			new_y *= 0.994;
+			
+			if( stick == 9 || stick == 6 || stick == 3 ) vec_x =  75;
+			if( stick == 7 || stick == 4 || stick == 1 ) vec_x = -50;
+			if( stick == 7 || stick == 8 || stick == 9 ) vec_y = -75;
+			if( stick == 1 || stick == 2 || stick == 3 ) vec_y =  75;
+			
+			new_x += vec_x;
+			new_y += vec_y;
+			
+			BMvTbl.SetVector( { x=new_x, addx=0, y=new_y, addy=0, flags=_Vector_Normal } );
+				
             }
         }
     }
@@ -435,7 +447,7 @@ t.Mv_Skill_236236EX <-
         switch( Battle_Std.GetUpdateFrameID() )
 		{
 		case 100:
-		    local ball = Battle_Std.CreateFireBall( { x=100, y=-220, mv="Mv_FireBall_236EX", pat="FB_236EX"} );
+		    local ball = Battle_Std.CreateFireBall( { x=100, y=-220, mv="Mv_FireBall_236EX", pat="FB_236EX", ball=1 } );
 			break;
 		}
 	}
@@ -514,6 +526,44 @@ t.Mv_FireBall_236EX_Hit     <-
 };
 
 t.Mv_FireBall_236EX_Sousai  <- t.Mv_FireBall_Hit;
+
+
+t.Mv_Skill_214EX <-
+{
+	function FrameUpdate_After()
+	{
+		Battle_Std.SetHitMuteki( 1, 32, _HitCheckFlag_Legs ); // Param1 & 32 の時、足無敵
+	}
+	function HitInterrupt_After()
+	{
+		Battle_Std.SetThrowHitFinalize(256); // ヒット分岐ファイナライズ
+	}
+	function Finalize()
+	{
+		Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Skill_214EX_JHit"]); //デフォ,[code,mv]...
+	}
+}
+
+
+t.Mv_Skill_214EX_JHit <-
+{
+	// flags = def_TmplFlags_NoAddComboRate // コンボレートを加算しない
+	function Init_After()
+	{
+		// Battle_Std.MoveCodeEx.AddFlag( 7, def_MC7_SetMutekiDamage );
+	}
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			Battle_Std.SetPosition_DamageHanteiRect({ power=50, });
+		}
+	}
+	function LastUpdate_After()
+	{
+		// Battle_Std.NoCansel_NoAttackHit(); //何かでキャンセルしなかった場合追撃不能にする
+	}
+}
 
 
 t.Mv_Atk_StdBandC <-
@@ -639,8 +689,16 @@ t.Mv_Atk_BCParry <-
 
 }
 
-t.Mv_Skill_623A <- {};
-
+t.Mv_Skill_623EX <-
+{
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			Battle_Std.SetPosition_DamageHanteiRect({ power=50, });
+		}
+	}
+}
 
 INGRID_MoveTable <- Battle_Std.MakeMoveTable( t, INGRID_CommandTable, Def_ChrNo_Ing );
 __dofile__("./data/Ingrid/Ingrid_se_category.txt"); //ＳＥ定義
