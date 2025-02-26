@@ -8,4 +8,4 @@ FileNum= 1
 File00=Ryu.cg
 [PAniFile]
 FileNum= 1
-File00=Ery_ef08.pat
+File00=FLSRyu.pat
