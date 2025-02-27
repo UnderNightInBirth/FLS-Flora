@@ -1,1 +1,0 @@
-__dofile__( "./data/Dantes/Dantes_com_0.txt" );

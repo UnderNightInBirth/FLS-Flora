@@ -1,1 +1,0 @@
-__dofile__( "./data/Ingrid/Ingrid_com_0.txt" );
