@@ -315,10 +315,6 @@ t.Mv_FireBall_236A <- {
             }
         }
     }
-	function Finalize()
-	{
-		BMvTbl.SetNextMoveTable( "Mv_FireBall_236End" );
-	}
 };
 
 
@@ -380,10 +376,6 @@ t.Mv_FireBall_236B <- {
             }
         }
     }
-	function Finalize()
-	{
-		BMvTbl.SetNextMoveTable( "Mv_FireBall_236End" );
-	}
 };
 
 t.Mv_FireBall_236End <-
@@ -435,24 +427,24 @@ t.Mv_FireBall_236C <- {
                     BMvTbl.SetMuki( set_muki );
                 }
 				
-			local vec_x = 0;
-			local vec_y = 0;
-			
-			local new_x = BMvTbl.GetVector().x;
-			local new_y = BMvTbl.GetVector().y;
-			
-			new_x *= 0.994;
-			new_y *= 0.994;
-			
-			if( stick == 9 || stick == 6 || stick == 3 ) vec_x =  75;
-			if( stick == 7 || stick == 4 || stick == 1 ) vec_x = -50;
-			if( stick == 7 || stick == 8 || stick == 9 ) vec_y = -75;
-			if( stick == 1 || stick == 2 || stick == 3 ) vec_y =  75;
-			
-			new_x += vec_x;
-			new_y += vec_y;
-			
-			BMvTbl.SetVector( { x=new_x, addx=0, y=new_y, addy=0, flags=_Vector_Normal } );
+				local vec_x = 0;
+				local vec_y = 0;
+				
+				local new_x = BMvTbl.GetVector().x;
+				local new_y = BMvTbl.GetVector().y;
+				
+				new_x *= 0.994;
+				new_y *= 0.994;
+				
+				if( stick == 9 || stick == 6 || stick == 3 ) vec_x =  75;
+				if( stick == 7 || stick == 4 || stick == 1 ) vec_x = -50;
+				if( stick == 7 || stick == 8 || stick == 9 ) vec_y = -75;
+				if( stick == 1 || stick == 2 || stick == 3 ) vec_y =  75;
+				
+				new_x += vec_x;
+				new_y += vec_y;
+				
+				BMvTbl.SetVector( { x=new_x, addx=0, y=new_y, addy=0, flags=_Vector_Normal } );
 				
             }
         }
