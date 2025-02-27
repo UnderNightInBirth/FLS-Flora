@@ -15,18 +15,26 @@ SeList_Table.Path.append( "./se/battle_se/" ); // 2: Battle SE
 SeList_Table.Status.resize(750); // As much as needed
 local st = SeList_Table.Status; // Easy Register
 
-// ìoèÍ
+st[0] = { volumetype=1 path=1, file="se_mid_00035", type=1, category=-1, }; //FB 1
+st[1] = { volumetype=1 path=1, file="se_mid_00036", type=1, category=-1, }; //FB 2
+st[2] = { volumetype=1 path=1, file="se_mid_00037", type=1, category=-1, }; //BC
+st[3] = { volumetype=1 path=1, file="se_mid_00038", type=1, category=-1, }; //bubble
+st[4] = { volumetype=1 path=1, file="se_mid_00039", type=1, category=-1, }; //pop
+st[5] = { volumetype=1 path=1, file="se_mid_00040", type=1, category=-1, }; //elec
+st[6] = { volumetype=1 path=1, file="se_mid_00041", type=1, category=-1, }; //FB
+st[7] = { volumetype=1 path=1, file="se_mid_00042", type=1, category=-1, }; //IW
+
+st[50] = { volumetype=1 path=1, file="pl29_u_00021", type=0, category=1, }; //talk
+st[51] = { volumetype=1 path=1, file="pl29_u_00022", type=0, category=1, }; //talk
+st[52] = { volumetype=1 path=1, file="pl29_u_00023", type=0, category=1, }; //talk
+st[53] = { volumetype=1 path=1, file="pl29_u_00024", type=0, category=1, }; //talk
+st[54] = { volumetype=1 path=1, file="pl29_u_00025", type=0, category=1, }; //
+
+
+
 st[100] = { volumetype=1 path=1, file="pl29_u_00017", type=0, category=1, }; //Hassuru hassuru
 st[101] = { volumetype=1 path=1, file="pl29_u_00018", type=0, category=1, }; //Ja, hajimeru kana?
 st[102] = { volumetype=1 path=1, file="pl29_u_00019", type=0, category=1, }; //Hmhm
-
-
-st[110] = { volumetype=1 path=1, file="pl29_u_00021", type=0, category=1, }; //
-st[111] = { volumetype=1 path=1, file="pl29_u_00022", type=0, category=1, }; //
-st[112] = { volumetype=1 path=1, file="pl29_u_00023", type=0, category=1, }; //
-st[113] = { volumetype=1 path=1, file="pl29_u_00024", type=0, category=1, }; //
-st[114] = { volumetype=1 path=1, file="pl29_u_00025", type=0, category=1, }; //
-
 
 st[200] = { volumetype=1 path=1, file="pl29_u_00001", type=0, category=1, }; //Ya
 st[201] = { volumetype=1 path=1, file="pl29_u_00002", type=0, category=1, }; //Ei
@@ -45,22 +53,18 @@ st[212] = { volumetype=1 path=1, file="pl29_u_00016", type=0, category=1, }; //S
 
 
 st[230] = { volumetype=1 path=1, file="pl29_u_00020", type=0, category=1, }; //Muda ja
-// st[231] = { volumetype=1 path=1, file="pl29_u_00021", type=0, category=1, }; //talk
-// st[231] = { volumetype=1 path=1, file="pl29_u_00022", type=0, category=1, }; //talk
-// st[231] = { volumetype=1 path=1, file="pl29_u_00023", type=0, category=1, }; //talk
-// st[231] = { volumetype=1 path=1, file="pl29_u_00024", type=0, category=1, }; //talk
 st[231] = { volumetype=1 path=1, file="pl29_u_00025", type=0, category=1, }; //Itadaki
 st[231] = { volumetype=1 path=1, file="pl29_u_00026", type=0, category=1, }; //Itadaki
 st[232] = { volumetype=1 path=1, file="pl29_u_00027", type=0, category=1, }; //Kimari
-st[233] = { volumetype=1 path=1, file="pl29_u_00028", type=0, category=1, }; //
 
 
+st[240] = { volumetype=1 path=1, file="pl29_u_00028", type=0, category=1, }; //
 
 
-
+st[310] = { volumetype=1 path=1, file="pl29_u_00000", type=0, category=1, }; //SCREE
 st[300] = { volumetype=1 path=1, file="pl29_u_00004", type=0, category=1, }; //Ungh
 st[301] = { volumetype=1 path=1, file="pl29_u_00005", type=0, category=1, }; //Aah
-st[302] = { volumetype=1 path=1, file="pl29_u_00005", type=0, category=1, }; //Haagh
+st[302] = { volumetype=1 path=1, file="pl29_u_00006", type=0, category=1, }; //Haagh
 
 
 // st[500] = { volumetype=1 path=1, file="0061_013", type=0, category=1, }; // Hajimeru ka no

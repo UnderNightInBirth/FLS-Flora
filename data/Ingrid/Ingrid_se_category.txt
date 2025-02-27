@@ -69,3 +69,35 @@ se["ダッシュ強攻撃"] <- {
 se["コンセントレーション"] <- {
     selist = { common = [211, 208], }
 }
+
+
+se["やられ弱"] <- {
+    average = 20,	selist = { common = [300], }
+}
+se["やられ中"] <- {
+    average = 30,	selist = { common = [301], }
+}
+se["やられ強"] <- {
+    average = 30,	selist = { common = [302], }
+}
+se["ラウンドＫＯ_通常"] <- {
+    selist = { common = [302], }
+}
+se["ラウンドＫＯ_膝崩れ"] <- {
+    selist = { common = [302], }
+}
+// se["ラウンド敗北"] <- {
+    // selist = { common = [], }
+// }
+se["決着ＫＯ_通常"] <- {
+    selist = { common = [310], }
+}
+se["決着ＫＯ_膝崩れ"] <- {
+    selist = { common = [310], }
+}
+// se["起き上がり"] <- {
+    // selist = { common = [211, 208], }
+// }
+// se["重傷起き上がり"] <- {
+    // selist = { common = [211, 208], }
+// }

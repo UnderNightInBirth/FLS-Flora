@@ -112,6 +112,7 @@ local t =
 
 
 	Atk_StdBandC = {},
+	Atk_AirBandC = {},
 	Atk_CroBandC = {},
 }
 
