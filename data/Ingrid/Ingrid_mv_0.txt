@@ -276,7 +276,7 @@ t.Mv_FireBall_236A <- {
         if( mvs.MvCount >= 200 )
         {
             Battle_Std.InitVector(); // kill movement
-            BMvTbl.JumpFrameID(130); // jump to explosion TODO no explosion
+            BMvTbl.SetPattern("FB_236TO"); // timeout ball no reward
             BMvTbl.SetNextMoveTable( "Mv_FireBall_236End" ); // mv takeover
 			Battle_Std.SetPlayerFireballCount(1, 0); // force reset fireball count
         }
@@ -307,10 +307,14 @@ t.Mv_FireBall_236A <- {
                 }
 
                 local vec_x = 0;
+				local new_x = BMvTbl.GetVector().x;
+				new_x *= 0.994;
                 if( stick == 9 || stick == 6 || stick == 3 ) vec_x =  70;
                 if( stick == 7 || stick == 4 || stick == 1 ) vec_x = -70;
+				
+				new_x += vec_x;
 
-                BMvTbl.SetVector( { x=vec_x, addx=0, flags=_Vector_Normal|_VecFlag_Add } );
+                BMvTbl.SetVector( { x=new_x, addx=0, flags=_Vector_Normal } );
 
             }
         }
@@ -338,7 +342,7 @@ t.Mv_FireBall_236B <- {
         if( mvs.MvCount >= 240	 )
         {
             Battle_Std.InitVector(); // kill movement
-            BMvTbl.JumpFrameID(130); // jump to explosion TODO no explosion
+            BMvTbl.SetPattern("FB_236TO"); // timeout ball no reward
             BMvTbl.SetNextMoveTable( "Mv_FireBall_236End" ); // mv takeover
 			Battle_Std.SetPlayerFireballCount(1, 0); // force reset fireball count or else we cant fire any more
         }
@@ -368,10 +372,12 @@ t.Mv_FireBall_236B <- {
                 }
                 
                 local vec_y = 0;
-                if( stick == 7 || stick == 8 || stick == 9 ) vec_y = -80;
-                if( stick == 1 || stick == 2 || stick == 3 ) vec_y =  80;
-		
-                BMvTbl.SetVector( { y=vec_y, addy=0, flags=_Vector_Normal|_VecFlag_Add } );
+				local new_y = BMvTbl.GetVector().y;
+				new_y *= 0.994;
+                if( stick == 7 || stick == 8 || stick == 9 ) vec_y = -111;
+                if( stick == 1 || stick == 2 || stick == 3 ) vec_y =  111;
+				new_y += vec_y;
+                BMvTbl.SetVector( { y=new_y, addy=0, flags=_Vector_Normal } );
 
             }
         }
@@ -401,7 +407,7 @@ t.Mv_FireBall_236C <- {
         if( mvs.MvCount >= 200 ) // timeout 200 frames
         {
             Battle_Std.InitVector(); // kill movement
-            BMvTbl.JumpFrameID(130); // jump to explosion TODO no explosion
+            BMvTbl.SetPattern("FB_236TO"); // timeout ball no reward
             BMvTbl.SetNextMoveTable( "Mv_FireBall_236End" ); // mv takeover
 			Battle_Std.SetPlayerFireballCount(1, 0); // force reset fireball count
         }
@@ -631,6 +637,7 @@ t.Mv_Atk_StdBandC <-
 		}
 				//BMvEff.SetCamera_Focus( { charapos=0, zoom=-0.1, time=[10,40-10,15], type_in=3, type_out=1, x=0, y=0 } ); //?J???‰?W’†
 
+
 	}
 	
 	function HitInterrupt_After()
@@ -641,6 +648,8 @@ t.Mv_Atk_StdBandC <-
 		//当身処理
 		if( BMvTbl.GetLP(0)==0 )
 		{
+		// TODO i really wanna hide the ugly red CH flash but maybe u cant BMvEff.SetCounterAnnounce();
+		
 			//まだ当身処理前
 			// local atemi_param = 
 			// {
@@ -662,19 +671,29 @@ t.Mv_Atk_StdBandC <-
 			
 			// local ret = atemi_check( atemi_param );
 
-			local st = BMvTbl.MvHitStatus();
-			st.Count = 3; // ヒットストップ発生
-			BMvTbl.SetMvHitStatus( st );
-			BMvTbl.ClearHitStatus(); //ヒット情報初期化
-			
 			// if( ret == 100 )
 			// {
 				// BMvTbl.SetLP(4,1); // 飛び道具とった。後で行動可能にする
 			// }
-
+		
+			local st = BMvTbl.MvHitStatus();
+			st.Count = 15; // ヒットストップ発生
+			
+			BMvTbl.SetMvHitStatus( st );
+			BMvTbl.ClearHitStatus(); //ヒット情報初期化
+			
+			BMvEff.SetStopTime( { time=15, stopme=0 } );
+			local enemy = BMvCore.GetNearEnemyCharaData();
+			if( enemy.push() )
+			{
+				BMvEff.SetCharaFlash( { color = 0x664422, type = 0, time = 30 } );
+				enemy.pop();
+			}
+			
 			BMvTbl.SetLP(0,1); // とったフラグをたてて、何度も入らないようにする
 			BMvTbl.AddLP(1,1); // とった回数を増やす。何回もとったら当身成功を終わらせる
 			BMvTbl.SetPattern("BCParry");
+			BMvEff.SetCharaFlash( { color = 0xFFF257, type = 0, time = 30 } ); // Add golden flash effects
 
 		}
 		
@@ -725,17 +744,28 @@ t.Mv_Atk_CroBandC <-
 	}
 	function HitInterrupt_After()
 	{
-
 		Battle_Std.SetThrowHitFinalize(256);
 		if( BMvTbl.GetLP(0)==0 )
 		{
+				
 			local st = BMvTbl.MvHitStatus();
-			st.Count = 3; // ヒットストップ発生
+			st.Count = 15; // ヒットストップ発生
+			
+			BMvEff.SetStopTime( { time=15, stopme=0 } );
+			local enemy = BMvCore.GetNearEnemyCharaData();
+			if( enemy.push() )
+			{
+				BMvEff.SetCharaFlash( { color = 0x664422, type = 0, time = 30 } );
+				enemy.pop();
+			}
+		
 			BMvTbl.SetMvHitStatus( st );
 			BMvTbl.ClearHitStatus(); //ヒット情報初期化
 			BMvTbl.SetLP(0,1); // とったフラグをたてて、何度も入らないようにする
 			BMvTbl.AddLP(1,1); // とった回数を増やす。何回もとったら当身成功を終わらせる
 			BMvTbl.SetPattern("CroBCP");
+			BMvEff.SetCharaFlash( { color = 0x664422, type = 0, time = 30 } );
+
 		}	
 	}
 	function Finalize()

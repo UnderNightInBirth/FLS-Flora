@@ -130,11 +130,11 @@ local ar =
 	{
 		ResetTmplName="Atk_StdC",
 		CheckMoveName="Mv_Atk_StdC",
-		UpdateMoveName="Mv_Skill_0202A",
+		UpdateMoveName="Mv_Skill_214A",
 	},
 	{
-		ResetTmplName="Skill_0202A",
-		CheckMoveName="Mv_Skill_0202A",
+		ResetTmplName="Mv_Skill_214A",
+		CheckMoveName="Mv_Skill_214A",
 		UpdateMoveName="Mv_Skill_SSRelayAtk",
 		CmdCheck = 
 		{
