@@ -5,8 +5,13 @@ btl_debPrint2("\n[RIE_CommandTable.txt]");
 local t =
 {
 	Atk_Std6B = {},
-	Atk_Cro3B = {},
 	Atk_Std6C = {},
+	Atk_Cro3A =
+	{   command = "3+A",
+		flags = [ "lastdelay" ],
+		CmdCheck = { SkillType = "Normal" },
+	},
+	Atk_Cro3B = {},
 	Atk_Air2A = {
 	command = "2+A", posstatus = _PosState_Air,
 	flags = [ "lastdelay" ],
