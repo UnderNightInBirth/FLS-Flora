@@ -12,7 +12,7 @@ Chara_Table <-
 	// ・配列数は縦x横が100未満になるように
 	SelectTable = 
 	[
-        [ -1,-1,-1,38,31,29,27,28,30,-1,32,-1,-1.-1,-1 ],
+        [ -1,-1,-1,38,31,29,27,28,30,-1,32,39,-1.-1,-1 ],
 		[ 11,23,24,12,08,02,00,01,03,09,13,21,22,14,99 ],
 		[ 99,20,19,10,06,04,16,17,05,07,15,18,25,99,-1 ],
 	],
@@ -541,6 +541,20 @@ chara_no[38] =
 	bgm = 162,
 	
 	order = 109,
+}; // 
+
+chara_no[39] = 
+{
+    name_short = "HydEX",
+    name_long = "Hyde(EX)",
+    name_str = "ハイド",
+    name_master = "ハイド",
+    isAlive = 1,
+
+    stage = 1,
+    bgm = 1,
+
+    order = 189,
 }; // 
 
 // chara_no[33] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };

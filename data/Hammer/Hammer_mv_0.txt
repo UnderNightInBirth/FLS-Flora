@@ -29,6 +29,44 @@ t.Mv_Atk_StdB <-
 	}
 }
 
+// t.Mv_Liberate <- 	//Veil Off Combo
+// {
+	// function FrameUpdate_After()
+	// {
+		// switch( Battle_Std.GetUpdateFrameID() )
+		// {
+		// case 40:
+			// BMvEff.CreateObject( { x=0, y=-300, datatype=1, start_pat=102, flags=_Position_ToolShift } );
+			// break;
+		// }
+	// }
+// }
+t.Mv_ComboLiberate <- 	//Veil Off Combo
+{
+	function FrameUpdate_After()
+	{
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 10:
+			BMvEff.CreateObject( { x=0, y=-300, datatype=1, start_pat=102, flags=_Position_ToolShift } );
+			break;
+		case 40:
+			BMvEff.CreateObject( { x=0, y=-300, datatype=1, start_pat=103, flags=_Position_ToolShift } );
+			break;
+		}
+	}
+}
+t.Mv_Convert <- 	//Veil Off Combo
+{
+	function Init_After()
+	{
+		local rc = BMvEff.GetHanteiRect( { check=[ _Hantei_Etc, 0 ], flags=_HanteiFlag_NoMukiChange | _HanteiFlag_Tool  } );
+		if( rc.sx != _Hantei_Error ) // ‘¶Ý‚·‚é‚©
+		{
+			BMvEff.CreateObject( { x=rc.sx, y=rc.sy, datatype=1, start_pat=104, flags=_Position_ToolShift } );
+		}
+	}
+}
 
 t.Mv_Atk_Std4C <-
 {

@@ -1,0 +1,488 @@
+local gauge_status = BMvEff.Liberate_Get();
+
+local t =
+{
+
+	MultiJump_F = 
+	{
+		function CmdBeforeFunc()
+		{
+        // Check if BMvEff.Liberate_Get() equals 0
+        if (BMvEff.Liberate_Get() == 0) {
+            return 0; // If not in liberate then don't proceed
+        }
+        // Continue
+		}
+	}
+	
+	MultiJump_N = 
+	{
+		function CmdBeforeFunc()
+		{
+        // Check if BMvEff.Liberate_Get() equals 0
+        if (BMvEff.Liberate_Get() == 0) {
+            return 0; // If not in liberate then don't proceed
+        }
+        // Continue
+		}
+	}
+	
+	MultiJump_B = 
+	{
+		function CmdBeforeFunc()
+		{
+        // Check if BMvEff.Liberate_Get() equals 0
+        if (BMvEff.Liberate_Get() == 0) {
+            return 0; // If not in liberate then don't proceed
+        }
+        // Continue
+		}
+	}
+
+	MultiJumpCancel_F = 
+	{
+		function CmdBeforeFunc()
+		{
+        // Check if BMvEff.Liberate_Get() equals 0
+        if (BMvEff.Liberate_Get() == 0) {
+            return 0; // If not in liberate then don't proceed
+        }
+        // Continue
+		}
+	}
+	MultiJumpCancel_N = 
+	{
+		function CmdBeforeFunc()
+		{
+        // Check if BMvEff.Liberate_Get() equals 0
+        if (BMvEff.Liberate_Get() == 0) {
+            return 0; // If not in liberate then don't proceed
+        }
+        // Continue
+		}
+	}
+	
+	MultiJumpCancel_B = 
+	{
+		function CmdBeforeFunc()
+		{
+        // Check if BMvEff.Liberate_Get() equals 0
+        if (BMvEff.Liberate_Get() == 0) {
+            return 0; // If not in liberate then don't proceed
+        }
+        // Continue
+		}
+	}
+	
+	Skill_41236SP_ABC = {},
+	Skill_41236SP = {
+		function CmdBeforeFunc()
+		{
+			// Check if BMvEff.Liberate_Get() equals 0
+			if (BMvEff.Liberate_Get() != 0) {
+				// If not 0, exit the function early
+				return 0;  // Returning 0 will prevent the command from continuing
+			}
+			// Code will continue here only if BMvEff.Liberate_Get() == 0
+		}
+	}
+	
+	Skill_63214SP = 
+	{ 
+		command = ["41236+D"], 
+		CmdCheck = 
+		{
+			SkillType = "SpSpecial",
+			Cost = { ComboGauge = 20000 },
+		}
+		
+		function CmdBeforeFunc()
+		{
+        // Check if BMvEff.Liberate_Get() equals 0
+        if (BMvEff.Liberate_Get() == 0) {
+            return 0; // If not in liberate then don't proceed
+        }
+        // Continue
+		}
+	},
+
+	Skill_41236EX = {
+		function CmdBeforeFunc()
+		{
+			// Check if BMvEff.Liberate_Get() equals 0
+			if (BMvEff.Liberate_Get() != 0) {
+				// If not 0, exit the function early
+				return 0;  // Returning 0 will prevent the command from continuing
+			}
+			// Code will continue here only if BMvEff.Liberate_Get() == 0
+		}
+	}
+	
+	Skill_236EX = { CmdCheck = { BallLimit = { [6] = 1 } } },
+	Skill_236BorC = { CmdCheck = { BallLimit = { [6] = 1 } } },
+	Skill_236A = { CmdCheck = { BallLimit = { [6] = 1 } } },
+
+	// 行動可能時（空振り）とかで出せる派生
+	Skill_236_236A =
+	{
+		num = def_CN_Skill_AddCommand1,
+		command = Def_CMD_236A,
+		CmdCheck =
+		{
+			BallCount = { [6] = 1 },
+			BallLimit = { [7] = 1 }, //EX波動のときはでない
+		}
+		UpdateTable = { name = "Mv_Skill_236_236A", }
+	},
+
+	// モーション中に出す追加派生
+	Skill_236_236A_ADD =
+	{
+		num = def_CN_Skill_AddCommand2,
+		command = [Def_CMD_236A,"6+A"],
+		function CmdBeforeFunc()
+		{
+			//FrameIDが20　か　飛び道具がヒットしてれば追加は出せる
+			local mvs = BMvTbl.GetMvStatus();
+			local hs = BMvTbl.GetMvHitStatus();
+			if( mvs.FrameID!=20 && !(hs.Type & _HitType_Hit) ) return 0;
+			
+			//ダッシュとか出そうとして漏れるのを対応
+			local cmd_spos = BCMDTbl.GetSuccessButtonPos();
+			if( cmd_spos >= 1 )
+			{
+				if( mvs.FrameID == 0 )
+				{
+					return 0;
+				}
+			}
+			
+			return 1;
+		},
+		CmdCheck =
+		{
+			SkillType = "AddCommand",
+			MvCheck = { Only = ["Mv_Skill_236A","Mv_Skill_236B"] },
+			BallCount = { [6] = 1 },
+			BallLimit = { [7] = 1 }, //EX波動のときはでない
+		}	
+		UpdateTable = { name = "Mv_Skill_236_236A", }
+	},	
+	
+	Skill_236_236B =
+	{
+		num = def_CN_Skill_AddCommand9,
+		command = [Def_CMD_236B,Def_CMD_236C],
+		CmdCheck = 
+		{
+			BallCount = { [6] = 1 },
+			BallLimit = { [7] = 1 }, //EX波動のときはでない
+		},
+		UpdateTable = { name = "Mv_Skill_236_236B", }
+	},	
+	
+	Skill_236_236B_ADD =
+	{
+		num = def_CN_Skill_AddCommand10,
+		command = [Def_CMD_236B,Def_CMD_236C,"6+B","6+C"],
+		function CmdBeforeFunc()
+		{
+			//FrameIDが20　か　飛び道具がヒットしてれば追加は出せる
+			local mvs = BMvTbl.GetMvStatus();
+			local hs = BMvTbl.GetMvHitStatus();
+			if( mvs.FrameID!=20 && !(hs.Type & _HitType_Hit) ) return 0;
+			
+			//ダッシュとか出そうとして漏れるのを対応
+			local cmd_spos = BCMDTbl.GetSuccessButtonPos();
+			if( cmd_spos >= 2 )
+			{
+				if( mvs.FrameID == 0 )
+				{
+					return 0;
+				}
+			}
+			
+			return 1;
+		},		
+		CmdCheck = 
+		{
+			SkillType = "AddCommand"
+			MvCheck = { Only = ["Mv_Skill_236A","Mv_Skill_236B"] },
+			BallCount = { [6] = 1 },
+			BallLimit = { [7] = 1 }, //EX波動のときはでない
+		},
+		UpdateTable = { name = "Mv_Skill_236_236B", }
+	},
+	
+	Skill_236_236EX =
+	{
+		num = def_CN_Skill_AddCommand7,
+		usegauge = 10000,
+		command = ["646C@N,255@",Def_CMD_236C],
+		CmdCheck = 
+		{
+			SkillType = "ExSpecial",
+			Cost = { ComboGauge = 10000 },
+			BallCount = { [6] = 1 },
+			BallLimit = { [7] = 1 }, //EX波動のときはでない
+		},
+		UpdateTable = { name = "Mv_Skill_236_236EX", }
+	},	
+	
+	// モーション中に出す追加派生
+	Skill_236_236EX_ADD =
+	{
+		num = def_CN_Skill_AddCommand8,
+		usegauge = 10000,
+		command = ["46C@N,255@",Def_CMD_236C],
+		function CmdBeforeFunc()
+		{
+			//FrameIDが20　か　飛び道具がヒットしてれば追加は出せる
+			local mvs = BMvTbl.GetMvStatus();
+			local hs = BMvTbl.GetMvHitStatus();
+			if( mvs.FrameID!=20 && !(hs.Type & _HitType_Hit) ) return 0;
+			return 1;
+		},		
+		CmdCheck = 
+		{
+			SkillType = "AddCommand",
+			Cost = { ComboGauge = 10000 },
+			MvCheck = { Only = ["Mv_Skill_236A","Mv_Skill_236B"] },
+			BallCount = { [6] = 1 },
+			BallLimit = { [7] = 1 }, //EX波動のときはでない
+		},
+		UpdateTable = { name = "Mv_Skill_236_236EX", }
+	},	
+	
+	Skill_623EX = {},
+	Skill_623BorC = {},
+	Skill_623A = {},
+	
+	Skill_214EX = 
+	{
+		function CmdBeforeFunc()
+		{
+			// Check if BMvEff.Liberate_Get() equals 0
+			if (BMvEff.Liberate_Get() != 0) {
+				// If not 0, exit the function early
+				return 0;  // Returning 0 will prevent the command from continuing
+			}
+			// Code will continue here only if BMvEff.Liberate_Get() == 0
+		}
+	}
+	
+	Skill_214BorC = {},
+	Skill_214A = {},
+	
+	Skill_214_JAdd1 = 
+	{
+		num = def_CN_Skill_AddCommand5,
+		command = ["<+A","<+B","<+C"], posstatus = _PosState_Air,
+		
+		CmdCheck = 
+		{
+			SkillType = "AddCommand"
+			MvCheck = { Only = ["Mv_Skill_214A","Mv_Skill_214B"] },
+			FrameIDCheck = { Only = 100 },
+			PosState = "Air",
+		},
+		UpdateFrameID = 101,
+		UpdateTable = { name = "Mv_Skill_214_JAdd1", },
+	},
+	Skill_214_JAdd2 = 
+	{
+		num = def_CN_Skill_AddCommand6,
+		command = ["<+A","<+B","<+C"], posstatus = _PosState_Air,
+
+		CmdCheck = 
+		{
+			SkillType = "AddCommand"
+			MvCheck = { Only = ["Mv_Skill_214_JAdd1"] },
+			FrameIDCheck = { Only = 200 },
+			PosState = "Air",
+		},		
+		UpdateFrameID = 201,
+		UpdateTable = { name = "Mv_Skill_214_JAdd2", },
+	},
+
+	
+	
+	Skill_0202EX = {},	
+	Skill_0202BorC = {},
+	Skill_0202A = {},
+
+	Skill_J236EX = {
+		function CmdBeforeFunc()
+		{
+			if( BMvTbl.AddAirCount( 2, 0 ) ) return 0;
+			return 1;
+		}
+	},
+	Skill_J236BorC = {
+		function CmdBeforeFunc()
+		{
+			if( BMvTbl.AddAirCount( 1, 0 ) ) return 0;
+			return 1;
+		}
+	},
+	Skill_J236A = {
+		function CmdBeforeFunc()
+		{
+			if( BMvTbl.AddAirCount( 0, 0 ) ) return 0;
+			return 1;
+		}
+	},
+	
+	Atk_Std6B = {},
+	Atk_Cro3B = {},
+	Atk_Cro3C = {},
+	Atk_Air6C = {},
+	Atk_Air2C = {},
+	
+	Atk_StdBandC = {},
+	Atk_CroBandC = {},
+	
+	Skill_EXS = {
+    command = ["A+B+C"],
+	CmdCheck = 
+		{
+			Cost = { ComboGauge = 10000 },
+		},		
+    function CmdBeforeFunc()
+    {
+		
+        // Check if BMvEff.Liberate_Get() equals 0
+        if (BMvEff.Liberate_Get() != 0) {
+            // If not 0, exit the function early
+            return 0;  // Returning 0 will prevent the command from continuing
+        }
+        // Code will continue here only if BMvEff.Liberate_Get() == 0
+		}
+	}
+	
+	Skill_EXS_RELEASE = {
+		command = ["A+B+C"]
+		CmdCheck = 
+		{	
+			Cost = { ComboGauge = "OverLiberate" },
+			SkillType = "SpSpecial",
+		},
+		
+		function CmdBeforeFunc()
+		{
+        // Check if BMvEff.Liberate_Get() equals 0
+        if (BMvEff.Liberate_Get() == 0) {
+            return 0; // If not in liberate then don't proceed
+        }
+        // Continue
+		}
+	}
+	
+	Skill_Alt_41236EX = {
+		command = ["236+B+C"]
+		
+		CmdCheck = 
+		{
+			Cost = { ComboGauge = 10000 },
+		},	
+		
+		function CmdBeforeFunc()
+		{
+        // Check if BMvEff.Liberate_Get() equals 0
+        if (BMvEff.Liberate_Get() == 0) {
+            return 0; // If not in liberate then don't proceed
+        }
+        // Continue
+		}
+	}
+	
+	Throw_A = {
+		CmdCheck = { SkillType = "AirThrow" },
+	},
+	
+	Atk_Std6C = {
+		function CmdBeforeFunc()
+		{
+        // Check if BMvEff.Liberate_Get() equals 0
+        if (BMvEff.Liberate_Get() == 0) {
+            return 0; // If not in liberate then don't proceed
+        }
+        // Continue
+		}
+	}
+	
+	Skill_6C_Add = {
+		num = def_CN_Skill_AddCommand5,
+		command = [">+C"],
+	
+		CmdCheck = 
+		{
+			SkillType = "AddCommand"
+			MvCheck = { Only = ["Mv_Atk_Std6C"] },
+			HitStatus = "Hit",
+			FrameIDCheck = { Only = 100 },
+		},
+		UpdateTable = { name = "Mv_Skill_6C_Add", },
+	}
+	
+	Skill_Alt_214EX = {
+		command = ["214+C"]
+		
+		CmdCheck = 
+		{
+			Cost = { ComboGauge = 10000 },
+		},	
+		
+		function CmdBeforeFunc()
+		{
+        // Check if BMvEff.Liberate_Get() equals 0
+        if (BMvEff.Liberate_Get() == 0) {
+            return 0; // If not in liberate then don't proceed
+        }
+        // Continue
+		}
+	}
+}
+
+local ar =
+[
+	{
+		CheckMoveName="Mv_Atk_StdA",
+		UpdateMoveName="Mv_Atk_StdB",
+	},
+	{
+		ResetTmplName="Atk_StdB",
+		CheckMoveName="Mv_Atk_StdB",
+		UpdateMoveName="Mv_Atk_StdC",
+	},
+	{
+		ResetTmplName="Atk_StdC",
+		CheckMoveName="Mv_Atk_StdC",
+		UpdateMoveName="Mv_Skill_0202A",
+	},
+	{
+		ResetTmplName="Skill_0202A",
+		CheckMoveName="Mv_Skill_0202A",
+		UpdateMoveName="Mv_Skill_SSRelayAtk",
+		CmdCheck = 
+		{
+			SkillType = "AddCommand",
+			FrameIDCheck = { Only = [110,120] },
+		}
+		CmdTmplFlags=def_CMDFlags_AnnounceSmaetSteer, //スマートステアアナウンスの追加
+	},
+	{
+		CheckMoveName="Mv_Skill_SSRelayAtk",
+		UpdateMoveName="Mv_Skill_41236SP",
+		CmdCheck = 
+		{
+			Cost = { ComboGauge = "OverLiberate" },
+			SkillType = "SpSpecial",
+			HitStatus="Damage",
+		}
+	},
+]
+Battle_Std.MakeStdCombo( t, ar );
+
+HYDEX_CommandTable <- Battle_Std.MakeCommandTable( { command=t } );
+

@@ -16,3 +16,5 @@ const Def_ChrNo_Ryu = 32;
 
 const Def_ChrNo_Yuuki = 38;
 const Def_ChrNo_Yuu = 38;
+
+const Def_ChrNo_HydEX = 39;

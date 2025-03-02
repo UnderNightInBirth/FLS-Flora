@@ -1,0 +1,12 @@
+[System]
+ProjectName=HydEX
+[DataFile]
+FileNum= 2
+File01=HydEX.ha6
+File02=../BaseData.ha6
+[BmpcutFile]
+FileNum= 1
+File00=HydEX.cg
+[PAniFile]
+FileNum= 1
+File00=HydEX.pat
