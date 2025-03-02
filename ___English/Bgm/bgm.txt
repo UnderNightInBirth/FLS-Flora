@@ -263,6 +263,11 @@ File = stage_catacombs
 IsLoop = 1
 LoopPos = 14.170
 
+[BGM_174]
+File = hydeex
+IsLoop = 1
+LoopPos = 12.866
+
 [BGM_175]
 File = stage_rabbitburrows
 IsLoop = 1

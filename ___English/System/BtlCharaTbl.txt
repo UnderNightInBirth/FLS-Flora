@@ -551,8 +551,8 @@ chara_no[39] =
     name_master = "ƒnƒCƒh",
     isAlive = 1,
 
-    stage = 1,
-    bgm = 1,
+    stage = 22,
+    bgm = 174,
 
     order = 189,
 }; // 
