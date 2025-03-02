@@ -1,0 +1,10 @@
+[System]
+ProjectName=csel_HydEX
+[DataFile]
+FileNum= 1
+File00=csel_HydEX.ha6
+[BmpcutFile]
+FileNum= 1
+File00=../HydEX/HydEX.cg
+[PAniFile]
+FileNum= 0
