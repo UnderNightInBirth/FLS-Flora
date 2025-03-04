@@ -353,7 +353,7 @@ local t =
 	Skill_41236EX = {command = ["412@N,2@@D,7@36C"],},
 	
 	//U4 CROSS SLASH
-	Skill_63214EX = {command = ["63214C@N,6@"],},
+	//broke Skill_63214EX = {command = ["63214C@N,6@"],},
 	
 	//ORBITAR n FOLLOWUPS
 	Skill_236EX = { CmdCheck = { BallLimit = { [6] = 1 } } },
@@ -650,21 +650,7 @@ local t =
 		UpdateTable = { name = "Mv_Skill_214_JAdd3", },
 	},
 	
-	Skill_214_JAdd4 = 
-	{
-		num = def_CN_Skill_AddCommand12,
-		command = ["<+B","<+C"], posstatus = _PosState_Air,
-
-		CmdCheck = 
-		{
-			SkillType = "AddCommand"
-			MvCheck = { Only = ["Mv_Skill_214A"] },
-			FrameIDCheck = { Only = 100 },
-			HitStatus= "Hit",
-			PosState = "Air",
-		},
-		UpdateTable = { name = "Mv_Skill_214_JAdd4", },
-	},
+// i love soylent so much its unreal - fatih hammer 2028
 	
 	Skill_214_JAddEX = 
 	{
