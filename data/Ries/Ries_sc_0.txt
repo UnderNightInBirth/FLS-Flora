@@ -1,6 +1,5 @@
 Battle_Status <-
 {
-
 	AttackRate = 100, // ATK output
 	SeedGaugeCorrectValue_Plus = 100, // seedgaugeプラス方向の変動補正値
 	SeedGaugeCorrectValue_Minus = 100, // seedgaugeマイナス方向の変動補正値
@@ -9,7 +8,6 @@ Battle_Status <-
 	ScratchDamageVal_Def = 100, // 削りダメージ、防御時
 	ScratchDamageVal_ExDef = 100, // 削りダメージ、ジャストディフェンス
 	HpDivValue = [ 11000 ],
-	
 }
 
 Battle_Std.InsertTable( Battle_Status, Battle_Std.GetStd_BattleStatusTable() ); //デフォルト

@@ -1,5 +1,3 @@
-//__dofile__( "./data/_combase.txt" );
-
 local nowskillnum = 0; // コマンド番号、変更されたら知らない
 
 //-------------------------------------------------------------
@@ -8,7 +6,7 @@ local nowskillnum = 0; // コマンド番号、変更されたら知らない
 local comcount = 200; // 最大数 できるだけギリギリに
 local com = CCom(comcount); // COM用オブジェクト
 
-com.SetGuardAvg( 40 ); // ガード確率
+com.SetGuardAvg( 80 ); // ガード確率
 
 
 local stmp = 0;

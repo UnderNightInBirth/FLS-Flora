@@ -532,23 +532,3 @@ se["Mv_Skill_SSRelayAtk_FU"] <-
 	Param0=10,
 	selist = { common = [284,285], },
 };
-
-//-------New---------
-
-// EX Veil
-se["Mv_Skill_EXS_FU"] <- 
-{
-	Param0=10,
-	selist = { common = [588], },
-};
-
-se["Mv_Skill_EXS_RELEASE_FU"] <- 
-{
-	Param0=10,
-	selist = { common = [589], },
-};
-
-se["Mv_Skill_Alt_214EX_Init"] <-
-{
-	selist = { common = [590], },
-};

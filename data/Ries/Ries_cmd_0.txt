@@ -112,12 +112,7 @@ local t =
 	Skill_41236SP = {},
     Skill_41236SP_ABC = {},
 	Skill_0202EX = { // Beast Mode only
-		function CmdBeforeStdFunc()
-		{
-			if ( BMvTbl.GetLP(10) == 1 ) return 1;
-			return 0;
-		},
-	},
+		function CmdBeforeStdFunc() { return BMvTbl.GetPP(10) == 1 ? 1 : 0; } },
 	
 	Skill_020202EX = {
 		command = [ "@R,1@C","41236^C","63214^C", "4136^C","6314^C","4236^C","4126^C","6214^C","6324^C", ], usegauge = 20000,

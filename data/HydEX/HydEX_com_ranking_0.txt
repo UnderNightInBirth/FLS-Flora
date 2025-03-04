@@ -1,1 +1,1 @@
-__dofile__( "./data/chr000/chr000_com_0.txt" );
+__dofile__( "./data/HydEX/HydEX_com_0.txt" );
