@@ -1,0 +1,13 @@
+[System]
+ProjectName=chr028
+[DataFile]
+FileNum= 3
+File00=_temp.ha6
+File01=chr000.ha6
+File02=../BaseData.ha6
+[BmpcutFile]
+FileNum= 1
+File00=chr000_1.cg
+[PAniFile]
+FileNum= 1
+File00=chr000_8.pat
