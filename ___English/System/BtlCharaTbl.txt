@@ -531,10 +531,10 @@ chara_no[32] =
 
 chara_no[38] = 
 {
-	name_short = "Ehy",
-	name_long = "Ehy",
-	name_str = "ハイド",
-	name_master = "ハイド",
+	name_short = "Yuuki",
+	name_long = "Yuuki",
+	name_str = "Yuuki",
+	name_master = "Yuuki",
 	isAlive = 1,
 	
 	stage = 33,

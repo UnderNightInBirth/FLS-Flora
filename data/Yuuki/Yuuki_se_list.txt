@@ -3,411 +3,584 @@ __dofile__("./script/btl_SEDefine.txt"); //ＳＥ定数
 SeList_Table <-
 {
 	TableNum = 1, // SEセレクトとかでのプログラム側参照用、テーブル最大値を入れておく
-	UseTable = 0, // 何番目のテーブルを使うか
-	Path = [],	// パス設定簡略化用
-	Status = [],	// 実際に再生時に使われる配列
+	UseTable = 0, // 何番目のテーブルを使うか	
+	Path = [], // パス設定簡略化用
+	Status = [], // 実際に再生時に使われる配列
 };
 
-SeList_Table.Path.append( "./se/normal_se/" ); // 0: Global SE
-SeList_Table.Path.append( "./se/battle_se/Yuuki/" ); // 1: Character Voice
-SeList_Table.Path.append( "./se/battle_se/" ); // 2: Battle SE
-
-SeList_Table.Status.resize(650); // 確保
-local st = SeList_Table.Status; // 登録しやすいように省略
-
-
-
-
-st[50] = { path=2, file="CrystalBrake", type=1, category=2, }; // 
-st[60] = { path=2, file="Bomb_Charge", type=1, category=2, }; // CA1の羽生えSE
-
-// イグニッション選択
-st[80] = { path=1, file="Yuk00_6201", type=0, category=3}; // まだまだこっからだよ！
-// クライマックスブースト発動
-// st[81] = { path=1, file="Alc00_7100", type=0, category=1}; // この力で…守りたい、みんなを！
-// ブラストＯＫ
-// st[82] = { path=1, file="Alc00_4900", type=0, category=1}; // よーし元気でた！
-
-// 掛け合い
-st[95] = { path=1, file="Yuk00_2071", type=0, category=1}; // 
-st[96] = { path=1, file="Yuk00_2073", type=0, category=1}; // 
-st[97] = { path=1, file="Yuk00_2074", type=0, category=1}; // 
-st[98] = { path=1, file="Yuk00_2081", type=0, category=1}; // 
-
-// 登場シーン	
-st[100] = { path=1, file="Yuk00_2000", type=0, category=1}; // さてと、やろっか
-st[101] = { path=1, file="Yuk00_2001", type=0, category=1}; // 仕方ないね、戦おう
-st[102] = { path=1, file="Yuk00_2002", type=0, category=1}; // よぉーし、勝負だよ！
-st[103] = { path=1, file="Yuk00_2003", type=0, category=1}; // ルールはありありでいくよ！
-st[104] = { path=1, file="Yuk00_2004", type=0, category=1}; // いい勝負にしようね
-
-// 戦闘勝利・汎用	
-st[107] = { path=1, file="Yuk00_2100", type=0, category=1}; // ふー、すっごくよかったよ！
-st[108] = { path=1, file="Yuk00_2101", type=0, category=1}; // いつでもリベンジ受け付けるよっ
-
-// 戦闘勝利・辛勝	
-st[112] = { path=1, file="Yuk00_2102", type=0, category=1}; // 危なかったー、またやろうね！
-// 戦闘勝利・楽勝	
-st[113] = { path=1, file="Yuk00_2103_s1", type=0, category=1}; // えっへへー、ブイっ！
-
-// ラウンド勝利	
-st[120] = { path=1, file="Yuk00_2150", type=0, category=1}; // まだやる？
-st[121] = { path=1, file="Yuk00_2151", type=0, category=1}; // 次いってみよっか
-
-// タイムアップ判定負け	
-st[130] = { path=1, file="Yuk00_2200", type=0, category=1}; // ええー、くっそー…
-st[131] = { path=1, file="Yuk00_2201", type=0, category=1}; // やられちゃった…
-
-// 弱攻撃	
-st[140] = { path=1, file="Yuk00_2300", type=0, category=1}; // は
-st[141] = { path=1, file="Yuk00_2301_b", type=0, category=1}; // ほ
-st[142] = { path=1, file="Yuk00_2302_b", type=0, category=1}; // よ
-st[143] = { path=1, file="Yuk00_2303", type=0, category=1}; // や
-st[144] = { path=1, file="Yuk00_2304_b", type=0, category=1}; // た
-
-// 中攻撃	
-st[150] = { path=1, file="Yuk00_2400_b", type=0, category=1}; // えいっ
-st[151] = { path=1, file="Yuk00_2401_b", type=0, category=1}; // てやっ
-st[152] = { path=1, file="Yuk00_2402_b", type=0, category=1}; // やあっ
-st[153] = { path=1, file="Yuk00_2403", type=0, category=1}; // せいっ
-st[154] = { path=1, file="Yuk00_2404_b", type=0, category=1}; // とうっ
-st[155] = { path=1, file="Yuk00_2405_b", type=0, category=1}; // はいっ
-// st[156] = { path=1, file="Yuk00_2406_b", type=0, category=1}; // ふんっ
-
-// 強攻撃	
-st[160] = { path=1, file="Yuk00_2500", type=0, category=1}; // そこだっ！
-st[161] = { path=1, file="Yuk00_2501_b", type=0, category=1}; // うりゃあっ！
-st[162] = { path=1, file="Yuk00_2502_b", type=0, category=1}; // やぁーっ！
-st[163] = { path=1, file="Yuk00_2503", type=0, category=1}; // でやぁーっ！
-st[164] = { path=1, file="Yuk00_2504", type=0, category=1}; // はあぁっ！
-st[165] = { path=1, file="Yuk00_2505", type=0, category=1}; // たぁーっ！
-st[166] = { path=1, file="Yuk00_2506_b", type=0, category=1}; // てりゃぁーっ！
-
-// 特殊攻撃	
-// st[170] = { path=1, file="Yuk00_2600", type=0, category=1}; // 痛いよっ！
-st[171] = { path=1, file="Yuk00_2601", type=0, category=1}; // 見切った！
-st[172] = { path=1, file="Yuk00_2602", type=0, category=1}; // もーいっちょ！
-// st[173] = { path=1, file="Yuk00_2603", type=0, category=1}; // どうかな！
-st[174] = { path=1, file="Yuk00_2604", type=0, category=1}; // 上だよ！
-// st[175] = { path=1, file="Yuk00_2605", type=0, category=1}; // こんな感じ？
-// st[176] = { path=1, file="Yuk00_2606", type=0, category=1}; // 見えるかな？
-st[177] = { path=1, file="Yuk00_2607", type=0, category=1}; // どーん！
-
-// 投げ技成功	
-st[180] = { path=1, file="Yuk00_2700", type=0, category=1}; // せああーっ！
-st[181] = { path=1, file="Yuk00_2701", type=0, category=1}; // おおおおっ！
-st[182] = { path=1, file="Yuk00_2702", type=0, category=1}; // いよっと！
-
-// 投げ技失敗	
-// st[190] = { path=1, file="Yuk00_2800", type=0, category=1}; // あれれっ
-// st[191] = { path=1, file="Yuk00_2801", type=0, category=1}; // うそー！？
-
-// 敵の投げ技を回避	
-st[200] = { path=1, file="Yuk00_2900", type=0, category=1, prio=Def_SEP_ThrowTech, check=1}; // 危なっ！
-// st[201] = { path=1, file="Yuk00_2901", type=0, category=1, prio=Def_SEP_ThrowTech, check=1}; // 離してよっ！
-
-// 挑発アクション	
-// st[210] = { path=1, file="Yuk00_3100", type=0, category=1}; // 来ないならこっちから行っちゃうよ
-// st[211] = { path=1, file="Yuk00_3101", type=0, category=1}; // もうやめとく？
-
-// ジャンプ	
-st[220] = { path=1, file="Yuk00_3200", type=0, category=1}; // よっ
-// st[221] = { path=1, file="Yuk00_3201", type=0, category=1}; // ほいっ
-st[222] = { path=1, file="Yuk00_3202", type=0, category=1}; // やっ
-
-// ダッシュ	
-st[230] = { path=1, file="Yuk00_3300", type=0, category=1}; // ふっ
-st[231] = { path=1, file="Yuk00_3301", type=0, category=1}; // いくよっ
-// st[232] = { path=1, file="Yuk00_3302", type=0, category=1}; // 任せてっ
-
-// バックステップ	
-st[240] = { path=1, file="Yuk00_3400", type=0, category=1}; // おっと
-// st[241] = { path=1, file="Yuk00_3401", type=0, category=1}; // 危ないっ
-st[242] = { path=1, file="Yuk00_3402", type=0, category=1}; // ほいっ
-
-// 小攻撃ガード	
-st[250] = { path=1, file="Yuk00_3500", type=0, category=1, prio=Def_SEP_GuardLv1, check=1 }; // 甘いよ！
-st[251] = { path=1, file="Yuk00_3501", type=0, category=1, prio=Def_SEP_GuardLv1, check=1 }; // 軽いね
-st[252] = { path=1, file="Yuk00_3502", type=0, category=1, prio=Def_SEP_GuardLv1, check=1 }; // いいね！
-
-// 中攻撃ガード	
-st[260] = { path=1, file="Yuk00_3600", type=0, category=1, prio=Def_SEP_GuardLv2, check=1 }; // おぉ！？
-st[261] = { path=1, file="Yuk00_3601", type=0, category=1, prio=Def_SEP_GuardLv2, check=1 }; // まだまだ
-st[262] = { path=1, file="Yuk00_3602", type=0, category=1, prio=Def_SEP_GuardLv2, check=1 }; // これは…！
-
-// 大攻撃ガード	
-st[270] = { path=1, file="Yuk00_3700", type=0, category=1, prio=Def_SEP_GuardLv3, check=1 }; // ぐっ
-st[271] = { path=1, file="Yuk00_3701", type=0, category=1, prio=Def_SEP_GuardLv3, check=1 }; // 強い…っ
-st[272] = { path=1, file="Yuk00_3702", type=0, category=1, prio=Def_SEP_GuardLv3, check=1 }; // なんとか…っ
-
-// 攻撃を見切り余裕でガード	
-st[280] = { path=1, file="Yuk00_3800", type=0, category=1, prio=Def_SEP_NiceGuard, check=1 }; // 危ないなぁ
-st[281] = { path=1, file="Yuk00_3801", type=0, category=1, prio=Def_SEP_NiceGuard, check=1 }; // 駄目だよ
-st[282] = { path=1, file="Yuk00_3802", type=0, category=1, prio=Def_SEP_NiceGuard, check=1 }; // 甘いっ
-
-// ガード失敗	
-st[290] = { path=1, file="Yuk00_3900", type=0, category=1, prio=Def_SEP_GuardMiss, check=1 }; // しまった！
-st[291] = { path=1, file="Yuk00_3901", type=0, category=1, prio=Def_SEP_GuardMiss, check=1 }; // えええっ！？
-st[292] = { path=1, file="Yuk00_3902", type=0, category=1, prio=Def_SEP_GuardMiss, check=1 }; // マジっ！？
-
-// 受け身	
-st[300] = { path=1, file="Yuk00_4000", type=0, category=1}; // てへへ
-st[301] = { path=1, file="Yuk00_4001", type=0, category=1}; // ほいっと
-st[302] = { path=1, file="Yuk00_4002", type=0, category=1}; // やれるよ
-
-// バリア発動	
-// st[310] = { path=1, file="Yuk00_4100", type=0, category=1}; // いつでもいいよ
-// st[311] = { path=1, file="Yuk00_4101", type=0, category=1}; // さぁ来い！
-// st[312] = { path=1, file="Yuk00_4102", type=0, category=1}; // 止めるよ！
-
-// バリアガード成功	
-// st[320] = { path=1, file="Yuk00_4200", type=0, category=1}; // ほらね
-// st[321] = { path=1, file="Yuk00_4201", type=0, category=1}; // 無駄だよ
-// st[322] = { path=1, file="Yuk00_4202", type=0, category=1}; // へへーん
-
-// 小ダメージ	
-st[330] = { path=1, file="Yuk00_4300", type=0, category=1, prio=Def_SEP_DamageLv1, check=1 }; // いたっ！
-st[331] = { path=1, file="Yuk00_4301", type=0, category=1, prio=Def_SEP_DamageLv1, check=1 }; // うわっ！
-st[332] = { path=1, file="Yuk00_4302", type=0, category=1, prio=Def_SEP_DamageLv1, check=1 }; // うわっ！
-
-// 中ダメージ	
-// st[340] = { path=1, file="Yuk00_4400", type=0, category=1, prio=Def_SEP_DamageLv2, check=1 }; // うぎっ！
-st[341] = { path=1, file="Yuk00_4401", type=0, category=1, prio=Def_SEP_DamageLv2, check=1 }; // ぎゃあ！
-st[342] = { path=1, file="Yuk00_4402", type=0, category=1, prio=Def_SEP_DamageLv2, check=1 }; // ぐえっ！
-
-// 大ダメージ	
-st[350] = { path=1, file="Yuk00_4500", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 }; // きゃあっ！！
-st[351] = { path=1, file="Yuk00_4501", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 }; // 痛った！
-st[352] = { path=1, file="Yuk00_4502", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 }; // 何するのっ！
-
-// 電撃ダメージ	
-// st[360] = { path=1, file="Yuk00_4600", type=0, category=1}; // 痺れ…
-// 麻痺ダメージ	
-// st[361] = { path=1, file="Yuk00_4601", type=0, category=1}; // 目が…
-// 特殊ダメージ	
-// st[362] = { path=1, file="Yuk00_4602", type=0, category=1}; // ケホッケホッ
-
-// ダウン	
-st[370] = { path=1, file="Yuk00_4700", type=0, category=1, prio=Def_SEP_KO }; // ああああっ！
-st[371] = { path=1, file="Yuk00_4701_b", type=0, category=1, prio=Def_SEP_KO }; // 次は負けないぞーっ！
-st[372] = { path=1, file="Yuk00_4702", type=0, category=1, prio=Def_SEP_KO }; // 頑張ったのにー！
-
-// ダウン・ノックアウト	
-st[380] = { path=1, file="Yuk00_4800_b", type=0, category=1, prio=Def_SEP_KO }; // うわあああああっ！
-st[381] = { path=1, file="Yuk00_4801", type=0, category=1, prio=Def_SEP_KO }; // 負けたーーっ！
-st[382] = { path=1, file="Yuk00_4802", type=0, category=1, prio=Def_SEP_KO }; // ねえ…ちゃん……
-
-// 起きあがり	
-st[390] = { path=1, file="Yuk00_4900", type=0, category=1}; // いたた…
-st[391] = { path=1, file="Yuk00_4901", type=0, category=1}; // よっと
-st[392] = { path=1, file="Yuk00_4902", type=0, category=1}; // えへへ
-
-// 起きあがり・瀕死	
-// st[400] = { path=1, file="Yuk00_5000", type=0, category=1}; // 参ったなぁ…
-// st[401] = { path=1, file="Yuk00_5001", type=0, category=1}; // ボクひとりじゃ…
-// st[402] = { path=1, file="Yuk00_5002", type=0, category=1}; // 効いたぁ～っ！
-
-// ブラスト	
-st[410] = { path=1, file="Yuk00_5100", type=0, category=1}; // 本気を出すよ！
-st[411] = { path=1, file="Yuk00_5101", type=0, category=1}; // パワー全開！
-st[412] = { path=1, file="Yuk00_5102", type=0, category=1}; // はああああっ！
-
-// コンボブラスト	
-st[420] = { path=1, file="Yuk00_5200", type=0, category=1}; // まだまだっ！
-st[421] = { path=1, file="Yuk00_5201", type=0, category=1}; // こっからだよ！
-
-// バウンドブラスト	
-st[430] = { path=1, file="Yuk00_5300", type=0, category=1}; // どいてっ！	
-st[431] = { path=1, file="Yuk00_5301", type=0, category=1}; // 邪魔だよ！
-st[432] = { path=1, file="Yuk00_5302", type=0, category=1}; // うああああっ！
-
-// 攻撃サポートキャラ呼び出し	
-st[440] = { path=1, file="Yuk00_5400", type=0, category=1}; // 任せたよ！
-st[441] = { path=1, file="Yuk00_5401", type=0, category=1}; // 一緒に行くよ！
-st[442] = { path=1, file="Yuk00_5402", type=0, category=1}; // GO！
-
-// 補助サポートキャラ呼び出し	
-st[450] = { path=1, file="Yuk00_5500", type=0, category=1}; // スイッチ！
-// st[451] = { path=1, file="Yuk00_5501", type=0, category=1}; // 頼んだっ！
-// st[452] = { path=1, file="Yuk00_5502", type=0, category=1}; // お願いだよっ！
-
-// 防御サポートキャラ呼び出し	
-// st[460] = { path=1, file="Yuk00_5600", type=0, category=1}; // 助かったよ！
-// st[461] = { path=1, file="Yuk00_5601", type=0, category=1}; // 今だよ！
-// st[462] = { path=1, file="Yuk00_5602", type=0, category=1}; // 間に合って！
-
-// 固有サポートキャラ呼び出し
-// st[465] = { path=1, file="Yuk00_5603", type=0, category=1}; // アスナ！（アスナ）
-// st[466] = { path=1, file="Yuk00_5604", type=0, category=1}; // 作戦開始！（アスナ）
-// st[467] = { path=1, file="Yuk00_5605", type=0, category=1}; // キリト！（キリト）
-// st[468] = { path=1, file="Yuk00_5606", type=0, category=1}; // 見せ場だよっ！（キリト）
-
-
-// 好調時にポテンシャル発動	
-st[470] = { path=1, file="Yuk00_6100", type=0, category=3}; // ボク、ドキドキしてきたよ！
-st[471] = { path=1, file="Yuk00_6101", type=0, category=3}; // いい感じだね！
-st[472] = { path=1, file="Yuk00_6102", type=0, category=3}; // 力が湧いてきた！
-
-// ピンチ時にポテンシャル発動	
-st[480] = { path=1, file="Yuk00_6200", type=0, category=3}; // 負ける訳にはいかない！
-st[481] = { path=1, file="Yuk00_6201", type=0, category=3}; // まだまだこっからだよ！
-st[482] = { path=1, file="Yuk00_6202", type=0, category=3}; // 背水の陣ってヤツだね…
-
-// レアな隠しポテンシャル発動	
-// st[490] = { path=1, file="Yuk00_6300", type=0, category=3}; // 今日はなんだかとても調子がいいんだ
-// st[491] = { path=1, file="Yuk00_6301", type=0, category=3}; // 任して、姉ちゃん！
-
-// 激突演出	
-// st[500] = { path=1, file="Yuk00_6400", type=0, category=3}; // やあああああああ！
-// st[501] = { path=1, file="Yuk00_6401", type=0, category=3}; // はあああああああ！
-// st[502] = { path=1, file="Yuk00_6402", type=0, category=3}; // ぬううううううううう！
-
-// 必殺技１	
-// st[510] = { path=1, file="Yuk00_7000_b", type=0, category=1}; // バーチカル・スクエア！
-// st[511] = { path=1, file="Yuk00_7001", type=0, category=1}; // せっやぁぁー！
-// st[512] = { path=1, file="Yuk00_7002", type=0, category=1}; // てぇぇぇーい！
-st[513] = { path=1, file="Yuk00_7003_b", type=0, category=1}; // 押し通る！
-
-st[515] = { path=1, file="Yuk00_7000_b", type=0, category=1}; // バーチカル・スクエア！
-st[516] = { path=1, file="Yuk00_7002_b", type=0, category=1}; // てぇぇぇーい！
-
-// 必殺技2	
-// st[520] = { path=1, file="Yuk00_7100", type=0, category=1}; // ヴォーパル・ストライク！
-st[521] = { path=1, file="Yuk00_7101", type=0, category=1}; // 貰ったー！
-st[522] = { path=1, file="Yuk00_7102", type=0, category=1}; // 貫けー！
-// st[523] = { path=1, file="Yuk00_7103", type=0, category=1}; // せーのっ！
-
-st[525] = { path=1, file="Yuk00_7100_b", type=0, category=1}; // ヴォーパル・ストライク！
-
-// 必殺技3	
-st[530] = { path=1, file="Yuk00_7200", type=0, category=1}; // こっちだよ！
-st[531] = { path=1, file="Yuk00_7201", type=0, category=1}; // どうだ！
-// st[532] = { path=1, file="Yuk00_7202", type=0, category=1}; // じゃーん！
-
-st[535] = { path=1, file="Yuk00_7203_b", type=0, category=1}; // 空から行くよ！
-
-// 必殺技4	
-// st[540] = { path=1, file="Yuk00_7300", type=0, category=1}; // パリィ
-// st[541] = { path=1, file="Yuk00_7301", type=0, category=1}; // 弾け！
-// st[542] = { path=1, file="Yuk00_7302", type=0, category=1}; // おっけー！
-
-st[545] = { path=1, file="Yuk00_7303", type=0, category=1}; // ふんっ！
-st[546] = { path=1, file="Yuk00_7402_b_s1", type=0, category=1}; // はっ！
-
-// 必殺技5	
-// st[550] = { path=1, file="Yuk00_7400_s0", type=0, category=1}; // いくよ！
-st[551] = { path=1, file="Yuk00_7400_s1", type=0, category=1}; // これで！
-st[552] = { path=1, file="Yuk00_7400_s2", type=0, category=1}; // 倒れて！
-
-st[553] = { path=1, file="Yuk00_7401_b_s0", type=0, category=1}; // 隙あり！
-st[554] = { path=1, file="Yuk00_7401_b_s1", type=0, category=1}; // せいっ！
-st[555] = { path=1, file="Yuk00_7401_b_s2", type=0, category=1}; // でやぁーっ！
-
-st[556] = { path=1, file="Yuk00_7402_s0", type=0, category=1}; // 見えた！
-// st[557] = { path=1, file="Yuk00_7402_s1", type=0, category=1}; // はっ！
-// st[558] = { path=1, file="Yuk00_7402_s2", type=0, category=1}; // せいやー！
-// st[559] = { path=1, file="Yuk00_7403_s0", type=0, category=1}; // ひとつ
-// st[559] = { path=1, file="Yuk00_7403_s1", type=0, category=1}; // ふたつ！
-// st[559] = { path=1, file="Yuk00_7403_s2", type=0, category=1}; // みっつ！
-
-
-
-// 必殺技6	
-st[560] = { path=1, file="Yuk00_7600", type=0, category=1}; // 切り札発動ー！
-// st[561] = { path=1, file="Yuk00_7601", type=0, category=1}; // 思いっきりいくよ！
-// st[562] = { path=1, file="Yuk00_7602", type=0, category=1}; // かなり痛いよ！
-// st[563] = { path=1, file="Yuk00_7603", type=0, category=1}; // 飛んでけー！
-st[564] = { path=1, file="Yuk00_7604", type=0, category=1}; // 空中戦いくよ！
-
-// 超必殺技1	
-st[570] = { path=1, file="Yuk00_8000_s0", type=0, category=1}; // とっておきだよ！
-st[571] = { path=1, file="Yuk00_8000_s1", type=0, category=1}; // ボクのオリジナルソードスキル！
-st[572] = { path=1, file="Yuk00_8000_s2", type=0, category=1}; // マザーズ・ロザリオ！
-// st[573] = { path=1, file="Yuk00_8001_s0", type=0, category=1}; // 勝負を決めるよ！
-// st[574] = { path=1, file="Yuk00_8001_s1", type=0, category=1}; // これが僕の全力全開！
-// st[575] = { path=1, file="Yuk00_8001_s2", type=0, category=1}; // マザーズ・ロザリオ！
-st[576] = { path=1, file="Yuk00_8002_s0", type=0, category=1}; // 耐えきれるかな？
-st[577] = { path=1, file="Yuk00_8002_s1", type=0, category=1}; // 神速のソードスキル！
-// st[578] = { path=1, file="Yuk00_8002_s2", type=0, category=1}; // マザーズ・ロザリオ！
-
-// 超必殺技2	
-st[580] = { path=1, file="Yuk00_8100_s0", type=0, category=1}; // 一気に行くよ！
-st[581] = { path=1, file="Yuk00_8100_s1", type=0, category=1}; // てやああああああっ！
-// st[582] = { path=1, file="Yuk00_8100_s2", type=0, category=1}; // たぁぁぁー！
-st[583] = { path=1, file="Yuk00_8101_s0", type=0, category=1}; // 本気だからね！
-st[584] = { path=1, file="Yuk00_8101_s1", type=0, category=1}; // いっくぞーーーっ！
-st[585] = { path=1, file="Yuk00_8101_s2", type=0, category=1}; // トドメ！
-// st[586] = { path=1, file="Yuk00_8102_s0", type=0, category=1}; // 終わりにしよっか
-// st[587] = { path=1, file="Yuk00_8102_s1", type=0, category=1}; // はああああああっ！
-// st[588] = { path=1, file="Yuk00_8102_s2", type=0, category=1}; // やぁぁーーっ！
-
-
-
-// // 対人戦３連続勝利
-// 1000	よし、３人抜きだね！ようやく僕も身体があったまってきたよ！
-
-// // 対人戦１０連続勝利
-// 1001	これで１０人目！ボク、キミとならどこまででも上って（のぼって）行けそうだよ！
-
-// // 汎用勝利
-// 1010	ぶつからなきゃ伝わらない事だってあるよ。例えば、自分がどれくらい真剣なのか、とかね。
-
-// // 汎用勝利
-// 1011	そんな攻撃じゃ、ボクたちは止められないよ！
-
-// // 汎用勝利
-// 1012	ボク、アスナやアスナの友達に助けられてばっかりで……もっと頑張らなきゃ！
-
-// // 汎用勝利
-// 1013	はー、楽しかったー。またやろうね！
-
-// // 汎用勝利
-// 1014	この戦いが終わったら、アスナたちとバーベキューするんだ。キミも来る？
-
-// // 汎用勝利
-// 1015	次に対戦する人、いませんかー？
-
-// // 汎用勝利
-// 1016	ボク、強くなんかないよ。ぜんぜん……
-
-// // 勝利画面レアボイス
-// 1017	今日はほんとにありがとう。すごく楽しかった。ボク、今日のこと、絶対忘れない
-
-// // 勝利画面レアボイス
-// 1018	このゲーム面白いね！今までやったVRゲームの中でもピカイチだよ！
-
-// // キャラセレクト画面セレクト待機5秒
-// 1100	ボク、強くなんかないよ。ぜんぜん……
-
-// // キャラセレクト画面セレクト待機15秒
-// 1120	キミに……ボクと一緒に戦って欲しいんだ。ダメ…かな？
-
-// // キャラセレクト画面キャラクター決定
-// 1130	ありがとう、頑張ろうね！
-
-// // コンティニュー画面コンテニュー待機
-// 1200	くっそー！あともうちょっとだったんだけどなー…！もう一回挑戦してみようよ！
-
-// // コンティニュー画面再戦決定
-// 1210	よーし、今度は負けないぞ！
-
-// // コンティニュー画面ゲームオーバー
-// 1220	ごめんね、ここまで、みたいだ……
-
-// // 乱入出迎えボイス
-// 1300	あ、キミもやる？負けないぞー
-
-// // 乱入出迎えボイス
-// 1301	キミが勝ったら、このOSS（オリジナルソードスキル）をあげるよ。さぁ勝負だ！
-
-// // タイトルコール
-// 1700	ファイティング・クライマックスイグニッション！
-
-// // タイトルコール
-// 1701	電撃文庫、ファイティング・クライマックス！イグニッション！
-
-// // エンディング１（5～6秒程度）
-// 8200	ありがとう、ボクとても満足だよ！
-
-// // エンディング１（5～6秒程度）
-// 8201	また一緒に夢を見ようね！
+SeList_Table.Path.append( "./se/normal_se/" ); // 0:汎用SE
+SeList_Table.Path.append( "./se/battle_se/chr000/" ); // 1:キャラ音声
+SeList_Table.Path.append( "./se/battle_se/" ); // 2:バトルSE
+SeList_Table.Path.append( "./se/battle_se/Hyd/" ); //3: Uni 1 Hyde
+SeList_Table.Path.append( "./se/battle_se/Hyd/EXHyd/" ); //4: U4ick GXHyd
+
+
+SeList_Table.Status.resize(750); // てきとう
+local st = SeList_Table.Status; // 登録しやすいように
+
+st[0] = { volumetype=0, path=2, file="SE_InsulatorSwingA", type=0, category=3, }; 
+st[1] = { volumetype=0, path=2, file="SE_InsulatorSwingB", type=0, category=3, }; 
+st[2] = { volumetype=0, path=2, file="SE_InsulatorSwingC", type=0, category=3, }; 
+st[3] = { volumetype=0, path=2, file="SE_SpecialBomb", type=0, category=3, }; //IW用爆発
+
+st[4] = { volumetype=0, path=2, file="SE_ShotDiscBall", type=0, category=3, }; //236発射音
+st[5] = { volumetype=0, path=2, file="SE_VanishDiscBall", type=0, category=2, }; 
+st[6] = { volumetype=0, path=2, file="SE_AppearInsulator", type=0, category=3, }; 
+
+st[7] = { volumetype=0, path=2, file="SE_VanishDiscBall", type=0, category=2, }; //0202攻
+st[8] = { volumetype=0, path=2, file="SE_ApperLightBlade", type=1, category=-1, }; //236発射音2
+
+//IWX
+st[9] =  { volumetype=0, path=2, file="SE_SpecialBomb", type=1, category=-1, }; //初めのビーム ：IFWと同じで良いです。
+st[10] = { volumetype=0, path=2, file="SE_BombInsulator", type=1, category=-1, }; //相手にHIT　　 ：爆発音。
+st[11] = { volumetype=0, path=2, file="SE_ChargeUp", type=1, category=-1, }; //力溜め ：ギューンという感じで。
+st[12] = { volumetype=0, path=2, file="SE_BombSlash", type=1, category=-1, }; //一閃 ：ビシュン！と言う音
+st[13] = { volumetype=0, path=2, file="SE_SpecialBombLong", type=1, category=-1, }; //放出 ：IFWを長くした音
+st[15] = { volumetype=0, path=2, file="SE_BigBomb", type=1, category=-1, }; //IWX最後赤くなるところ
+st[16] = { volumetype=0, path=2, file="SE_BigBomb_Short", type=1, category=-1, }; //IWX最後赤くなるところ
+st[17] = { volumetype=0, path=2, file="SE_SpecialLaserBeamShort", type=1, category=-1, }; //IWX最後赤くなるところ
+
+// 登場
+//st[100] = { volumetype=1 path=1, file="hyd_010_b_2000", type=0, category=1, };//「出ろ！　インスレーター！」
+//st[101] = { volumetype=1 path=1, file="hyd_010_b_2001", type=0, category=1, };//「邪魔をするなら…片付けるまでだ！」
+//st[102] = { volumetype=1 path=1, file="hyd_010_b_2002", type=0, category=1, };//「……この力で終わらせてやる！」
+//st[103] = { volumetype=1 path=1, file="hyd_010_b_2003", type=0, category=1, };//「オレの力……見せてやる！」
+
+st[100] = { volumetype=1 path=3, file="Hyd00_2000", type=0, category=1, };//「出ろ！　インスレーター！」
+st[101] = { volumetype=1 path=3, file="Hyd00_2001", type=0, category=1, };//「邪魔をするなら…片付けるまでだ！」
+st[102] = { volumetype=1 path=3, file="Hyd00_2003", type=0, category=1, };//「……この力で終わらせてやる！」
+st[103] = { volumetype=1 path=3, file="Hyd00_2004", type=0, category=1, };//「オレの力……見せてやる！」
+
+// 登場 特殊
+// 対リンネ
+st[108] = { volumetype=1 path=1, file="hyd_010_b_2012", type=0, category=1, };//「いつまでもあの頃の俺じゃないぜ？」
+
+// 対ワレンシュタイン
+st[111] = { volumetype=1 path=1, file="hyd_010_b_2016", type=0, category=1, };//「あんたのお陰だ、礼を言うぜ」
+
+// 対ワーグナー
+st[113] = { volumetype=1 path=1, file="hyd_010_b_2019", type=0, category=1, };//「誤解されるようなこと言うなよ！！」
+
+// 対セト
+st[115] = { volumetype=1 path=1, file="hyd_010_b_2022", type=0, category=1, };//「ま、決着はつけなくちゃいけねぇよな」
+
+// 対カーマイン
+st[118] = { volumetype=1 path=1, file="hyd_010_b_2025", type=0, category=1, };//「懲りねぇヤロウだな、お前も。」
+
+// 対ヒルダ
+st[121] = { volumetype=1 path=1, file="hyd_010_b_2028", type=0, category=1, };//「開き直ってるだけだ、気にすんなよ」
+
+// 対クオン
+st[124] = { volumetype=1 path=1, file="hyd_010_b_2031", type=0, category=1, };//「さぁ、幕と行こうぜ！」
+
+// 対ツルギ
+st[127] = { volumetype=1 path=1, file="hyd_010_b_2034", type=0, category=1, };//「呆れた腐れ縁だな、ったく」
+
+// 対オリエ
+st[130] = { volumetype=1 path=1, file="hyd_010_b_2037", type=0, category=1, };//「……黙って退いちゃくれねぇか？」
+
+// 対カグヤ
+st[133] = { volumetype=1 path=1, file="hyd_010_b_2040", type=0, category=1, };//「アンタとは、やり合いたくねーんだが」
+
+// 対バティスタ
+st[136] = { volumetype=1 path=1, file="hyd_010_b_2043", type=0, category=1, };//「一番やりにくい相手だな、こりゃ」
+
+// ラウンド勝利
+//st[151] = { volumetype=1 path=1, file="hyd_010_b_2100", type=0, category=1, };//「風が…ざらつく…」
+//st[152] = { volumetype=1 path=1, file="hyd_010_b_2101", type=0, category=1, };//「なんだ…見掛け倒しか」
+
+st[151] = { volumetype=1 path=3, file="Hyd00_2103", type=0, category=1, };//「風が…ざらつく…」
+st[152] = { volumetype=1 path=3, file="Hyd00_2107", type=0, category=1, };//「なんだ…見掛け倒しか」
+
+// 決着勝利 汎用
+//st[155] = { volumetype=1 path=1, file="hyd_010_b_2111", type=0, category=1, };//「そのまま寝てな」
+//st[156] = { volumetype=1 path=1, file="hyd_010_b_2112", type=0, category=1, };//「俺も成長したってことだな」
+//st[157] = { volumetype=1 path=1, file="hyd_010_b_2113", type=0, category=1, };//「これが…俺の力…」
+
+st[155] = { volumetype=1 path=3, file="Hyd00_2100", type=0, category=1, };//「そのまま寝てな」
+st[156] = { volumetype=1 path=1, file="hyd_010_b_2112", type=0, category=1, };//「俺も成長したってことだな」
+st[157] = { volumetype=1 path=3, file="Hyd00_2102", type=0, category=1, };//「これが…俺の力…」
+
+// 決着勝利 辛勝
+st[160] = { volumetype=1 path=1, file="hyd_010_b_2120", type=0, category=1, };//「あ、あっぶねぇ……」
+
+// 決着勝利 楽勝
+//st[164] = { volumetype=1 path=1, file="hyd_010_b_2123", type=0, category=1, };//「思ったより…たいしたことねーな」
+
+st[164] = { volumetype=1 path=3, file="Hyd00_2104", type=0, category=1, };//「思ったより…たいしたことねーな」
+
+// 決着勝利 掛け合い
+// 対リンネ
+st[169] = { volumetype=1 path=1, file="hyd_010_b_2127", type=0, category=1, };//「成長しただろ？後は俺に任せてくれ」
+// 対オリエ
+st[171] = { volumetype=1 path=1, file="hyd_010_b_2130", type=0, category=1, };//「ごめん、原田さん！どっかで埋め合わせするから！」
+
+// タイムアップ判定負け
+//st[174] = { volumetype=1 path=1, file="hyd_010_b_2200", type=0, category=1, };//「なん…だと…」
+//st[175] = { volumetype=1 path=1, file="hyd_010_b_2201", type=0, category=1, };//「まじかよ…」
+//st[176] = { volumetype=1 path=1, file="hyd_010_b_2202", type=0, category=1, };//「ちっくしょ～」
+
+st[174] = { volumetype=1 path=3, file="Hyd00_2200", type=0, category=1, };//「なん…だと…」
+st[175] = { volumetype=1 path=3, file="Hyd00_2201", type=0, category=1, };//「まじかよ…」
+st[176] = { volumetype=1 path=1, file="hyd_010_b_2202", type=0, category=1, };//「ちっくしょ～」
+
+// 弱攻撃
+//st[201] = { volumetype=1 path=1, file="hyd_010_b_2301_a", type=0, category=1, };//「ふ」
+//st[203] = { volumetype=1 path=1, file="hyd_010_b_2303_a", type=0, category=1, };//「し」
+//st[204] = { volumetype=1 path=1, file="hyd_010_b_2300_b", type=0, category=1, };//「は」
+//st[205] = { volumetype=1 path=1, file="hyd_010_b_2301_b", type=0, category=1, };//「ふ」
+//st[206] = { volumetype=1 path=1, file="hyd_010_b_2302_b", type=0, category=1, };//「や」
+//st[207] = { volumetype=1 path=1, file="hyd_010_b_2303_b", type=0, category=1, };//「し」
+
+st[201] = { volumetype=1 path=3, file="Hyd00_2301", type=0, category=1, };//「ふ」
+st[203] = { volumetype=1 path=3, file="Hyd00_2302", type=0, category=1, };//「し」
+st[204] = { volumetype=1 path=3, file="Hyd00_2300", type=0, category=1, };//「は」
+st[205] = { volumetype=1 path=3, file="Hyd00_2303", type=0, category=1, };//「ふ」
+st[206] = { volumetype=1 path=1, file="Hyd00_2304", type=0, category=1, };//「や」
+st[207] = { volumetype=1 path=3, file="Hyd00_2305", type=0, category=1, };//「し」
+
+// 中攻撃
+//st[220] = { volumetype=1 path=1, file="hyd_010_b_2400_a", type=0, category=1, };//「ふん」
+//st[221] = { volumetype=1 path=1, file="hyd_010_b_2401_a", type=0, category=1, };//「せっ」
+//st[222] = { volumetype=1 path=1, file="hyd_010_b_2402_a", type=0, category=1, };//「ヘァ」
+//st[223] = { volumetype=1 path=1, file="hyd_010_b_2403_a", type=0, category=1, };//「シッ」
+//st[224] = { volumetype=1 path=1, file="hyd_010_b_2400_b", type=0, category=1, };//「ふん」
+//st[226] = { volumetype=1 path=1, file="hyd_010_b_2402_b", type=0, category=1, };//「ヘァ」
+
+st[220] = { volumetype=1 path=3, file="Hyd00_2400", type=0, category=1, };//「ふん」
+st[221] = { volumetype=1 path=3, file="Hyd00_2401", type=0, category=1, };//「せっ」
+st[222] = { volumetype=1 path=3, file="Hyd00_2402", type=0, category=1, };//「ヘァ」
+st[223] = { volumetype=1 path=1, file="hyd_010_b_2403_a", type=0, category=1, };//「シッ」
+st[224] = { volumetype=1 path=1, file="hyd_010_b_2400_b", type=0, category=1, };//「ふん」
+st[226] = { volumetype=1 path=1, file="hyd_010_b_2402_b", type=0, category=1, };//「ヘァ」
+
+// 強攻撃
+//st[240] = { volumetype=1 path=1, file="hyd_010_b_2500_a", type=0, category=1, };//「たぁ！」
+//st[241] = { volumetype=1 path=1, file="hyd_010_b_2501_a", type=0, category=1, };//「はあぁ！」
+//st[242] = { volumetype=1 path=1, file="hyd_010_b_2502_a", type=0, category=1, };//「せい！」
+//st[244] = { volumetype=1 path=1, file="hyd_010_b_2504_a", type=0, category=1, };//「この！」
+//st[245] = { volumetype=1 path=1, file="hyd_010_b_2500_b", type=0, category=1, };//「たぁ！」
+//st[246] = { volumetype=1 path=1, file="hyd_010_b_2501_b", type=0, category=1, };//「はあぁ！」
+//st[248] = { volumetype=1 path=1, file="hyd_010_b_2503_b", type=0, category=1, };//「そらっ！」
+//st[249] = { volumetype=1 path=1, file="hyd_010_b_2504_b", type=0, category=1, };//「この！」
+
+st[240] = { volumetype=1 path=3, file="Hyd00_2500", type=0, category=1, };//「たぁ！」
+st[241] = { volumetype=1 path=3, file="Hyd00_2501", type=0, category=1, };//「はあぁ！」
+st[242] = { volumetype=1 path=3, file="Hyd00_2502", type=0, category=1, };//「せい！」
+st[244] = { volumetype=1 path=3, file="Hyd00_2504", type=0, category=1, };//「この！」
+st[245] = { volumetype=1 path=3, file="Hyd00_2500", type=0, category=1, };//「たぁ！」
+st[246] = { volumetype=1 path=3, file="Hyd00_2501", type=0, category=1, };//「はあぁ！」
+st[248] = { volumetype=1 path=3, file="Hyd00_2503", type=0, category=1, };//「そらっ！」
+st[249] = { volumetype=1 path=3, file="Hyd00_2504", type=0, category=1, };//「この！」
+
+// 吹き飛ばし攻撃
+st[261] = { volumetype=1 path=1, file="hyd_010_b_2601", type=0, category=1, };//「でやあぁっ！」
+
+// その他特殊攻撃
+//st[275] = { volumetype=1 path=1, file="hyd_010_b_2607", type=0, category=1, };//「オラッ！」
+//st[276] = { volumetype=1 path=1, file="hyd_010_b_2608", type=0, category=1, };//「どうだ！」
+//st[277] = { volumetype=1 path=1, file="hyd_010_b_2609", type=0, category=1, };//「でああああ！」
+//st[278] = { volumetype=1 path=1, file="hyd_010_b_2610", type=0, category=1, };//「斬る！」
+//st[279] = { volumetype=1 path=1, file="hyd_010_b_2611", type=0, category=1, };//「こんのォ！」
+//st[281] = { volumetype=1 path=1, file="hyd_010_b_2613", type=0, category=1, };//「ハァァアッ！」
+//st[282] = { volumetype=1 path=1, file="hyd_010_b_2614", type=0, category=1, };//「くらえ！」
+//st[283] = { volumetype=1 path=1, file="hyd_010_b_2615", type=0, category=1, };//「斬！」
+
+st[275] = { volumetype=1 path=3, file="Hyd00_2602", type=0, category=1, };//「オラッ！」
+st[276] = { volumetype=1 path=3, file="Hyd00_2601", type=0, category=1, };//「どうだ！」
+st[277] = { volumetype=1 path=3, file="Hyd00_2607", type=0, category=1, };//「でああああ！」
+st[278] = { volumetype=1 path=3, file="Hyd00_2600", type=0, category=1, };//「斬る！」
+st[279] = { volumetype=1 path=3, file="Hyd00_2604", type=0, category=1, };//「こんのォ！」
+st[281] = { volumetype=1 path=3, file="Hyd00_2609", type=0, category=1, };//「ハァァアッ！」
+st[282] = { volumetype=1 path=3, file="Hyd00_6301", type=0, category=1, };//「くらえ！」
+st[283] = { volumetype=1 path=3, file="Hyd00_6304", type=0, category=1, };//「斬！」
+
+st[284] = { volumetype=1 path=1, file="hyd_010_b_2602", type=0, category=1, };//
+st[285] = { volumetype=1 path=1, file="hyd_010_b_2612", type=0, category=1, };//
+
+// 投げ成功
+//st[286] = { volumetype=1 path=1, file="hyd_010_b_2700", type=0, category=1, };//「そらっ」
+//st[287] = { volumetype=1 path=1, file="hyd_010_b_2701", type=0, category=1, };//「捕らえた！」
+
+st[286] = { volumetype=1 path=3, file="Hyd00_2700", type=0, category=1, };//「そらっ」
+st[287] = { volumetype=1 path=3, file="Hyd00_2703", type=0, category=1, };//「捕らえた！」
+
+// 投げ失敗
+//st[290] = { volumetype=1 path=1, file="hyd_010_b_2800", type=0, category=1, };//「んなっ」
+//st[291] = { volumetype=1 path=1, file="hyd_010_b_2801", type=0, category=1, };//「逃した！」
+
+st[290] = { volumetype=1 path=3, file="Hyd00_2800", type=0, category=1, };//「んなっ」
+st[291] = { volumetype=1 path=3, file="Hyd00_2802", type=0, category=1, };//「逃した！」
+
+// 敵の投げ技を回避
+//st[295] = { volumetype=1 path=1, file="hyd_010_b_2900", type=0, category=1, prio=Def_SEP_ThrowTech, check=1, };//「離せよ！」
+//st[296] = { volumetype=1 path=1, file="hyd_010_b_2901", type=0, category=1, prio=Def_SEP_ThrowTech, check=1, };//「そうはいくか！」
+
+st[295] = { volumetype=1 path=3, file="Hyd00_2902", type=0, category=1, prio=Def_SEP_ThrowTech, check=1, };//「離せよ！」
+st[296] = { volumetype=1 path=3, file="Hyd00_2904", type=0, category=1, prio=Def_SEP_ThrowTech, check=1, };//「そうはいくか！」
+
+// ガードキャンセル攻撃
+//st[299] = { volumetype=1 path=1, file="hyd_010_b_2950", type=0, category=1, };//「寄るな！」
+
+st[299] = { volumetype=1 path=3, file="Hyd00_2903", type=0, category=1, };//「寄るな！」
+
+// 振り向き
+//st[302] = { volumetype=1 path=1, file="hyd_010_b_3000_b", type=0, category=1, prio=Def_SEP_Furimuki, };//「上からか」
+//st[303] = { volumetype=1 path=1, file="hyd_010_b_3001_b", type=0, category=1, prio=Def_SEP_Furimuki, };//「こっちか」
+st[302] = { volumetype=1 path=3, file="Hyd00_3001", type=0, category=1, prio=Def_SEP_Furimuki }; //上からか
+st[303] = { volumetype=1 path=1, file="Hyd00_3001", type=0, category=1, prio=Def_SEP_Furimuki }; //上からか
+
+// 待機モーション
+//st[306] = { volumetype=1 path=1, file="hyd_010_b_3100", type=0, category=1, };//「どうした、こねーのか」
+//st[307] = { volumetype=1 path=1, file="hyd_010_b_3101", type=0, category=1, };//「意外と大したことねーんだな」
+
+st[306] = { volumetype=1 path=3, file="Hyd00_3102", type=0, category=1, };//「どうした、こねーのか」
+st[307] = { volumetype=1 path=3, file="Hyd00_3103", type=0, category=1, };//「意外と大したことねーんだな」
+
+// 前方回避
+//st[310] = { volumetype=1 path=1, file="hyd_010_b_3200_b", type=0, category=1, };//「今だ」
+//st[311] = { volumetype=1 path=1, file="hyd_010_b_3201_b", type=0, category=1, };//「こっちだ」
+
+st[310] = { volumetype=1 path=1, file="hyd_010_b_3200_b", type=0, category=1, };//「今だ」
+st[311] = { volumetype=1 path=1, file="hyd_010_b_3201_b", type=0, category=1, };//「こっちだ」
+
+// ダッシュ
+//st[314] = { volumetype=1 path=1, file="hyd_010_b_3300", type=0, category=1, };//「ふっ」
+//st[315] = { volumetype=1 path=1, file="hyd_010_b_3301", type=0, category=1, };//「逃がさねぇ！」
+
+st[314] = { volumetype=1 path=3, file="Hyd00_3300", type=0, category=1, };//「ふっ」
+st[315] = { volumetype=1 path=3, file="Hyd00_3304", type=0, category=1, };//「逃がさねぇ！」
+
+// アサルト
+//st[318] = { volumetype=1 path=1, file="hyd_010_b_3310", type=0, category=1, };//「はっ！」
+
+st[318] = { volumetype=1 path=3, file="Hyd00_3201", type=0, category=1, };//「はっ！」
+
+// バックステップ
+//st[322] = { volumetype=1 path=1, file="hyd_010_b_3400", type=0, category=1, };//「よっと」
+//st[323] = { volumetype=1 path=1, file="hyd_010_b_3401", type=0, category=1, };//「ッと（おっとの意）」
+
+st[322] = { volumetype=1 path=3, file="Hyd00_3400", type=0, category=1, };//「よっと」
+st[323] = { volumetype=1 path=3, file="Hyd00_3401", type=0, category=1, };//「ッと（おっとの意）」
+
+// 弱攻撃ガード
+//st[326] = { volumetype=1 path=1, file="hyd_010_b_3500", type=0, category=1, prio=Def_SEP_GuardLv1, check=1 };//「くっ」
+//st[327] = { volumetype=1 path=1, file="hyd_010_b_3501", type=0, category=1, prio=Def_SEP_GuardLv1, check=1 };//「チッ」
+
+st[326] = { volumetype=1 path=3, file="Hyd00_3500", type=0, category=1, prio=Def_SEP_GuardLv1, check=1 };//「くっ」
+st[327] = { volumetype=1 path=3, file="Hyd00_3501", type=0, category=1, prio=Def_SEP_GuardLv1, check=1 };//「チッ」
+
+// 中攻撃ガード
+//st[330] = { volumetype=1 path=1, file="hyd_010_b_3600", type=0, category=1, prio=Def_SEP_GuardLv2, check=1, };//「ちぃっ」
+//st[331] = { volumetype=1 path=1, file="hyd_010_b_3601", type=0, category=1, prio=Def_SEP_GuardLv2, check=1, };//「やるな」
+
+st[330] = { volumetype=1 path=3, file="Hyd00_3601", type=0, category=1, prio=Def_SEP_GuardLv2, check=1, };//「ちぃっ」
+st[331] = { volumetype=1 path=3, file="Hyd00_3602", type=0, category=1, prio=Def_SEP_GuardLv2, check=1, };//「やるな」
+
+// 強攻撃ガード
+//st[334] = { volumetype=1 path=1, file="hyd_010_b_3700_b", type=0, category=1, prio=Def_SEP_GuardLv3, check=1, };//「強い…！」
+//st[335] = { volumetype=1 path=1, file="hyd_010_b_3701", type=0, category=1, prio=Def_SEP_GuardLv3, check=1, };//「耐えてみせる！」
+//st[336] = { volumetype=1 path=1, file="hyd_010_b_3702", type=0, category=1, prio=Def_SEP_GuardLv3, check=1, };//「やりやがる！」
+
+st[334] = { volumetype=1 path=3, file="Hyd00_3700", type=0, category=1, prio=Def_SEP_GuardLv3, check=1, };//「強い…！」
+st[335] = { volumetype=1 path=3, file="Hyd00_3702", type=0, category=1, prio=Def_SEP_GuardLv3, check=1, };//「耐えてみせる！」
+st[336] = { volumetype=1 path=3, file="Hyd00_3704", type=0, category=1, prio=Def_SEP_GuardLv3, check=1, };//「やりやがる！」
+
+// 攻撃を見切り余裕でガード
+//st[339] = { volumetype=1 path=1, file="hyd_010_b_3800", type=0, category=1, prio=Def_SEP_NiceGuard, check=1, };//「この程度か！？」
+//st[340] = { volumetype=1 path=1, file="hyd_010_b_3801", type=0, category=1, prio=Def_SEP_NiceGuard, check=1, };//「はっ…！」
+//st[341] = { volumetype=1 path=1, file="hyd_010_b_3802", type=0, category=1, prio=Def_SEP_NiceGuard, check=1, };//「きかねーよ！」
+
+st[339] = { volumetype=1 path=3, file="Hyd00_3801", type=0, category=1, prio=Def_SEP_NiceGuard, check=1, };//「この程度か！？」
+st[340] = { volumetype=1 path=3, file="Hyd00_3802", type=0, category=1, prio=Def_SEP_NiceGuard, check=1, };//「はっ…！」
+st[341] = { volumetype=1 path=3, file="Hyd00_3805", type=0, category=1, prio=Def_SEP_NiceGuard, check=1, };//「きかねーよ！」
+
+// ガード失敗ダメージ
+//st[344] = { volumetype=1 path=1, file="hyd_010_b_3900", type=0, category=1, prio=Def_SEP_GuardMiss, check=1, };//「しくった！」
+//st[345] = { volumetype=1 path=1, file="hyd_010_b_3901", type=0, category=1, prio=Def_SEP_GuardMiss, check=1, };//「なっ！？」
+//st[346] = { volumetype=1 path=1, file="hyd_010_b_3902", type=0, category=1, prio=Def_SEP_GuardMiss, check=1, };//「ありえねー！？」
+
+st[344] = { volumetype=1 path=3, file="Hyd00_3900", type=0, category=1, prio=Def_SEP_GuardMiss, check=1, };//「しくった！」
+st[345] = { volumetype=1 path=3, file="Hyd00_3901", type=0, category=1, prio=Def_SEP_GuardMiss, check=1, };//「なっ！？」
+st[346] = { volumetype=1 path=3, file="Hyd00_3902", type=0, category=1, prio=Def_SEP_GuardMiss, check=1, };//「ありえねー！？」
+
+// 受け身
+//st[349] = { volumetype=1 path=1, file="hyd_010_b_4000", type=0, category=1, prio=Def_SEP_Recover };//「あらよっと」
+//st[350] = { volumetype=1 path=1, file="hyd_010_b_4001", type=0, category=1, prio=Def_SEP_Recover };//「あぶねっ！」
+//st[351] = { volumetype=1 path=1, file="hyd_010_b_4002", type=0, category=1, prio=Def_SEP_Recover };//「…まだだ！」
+
+st[349] = { volumetype=1 path=3, file="Hyd00_4004", type=0, category=1, prio=Def_SEP_Recover };//「あらよっと」
+st[350] = { volumetype=1 path=3, file="Hyd00_4005", type=0, category=1, prio=Def_SEP_Recover };//「あぶねっ！」
+st[351] = { volumetype=1 path=3, file="Hyd00_4007", type=0, category=1, prio=Def_SEP_Recover };//「…まだだ！」
+
+// シールド発動
+//st[355] = { volumetype=1 path=1, file="hyd_010_b_4100", type=0, category=1, };//「…読める」
+//st[356] = { volumetype=1 path=1, file="hyd_010_b_4101", type=0, category=1, };//「こうだったか！？」
+//st[357] = { volumetype=1 path=1, file="hyd_010_b_4102", type=0, category=1, };//「こいよ！」
+
+st[355] = { volumetype=1 path=3, file="Hyd00_4100", type=0, category=1, };//「…読める」
+st[356] = { volumetype=1 path=3, file="Hyd00_4105", type=0, category=1, };//「こうだったか！？」
+st[357] = { volumetype=1 path=1, file="hyd_010_b_4102", type=0, category=1, };//「こいよ！」
+
+// シールド成功
+//st[360] = { volumetype=1 path=1, file="hyd_010_b_4200", type=0, category=1, prio=Def_SEP_ShieldSuccess, check=1, };//「取った！」
+//st[361] = { volumetype=1 path=1, file="hyd_010_b_4201", type=0, category=1, prio=Def_SEP_ShieldSuccess, check=1, };//「読めてるぜ！」
+//st[362] = { volumetype=1 path=1, file="hyd_010_b_4202", type=0, category=1, prio=Def_SEP_ShieldSuccess, check=1, };//「どーってことねーんだよ！」
+
+st[360] = { volumetype=1 path=3, file="Hyd00_4201", type=0, category=1, prio=Def_SEP_ShieldSuccess, check=1, };//「取った！」
+st[361] = { volumetype=1 path=3, file="Hyd00_4207", type=0, category=1, prio=Def_SEP_ShieldSuccess, check=1, };//「読めてるぜ！」
+st[362] = { volumetype=1 path=3, file="Hyd00_4208", type=0, category=1, prio=Def_SEP_ShieldSuccess, check=1, };//「迂闊だったな」
+
+// 弱攻撃ダメージ
+//st[365] = { volumetype=1 path=1, file="hyd_010_b_4300", type=0, category=1, prio=Def_SEP_DamageLv1, };//「くっ」
+//st[366] = { volumetype=1 path=1, file="hyd_010_b_4301", type=0, category=1, prio=Def_SEP_DamageLv1, };//「いっ」
+
+st[365] = { volumetype=1 path=3, file="Hyd00_4301", type=0, category=1, prio=Def_SEP_DamageLv1, };//「くっ」
+st[366] = { volumetype=1 path=3, file="Hyd00_4302", type=0, category=1, prio=Def_SEP_DamageLv1, };//「いっ」
+
+// 中攻撃ダメージ
+//st[369] = { volumetype=1 path=1, file="hyd_010_b_4400", type=0, category=1, prio=Def_SEP_DamageLv2, check=1, };//「まずっ」
+//st[370] = { volumetype=1 path=1, file="hyd_010_b_4401", type=0, category=1, prio=Def_SEP_DamageLv2, check=1, };//「つっ」
+
+st[369] = { volumetype=1 path=3, file="Hyd00_4400", type=0, category=1, prio=Def_SEP_DamageLv2, check=1, };//「まずっ」
+st[370] = { volumetype=1 path=3, file="Hyd00_4401", type=0, category=1, prio=Def_SEP_DamageLv2, check=1, };//「つっ」
+
+// 強攻撃ダメージ
+//st[374] = { volumetype=1 path=1, file="hyd_010_b_4500", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 };//「があっ！」
+//st[375] = { volumetype=1 path=1, file="hyd_010_b_4501", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 };//「ぐあぁぁ！」
+//st[376] = { volumetype=1 path=1, file="hyd_010_b_4502", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 };//「シャレになんねー！」
+//st[377] = { volumetype=1 path=1, file="hyd_010_b_4503", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 };//「パネェ！」
+
+st[374] = { volumetype=1 path=3, file="Hyd00_4500", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 };//「があっ！」
+st[375] = { volumetype=1 path=3, file="Hyd00_4501", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 };//「ぐあぁぁ！」
+st[376] = { volumetype=1 path=3, file="Hyd00_4507", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 };//「シャレになんねー！」
+st[377] = { volumetype=1 path=3, file="Hyd00_4508", type=0, category=1, prio=Def_SEP_DamageLv3, check=1 };//「パネェ！」
+
+// ダウン
+//st[381] = { volumetype=1 path=1, file="hyd_010_b_4600", type=0, category=1, prio=Def_SEP_KO, };//「ってぇ！（「痛い」の意）」
+//st[382] = { volumetype=1 path=1, file="hyd_010_b_4601", type=0, category=1, prio=Def_SEP_KO, };//「グハァ！」
+//st[383] = { volumetype=1 path=1, file="hyd_010_b_4602", type=0, category=1, prio=Def_SEP_KO, };//「おわぁぁー！」
+
+st[381] = { volumetype=1 path=3, file="Hyd00_4601", type=0, category=1, prio=Def_SEP_KO, };//「ってぇ！（「痛い」の意）」
+st[382] = { volumetype=1 path=3, file="Hyd00_4602", type=0, category=1, prio=Def_SEP_KO, };//「グハァ！」
+st[383] = { volumetype=1 path=3, file="Hyd00_4603", type=0, category=1, prio=Def_SEP_KO, };//「おわぁぁー！」
+
+// ラウンド敗北
+//st[387] = { volumetype=1 path=1, file="hyd_010_b_4650", type=0, category=1, prio=Def_SEP_KO, };//「通じねぇのかやっぱ……」
+//st[388] = { volumetype=1 path=1, file="hyd_010_b_4651", type=0, category=1, prio=Def_SEP_KO, };//「聞いてねーぞこんなの……（こんな強い相手がいるのは聞いてない）」
+
+st[387] = { volumetype=1 path=3, file="Hyd00_4604", type=0, category=1, prio=Def_SEP_KO, };//「通じねぇのかやっぱ……」
+st[388] = { volumetype=1 path=3, file="Hyd00_4606", type=0, category=1, prio=Def_SEP_KO, };//「聞いてねーぞこんなの……（こんな強い相手がいるのは聞いてない）」
+
+// ダウン・ノックアウト
+//st[393] = { volumetype=1 path=1, file="hyd_010_b_4700", type=0, category=1, prio=Def_SEP_KO };//「うわあぁぁぁーーーーーーーっ！」
+//st[394] = { volumetype=1 path=1, file="hyd_010_b_4701", type=0, category=1, prio=Def_SEP_KO };//「クッソ…こんな…とこで…」
+//st[395] = { volumetype=1 path=1, file="hyd_010_b_4702", type=0, category=1, prio=Def_SEP_KO };//「俺は…まだ…」
+//st[396] = { volumetype=1 path=1, file="hyd_010_b_4703", type=0, category=1, prio=Def_SEP_KO };//「チック…ショ…（ちくしょう）」
+
+st[393] = { volumetype=1 path=3, file="Hyd00_4700", type=0, category=1, prio=Def_SEP_KO };//「うわあぁぁぁーーーーーーーっ！」
+st[394] = { volumetype=1 path=3, file="Hyd00_4703", type=0, category=1, prio=Def_SEP_KO };//「クッソ…こんな…とこで…」
+st[395] = { volumetype=1 path=1, file="hyd_010_b_4702", type=0, category=1, prio=Def_SEP_KO };//「俺は…まだ…」
+st[396] = { volumetype=1 path=1, file="hyd_010_b_4703", type=0, category=1, prio=Def_SEP_KO };//「チック…ショ…（ちくしょう）」
+
+// 起き上がり
+//st[399] = { volumetype=1 path=1, file="hyd_010_b_4800", type=0, category=1, };//「…やるじゃねぇか」
+//st[400] = { volumetype=1 path=1, file="hyd_010_b_4801", type=0, category=1, };//「こっからだ」
+//st[401] = { volumetype=1 path=1, file="hyd_010_b_4802", type=0, category=1, };//「まだだ…！」
+
+st[399] = { volumetype=1 path=3, file="Hyd00_4800", type=0, category=1, };//「…やるじゃねぇか」
+st[400] = { volumetype=1 path=3, file="Hyd00_4801", type=0, category=1, };//「こっからだ」
+st[401] = { volumetype=1 path=3, file="Hyd00_4802", type=0, category=1, };//「まだだ…！」
+
+// 起き上がり・瀕死
+//st[404] = { volumetype=1 path=1, file="hyd_010_b_4900", type=0, category=1, };//「効いたぜおい…」
+//st[405] = { volumetype=1 path=1, file="hyd_010_b_4901", type=0, category=1, };//「…いってってて…」
+//st[406] = { volumetype=1 path=1, file="hyd_010_b_4902", type=0, category=1, };//「へっ……案外やるじゃねーか……」
+//st[407] = { volumetype=1 path=1, file="hyd_010_b_4903", type=0, category=1, };//「こっからが勝負だぜ」
+
+st[404] = { volumetype=1 path=3, file="Hyd00_4900", type=0, category=1, };//「効いたぜおい…」
+st[405] = { volumetype=1 path=3, file="Hyd00_4901", type=0, category=1, };//「…いってってて…」
+st[406] = { volumetype=1 path=3, file="Hyd00_4903", type=0, category=1, };//「へっ……案外やるじゃねーか……」
+st[407] = { volumetype=1 path=3, file="Hyd00_4904", type=0, category=1, };//「こっからが勝負だぜ」
+
+// ヴェールオフ
+//st[410] = { volumetype=1 path=1, file="hyd_010_b_5000", type=0, category=3, };//「はーあぁああ！」
+//st[411] = { volumetype=1 path=1, file="hyd_010_b_5001", type=0, category=3, };//「イグジス…開放！」
+
+st[410] = { volumetype=1 path=3, file="Hyd00_5000", type=0, category=3, };//「はーあぁああ！」
+st[411] = { volumetype=1 path=3, file="Hyd00_5001", type=0, category=3, };//「イグジス…開放！」
+
+// チェインシフト
+//st[414] = { volumetype=1 path=1, file="hyd_010_b_5100", type=0, category=1, };//「ここだ…！」
+//st[415] = { volumetype=1 path=1, file="hyd_010_b_5101", type=0, category=1, };//「逃がさねぇ…」
+//st[416] = { volumetype=1 path=1, file="hyd_010_b_5102", type=0, category=1, };//「おわらねぇ！」
+
+st[414] = { volumetype=1 path=3, file="Hyd00_5101", type=0, category=1, };//「ここだ…！」
+st[415] = { volumetype=1 path=3, file="Hyd00_5103", type=0, category=1, };//「逃がさねぇ…」
+st[416] = { volumetype=1 path=3, file="Hyd00_5105", type=0, category=1, };//「おわらねぇ！」
+
+// コンセントレーション
+//st[419] = { volumetype=1 path=1, file="hyd_010_b_5200", type=0, category=1, };//「高まれ…」
+//st[420] = { volumetype=1 path=1, file="hyd_010_b_5201", type=0, category=1, };//「顕現の力よ…！」
+
+st[419] = { volumetype=1 path=3, file="Hyd00_5200", type=0, category=1, };//「高まれ…」
+st[420] = { volumetype=1 path=3, file="Hyd00_5203", type=0, category=1, };//「顕現の力よ…！」
+
+// ヴォーパル
+st[424] = { volumetype=1 path=1, file="hyd_010_b_5300", type=0, category=1, prio=Def_SEP_Vorpal };//「勝負どころだ…！」
+st[425] = { volumetype=1 path=1, file="hyd_010_b_5301", type=0, category=1, prio=Def_SEP_Vorpal };//「ここで決める…！」
+
+// ヴォーパル・瀕死
+st[429] = { volumetype=1 path=1, file="hyd_010_b_5302", type=0, category=1, prio=Def_SEP_Vorpal };//「まだ手はあるはずだ…！」
+
+// 必殺技
+//st[500] = { volumetype=1 path=1, file="hyd_010_b_6001", type=0, category=1, };//「放て！」
+//st[501] = { volumetype=1 path=1, file="hyd_010_b_6002", type=0, category=1, };//「いけぇ！」
+//st[502] = { volumetype=1 path=1, file="hyd_010_b_6003", type=0, category=1, };//「オービター！」
+
+st[500] = { volumetype=1 path=3, file="Hyd00_6001", type=0, category=1, };//「放て！」
+st[501] = { volumetype=1 path=3, file="Hyd00_6002", type=0, category=1, };//「いけぇ！」
+st[502] = { volumetype=1 path=3, file="Hyd00_6012", type=0, category=1, };//「オービター！」
+
+//st[504] = { volumetype=1 path=1, file="hyd_010_b_6006_b", type=0, category=1, };//「ブラックオービタァー！」
+
+st[504] = { volumetype=1 path=3, file="Hyd00_6013", type=0, category=1, };//「ブラックオービタァー！」
+
+//st[506] = { volumetype=1 path=1, file="hyd_010_b_6010", type=0, category=1, };//「飲み込め！」
+//st[507] = { volumetype=1 path=1, file="hyd_010_b_6011", type=0, category=1, };//「爆ぜろ！」
+//st[508] = { volumetype=1 path=1, file="hyd_010_b_6012", type=0, category=1, };//「ロータス！」
+
+st[506] = { volumetype=1 path=3, file="Hyd00_6101", type=0, category=1, };//「飲み込め！」
+st[507] = { volumetype=1 path=3, file="Hyd00_6107", type=0, category=1, };//「爆ぜろ！」
+st[508] = { volumetype=1 path=3, file="Hyd00_6109", type=0, category=1, };//「ロータス！」 //ダークロータス！
+
+//st[510] = { volumetype=1 path=1, file="hyd_010_b_6015", type=0, category=1, };//「そこだ！」
+//st[511] = { volumetype=1 path=1, file="hyd_010_b_6016", type=0, category=1, };//「おまけだ！」
+//st[512] = { volumetype=1 path=1, file="hyd_010_b_6017_b", type=0, category=1, };//「シニスター！」
+
+st[510] = { volumetype=1 path=3, file="Hyd00_6102", type=0, category=1, };//「そこだ！」
+st[511] = { volumetype=1 path=3, file="Hyd00_6106", type=0, category=1, };//「おまけだ！」
+st[512] = { volumetype=1 path=1, file="hyd_010_b_6017_b", type=0, category=1, };//「シニスター！」
+
+//st[514] = { volumetype=1 path=1, file="hyd_010_b_6020", type=0, category=1, };//「そこかっ！」
+//st[515] = { volumetype=1 path=1, file="hyd_010_b_6021", type=0, category=1, };//「アンテシス！」
+
+st[514] = { volumetype=1 path=3, file="Hyd00_6103", type=0, category=1, };//「そこかっ！」
+st[515] = { volumetype=1 path=1, file="hyd_010_b_6021", type=0, category=1, };//「アンテシス！」
+
+//st[518] = { volumetype=1 path=1, file="hyd_010_b_6024", type=0, category=1, };//「飛べ！」
+//st[519] = { volumetype=1 path=1, file="hyd_010_b_6025", type=0, category=1, };//「クレイヴァー！」
+//st[520] = { volumetype=1 path=1, file="hyd_010_b_6026", type=0, category=1, };//「せやあーー！」
+//st[521] = { volumetype=1 path=1, file="hyd_010_b_6027", type=0, category=1, };//「クレイヴァァァッ！」
+
+st[518] = { volumetype=1 path=3, file="Hyd00_6200", type=0, category=1, };//「飛べ！」
+st[519] = { volumetype=1 path=3, file="Hyd00_6203", type=0, category=1, };//「クレイヴァー！」
+st[520] = { volumetype=1 path=3, file="Hyd00_6202", type=0, category=1, };//「せやあーー！」
+st[521] = { volumetype=1 path=3, file="Hyd00_6214", type=0, category=1, };//「クレイヴァァァッ！」
+
+//st[523] = { volumetype=1 path=1, file="hyd_010_b_6030", type=0, category=1, };//「もらった！」
+
+st[523] = { volumetype=1 path=3, file="Hyd00_6208", type=0, category=1, };//「もらった！」
+
+//st[525] = { volumetype=1 path=1, file="hyd_010_b_6034", type=0, category=1, };//「壱層(いっそう)！（次に続く）」
+//st[526] = { volumetype=1 path=1, file="hyd_010_b_6035", type=0, category=1, };//「弐層(にそう)！（次に続く）」
+//st[527] = { volumetype=1 path=1, file="hyd_010_b_6036", type=0, category=1, };//「参層(さんそう！)！」
+
+st[525] = { volumetype=1 path=3, file="Hyd00_6308", type=0, category=1, };//「壱層(いっそう)！（次に続く）」
+st[526] = { volumetype=1 path=3, file="Hyd00_6309", type=0, category=1, };//「弐層(にそう)！（次に続く）」
+st[527] = { volumetype=1 path=3, file="Hyd00_6310", type=0, category=1, };//「参層(さんそう！)！」
+
+//st[529] = { volumetype=1 path=1, file="hyd_010_b_6038", type=0, category=1, };//「ファースト！（次に続く）」
+//st[530] = { volumetype=1 path=1, file="hyd_010_b_6039", type=0, category=1, };//「セカンド！（次に続く）」
+//st[531] = { volumetype=1 path=1, file="hyd_010_b_6040", type=0, category=1, };//「サード！」
+
+st[529] = { volumetype=1 path=3, file="Hyd00_6311", type=0, category=1, };//「ファースト！（次に続く）」
+st[530] = { volumetype=1 path=3, file="Hyd00_6312", type=0, category=1, };//「セカンド！（次に続く）」
+st[531] = { volumetype=1 path=3, file="Hyd00_6313", type=0, category=1, };//「サード！」
+
+//st[533] = { volumetype=1 path=1, file="hyd_010_b_6048", type=0, category=1, };//「お前に見えるか？（次に続く）」
+//st[534] = { volumetype=1 path=1, file="hyd_010_b_6049", type=0, category=1, };//「この幾重にも連なる断層が！」
+
+st[533] = { volumetype=1 path=3, file="Hyd00_6403", type=0, category=1, };//「お前に見えるか？（次に続く）」
+st[534] = { volumetype=1 path=3, file="Hyd00_6404", type=0, category=1, };//「この幾重にも連なる断層が！」
+
+st[536] = { volumetype=1 path=1, file="hyd_010_b_6050_b", type=0, category=1, };//「ベイカントシフト！（次に続く）」
+st[537] = { volumetype=1 path=1, file="hyd_010_b_6051_b", type=0, category=1, };//「はああああっ！（次に続く）」
+st[538] = { volumetype=1 path=1, file="hyd_010_b_6052_b", type=0, category=1, };//「とどめっ！」
+
+//st[541] = { volumetype=1 path=1, file="hyd_010_b_6056", type=0, category=1, };//「ぶっ飛べ！」
+//st[542] = { volumetype=1 path=1, file="hyd_010_b_6057_b", type=0, category=1, };//「影よ貫け！」
+
+st[541] = { volumetype=1 path=3, file="Hyd00_6501", type=0, category=1, };//「ぶっ飛べ！」
+st[542] = { volumetype=1 path=3, file="Hyd00_6504", type=0, category=1, };//「影よ貫け！」
+
+//st[544] = { volumetype=1 path=1, file="hyd_010_b_6061_b", type=0, category=1, };//「穿て！（次に続く）」
+//st[545] = { volumetype=1 path=1, file="hyd_010_b_6062_b", type=0, category=1, };//「シャドウスケア！」
+
+st[544] = { volumetype=1 path=3, file="Hyd00_6503", type=0, category=1, };//「穿て！（次に続く）」
+st[545] = { volumetype=1 path=3, file="Hyd00_6506", type=0, category=1, };//「シャドウスケア！」
+
+//st[547] = { volumetype=1 path=1, file="hyd_010_b_6065", type=0, category=1, };//「飲まれろ！」
+
+st[547] = { volumetype=1 path=3, file="Hyd00_6100", type=0, category=1, };//「飲まれろ！」
+
+//st[549] = { volumetype=1 path=1, file="hyd_010_b_6069_b", type=0, category=1, };//「ダークロータス！」
+
+st[549] = { volumetype=1 path=3, file="Hyd00_6109", type=0, category=1, };//「ダークロータス！」
+
+//st[551] = { volumetype=1 path=1, file="hyd_010_b_6072", type=0, category=1, };//「断ち切る！（次に続く）」
+//st[552] = { volumetype=1 path=1, file="hyd_010_b_6073", type=0, category=1, };//「断ッ裂！」
+
+st[551] = { volumetype=1 path=3, file="Hyd00_6205", type=0, category=1, };//「断ち切る！（次に続く）」
+st[552] = { volumetype=1 path=3, file="Hyd00_6206", type=0, category=1, };//「断ッ裂！」
+
+//st[554] = { volumetype=1 path=1, file="hyd_010_b_6074", type=0, category=1, };//「ベイルブリンガー！（次に続く）」
+//st[555] = { volumetype=1 path=1, file="hyd_010_b_6075", type=0, category=1, };//「でああああッ！」
+
+st[554] = { volumetype=1 path=1, file="hyd_010_b_6074", type=0, category=1, };//「ベイルブリンガー！（次に続く）」
+st[555] = { volumetype=1 path=3, file="Hyd00_6209", type=0, category=1, };//「でああああッ！」
+
+//st[564] = { volumetype=1 path=1, file="hyd_010_b_6084", type=0, category=1, };//「てやぁ！」
+//st[565] = { volumetype=1 path=1, file="hyd_010_b_6085", type=0, category=1, };//「空(くう)を分(わか)つ！」
+//st[566] = { volumetype=1 path=1, file="hyd_010_b_6086", type=0, category=1, };//「ストリクトデイズ！」
+
+st[564] = { volumetype=1 path=3, file="Hyd00_6305", type=0, category=1, };//「てやぁ！」
+st[565] = { volumetype=1 path=3, file="Hyd00_6306", type=0, category=1, };//「空(くう)を分(わか)つ！」
+st[566] = { volumetype=1 path=1, file="hyd_010_b_6086", type=0, category=1, };//「ストリクトデイズ！」
+
+//2FF
+st[568] = { volumetype=1 path=1, file="hyd_010_b_6091", type=0, category=1, };//「黒緋(こくひ)の縁(えにし)！」
+st[573] = { volumetype=1 path=1, file="hyd_010_b_6097", type=0, category=1, };//「聞こえるか？（次に続く）」
+
+// 超必殺技
+//st[581] = { volumetype=1 path=1, file="hyd_010_b_6501", type=0, category=1, };//「永久(とわ)に眠れ！（次に続く）」
+//st[582] = { volumetype=1 path=1, file="hyd_010_b_6502", type=0, category=1, };//「ジャイル…ッ　ボルテクス！」
+
+st[581] = { volumetype=1 path=3, file="Hyd00_7002", type=0, category=1, };//「永久(とわ)に眠れ！（次に続く）」
+st[582] = { volumetype=1 path=3, file="Hyd00_6601", type=0, category=1, };//「ジャイル…ッ　ボルテクス！」
+
+//st[584] = { volumetype=1 path=1, file="hyd_010_b_6515", type=0, category=1, };//「おわらねぇ！（次に続く）」
+//st[585] = { volumetype=1 path=1, file="hyd_010_b_6516", type=0, category=1, };//「死ぬんじゃねぇぞ！（次に続く）」
+//st[586] = { volumetype=1 path=1, file="hyd_010_b_6517", type=0, category=1, };//「レイジングゥゥゥ　ロアーアァァァー（次に続く）」
+//st[587] = { volumetype=1 path=1, file="hyd_010_b_6518", type=0, category=1, };//「ハァ……、ハァ……」
+
+st[584] = { volumetype=1 path=3, file="Hyd00_5105", type=0, category=1, };//「おわらねぇ！（次に続く）」
+st[585] = { volumetype=1 path=3, file="Hyd00_6700", type=0, category=1, };//「死ぬんじゃねぇぞ！（次に続く）」
+st[586] = { volumetype=1 path=3, file="Hyd00_6741", type=0, category=1, };//「レイジングゥゥゥ　ロアーアァァァー（次に続く）」
+st[587] = { volumetype=1 path=3, file="Hyd00_6716", type=0, category=1, };//「ハァ……、ハァ……」
+
+st[600] = { volumetype=1 path=4, file="Hyd00_2603", type=0, category=1, }; //いくぞ！
+
+st[610] = { volumetype=1 path=4, file="Hyd00_6314", type=0, category=1, }; //こいつで…
+st[611] = { volumetype=1 path=4, file="Hyd00_6315", type=0, category=1, }; //どうだ！　※右とセットです
+st[612] = { volumetype=1 path=4, file="Hyd00_6316", type=0, category=1, }; //落ちろ！
+
+st[620] = { volumetype=1 path=3, file="Hyd00_6301", type=0, category=1, }; //くらえ！
+
+st[700] = { volumetype=1 path=4, file="Hyd00_6702", type=0, category=1, }; //これで……終わらせるっ！
+
+st[710] = { path=4, file="kamo_scream2", type=0, category=1, };
+st[711] = { path=4, file="kamo_die2", type=0, category=1, };
+st[712] = { path=4, file="ChocoShutUp", type=0, category=1, };
+st[713] = { path=4, file="MAXMODE", type=1, category=3, };
+st[714] = { path=4, file="common_se_129855012", type=1, category=3, };

@@ -7,13 +7,14 @@ Battle_Status <-
 	ScratchDamageVal_Atk = 65, // 削りダメージ、攻撃時
 	ScratchDamageVal_Def = 110, // 削りダメージ、防御時
 	ScratchDamageVal_ExDef = 110, // 削りダメージ、ジャストディフェンス
-
+	
 	// HP分割値と総体力（上位から見る）
 	// HpDivValue = [ 9500 ], // EL
 	// HpDivValue = [ 10000 ], // st3.11
 	// HpDivValue = [ 10000 ], // st3.20
 	HpDivValue = [ 10300 ],
 
+	//SpGauge_Max	= 40000,
 }
 
 Battle_Std.InsertTable( Battle_Status, Battle_Std.GetStd_BattleStatusTable() ); //デフォルト
