@@ -31,6 +31,10 @@ This modification relies on plenty of external sources for its assets. Without t
 - Sprites collected from [Vyn's MUGEN port](https://mugenguild.com/forum/topics/evil-ryu-updated-31102020-175984.0.html)
 - Portrait Art: Official Art by Kinu Nishimura (formerly CAPCOM)
 
+### In-Birth (EX) Hyde
+
+- Joint collab mainly by StockSoul and ReallyReal
+
 ### Celica (by InvertedKnight)
 
 - COMING SOON
@@ -57,6 +61,8 @@ This modification relies on plenty of external sources for its assets. Without t
 - There's no Sunrise or Sunset (remix of song by Natsuge)
 - Les Vagas (Tatsunoko vs. Capcom)
 - Daigo Moonlit Temple (Tatsunoko vs. Capcom)
+- "Under Night Re-Birth" (Hyde Prototype Theme by Raito)
+- Missing You (Tenpei Sato, Miki Arima)
 
 ### From Melty Blood
 - Chinese Girl (Old Capital) (OG)
@@ -72,6 +78,8 @@ This modification relies on plenty of external sources for its assets. Without t
 - Strange Dreamer
 - Uncommon Sense
 - While the Moon Hides (Tsukimori no toki ni)
+- Blood heat!
+- Blood Drain ft. Emika
 
 ### Menus
 
@@ -97,10 +105,12 @@ Most other edits within FLS Flora can be assumed to be the work of Fatih.
 ## Shoutouts to
 
 - StockSoul for the huge help with CSel and other things
-- Hitbox Viewer by U4 / Ported by Pixloen
+- Hitbox Viewer by u4 / Ported by Pixloen
 - All Flower Viewers and players
 - French Bread (we mean you respect)
 
 ### Paletting Crew
 
 - InvertedKnight
+- SegGel2009
+- Wolfedge75
