@@ -1391,7 +1391,7 @@ t.Mv_Startup <-
 	function Init_After()
 	{
 		BMvTbl.SetLP(10,0); // worlds worst timer
-		Battle_Std.CreateObjectEX( { x=0, y=-1000000000, pat="INB", mvname="Mv_INB", LP={ slot=0, val=4 } } ); // wtf
+		Battle_Std.CreateObjectEX( { x=0, y=-10000000, mvname="Mv_INB", LP={ slot=0, val=4 } } ); // wtf
 	}
 }
 
@@ -1404,8 +1404,14 @@ t.Mv_INB <-
 		{
 			// Battle_Std.PcAuraEffect_CommonAuraSet( { type=0, time=1, power=1.0, color=0x000055AA, colorB=0x00000000, blendmode=0 } );
 			BMvEff.PcAuraEffect_Set( { type=0, time=1, power=1.5, color=0x00000000, colorB=0x88FF44FF, color_chara=0x00000000 } );
-				
-
+			local vorpal = BMvEff.GRD_GetJudgeResult() > 0 ? 1 : 0; 
+			
+			BMvEff.Liberate_SetMinusValue( 120 );
+			if(vorpal)
+			{
+				BMvEff.SetSpGauge( { value=19, } );
+				BMvEff.Liberate_SetMinusValue( 30 );
+			}
 		}
 		
 		BMvTbl.AddLP(10,1);
