@@ -1,4 +1,93 @@
 local t = {}; // Collects all the move data
+local chrFunc = {};
+
+t.Mv_Startup <-
+{
+	function Init_After()
+	{
+		BMvEff.CreateObject( { mvname="Mv_Null_BattleMain" } );
+		BMvEff.CreateObject( { start_pat="BlackGrudge", mvname="Mv_Obj_BlackGrudge" } );
+		BMvTbl.SetLP(10,0);
+	}
+}
+
+t.AttackImpact <- function(info) : (chrFunc) // Called whenever the enemy is attacked in any way
+{
+	local vorpal = BMvEff.GRD_GetJudgeResult() > 0 ? 1 : 0;
+	local Guard = ((info.flags&_ImpactFlag_IsGuard)!=0);
+	local Yarare = (((info.flags&_ImpactFlag_IsBound)!=0)&&!Guard);
+    if ( vorpal && Yarare  ) // still dont know how to make this work on first hit brrrr
+    {
+		BMvTbl.SetLP(10,1); // poison flag
+        local enemy = BMvCore.GetNearEnemyCharaData();
+        if ( enemy.push() )
+        {
+            BMvEff.SetCharaColor( { color = 0x000000, type = 0, intime = 60, time = 60 } ); // set black eff
+            enemy.pop()
+        }
+    }
+}
+
+t.Mv_Obj_BlackGrudge <- // Add HP drain to the enemy when they're hit in vorpal - the ugliest  cood youve seen in your life
+{
+	function Init_After()
+	{
+		BMvTbl.SetLP(12,0); // worlds worst timer
+
+	}
+	
+    function FrameUpdate_After()
+    {
+		Battle_Std.SetPos_MarkingEnemy();
+		
+        local player = BMvCore.GetPlayerCharaData();
+        if( player.push() )
+        {
+			local flip = BMvTbl.GetLP(10);
+			local vorpal = BMvEff.GRD_GetJudgeResult() > 0 ? 1 : 0;
+			player.pop()
+			if(!vorpal)
+			{
+				BMvTbl.JumpFrameID(0);
+			}
+			if(flip == 1 && vorpal)
+			{
+				BMvTbl.JumpFrameID(1);
+			}
+		}
+		
+        local s = BMvTbl.GetMvStatus();
+		switch(s.FrameID)
+		{
+		case 1:
+			if( player.push() )
+			{
+				local flip = BMvTbl.SetLP(10,0);
+				player.pop();
+			}
+			local enemy = BMvCore.GetEnemyCharaData();
+			if( enemy.push() )
+			{
+				BMvEff.SetHpGauge( { value=-1 } );
+				
+				BMvTbl.AddLP(12,1);
+				
+				if (BMvTbl.GetLP(12) % 8 == 0)
+				{
+					Battle_Std.CreateObjectEX( { x = BMvEff.Random_Limit(180) - 100, y = BMvEff.Random_Limit(300)-320, datatype=1, pat=142, flags=_Position_ToolShift } );
+				}				
+				if (BMvTbl.GetLP(12) % 19 == 0)
+				{
+					BMvEff.SetCharaColor( { color = 0x777777, type = 2, intime = 20, time = 20 } );
+					Battle_Std.CreateObjectEX( { x = BMvEff.Random_Limit(180) - 100, y = BMvEff.Random_Limit(300)-320, datatype=1, pat=143, flags=_Position_ToolShift } );
+				}
+		
+				enemy.pop();
+			}
+			break;
+		}
+    }	
+}
 
 //-----------------------------------------------------------------------------
 // 固有関数
@@ -502,18 +591,6 @@ t.Mv_MultiJump_B <-
 	function Init_After()
 	{
 		BMvTbl.SetMuki(_Direction_Auto );		
-	}
-}
-
-//-----------------------------------------------------------------------------
-// イベント
-//-----------------------------------------------------------------------------
-
-t.Mv_Startup <-
-{
-	function Init_After()
-	{
-		BMvEff.CreateObject( { mvname="Mv_Null_BattleMain" } );
 	}
 }
 
