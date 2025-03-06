@@ -6,21 +6,28 @@ t.Mv_Startup <-
 	function Init_After()
 	{
 		BMvEff.CreateObject( { mvname="Mv_Null_BattleMain" } );
-		BMvEff.CreateObject( { start_pat="BlackGrudge", mvname="Mv_Obj_BlackGrudge" } );
-		BMvTbl.SetLP(10,0);
+		BMvEff.CreateObject( { start_pat="BlackGrudge", mvname="Mv_Obj_BlackGrudge" } ); // spawn poison object
+		BMvTbl.SetLP(10,0); // poison flag init
 	}
 }
 
 t.AttackImpact <- function(info) : (chrFunc) // Called whenever the enemy is attacked in any way
 {
 	local vorpal = BMvEff.GRD_GetJudgeResult() > 0 ? 1 : 0;
+	
 	local Guard = ((info.flags&_ImpactFlag_IsGuard)!=0);
 	local Yarare = (((info.flags&_ImpactFlag_IsBound)!=0)&&!Guard);
-    if ( vorpal && Yarare  ) // still dont know how to make this work on first hit brrrr
+	local Capture = (((info.flags&_ImpactFlag_IsCapture)!=0 ) && !Guard ); // 捕まれ状態でここに入ってきたかどうか(捕まれ中の食らい)
+	local Zenbu_Syodan = (!Yarare && !Capture);//Damageと異なり投げも含まれる
+	local Nage = (info.atk_throw!=0); //投げ判定かどうか
+	local Dage_Syodan = (Zenbu_Syodan && !Nage);//打撃の初段
+	local Nage_Syodan = (Zenbu_Syodan && Nage);//投げの初段
+	
+    if ( vorpal && (Dage_Syodan || Nage_Syodan) ) // still dont know how to cause it on first hit, might be attackimpact's fault, for now itll work on chip too
     {
 		BMvTbl.SetLP(10,1); // poison flag
         local enemy = BMvCore.GetNearEnemyCharaData();
-        if ( enemy.push() )
+        if ( enemy.push() ) // manip enemy
         {
             BMvEff.SetCharaColor( { color = 0x000000, type = 0, intime = 60, time = 60 } ); // set black eff
             enemy.pop()
@@ -33,50 +40,49 @@ t.Mv_Obj_BlackGrudge <- // Add HP drain to the enemy when they're hit in vorpal 
 	function Init_After()
 	{
 		BMvTbl.SetLP(12,0); // worlds worst timer
-
 	}
 	
     function FrameUpdate_After()
     {
-		Battle_Std.SetPos_MarkingEnemy();
+		Battle_Std.SetPos_MarkingEnemy(); // track enemy for effect
 		
         local player = BMvCore.GetPlayerCharaData();
         if( player.push() )
         {
-			local flip = BMvTbl.GetLP(10);
-			local vorpal = BMvEff.GRD_GetJudgeResult() > 0 ? 1 : 0;
+			local flip = BMvTbl.GetLP(10); // get poison flag
+			local vorpal = BMvEff.GRD_GetJudgeResult() > 0 ? 1 : 0; // get vorpal
 			player.pop()
-			if(!vorpal)
+			if(!vorpal || Battle_Std.CheckPlayerisDamage() ) // if no more vorpal / we are hit
 			{
-				BMvTbl.JumpFrameID(0);
+				BMvTbl.JumpFrameID(0); // no poison
 			}
-			if(flip == 1 && vorpal)
+			if(flip == 1 && vorpal) // if hit flag and in vorpal
 			{
-				BMvTbl.JumpFrameID(1);
+				BMvTbl.JumpFrameID(1); // poison time
 			}
 		}
 		
         local s = BMvTbl.GetMvStatus();
 		switch(s.FrameID)
 		{
-		case 1:
+		case 1: // if we're the poison frame
 			if( player.push() )
 			{
-				local flip = BMvTbl.SetLP(10,0);
+				local flip = BMvTbl.SetLP(10,0); // turn off flag so that if we don't hit the enemy again we go to the next frame
 				player.pop();
 			}
 			local enemy = BMvCore.GetEnemyCharaData();
 			if( enemy.push() )
 			{
-				BMvEff.SetHpGauge( { value=-1 } );
+				BMvEff.SetHpGauge( { value=-1 } ); // poison enemy
 				
-				BMvTbl.AddLP(12,1);
+				BMvTbl.AddLP(12,1); // timer increment
 				
-				if (BMvTbl.GetLP(12) % 8 == 0)
+				if (BMvTbl.GetLP(12) % 8 == 0) // every 8f
 				{
 					Battle_Std.CreateObjectEX( { x = BMvEff.Random_Limit(180) - 100, y = BMvEff.Random_Limit(300)-320, datatype=1, pat=142, flags=_Position_ToolShift } );
 				}				
-				if (BMvTbl.GetLP(12) % 19 == 0)
+				if (BMvTbl.GetLP(12) % 19 == 0) // every 19f
 				{
 					BMvEff.SetCharaColor( { color = 0x777777, type = 2, intime = 20, time = 20 } );
 					Battle_Std.CreateObjectEX( { x = BMvEff.Random_Limit(180) - 100, y = BMvEff.Random_Limit(300)-320, datatype=1, pat=143, flags=_Position_ToolShift } );
@@ -820,6 +826,8 @@ local maketmpl_SkillShotBeam = function( param={} )
 	
 	ret_tmpl.FrameUpdate_After <- function() : (mvParam)
 	{
+		Battle_Std.SetPattern_NotHoldButton( { CheckFrameID=10, ButtonMask=(1<<1), SetPattern="236B_End" } );
+
 		local update_frameid = Battle_Std.GetUpdateFrameID();
 		switch( update_frameid )
 		{
@@ -960,6 +968,8 @@ local maketmpl_SkillAirShotBeam = function( param={} )
 	
 	ret_tmpl.FrameUpdate_After <- function() : (mvParam)
 	{
+		Battle_Std.SetPattern_NotHoldButton( { CheckFrameID=10, EndFrameID=20, ButtonMask=(1<<1), SetPattern="J236B_End" } );
+		
 		local update_frameid = Battle_Std.GetUpdateFrameID();
 		switch( update_frameid )
 		{
@@ -1172,6 +1182,8 @@ local maketmpl_Skill214 = function( param={} ) : (set_blackfiredamage)
 	
 	ret_tmpl.FrameUpdate_After <- function() : (mvParam)
 	{
+		Battle_Std.SetPattern_NotHoldButton( { CheckFrameID=10, ButtonMask=(1<<1), SetPattern="214B_End" } );
+
 		local mvs = BMvTbl.GetMvStatus();
 		
 		switch( Battle_Std.GetUpdateFrameID() )
@@ -1433,6 +1445,8 @@ local maketmpl_SkillAirDashPunch = function( param={} )
 	
 	ret_tmpl.FrameUpdate_After <- function() : (mvParam)
 	{
+		Battle_Std.SetPattern_NotHoldButton( { CheckFrameID=10, ButtonMask=(1<<1), SetPattern="J214B_End" } );
+
 		local update_frameid = Battle_Std.GetUpdateFrameID();
 		switch( update_frameid )
 		{
@@ -1650,10 +1664,10 @@ t.Mv_Skill_41236SP_Hit <-
 		Battle_Std.InitArcDriveHit();
 		
 		//超技つかみのテンプレ
+		BMvEff.ThrowChara_SetJoint( 0 ); // 親にくっつけない
 		BMvEff.ThrowChara_SetCamera( 1 ); //投げているキャラをカメラ処理に含めるかどうか
 		BMvEff.SetCamera_Clipping( 0 ); //画面端のクリッピング補正を切る
-		BMvEff.ThrowChara_SetJoint( 0 ); // 親にくっつけない
-		BMvEff.SetExist( { level = _Exist_NoWall } ); // 画面外で行動する場合があるので壁判定解除
+		BMvEff.SetExist( { level = _Exist_NoWall, mode=_ExistMode_Set } ); // 画面外で行動する場合があるので壁判定解除
 	}
 	function FrameUpdate_After()
 	{
