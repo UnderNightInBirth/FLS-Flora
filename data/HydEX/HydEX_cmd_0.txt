@@ -571,9 +571,9 @@ local t =
 		{
 			SkillType = "AddCommand",
 			Cost = { ComboGauge = 10000 },
-			MvCheck = { Only = ["Mv_Skill_236A","Mv_Skill_236B"] },
-			BallCount = { [6] = 1 },
-			BallLimit = { [7] = 1 }, //EX”g“®‚Ì‚Æ‚«‚Í‚Å‚È‚¢
+			MvCheck = { Only = ["Mv_Skill_236A","Mv_Skill_236B","Mv_Skill_236EX"] },
+			// BallCount = { [6] = 1 },
+			// BallLimit = { [7] = 1 }, //EX”g“®‚Ì‚Æ‚«‚Í‚Å‚È‚¢
 		},
 		UpdateTable = { name = "Mv_Skill_236_236EX", }
 	},	

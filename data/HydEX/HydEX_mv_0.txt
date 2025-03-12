@@ -1483,7 +1483,7 @@ t.Mv_Skill_EXS <- 	//Veil Off
 		case 40:
 			// BMvEff.CreateObject( { pat="BloodCutin" } );
 			BMvEff.Liberate_Set();
-			BMvEff.AttackInfoString_Set({ word="Moves Unlocked"});
+			BMvEff.AttackInfoString_Set({ word="EXS UNLOCKED"});
 			Battle_Std.CreateObjectEX( { x = 64, y = -140, datatype=1, pat=189, flags=_Position_ToolShift } );
 			local eff = Battle_Std.CreateObjectEX( { datatype=0, pat=995 } );
 			if( eff.push() )
