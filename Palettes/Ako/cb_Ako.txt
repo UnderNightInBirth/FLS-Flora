@@ -1,0 +1,199 @@
+// 17, 48, 64　髪、胸、袖
+
+Color <- [
+{ // 
+ name = "Sparkle Star"
+ rgb = [ [ 116,120,129 ], [ 252,253,253 ], [ 246,109,173 ] ],
+}
+,
+{ // 1
+ name = "Bloodlust Lullaby"
+ rgb = [ [ 245,245,186 ], [ 127,85,225 ], [ 247,252,255 ] ],
+}
+,
+{ // 2
+ name = "Chlorophyll Pixie"
+ rgb = [ [ 247,100,125 ], [ 250,250,165 ], [ 80,127,62 ] ],
+}
+,
+{ // 3
+ name = "Dweller Woods"
+ rgb = [ [ 186,218,102 ], [ 164,96,96 ], [ 247,228,206 ] ],
+}
+,
+{ // 4
+ name = "Soap Cantino"
+ rgb = [ [ 69,179,181 ], [ 240,247,253 ], [ 52,86,168 ] ],
+}
+,
+{ // 5
+ name = "Glow Cerretano"
+ rgb = [ [ 210,182,158 ], [ 254,254,245 ], [ 220,88,95 ] ],
+}
+,
+{ // 6
+ name = "Mist Fruit"
+ rgb = [ [ 253,245,102 ], [ 170,187,85 ], [ 254,230,56 ] ],
+}
+,
+{ // 7
+ name = "Abernethy Song"
+ rgb = [ [ 66,132,100 ], [ 100,105,110 ], [ 218,237,205 ] ],
+}
+,
+{ // 8
+ name = "Library Absinthe"
+ rgb = [ [ 248,238,241 ], [ 201,85,171 ], [ 169,148,246 ] ],
+}
+,
+{ // 9
+ name = "Klondike Bullion"
+ rgb = [ [ 252,212,80 ], [ 252,244,152 ], [ 110,74,64 ] ],
+}
+,
+{ // 10
+ name = "Looking-Glass Glass"
+ rgb = [ [ 251,252,255 ], [ 200,211,250 ], [ 252,253,253 ] ],
+}
+,
+{ // 11
+ name = "Shrivel Rose"
+ rgb = [ [ 108,123,153 ], [ 116,119,168 ], [ 86,85,95 ] ],
+}
+,
+{ // 12
+ name = "Bubble Valentine"
+ rgb = [ [ 255,218,255 ], [ 224,58,113 ], [ 240,122,159 ] ],
+}
+,
+{ // 13
+ name = "Biscuit Chandelier"
+ rgb = [ [ 252,223,181 ], [ 83,66,102 ], [ 149,123,141 ] ],
+}
+,
+{ // 14(Crossdressing Teddie ・Persona 4)
+ name = "Innocence Star" 
+ rgb = [ [ 241,238,103 ], [ 0,155,255 ], [ 245,255,252 ] ],
+}
+,
+{ // 15 (Elphelt Valentine ・GGXrd Revelator)
+ name = "Dreaming of Bride"
+ rgb = [ [ 250,250,250 ], [ 72,72,72 ], [ 195,30,58 ] ],
+}
+,
+{ // 16(Yoriko Yasuzumi ・Arcana Heart)
+ name = "Slave for Evil" 
+ rgb = [ [ 255,255,210 ], [ 110,62,152 ], [ 253,169,110 ] ],
+}
+,
+{ // 17v(Murasaki ・Senran Kagura)
+ name = "Recluse Purple" 
+ rgb = [ [139,81,138 ], [ 53,52,55 ], [ 71,72,93 ] ],
+}
+,
+{ // 18 (Asuna ・Sword Art Online)
+ name = "Maternity Online"
+ rgb = [ [ 250,223,139 ], [ 242,243,253 ], [ 242,22,39 ] ],
+}
+,
+{ // 19  (Rusian ・Netoge no Yome)
+ name = "Spouse to Login"
+ rgb = [ [ 158,123,117 ], [ 215,215,215 ], [ 144,168,229 ] ],
+}
+,
+{ // 20(Dead Apostle Noel ・MBTL)
+ name = "Rosy Bloody Chimes"
+ rgb = [ [ 110,3,136 ], [ 255,164,175 ], [ 227,2,127 ] ],
+}
+,
+{ // 21(Tear Grants ・Tales of the Abyss)
+ name = "Hymn for Lorelei"
+ rgb = [ [ 172,163,123 ], [ 103,98,95 ], [ 255,252,179 ] ],
+}
+,
+{ // 22(Hatsune Miku)
+ name = "Synthesize Diva" 
+ rgb = [ [ 68,210,192 ], [ 188,193,193 ], [ 77,80,79 ] ],
+}
+,
+{ // 23(SGV-417-I Angelan ・Virtual-On Oratorio Tangram)
+ name = "Virtual Sanctuary" 
+ rgb = [ [ 253,253,252 ], [ 122,68,220 ], [ 78,245,160 ] ],
+}
+,
+{ // 24
+ name = "Magia Forecast"
+ rgb = [ [ 255,255,255 ], [ 201,145,242 ], [ 0,219,255 ] ],
+}
+,
+{ // 25
+ name = "Hostname Dish"
+ rgb = [ [ 255,255,255 ], [ 96,96,117 ], [ 176,255,250 ] ],
+}
+,
+{ // 26
+ name = "Mine Chalet"
+ rgb = [ [ 67,67,81 ], [ 86,191,156 ], [ 228,228,220 ] ],
+}
+,
+{ // 27
+ name = "Boom of Juno"
+ rgb = [ [ 249,255,255 ], [ 255,0,18 ], [ 255,255,139 ] ],
+}
+,
+{ // 28
+ name = "Glitter Reave"
+ rgb = [ [ 235,216,165 ], [ 255,183,234 ], [ 235,37,71 ] ],
+}
+,
+{ // 29
+ name = "Fool's Silver"
+ rgb =  [ [ 32,98,188 ], [ 182,116,165 ], [ 176,255,250 ] ],
+}
+,
+{ // 30
+ name = "Forbidden Fruit"
+ rgb = [ [ 156,73,189 ], [ 255,195,215 ], [ 255,0,143 ] ],
+}
+,
+{ // 32
+ name = "Umbra Coppa"
+ rgb = [ [ 249,255,255 ], [ 255,0,18 ], [ 255,255,139 ] ],
+}
+,
+{ // 33
+ name = "Urbane Banisher"
+ rgb =  [ [ 93,105,149 ], [ 252,252,252 ], [ 119,119,122 ] ],
+}
+,
+{ // 34
+ name = "Satellite Duster"
+ rgb = [ [ 243,219,195 ], [ 255,195,215 ], [ 255,0,143 ] ],
+}
+,
+{ // 35
+ name = "Yellow Dipper"
+ rgb = [ [255,250,130], [255,140,180], [110,90,150] ],
+}
+,
+{ // 36
+ name = "Kinder Devoted"
+ rgb = [ [214,183,138], [87,66,71], [62,86,150] ],
+}
+,
+{ // 37
+ name = "Lively Coral"
+ rgb = [ [122,220,255], [207,132,76], [49,68,98] ],
+}
+,
+{ // 38  (Tamamo-no-Mae ・Fate/Extra)
+ name = "Murderous Stone"
+ rgb = [ [40,73,197], [243,159,151], [85,82,80] ],
+}
+,
+{ // 39 (Magical Amber ・Tsukihime)
+ name = "Whimsical Witch" 
+ rgb = [ [172,119,116], [238,99,126], [255,255,255] ],
+}
+,
+]

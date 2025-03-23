@@ -1,0 +1,211 @@
+Color <- [
+
+{ // 1
+	name = "Eternal Lovelight"
+	rgb = [	[ 250,247,233 ], [ 149,155,210 ], [ 95,65,43 ] ],
+}
+,
+{ // 2
+	name = "Brave or Grave" (M.Bison – Street Fighter II)
+	rgb = [	[ 250,0,0 ], [ 213,230,246 ], [ 32,32,49 ] ],
+    }
+,
+{ // 3
+	name = "Breath Amorphous"
+	rgb = [	[ 80,80,80 ], [ 226,179,84 ], [ 0,0,0 ] ],
+}
+,
+{ // 4
+	name = "Serene Sister" (Celica A. Mercury – Blazblue Phase 0)
+	rgb = [	[ 170,64,16 ], [ 67,72,85 ], [ 232,239,242 ] ],
+}
+,
+{ // 5
+	name = "Velvet Empress" (Margaret – Persona 4)
+	rgb = [	[ 37,99,245 ], [ 238,238,238 ], [ 254,241,110 ] ],
+}
+,
+{ // 6
+	name = "Necro Effect"
+	rgb = [	[ 243,185,220 ], [ 125,67,105 ], [ 244,221,230 ] ],
+}
+,
+{ // 7
+	name = "Preach for Love" (Heart Aino – Arcana Heart)
+	rgb = [	[ 253,121,155 ], [ 249,251,253 ], [ 253,169,110 ] ],
+}
+,
+{ // 8
+	name = "Deep Kingdom"
+	rgb = [	[ 0,170,255 ], [ 32,40,115 ], [ 191,234,255 ] ],
+}
+,
+{ // 7
+	name = "Tanning Slaughter" (Sunburnt Sakura – Marvel vs Street Fighter)
+	rgb = [	[ 208,208,240 ], [ 64,64,80 ], [ 240,0,0 ] ],
+}
+,
+{ // 10
+	name = "Blooming Ache"
+	rgb = [	[ 233,233,248 ], [ 255,77,77 ], [ 135,7,7 ]],
+}
+
+{ // 11
+	name = "Midnight Solstice"
+	rgb = [	[ 42,45,48 ], [ 116,116,116 ], [ 184,192,224 ] ],
+}
+,
+{ // 12
+	name = "Momo Mochi"
+	rgb = [	[ 255,135,153 ], [ 91,171,104 ], [ 128,70,104 ] ],
+}
+,
+{ // 13
+	name = "Mellow Ripple"
+	rgb = [	[ 255,244,79 ], [ 181,126,75 ], [ 247,233,151 ] ],
+}
+,
+{ // 14
+	name = "Mountain Opus"
+	rgb = [	[ 149,227,59 ], [ 168,212,240 ], [ 128,69,57 ] ],
+}
+,
+{ // 15
+	name = "Fenghuang Medley" (Athena Asamiya – King of Fighters)
+	rgb = [	[ 246,0,0 ], [ 139,90,138 ], [ 247,239,239 ] ],
+}
+,
+{ // 16
+	name = "Fairy of Mirrors" (Chizuru Kagura – King of Fighters)
+	rgb = [	[ 255,255,255 ], [ 57,57,74 ], [ 222,41,16 ] ],
+}
+,
+{ // 17
+	name = "Reine de Lumiere" (Elisabeth Blanctorche – King of Fighters)
+	rgb = [	[ 247,255,239 ], [ 57,90,115 ], [ 107,82,90 ] ],
+}
+,
+{ // 18
+	name = "Luminous Ancestor" (Archetype: Earth – Melty Blood Actress Again)
+	rgb = [	[ 249,249,249 ], [ 255,240,164 ], [ 22,71,133 ] ],
+}
+,
+{ // 19
+	name = "Gloom Eternity" (Kuon – Under Night In-Birth)
+	rgb = [	[ 237,41,54 ], [ 250,251,252 ], [ 80,76,78 ] ],
+}
+,
+{ // 20
+	name = "Hour of Darkness"
+	rgb = [	[ 214,148,148 ], [ 198,231,198 ], [ 112,112,112 ] ],
+}
+,
+{ // 21
+	name = "Brave Heroine" (Emi Yusa – The Devil is a Part-timer!)
+	rgb = [	[198,56,105], [134,122,132], [253,252,253] ],
+}
+,
+{ // 22
+	name = "Amante en Serie"
+	rgb = [	[72,62,60], [205,247,50], [214,198,185] ],
+}
+,
+{ // 23
+	name = "Miraculous Despair" (Frederica Bernkastel – Umineko Golden Fantasia)
+	rgb = [	[90,90,167], [61,62,85], [242,242,244] ],
+}
+,
+{ // 24
+	name = "Code of Raijin" (D.D. – Capcom Fighting All-Stars)
+	rgb = [	[200,29,29], [101,45,30], [93,98,100] ],
+}
+,
+{ // 25
+	name = "Holder of Halo" (Rook – Capcom Fighting All-Stars)
+	rgb = [	[245,239,174], [245,239,174], [246,250,250] ],
+}
+,
+{ // 26
+	name = "Mischief Melody" (Otonose Kanade – Hololive DEV_IS ReGloss)
+	rgb = [	[251,224,152], [242,236,214], [202,28,28] ],
+}
+,
+{ // 27
+	name = "Hakkei Ougi"
+	rgb = [	[156,90,74], [24,74,180], [243,202,68] ],
+}
+,
+{ // 28
+	name = "Magus Purple" (Murasaki Shion – Hololive Gen 2)
+	rgb = [	[217,217,217], [115,81,148], [52,68,98] ],
+}
+,
+{ // 29
+	name = "Sense of Place"
+	rgb = [	[122,224,94], [240,240,240], [207,11,53] ],
+}
+,
+{ // 30
+	name = "Draconic Essence" (Tiki – Fire Emblem)
+	rgb = [	[155,203,142], [195,51,51], [241,143,161] ],
+}
+,
+
+
+
+
+{ // 31 csst_DLC1
+	name = ""
+	rgb = [	[169,243,67], [68,246,238], [248,217,63] ],
+}
+,
+{ // 32 csst_DLC1
+	name = ""
+	rgb = [	[245,47,60], [99,144,169], [60,60,60] ],
+}
+,
+{ // 33 csst_DLC1
+	name = ""
+	rgb = [	[254,214,32], [77,82,112], [168,170,176] ],
+}
+,
+{ // 34 csst_DLC1
+	name = "Seeds of Heaven"
+	rgb = [	[60,70,80], [45,69,98], [252,252,252] ],
+}
+,
+{ // 35 csst_DLC1
+	name = ""
+	rgb = [	[254,64,160], [244,252,32], [72,236,254] ],
+}
+,
+{ // 36 st2_DLC
+	name = ""
+	rgb = [	[194,160,226], [92,80,150], [255,245,160] ],
+}
+,
+{ // 37 st2_DLC
+	name = ""
+	rgb = [	[255,189,81], [44,72,96], [29,90,145] ],
+}
+,
+{ // 38 st2_DLC
+	name = ""
+	rgb = [	[68,94,114], [255,72,82], [177,255,55] ],
+}
+,
+{ // 39 st2_DLC
+	name = ""
+	rgb = [	[67,67,76], [80,80,127], [255,235,90] ],
+}
+,
+{ // 40 st2_DLC
+	name = ""
+	rgb = [	[255,251,240], [255,90,80], [0,225,255] ],
+}
+,
+
+
+]
+
+

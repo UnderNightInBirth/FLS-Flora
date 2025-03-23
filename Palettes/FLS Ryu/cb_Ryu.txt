@@ -1,0 +1,221 @@
+Color <- [
+
+{ // 1
+	name = "Hellhound of Abyss"
+	rgb = [	[ 255,255,255 ], [ 58,49,56 ], [ 247,247,239 ] ],
+}
+,
+{ // 2
+	name = "Centaurea Blaklint"
+	rgb = [	[ 184,141,70 ], [ 30,90,145 ], [ 206,198,193 ] ],
+}
+,
+{ // 3
+	name = ""
+	rgb = [	[ 51,12,30 ], [ 53,120,90 ], [ 237,247,239 ] ],
+}
+,
+{ // 4 (Oni Akuma – Super SFIV Arcade Edition)
+	name = "Thirst of Torture"
+	rgb = [	[ 107,53,115 ], [ 247,247,239 ], [ 120,188,201 ] ],
+}
+,
+{ // 5
+	name = ""
+	rgb = [	[ 213,132,156 ], [ 255,255,255 ], [ 200,200,200 ] ],
+}
+,
+{ // 6
+	name = ""
+	rgb = [	[ 213,80,147 ], [ 22,23,23 ], [ 181,39,66 ] ],
+}
+,
+{ // 7 (Grima-possessed Robin, Fire Emblem Awakening)
+	name = "Fell Vessel"
+	rgb = [	[81,80,76], [200,190,121], [158,90,197] ],
+}
+,
+{ // 8 (Roger, UNI Chronicle Mode)
+	name = "Void Hazard"
+	rgb = [ [85,85,92], [180,180,180], [57,58,59] ],
+}
+,
+{ // 9 (Demitri Maximoff – Darkstalkers)
+	name = "Midnight Warrior"
+	rgb = [	[ 156,173,189 ], [ 153,85,17 ], [ 255,0,0 ] ],
+}
+,
+{ // 10 (Oboro Bishamon – Vampire Savior)
+	name = "Cursed Pilgrimage" 
+	rgb = [	[ 224,144,96 ], [ 112,160,160 ], [ 240,224,192 ] ],
+}
+
+{ // 11 (Dark Talbain – Vampire Savior)
+	name = "Wolf Insider" 
+	rgb = [	[ 173,66,99 ], [ 255,255,206 ], [ 66,99,99 ] ],
+}
+,
+{ // 12 (Cyclops – Children of the Atom)
+	name = "Giant's Eye" 
+	rgb = [	[ 0,119,255 ], [ 255,238,34 ], [ 255,34,34 ] ],
+}
+,
+{ // 13 (Blackheart – Marvel Super Heroes)
+	name = "Prince of Hell" 
+	rgb = [	[ 51,51,119 ], [ 255,0,0 ], [ 68,43,77 ] ],
+}
+,
+{ // 14 (Venom – Marvel VS Capcom)
+	name = "Embrace Kill"
+	rgb = [	[ 221,238,255 ], [ 68,204,255 ], [ 51,102,153 ] ],
+}
+,
+{ // 15 (Black Hayato – Star Gladiator)
+	name = "Plasma Genotype" 
+	rgb = [	[ 4,206,188 ], [ 116,102,140 ], [ 252,70,4 ] ],
+}
+,
+{ // 16 (Nelo Angelo – Devil May Cry)
+	name = "Blackened Angel" 
+	rgb = [	[ 102,136,107 ], [ 68,74,72 ], [ 145,41,95 ] ],
+}
+,
+{ // 17 (Robo-Ky – Guilty Gear XX)
+	name = "False Things" 
+	rgb = [	[ 255,255,225 ], [ 90,94,129 ], [ 56,56,48 ] ],
+}
+,
+{ // 18  (Rasestumaru – Samurai Shodown V)
+	name = "Rakshasa Bust"
+	rgb = [	[ 105,133,151 ], [ 32,40,56 ], [ 208,16,16 ] ],
+}
+,
+{ // 19 (Enja-Kazuki – Samurai Shodown: Asura Zanmaden)
+	name = "Hell's Psycho" 
+	rgb = [	[ 112,104,88 ], [ 200,104,40 ], [ 236,221,182 ] ],
+}
+,
+{ // 20 (Shadow Akihiko – Persona 4 Arena Ultimax)
+	name = "Overdose Protein"
+	rgb = [	[ 142,98,82 ], [ 227,236,243], [ 177,30,22 ] ],
+}
+,
+{ // 21 (Orochi Leona – KOF '97)
+	name = "Big Bang Nothing" 
+	rgb = [	[174,189,130], [203,0,0], [85,30,60] ],
+}
+,
+{ // 22 (Krizalid – KOF '99)
+	name = "Pet Ramune" 
+	rgb = [	[112,96,120], [208,216,200], [112,96,120]  ],
+}
+,
+{ // 23 (Magatsu Izanagi – Persona 4 Arena Ultimax)
+	name = "Brimstone Mictlan"
+	rgb = [	[179,34,7], [255,183,0], [96,93,96] ],
+}
+,
+{ // 24 (Red Arcueid – Melty Blood)
+	name = "Claw Berserk" 
+	rgb = [	[228,228,238], [248,212,148], [134,84,108] ],
+}
+,
+{ // 25 (Sion TATARI – Melty Blood)
+	name = "Curse Lineage" 
+	rgb = [	[101,65,62], [176,177,218], [248,192,30] ],
+}
+,
+{ // 26 (Akiha Vermillion – Melty Blood)
+	name = "Flammel Vermillion" 
+	rgb = [	[168,189,255], [255,0,0], [161,0,0] ],
+}
+,
+{ // 27 (Shiki Nanaya – Melty Blood)
+	name = "Demon Knife" 
+	rgb = [	[20,66,129], [62,62,62], [140,119,108] ],
+}
+,
+{ // 28 (Susanoo – Blazblue Central Fiction)
+	name = "Storms of Cruelty" 
+	rgb = [	[109,129,179], [66,83,106], [109,255,128] ],
+}
+,
+{ // 29  (Alex – Street Fighter III)
+	name = "Giant Attack"
+	rgb = [	[136,160,72], [248,248,16], [192,224,144] ],
+}
+,
+,
+{ // 30 
+	name = "Lust Viper"
+	rgb = [	[108,110,140], [40,18,48], [27,27,43] ],
+}
+,
+
+
+
+
+
+{ // 31 csst_DLC1
+ name = "Equatorial Wave"
+
+ rgb = [ [ 217,255,121 ], [ 68,246,238 ], [ 244,255,127 ] ],
+}
+,
+{ // 32 csst_DLC1
+ name = "Inferno Blaze"
+
+ rgb = [ [ 245,47,60 ], [ 45,69,98 ], [ 99,144,169 ] ],
+}
+,
+{ // 33 csst_DLC1
+ name = "Annular Eclipse"
+
+ rgb = [ [ 254,214,32 ], [ 77,82,112 ], [ 168,170,176 ] ],
+}
+,
+{ // 34 csst_DLC1
+ name = "Seeds of Heaven"
+
+ rgb = [ [ 60,70,80 ], [ 252,252,252 ], [ 191,199,199 ] ],
+}
+,
+{ // 35 csst_DLC1
+ name = "Clamorous Colors"
+
+ rgb = [ [ 255,93,184 ], [ 105,255,255 ], [ 255,255,61 ] ],
+}
+,
+{ // 36 st2_DLC
+ name = "Royal Calibur"
+
+ rgb = [ [ 248,222,252 ], [ 249,252,251 ], [ 92,79,151 ] ],
+}
+,
+{ // 37 st2_DLC
+ name = "Stella Nest"
+
+ rgb = [ [ 176,248,254 ], [ 252,252,244 ], [ 44,72,96 ] ],
+}
+,
+{ // 38 st2_DLC
+ name = "Little Briar Rose"
+
+ rgb = [ [ 254,72,80 ], [ 68,97,114 ], [ 102,116,116 ] ],
+}
+,
+{ // 39 st2_DLC
+ name = "Betrayal of Savior"
+
+ rgb = [ [ 242,242,252 ], [ 80,80,126 ], [ 67,66,78 ] ],
+}
+,
+{ // 40 st2_DLC
+ name = "Switching Contrast"
+
+ rgb = [ [ 248,253,251 ], [ 80,74,70 ], [ 0,225,255 ] ],
+}
+
+]
+
+
