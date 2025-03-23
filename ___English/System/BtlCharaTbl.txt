@@ -473,7 +473,7 @@ chara_no[28] =
 	order = 101,
 };
 
-chara_no[29] = 
+chara_no[32] = 
 {
 	name_short = "Hammer",
 	name_long = "Hammer",
@@ -515,7 +515,7 @@ chara_no[31] =
 	order = 104,
 };
 
-chara_no[32] = 
+chara_no[29] = 
 {
 	name_short = "Ryu",
 	name_long = "Ryu",
@@ -556,6 +556,20 @@ chara_no[39] =
 
     order = 189,
 }; // 
+
+// chara_no[40] = 
+// {
+	// name_short = "Hermes",
+	// name_long = "Hermes",
+	// name_str = "Hermes",
+	// name_master = "Hermes",
+	// isAlive = 1,
+	
+	// stage = 9,
+	// bgm = 199,
+	
+	// order = 199,
+// }; // 
 
 // chara_no[33] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
 // chara_no[34] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };

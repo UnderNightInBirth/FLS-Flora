@@ -89,3 +89,8 @@ Current modders have too much on their plate.
 - Trailers, eventually
 - Wiki work
 - Fix cmdlist
+
+
+# lazy todo
+
+- ryu css says hammer

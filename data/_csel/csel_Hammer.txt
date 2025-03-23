@@ -1,0 +1,10 @@
+[System]
+ProjectName=csel_Hammer
+[DataFile]
+FileNum= 1
+File00=csel_Hammer.ha6
+[BmpcutFile]
+FileNum= 1
+File00=../Hammer/Hammer.cg
+[PAniFile]
+FileNum= 0

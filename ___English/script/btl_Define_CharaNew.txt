@@ -4,17 +4,19 @@ const Def_ChrNo_Rie	= 27;
 const Def_ChrNo_Ingrid	= 28;
 const Def_ChrNo_Ing	= 28;
 
-const Def_ChrNo_Hammer	= 29;
-const Def_ChrNo_Fat	= 29;
+const Def_ChrNo_Hammer	= 32;
+const Def_ChrNo_Fat	= 32;
 
 const Def_ChrNo_Dantes	= 30;
 const Def_ChrNo_Edo	= 30;
 
 const Def_ChrNo_Ako = 31;
 
-const Def_ChrNo_Ryu = 32;
+const Def_ChrNo_Ryu = 29;
 
 const Def_ChrNo_Yuuki = 38;
 const Def_ChrNo_Yuu = 38;
 
 const Def_ChrNo_HydEX = 39;
+
+// const Def_ChrNo_Hermes = 40;
