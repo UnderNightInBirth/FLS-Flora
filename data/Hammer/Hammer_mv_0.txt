@@ -4,15 +4,15 @@ t.Mv_Atk_StdB <-
 {
 	function Init_After()
 	{
-		local player = BMvCore.GetEnemyCharaData();
-			if( player.push() )
-			{
-				BMvEff.SetHpGauge( { value=-1000 } );
+		// local player = BMvCore.GetEnemyCharaData();
+			// if( player.push() )
+			// {
+				// BMvEff.SetHpGauge( { value=-1000 } );
 				
-				player.pop();
-			}
-			Battle_Std.EnemyGRD_Drain( 5000, 1 );
-			BMvEff.SetHpGauge( { value=-1000 } );
+				// player.pop();
+			// }
+			// Battle_Std.EnemyGRD_Drain( 5000, 1 );
+			// BMvEff.SetHpGauge( { value=-1000 } );
 	}
 	function FrameUpdate_After()
 	{
