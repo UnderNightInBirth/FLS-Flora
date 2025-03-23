@@ -155,7 +155,7 @@ t.Mv_ConvertCharge <-
 // Base Attacks
 //-----------------------------------------------------------------------------
 
-t.Mv_Atk_Std6B <-
+t.Mv_Atk_Std6B <- // todo - either chaos 6c reflector code or try to hook enemy obj, dunno if possible
 {
     function FrameUpdate_After()
     {
