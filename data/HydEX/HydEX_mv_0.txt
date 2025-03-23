@@ -1533,6 +1533,8 @@ t.Mv_Throw_A_Hit <-
 {
 	function Init_After()
 	{
+		BMvTbl.SetAsStatusFlag( { normal=_CancelFlag_None, special=_CancelFlag_None, time=254, flag=_ClearFlag_ChangeMv } );
+		// i dont want crashes rn
 		Battle_Std.MutekiThrowRelease_Init();
 	}
 	function FrameUpdate_After()
