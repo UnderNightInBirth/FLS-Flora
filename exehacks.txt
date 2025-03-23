@@ -2,6 +2,14 @@ Change Hit View Limit to 999
 0x154043 struct 0x6300 -> 0xE703
 (find 43 28 B9 63 00 00 00 3B C1 )
 
+
+
+
+
+50 52 43 4C C8 64 00
+
+
+
 Palette Select Fix
 0x2467DE opcode 0x75 -> 0xEB
 (find 85 C0 75 1F 69 CF 2C 0C 00 00 89 )
