@@ -43,6 +43,9 @@ local t =
 	Skill_214BorC = {},
 	Skill_214A = {},
 	
+	Skill_41236SP = {},
+	Skill_41236SP_ABC = {},
+	
 	
 	// There HAS to be a better way to do all this. Oh my God.
 	
@@ -125,16 +128,16 @@ local ar =
 	{
 		ResetTmplName="Atk_StdB",
 		CheckMoveName="Mv_Atk_StdB",
-		UpdateMoveName="Mv_Atk_StdC",
+		UpdateMoveName="Mv_Atk_Std6C",
 	},
 	{
-		ResetTmplName="Atk_StdC",
-		CheckMoveName="Mv_Atk_StdC",
-		UpdateMoveName="Mv_Skill_214A",
+		ResetTmplName="Atk_Std6C",
+		CheckMoveName="Mv_Atk_Std6C",
+		UpdateMoveName="Mv_Skill_236A",
 	},
 	{
-		ResetTmplName="Mv_Skill_214A",
-		CheckMoveName="Mv_Skill_214A",
+		ResetTmplName="Mv_Skill_236A",
+		CheckMoveName="Mv_Skill_236A",
 		UpdateMoveName="Mv_Skill_SSRelayAtk",
 		CmdCheck = 
 		{

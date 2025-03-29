@@ -1637,6 +1637,28 @@ CommonStandbyParams[27] = // Riesbyfe
 	// },
 ];
 
+CommonStandbyParams[28] = // Ingrid
+[
+	{ WaitPAT = 49, timeline = [ { delay=148, SE=60, time=148 }, ], },
+
+];
+
+CommonStandbyParams[29] = // FLS Ryu
+[
+	{ WaitPAT = 49, timeline = [ { PAT=50, SE=28, time=236, delay=66 } ] },
+	
+	{
+		Enemy=[28], // vs Ingrid
+		WaitPAT = [48], // pats (array) to start with)
+		duet_timeline = // PL = isOpponent? | PAT = pat played on timing | delay = time, not delay | SE = se list #
+		// entries are the order
+		[
+			{ PL=0, PAT=51, delay=150, SE=28, }, 
+			{ PL=1, PAT=50, delay=256, SE=60, } // Jeez... That's far too much power for one person to have.
+		],
+	},
+];
+
 CommonStandbyParams[30] = // Dantes
 [
 	{ WaitPAT = 920, timeline = [ { PAT=920, SE=100, time=236, delay=66 }, { PAT=921, delay=170 } ] }, // 「貴様は、我が姿に何を見る！」

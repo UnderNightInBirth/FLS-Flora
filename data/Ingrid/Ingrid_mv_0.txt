@@ -1,5 +1,22 @@
 local t = {};
 
+
+// t.Mv_RoundWinPattern <-
+// {
+	// function Init_After()
+	// {
+	// }
+// }
+
+t.Mv_WinPattern <-
+{
+	function Init_After()
+	{
+	    BMvEff.PcAfterImage_Set( { type=0, range=32, delay=1, color=0xFFFFFF00, blendmode=1 } );
+	}
+}
+
+
 //-----------------------------------------------------------------------------
 // jC
 //-----------------------------------------------------------------------------
@@ -786,6 +803,138 @@ t.Mv_Skill_623EX <-
 		}
 	}
 }
+
+
+t.Mv_Skill_41236SP <-
+{
+	function Init_After()
+	{
+		// BMvTbl.SetNoHoseiFlag( {  val=1, time=254, flag=_ClearFlag_ChangePattern|_ClearFlag_ChangeMv } ); // ONCE補正
+	}
+	function FrameUpdate_After()
+	{
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 50:
+			Battle_Std.CreateObjectEX( { x=0, y=0, flags=_Position_ToolShift, pat="IW_Capture" mvname="Mv_IW_Capture",
+			objectflags=_ObjFlags_NoGround } );
+			break;
+		}
+	}
+	function HitInterrupt_After()
+	{
+		local enemy = BMvCore.GetNearEnemyCharaData();
+		if( enemy.push() )
+		{
+			local hs = BtlMvStd.GetBoundStatus();
+			if (hs.isCapture)
+			{
+				// Battle_Std.SetPosition_DamageHanteiRect({ power=50, });
+			}
+			enemy.pop();
+		}
+		Battle_Std.SetThrowHitFinalize(256);
+	}
+	function Finalize()
+	{
+		Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Skill_41236SP_Hit"]); //デフォ,[code,mv]...
+	}
+}
+
+t.Mv_IW_Capture <-
+{
+	function Init()
+	{
+		BMvTbl.SetMuki( _Direction_Reverse );
+	}
+	function FrameUpdate_After()
+	{
+		Battle_Std.SetPos_MarkingEnemy();
+	}
+	function HitInterrupt_After()
+	{
+		BMvEff.ThrowParam( { pattern=320, x=50, y=0, } );
+	}
+}
+
+t.Mv_Skill_41236SP_Hit <-
+{
+	flags = def_TmplFlags_ChangeStatusOnly, //状態の移行のみを行う
+	function Init_After()
+	{
+		BMvTbl.JumpFrameID(15);
+	
+		BMvEff.ThrowChara_SetJoint(0); //切り離す
+		//カメラ固定
+		
+		BMvEff.SetCamera_Focus( { time=[0,999,30] } );
+		local epos = Battle_Std.GetNearEnemyToolShiftPosition();
+		if( epos.x < 0 ) epos.x = 0; // 最低保証
+		
+		BMvEff.ThrowParam( { x=epos.x, y=epos.y, pattern=320 } ); //, hantei_rect = [ "Etc", 10 ] } );
+		//この時点ではパターンが変化していない？
+		
+		// //敵の腹の位置を取得
+		// local pos = Battle_Std.GetNearEnemyDistance({capture_pos="腹"});
+		// if( pos.IsDone )
+		// {
+			// BMvEff.CreateObject( { x=pos.x, y=pos.y, mvname="Mv_Obj_41236SP_Kanri", flags=0 } ); //演出管理を呼ぶ
+		// }
+		BMvEff.PcAfterImage_Set( {  type=1, range=24, delay=3, color=0xFFFFFF00, blendmode=1 } );
+	}
+	function FrameUpdate_After()
+	{
+	
+		local enemy = BMvCore.GetNearEnemyCharaData();
+		if( enemy.push() )
+		{
+			local hs = BtlMvStd.GetBoundStatus();
+			if (hs.isCapture)
+			{
+				BMvTbl.SetVector({ x=0, y=-512, flags=_Vector_Normal  });
+			}
+			enemy.pop();
+		}
+		
+		
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 15: //モーション分岐先開始
+			break;
+		case 90: //攻撃開始だ
+			break;
+		case 100: //攻撃キーフレーム			
+			break;
+		case 150: //攻撃キーフレーム２段階目
+			break;
+		case 800:
+			local boing = Battle_Std.CreateObjectEX( { x=0, y=0, flags=_Position_ToolShift, pat="IW_Done", objectflags=_ObjFlags_NoGround } );
+			if(boing.push())
+			{
+				BMvTbl.SetMuki( _Direction_Reverse );
+				Battle_Std.SetPos_MarkingEnemy();
+				boing.pop();
+			}
+			break;
+		case 900: //終了
+			// BMvEff.SetCamera_Clipping( 1 ); //画面端のクリッピング補正をかける
+			//相手の座標チェック
+			//local pos = BMvTbl.GetPosition( { flags=_Position_CaptureChara } );
+			BMvEff.ThrowRelease( { type="垂直吹き飛び", airrecover=0, flags=_ThrowRelease_NoGroundRecover	 });
+			BMvEff.PcAfterImage_Clear();
+			BMvEff.CutInProc_Erase(); //カットインがあったら消去する
+			break;
+		}
+
+	}
+	function LastUpdate_After()
+	{
+		BMvEff.CutInProc_Erase(); //カットインがあったら消去する
+		BMvEff.SetCamera_Focus( { time=[0,0,30] } );
+	}	
+}
+
+
 
 INGRID_MoveTable <- Battle_Std.MakeMoveTable( t, INGRID_CommandTable, Def_ChrNo_Ing );
 __dofile__("./data/Ingrid/Ingrid_se_category.txt");

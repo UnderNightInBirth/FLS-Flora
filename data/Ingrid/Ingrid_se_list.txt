@@ -11,6 +11,7 @@ SeList_Table <-
 SeList_Table.Path.append( "./se/normal_se/" ); // 0: Global SE
 SeList_Table.Path.append( "./se/battle_se/Ingrid/" ); // 1: Character Voice
 SeList_Table.Path.append( "./se/battle_se/" ); // 2: Battle SE
+SeList_Table.Path.append( "./se/battle_se/Ingrid/banter/" ); // 3: Other
 
 SeList_Table.Status.resize(750); // As much as needed
 local st = SeList_Table.Status; // Easy Register
@@ -29,6 +30,9 @@ st[51] = { volumetype=1 path=1, file="pl29_u_00022", type=0, category=1, }; //ta
 st[52] = { volumetype=1 path=1, file="pl29_u_00023", type=0, category=1, }; //talk
 st[53] = { volumetype=1 path=1, file="pl29_u_00024", type=0, category=1, }; //talk
 st[54] = { volumetype=1 path=1, file="pl29_u_00025", type=0, category=1, }; //
+
+
+st[60] = { volumetype=1 path=3, file="1721_611", type=0, category=1, };
 
 
 

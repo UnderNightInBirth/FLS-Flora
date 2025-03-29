@@ -101,3 +101,12 @@ se["Œˆ’…‚j‚n_•G•ö‚ê"] <- {
 // se["d‹N‚«ã‚ª‚è"] <- {
     // selist = { common = [211, 208], }
 // }
+
+
+//‚h‚v
+se["Mv_Skill_41236SP_Init"] <- {
+	selist = { common = [209], }
+};
+
+se["Mv_Skill_41236SP_Hit_FU"] <- [ { Param0=10, selist = { common = [212], } },
+                            { Param0=30, selist = { common = [232], } }  ];
