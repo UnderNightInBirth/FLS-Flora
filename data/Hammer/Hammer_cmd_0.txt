@@ -18,6 +18,21 @@ local t =
 	Skill_41236SP_ABC = {},
 	Skill_41236SP = {},
 	
+	
+	// Skill_63214EX = {
+		// num = def_CN_Skill_63214EX, name = "Cmd_Skill_63214EX", command = ["632146C@N,6@@L,4@"], usegauge = 10000,
+		// CmdCheck = { MvCheck={ SkillFail="Mv_Skill_63214EX"}, Cost = { ComboGauge = 10000 }, SkillType = "ExSpecial", },
+		// UpdateTable = { name = "Mv_Skill_63214EX", }
+	// },
+		Skill_63214EX = {
+        command = ["63214C","214+B+C"],
+	},
+
+	
+	Skill_J214A = {},
+	Skill_J214B = {},
+	Skill_J214EX = {}, 
+	
 	Atk_StdBandC = {},
 	
 	// Atk_Air1C = {},

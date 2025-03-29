@@ -1,46 +1,210 @@
 local t = {};
 
-t.Mv_Atk_StdB <-
+t.Mv_Skill_J214A <-
 {
 	function Init_After()
 	{
-		// local player = BMvCore.GetEnemyCharaData();
-			// if( player.push() )
-			// {
-				// BMvEff.SetHpGauge( { value=-1000 } );
-				
-				// player.pop();
-			// }
-			// Battle_Std.EnemyGRD_Drain( 5000, 1 );
-			// BMvEff.SetHpGauge( { value=-1000 } );
+		Battle_Std.CallAddSkillCache( "J214A_Hit", 4 );
 	}
-	function FrameUpdate_After()
+	function HitInterrupt_After()
 	{
-		// local cmdInfo = BCMDTbl.GetCmdInfoEx(0);
-	    // BMvEff.AttackInfoString_Set({word=cmdInfo.GetFrame()});
-	    // BMvEff.AttackInfoString_Set({word=BMvEff.GetFrameIDNum( 1 )});
-		local player = BMvCore.GetPlayerCharaData();
-			if( player.push() )
-			{
-				BMvEff.SetHpGauge( { value=-1000 } );
-				
-				player.pop();
-			}
+		Battle_Std.SetThrowHitFinalize(256);
+	}
+	function Finalize()
+	{
+		Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Skill_J214A_Hit"]);
 	}
 }
 
-// t.Mv_Liberate <- 	//Veil Off Combo
-// {
-	// function FrameUpdate_After()
-	// {
-		// switch( Battle_Std.GetUpdateFrameID() )
-		// {
-		// case 40:
-			// BMvEff.CreateObject( { x=0, y=-300, datatype=1, start_pat=102, flags=_Position_ToolShift } );
-			// break;
-		// }
-	// }
-// }
+
+t.Mv_Skill_J214A_Hit <-
+{
+	// flags = def_TmplFlags_NoAddComboRate,
+	function Init_After()
+	{
+		// BMvTbl.SetPattern("J214A_Hit");
+		BMvEff.CameraShift_Set( { x=100*128, y=-256*128, flags=_Position_ChangeMuki } );
+		// Battle_Std.CallSkillSoonCaches( [400,10], [50,12] );
+	}
+	function FrameUpdate_After()
+	{
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 50:
+			BMvEff.CameraShift_Clear();
+			BMvEff.ThrowParam( { pattern=320, x=50, y=0, } );
+			BMvEff.ThrowRelease( { type="追撃ダウン", airrecover=0, flags=_ThrowRelease_NoGroundRecover } );
+			break;
+		}
+	}
+	function LastUpdate_After()
+	{
+		BMvEff.CameraShift_Clear();
+	}	
+}
+
+t.Mv_Skill_J214B <-
+{
+	function Init_After()
+	{
+		Battle_Std.CallAddSkillCache( "J214B_Hit", 4 );
+	}
+	function HitInterrupt_After()
+	{
+		Battle_Std.SetThrowHitFinalize(256);
+	}
+	function Finalize()
+	{
+		Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Skill_J214B_Hit"]);
+	}
+}
+
+
+t.Mv_Skill_J214B_Hit <-
+{
+	// flags = def_TmplFlags_NoAddComboRate,
+	function Init_After()
+	{
+		// BMvTbl.SetPattern("J214A_Hit");
+		BMvEff.CameraShift_Set( { x=100*128, y=-256*128, flags=_Position_ChangeMuki } );
+	}
+	function FrameUpdate_After()
+	{
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 50:
+			BMvEff.CameraShift_Clear();
+			BMvEff.ThrowParam( { pattern=320, x=50, y=0, } );
+			BMvEff.ThrowRelease( { type="追撃ダウン", airrecover=0, flags=_ThrowRelease_NoGroundRecover } );
+			break;
+		}
+	}
+	function LastUpdate_After()
+	{
+		BMvEff.CameraShift_Clear();
+	}	
+}
+
+
+
+t.Mv_Skill_J214EX <-
+{
+	function Init_After()
+	{
+		Battle_Std.CallAddSkillCache( "J214EX_Hit", 4 );
+	}
+	function HitInterrupt_After()
+	{
+		Battle_Std.SetThrowHitFinalize(256);
+	}
+	function Finalize()
+	{
+		Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Skill_J214EX_Hit"]);
+	}
+}
+
+
+t.Mv_Skill_J214EX_Hit <-
+{
+	// flags = def_TmplFlags_NoAddComboRate,
+	function Init_After()
+	{
+		// BMvTbl.SetPattern("J214A_Hit");
+		BMvEff.CameraShift_Set( { x=100*128, y=-256*128, flags=_Position_ChangeMuki } );
+	}
+	function FrameUpdate_After()
+	{
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 50:
+			BMvEff.CameraShift_Clear();
+			BMvEff.ThrowParam( { pattern=320, x=50, y=0, } );
+			BMvEff.ThrowRelease( { type="追撃ダウン", airrecover=0, flags=_ThrowRelease_NoGroundRecover } );
+			BMvEff.SetCamera_Quake( { time=60, type=2 } );	
+			BMvEff.Slowmotion_Set( { time=60, power=5000 } );	
+			break;
+		}
+	}
+	function LastUpdate_After()
+	{
+		BMvEff.CameraShift_Clear();
+	}	
+}
+
+
+
+
+
+t.Mv_Skill_63214EX <-
+{
+	function FrameUpdate_After()
+	{
+	    local s = BMvTbl.GetMvStatus();
+        if(s.FrameID==10)
+        {
+			local boing = Battle_Std.CreateObjectEX( { x=0, y=0, pat="Limit", objectflags=_ObjFlags_NoGround } );
+			if(boing.push())
+			{
+				BMvTbl.SetScale({ x=60000, y=60000 });
+				Battle_Std.SetPos_MarkingPlayer();
+				boing.pop();
+				
+			}
+		}
+	}
+	function Update()
+	{
+	
+        local stick = BMvTbl.GetStickHold();
+		
+		local vec_x = 0;
+		local vec_y = 0;
+		
+		if( stick == 9 || stick == 6 || stick == 3 ) vec_x = -1000;
+		if( stick == 7 || stick == 4 || stick == 1 ) vec_x = 1000;
+		if( stick == 7 || stick == 8 || stick == 9 ) vec_y = -1000;
+		if( stick == 1 || stick == 2 || stick == 3 ) vec_y = 1000;
+		
+		
+		local enemy = BMvCore.GetNearEnemyCharaData();
+        if( enemy.push() )
+        {
+            local bs = BtlMvStd.GetBoundStatus();
+			// BMvTbl.SetPattern(313);
+
+			// BMvTbl.SetVector( { x=vec_x, addx=0, y=vec_y, addy=0, flags=_Vector_Add } );
+
+			BMvTbl.SetVector( { x=vec_x, addx=0, y=vec_y, addy=0, flags=_Vector_Normal } );
+            enemy.pop();
+        }
+		
+		local enemi = BMvCore.GetEnemyCharaData();
+        if( enemi.push() )
+        {
+			// BtlMvStd.SetGroundUkemiFinalize();
+			// Battle_Std.InitVector();
+			
+
+            // BMvEff.SetBoundSt( { addtime = 70 } );
+            //BMvTbl.SetLP(6,1000);
+            enemy.pop();
+        }
+		
+		function Finalize_After()
+		{
+			local enemy = BMvCore.GetNearEnemyCharaData();
+			if( enemy.push() )
+			{
+				
+				BMvTbl.SetVector( { x=-200, addx=0, y=0, addy=120, flags=_Vector_Normal } );
+				enemy.pop();
+			}
+		}
+		
+	}
+}
+
+
 t.Mv_ComboLiberate <- 	//Veil Off Combo
 {
 	function FrameUpdate_After()
@@ -74,6 +238,7 @@ t.Mv_Atk_Std4C <-
 	function Finalize() { Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Atk_Std4C_Hit"]); //デフォ,[code,mv]...
 	}		
 }
+
 
 t.Mv_Atk_Std4C_Hit <-
 {
@@ -488,6 +653,13 @@ t.Mv_Startup <-
 		BMvTbl.SetLP(3,0); 
 		
 		// local heater = Battle_Std.CreateObjectEX( { mvname="Mv_HEAT" } );
+		local boing = Battle_Std.CreateObjectEX( { x=0, y=0, pat="Limit", objectflags=_ObjFlags_NoGround } );
+		if(boing.push())
+		{
+			Battle_Std.SetPos_MarkingEnemy();
+			boing.pop();
+		}
+		
 	}
 }
 
@@ -599,8 +771,7 @@ t.Mv_CardManager <-
 		BMvTbl.SetLP(13,0); // 
 		BMvTbl.SetLP(14,0); // 
 		BMvTbl.SetLP(15,0); // 
-				// BMvEff.AttackInfoString_Set({ word="soy"} );
-				
+		BMvTbl.SetLP(20,0); // limit display				
 		
         // BMvTbl.JumpFrameID( BMvEff.	Random_Limit(9) );
 		
@@ -613,6 +784,7 @@ t.Mv_CardManager <-
 		local mvs = BMvTbl.GetMvStatus();
 		local pizza = Battle_Std.GetUpdateFrameID();
     }
+	
 }
 
 
