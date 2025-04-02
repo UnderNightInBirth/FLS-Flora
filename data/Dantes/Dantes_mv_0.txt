@@ -1635,7 +1635,7 @@ t.Mv_Skill_41236SP <-
 	function Init_After()
 	{
 		// コンボ中は空振り設定を無視するがダウン中は空振りのままにする
-		BMvTbl.SetAtkGuardFlag( { guard=_GuardFlag_ThroughRemoveDamage|_GuardFlag_ThroughRemoveDamagePlus, time=254, flag=_ClearFlag_ChangeMv } );
+		// BMvTbl.SetAtkGuardFlag( { guard=_GuardFlag_ThroughRemoveDamage|_GuardFlag_ThroughRemoveDamagePlus, time=254, flag=_ClearFlag_ChangeMv } );
 		BMvTbl.SetHitCheckFlag( { type=1, val=Def_HitCheckFlag_Down, time=254, flag=_ClearFlag_ChangeMv } ); // スカる
 	}
 	function FrameUpdate_After()
