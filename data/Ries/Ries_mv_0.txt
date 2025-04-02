@@ -903,7 +903,7 @@ t.Mv_Skill_IWEXIST_Hit <-
             BMvEff.FadeProc_Set({type=0, time=[0,10,30] color=0xFFFFFF});
             break;
         case 120:
-                    BMvEff.FadeProc_Set({type=0, time=[1,100,30] color=0xFFFFFF});
+            BMvEff.FadeProc_Set({type=0, time=[1,100,30] color=0xFFFFFF});
             BMvEff.Cockpit_SetView( { mode=2 } ); // 一部のみ消去
             BSound.BGM_SetFade( { val=50, time=90 } );//BGMのフェードアウト
             //白フェードでイン
@@ -913,7 +913,6 @@ t.Mv_Skill_IWEXIST_Hit <-
             local enemy = BMvCore.GetNearEnemyCharaData();
             if( enemy.push() )
             {
-
                 BMvTbl.SetVector( { x = -28, y = -64,  flags=_Vector_Bound } );
                 // BMvTbl.SetPosition( { x=200, y=-10000 } );
                 BMvEff.SetCharaFlash( { color = 0x000000, type = 0, time = 10 } );
@@ -957,7 +956,7 @@ t.Mv_Skill_IWEXIST_Hit <-
 
         case 310:
             // shield = Battle_Std.CreateObjectEX( { x=-25, y=-300, datatype=0, pat=983, flags=_Position_ToolShift } );
-            BMvEff.CreateObject({ mvname="Mv_Obj_Eff_Shld" });
+							// BMvEff.CreateObject({ mvname="Mv_Obj_Eff_Shld" });
             break;
         case 350:
             local expl3 = Battle_Std.CreateObjectEX( { datatype=0, pat=987, flags=_Position_ToolShift } );
@@ -1003,9 +1002,13 @@ t.Mv_Skill_IWEXIST_Hit <-
             local LABG = Battle_Std.ScreenEffect( { pat="LABG" } );
             if( LABG.push() )
             {
+				BMvTbl.SetScale({ x=17800, y=17000 });
+				// BMvTbl.SetPosition({ x=0, y=255, flags=_Position_ToolShift|_ObjFlags_NoGround|_ObjFlags_NoCamera|_Position_Add });
+				BMvTbl.SetPosition({ x=-32, y=460, flags=_Position_ToolShift|_ObjFlags_NoGround|_ObjFlags_NoCamera|_Position_Add });
                 //BMvTbl.SetMuki( _Direction_Right );
                 LABG.pop();
             }
+			// Battle_Std.ScreenEffect_LimitPat( { y=-512, pat="LABG" } );
             if( expl.push() )
             {
                 Battle_Std.SetPos_MarkingEnemy();
@@ -1166,9 +1169,33 @@ t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
 			Battle_Std.CreateObjectEX( { x=-128, y=-480, pat="Timer", mvname="Mv_Obj_Timer", flags=_Position_ToolShift } );
 			BMvEff.SetBgSpeculer( { color=0x00999999 } );
 
+			local player = BMvCore.GetPlayerCharaData();
+			if (player.push() )
+			{
+				Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoJump);
+				if( !Battle_Std.CheckPlayerisDamage() )
+				{
+					BMvTbl.SetSuperArmorFlag( { val=1, time=60, flag=0 } ) // Rampage
+				}
+				player.pop();
+			}
+			break;
 		case 2:
 			BMvTbl.JumpFrameID(3);
 			break;
+        }
+    }
+	function Update_After()
+    {
+        local player = BMvCore.GetPlayerCharaData();
+        if( player.push() )
+        {
+            if( !Battle_Std.CheckPlayerisDamage() )
+            {
+                BMvTbl.SetSuperArmorFlag( { val=1, time=2, flag=0 } ); // アーマー
+                BMvEff.SetPlayerTimer( { muteki_nage=2 } );
+            }
+            player.pop();
         }
     }
     function LastUpdate_After()
@@ -1181,9 +1208,9 @@ t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
 // {
     // if ( BMvTbl.GetPP(CDef_Rie_PP_DragonInstall) == 1 )
     // {
-        // BMvEff.SetCharaFlash( { color = 0xFF50FF, type = 0, time = 10 } );
-        // BMvEff.SetCharaColor( { color = 0x0000FF, type = 0, intime = 60, time = 90 } );
-        // BMvTbl.SetPP(CDef_Rie_PP_InstallTimer, -1);
+        // // BMvEff.SetCharaFlash( { color = 0xFF50FF, type = 0, time = 10 } );
+        // // BMvEff.SetCharaColor( { color = 0x0000FF, type = 0, intime = 60, time = 90 } );
+        // BMvTbl.AddPP(CDef_Rie_PP_InstallTimer, -100);
     // }
 // }
 
@@ -1217,7 +1244,7 @@ t.AttackImpact <- function(info) : (chrFunc) // Called whenever the enemy is att
         }
         //BMvTbl.SetFinalize();
 		BMvTbl.AddPP(CDef_Rie_PP_InstallTimer, 5); // Rewards successful hits with more time
-        BMvTbl.SetAsStatusFlag( { normal=_CancelFlag_Always, special=_CancelFlag_Always, time=254, flag =_ClearFlag_ChangeFrame|_ClearFlag_ChangePattern|_ClearFlag_ChangeMv } )
+        BMvTbl.SetAsStatusFlag( { normal=_CancelFlag_Always, time=254, flag =_ClearFlag_ChangeFrame|_ClearFlag_ChangePattern|_ClearFlag_ChangeMv } )
         //Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoSkill); // Way too busted
         //Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoAtk); // I'd allow this if EX moves weren't included
         Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoJump); // That's all I can do
@@ -1237,6 +1264,7 @@ t.AttackImpact <- function(info) : (chrFunc) // Called whenever the enemy is att
 
 }
 
+
 t.Mv_Obj_BeastModeOnHit <-
 {
     function Init_After()
@@ -1252,9 +1280,14 @@ t.Mv_Obj_BeastModeOnHit <-
         local player = BMvCore.GetPlayerCharaData();
         if (player.push() )
         {
-            Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoJump);
-            player.pop();
-        }
+			if( !Battle_Std.CheckPlayerisDamage() )
+			{
+				BMvTbl.SetSuperArmorFlag( { val=1, time=60, flag=0 } ) // Rampage
+			}
+			player.pop();
+		}
+
+
     }
 }
 
@@ -1357,6 +1390,7 @@ t.Mv_Obj_BeastMode <- // TODO This is the visual timer, time to make it into a r
                 }
             }
         }
+
     }
     function Finalize()
     {
@@ -1376,6 +1410,8 @@ t.Mv_Obj_BeastMode <- // TODO This is the visual timer, time to make it into a r
             BMvEff.SetCharaFlash( { color = 0xFF50FF, type = 0, time = 10 } );
             BMvEff.SetCharaColor( { color = 0x0000FF, type = 0, intime = 60, time = 90 } );
 			BMvEff.SetBgSpeculer( { color=0x000000 } );
+			BMvTbl.SetMoveableFlag( { move=0, time=254 } );
+			
             player.pop();
         }
     }
@@ -1383,26 +1419,10 @@ t.Mv_Obj_BeastMode <- // TODO This is the visual timer, time to make it into a r
 
 t.Mv_BeastMode_End <-
 {
-    function Init_After()
+    function Update()
     {
-        BMvTbl.SetMoveableFlag( { move=0, time=254 } );
-    }
-    function FrameUpdate_After()
-    {
+		BMvTbl.SetMoveableFlag( { move=0, time=254 } );
         Battle_Std.MoveCodeEx.DelFlag(6, def_MC6_EnableCansel_JumpMoveable);
-
-        local player = BMvCore.GetPlayerCharaData();
-        if( player.push() )
-        {
-            local isGround = BMvTbl.CheckPosState( _PosState_Ground );
-            local pos = BMvTbl.GetPosition(0);
-            if( isGround )
-            {
-                Battle_Std.MoveCodeEx.DelFlag(6, def_MC6_EnableCansel_JumpMoveable);
-
-            }
-            player.pop();
-        }
     }
 
 }
