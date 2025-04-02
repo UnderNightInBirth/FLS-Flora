@@ -21,6 +21,9 @@ st[35] = { volumetype=0, path=1, file="035", type=1, category=1, };
 st[72] = { volumetype=0, path=1, file="072", type=1, category=1, };
 
 
+st[80] = { volumetype=0, path=1, file="se/SE_BTL_CMN_Swing_Hammer_Heavy_L_b", type=1, category=1, };
+
+
 st[600] = { volumetype=0, path=1, file="shiinken", type=0, category=3, };
 st[610] = { volumetype=0, path=1, file="desuuuu", type=0, category=3, };
 st[620] = { volumetype=0, path=1, file="imgonna", type=0, category=3, };
