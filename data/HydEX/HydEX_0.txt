@@ -1,9 +1,9 @@
 [System]
 ProjectName=HydEX
 [DataFile]
-FileNum= 2
-File01=HydEX.ha6
-File02=../BaseData.ha6
+FileNum= 1
+File00=HydEX.ha6
+File01=../BaseData.ha6
 [BmpcutFile]
 FileNum= 1
 File00=HydEX.cg
