@@ -32,6 +32,19 @@ se["決着勝利_タイムアップ"] <- {
 
 
 //２３６攻
+se["Mv_Atk_Cro3C"] <- 
+[
+	{
+		Param0=10,
+		selist = { common = [510], }
+	},
+	{
+		Param0=20, // エクステンド
+		selist = { common = [511], }
+	}
+]
+
+//２３６攻
 se["Mv_Skill_236A_FU"] <- 
 [
 	{
