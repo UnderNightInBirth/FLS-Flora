@@ -7,6 +7,14 @@ Battle_Status <-
 	ScratchDamageVal_Def = 100, // 削りダメージ、防御時
 	ScratchDamageVal_ExDef = 100, // 削りダメージ、ジャストディフェンス
 	HpDivValue = [ 11000 ],
+	
+	
+	Liberate_AttackPlusVal	= 200, // Liberate状態での攻撃力増加係数
+		Liberate_SpMinusVal_CVO	= 400, // ゲージ使用技での減少、OverLiberate_Minus いくつぶん減らすか
+		Liberate_SpMinusVal_DangerCVO = 200, // ゲージ使用技での減少、OverLiberate_Minus いくつぶん減らすか
+		
+		SpGauge_PlusVal = 200, // EXSゲージ「増加」係数　全部だとゲージ消費量とかにも影響してしまうので、とりあえ
+
 }
 
 Battle_Std.InsertTable( Battle_Status, Battle_Std.GetStd_BattleStatusTable() );

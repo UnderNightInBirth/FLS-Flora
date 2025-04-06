@@ -708,6 +708,14 @@ t.DamageImpact <- function(info)
 		
 }
 
+t.Mv_Atk_AirC <-
+{
+    function FrameUpdate_After()
+    {
+		Battle_Std.JumpFrameID_NotHoldButton({ mask=(1<<2), checkid=10, jumpid=20 });
+    }
+}
+
 
 t.Mv_Atk_StdB <-
 {
@@ -728,13 +736,13 @@ t.Mv_Atk_StdB <-
 		// local cmdInfo = BCMDTbl.GetCmdInfoEx(0);
 	    // BMvEff.AttackInfoString_Set({word=cmdInfo.GetFrame()});
 	    // BMvEff.AttackInfoString_Set({word=BMvEff.GetFrameIDNum( 1 )});
-		local player = BMvCore.GetPlayerCharaData();
-			if( player.push() )
-			{
-				BMvEff.SetHpGauge( { value=-1000 } );
+		// local player = BMvCore.GetPlayerCharaData();
+			// if( player.push() )
+			// {
+				// BMvEff.SetHpGauge( { value=-1000 } );
 				
-				player.pop();
-			}
+				// player.pop();
+			// }
 	}
 }
 
