@@ -131,6 +131,12 @@ name = False Infinite Parallel
 num = 62
 name = The End of Reincarnation
 
+
+[34]
+num = 176
+name = kill each other, but it's good
+
+
 // Chara first
 
 [35]
