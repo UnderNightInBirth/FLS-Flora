@@ -278,6 +278,12 @@ File = stage_chroniclefite
 IsLoop = 1
 LoopPos = 09.900
 
+[BGM_177]
+File = ex_seeknoescape
+IsLoop = 1
+LoopPos = 14.352
+
+
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ //
 
 

@@ -172,6 +172,10 @@ name = Les Vagas
 num = 147
 name = Moonlit Temple (FLS Ryu)
 
+[52]
+num = 177
+name = Seek no escape (Ingrid vs FLS Ryu)
+
 ///////////
 // Stage //
 ///////////
