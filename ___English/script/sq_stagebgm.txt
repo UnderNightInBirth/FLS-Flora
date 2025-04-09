@@ -5,42 +5,42 @@ stage_bgm <- {};
 //-----------------------------------------------------------------------------
 // Desc: stage_bgm.initround()
 //
-// í“¬BGM‚Ì•ÏX‚ª‚ ‚éê‡‚Í‚±‚±‚Åİ’èAí“¬ƒe[ƒuƒ‹‚Å‚ÌBGMİ’è‚æ‚è‚à—Dæ“x‚ª‚‚¢
-// ŒÄ‚Î‚ê‚½“_‚Åí“¬‚ªn‚Ü‚Á‚Ä‚¢‚È‚¢‚Æî•ñ‚ª–³Œø
+// æˆ¦é—˜BGMã®å¤‰æ›´ãŒã‚ã‚‹å ´åˆã¯ã“ã“ã§è¨­å®šã€æˆ¦é—˜ãƒ†ãƒ¼ãƒ–ãƒ«ã§ã®BGMè¨­å®šã‚ˆã‚Šã‚‚å„ªå…ˆåº¦ãŒé«˜ã„
+// å‘¼ã°ã‚ŒãŸæ™‚ç‚¹ã§æˆ¦é—˜ãŒå§‹ã¾ã£ã¦ã„ãªã„ã¨æƒ…å ±ãŒç„¡åŠ¹
 //
 //-----------------------------------------------------------------------------
 stage_bgm.initround <- function()
 {
-	local btlobj = BMvTbl.CBtlInfo();//í“¬î•ñ
+	local btlobj = BMvTbl.CBtlInfo();//æˆ¦é—˜æƒ…å ±
 	local bgmnum = 0;
 
 	local private_bgm = 0;
 
 	//-----------------------------------------------------------------------------
-	// ‘g‚İ‡‚í‚¹ê—pBGM‚Ìæ“¾
+	// çµ„ã¿åˆã‚ã›å°‚ç”¨BGMã®å–å¾—
 	
-	// í“¬î•ñ‚Ìæ“¾
+	// æˆ¦é—˜æƒ…å ±ã®å–å¾—
 	local stage_st = BMvTbl.GetMvStageStatus();
 	local stagetype = stage_st.IsTrainingBattle(); // 1-Training  2-Tutorial  3-Mission
 
-	if( stagetype != 2  &&  stagetype != 3 ) // Tutorial Mission ‚ÍœŠO
+	if( stagetype != 2  &&  stagetype != 3 ) // Tutorial Mission ã¯é™¤å¤–
 	{
-		// ƒPƒCƒAƒXvsƒSƒ‹ƒh[
+		// ã‚±ã‚¤ã‚¢ã‚¹vsã‚´ãƒ«ãƒ‰ãƒ¼
 		if( btlobj.CheckCharaAlive_str("chr015") != 0  &&  btlobj.CheckCharaAlive_str("chr005") != 0 )
 		{
-			private_bgm = 91; // ê—pBGM‚Ö•ÏX
+			private_bgm = 91; // å°‚ç”¨BGMã¸å¤‰æ›´
 		}
-		// ƒnƒCƒhvsƒZƒg
+		// ãƒã‚¤ãƒ‰vsã‚»ãƒˆ
 		else
 		if( btlobj.CheckCharaAlive_str("chr000") != 0  &&  btlobj.CheckCharaAlive_str("chr008") != 0 )
 		{
-			private_bgm = 92; // ê—pBGM‚Ö•ÏX
+			private_bgm = 92; // å°‚ç”¨BGMã¸å¤‰æ›´
 		}
-		// ƒ[ƒOƒi[vsƒƒ“ƒhƒŒƒLƒA
+		// ãƒ¯ãƒ¼ã‚°ãƒŠãƒ¼vsãƒ­ãƒ³ãƒ‰ãƒ¬ã‚­ã‚¢
 		else
 		if( btlobj.CheckCharaAlive_str("chr016") != 0  &&  btlobj.CheckCharaAlive_str("chr018") != 0 )
 		{
-			private_bgm = 93; // ê—pBGM‚Ö•ÏX
+			private_bgm = 93; // å°‚ç”¨BGMã¸å¤‰æ›´
 		}
 		// Ries vs Eltnum
 		else
@@ -50,7 +50,13 @@ stage_bgm.initround <- function()
 		}
 		// fatty vs Hermes
 		else
-		if( btlobj.CheckCharaAlive(29)!= 0  &&  btlobj.CheckCharaAlive(40) != 0 )
+		if( btlobj.CheckCharaAlive(32)!= 0  &&  btlobj.CheckCharaAlive(40) != 0 )
+		{
+			private_bgm = 177;
+		}
+	// ingrid vs fls ryu
+		else
+		if( btlobj.CheckCharaAlive(28)!= 0  &&  btlobj.CheckCharaAlive(29) != 0 )
 		{
 			private_bgm = 177;
 		}
@@ -60,18 +66,18 @@ stage_bgm.initround <- function()
 
 	if( btlobj.IsBgmAuto() )
 	{
-		// ƒI[ƒg‚¾‚Á‚½
-		if( private_bgm != 0 ) // ‘g‚İ‡‚í‚¹ŒÅ’èBGM‚ª‚ ‚Á‚½
+		// ã‚ªãƒ¼ãƒˆã ã£ãŸ
+		if( private_bgm != 0 ) // çµ„ã¿åˆã‚ã›å›ºå®šBGMãŒã‚ã£ãŸ
 		{
 			bgmnum = private_bgm;
 		}
 		if( bgmnum == 0 )
 		{
-			bgmnum = btlobj.GetFixStageBGM(); // Šeƒ‚[ƒh‚É‡‚í‚¹‚Ä•ÏX
+			bgmnum = btlobj.GetFixStageBGM(); // å„ãƒ¢ãƒ¼ãƒ‰ã«åˆã‚ã›ã¦å¤‰æ›´
 		}
 	}
 
-	// ‚±‚±‚ÅŒˆ’è‚ª‚ ‚Á‚½‚çí“¬BGM‚ÉÌ—p‚·‚é
+	// ã“ã“ã§æ±ºå®šãŒã‚ã£ãŸã‚‰æˆ¦é—˜BGMã«æ¡ç”¨ã™ã‚‹
 	if( bgmnum != 0 )
 	{
 		btlobj.SetBattleBgm( bgmnum );
