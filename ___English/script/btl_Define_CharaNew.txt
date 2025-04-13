@@ -14,9 +14,6 @@ const Def_ChrNo_Ako = 31;
 
 const Def_ChrNo_Ryu = 29;
 
-const Def_ChrNo_Yuuki = 38;
-const Def_ChrNo_Yuu = 38;
-
 const Def_ChrNo_HydEX = 39;
 
 // const Def_ChrNo_Hermes = 40;
