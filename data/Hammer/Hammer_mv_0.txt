@@ -75,6 +75,17 @@ local t = {};
 
 // t.Mv_Skill_J214A <- maketmpl_AirSlam( { type="A" } );
 
+t.Mv_Skill_StdC_AddC <-
+{
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			// Battle_Std.SetPosition_DamageHanteiRect({ power=30, flags=(1<<0) }); // not the x coord
+			Battle_Std.SetPosition_DamageHanteiRect({ power=35 });
+		}
+	}
+}
 
 t.Mv_Skill_J214A <-
 {

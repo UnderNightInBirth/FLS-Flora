@@ -1,3 +1,30 @@
+local check_236Add = function()
+{
+	local spCancelFlag = BCMDTbl.CheckCancelFlag(1);
+	if( spCancelFlag == _CancelFlag_None )
+	{
+		return 0;
+	}
+	if( spCancelFlag == _CancelFlag_Damage )
+	{
+// When the hantei is DAMAGE, it cannot be performed if it is a whiff or a block.
+		local hs = BMvTbl.GetMvHitStatus();
+		if( !(hs.Type & _HitType_Damage) ) return 0;
+	}
+	if( spCancelFlag == _CancelFlag_Hit )
+	{
+// If the hantei is HIT and Param2&4, it cannot be done if it is a whiff.
+// *If it is not Param2&4, it can be issued even if it is a whiff.
+		local mvs = BMvTbl.GetMvStatus();
+		if( mvs.Param2&4 )
+		{
+			local hs = BMvTbl.GetMvHitStatus();
+			if( !(hs.Type & _HitType_Hit) ) return 0;
+		}
+	}
+	return 1;
+}
+
 local t =
 {
 	// Atk_CroA = { 
@@ -52,6 +79,37 @@ local t =
 	Atk_Std7C = {},
 	Atk_Std8C = {},
 	Atk_Std9C = {},
+	//TobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_Func
+	
+	Skill_StdC_AddC = 
+	{
+		num = def_CN_Atk_AddCommand5,
+		command = ["0+C"],
+		function CmdBeforeFunc() : (check_236Add)
+		{
+			if( !check_236Add() ) return 0;
+			return 1;
+		}
+		CmdCheck = 
+		{
+			SkillType = "SpecialAdd", MvCheck = { Only = ["Mv_Atk_StdC"] },
+		}
+	}
+	Skill_StdCAddC_AddC = 
+	{
+		num = def_CN_Atk_AddCommand6,
+		command = ["0+C"],
+		function CmdBeforeFunc() : (check_236Add)
+		{
+			if( !check_236Add() ) return 0;
+			return 1;
+		}
+		CmdCheck = 
+		{
+			SkillType = "SpecialAdd", MvCheck = { Only = ["Mv_Skill_StdC_AddC"] },
+		}
+	}
+	
 	
 	Skill_623A = {},
 	Skill_623B = {},
@@ -147,7 +205,7 @@ local t =
 		// }	
 		UpdateTable = { name = "Mv_Skill_Romantic", }
 	},	
-	Skill_236EX = {},
+	// Skill_236EX = {},
 	
 }
 
