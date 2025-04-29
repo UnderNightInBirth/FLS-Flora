@@ -79,6 +79,10 @@ t.Mv_Skill_StdC_AddC <-
 {
 	function HitInterrupt_After()
 	{
+		if ( BMvEff.GRD_GetJudgeResult() > 0 ) // Vorpal Effect: cancellable to skill
+		{
+			Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoSkill);
+		}
 		if( Battle_Std.CheckDamageTiming() )
 		{
 			// Battle_Std.SetPosition_DamageHanteiRect({ power=30, flags=(1<<0) }); // not the x coord
@@ -230,7 +234,8 @@ t.Mv_Skill_63214EX <-
 	}
 	function FrameUpdate_After()
 	{
-	
+		Battle_Std.JumpFrameID_NotHoldButton({ mask=(1<<2), checkid=50, jumpid=60 });
+
 	    local s = BMvTbl.GetMvStatus();
         if(s.FrameID==10)
         {
@@ -1235,7 +1240,6 @@ SpellCard.DashCancel <- function()
 // SpellCard.SoulTorch <- function() {}
 SpellCard.FoldingFan <- function()
 {
-	BMvTbl.SetPattern("FoldingFan"); // Special Attack
 }
 // SpellCard.Gourd <- function() {}
 // SpellCard.TenguFan <- function() {}
