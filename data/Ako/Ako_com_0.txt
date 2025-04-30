@@ -1,24 +1,147 @@
-//__dofile__( "./data/_combase.txt" );
-
+// Variable to keep track of the current skill number being processed
 local nowskillnum = 0;
 
 //-------------------------------------------------------------
-// com動作生成
+// Section: COM Action Generation
 
-local comcount = 200; // 最大数 できるだけギリギリに
-local com = CCom(comcount); // COM用オブジェクト
+// Maximum number of COM actions (tune this to be as low as possible for efficiency)
+local comcount = 200; // Maximum number of COM actions
+local com = CCom(comcount); // Create a COM object with the specified number of actions
 
-com.SetGuardAvg( 40 ); // ガード確率
+com.SetGuardAvg( 40 ); // Set the average guard (block) probability for the COM
 
-
+// Temporary variables for skill and move objects
 local stmp = 0;
 local mtmp = 0;
 
+{   // Skill 0: Idle/Wait action
+    stmp = com.GetSkill(0); // Create skill slot 0 (idle)
+    stmp.checkfunc = function() // Condition check for this skill
+    {
+        return com_frequency2; // Use a global frequency variable to determine activation
+    }
+    stmp.updatefunc = function() // Called when this skill is chosen
+    {
+        return 1; // Always return 1 (success)
+    }
+    // Add a move to this skill: parameters represent move type, direction, probability, etc.
+    // Here, 0,0 = no movement, 10 = min duration, 50 = max duration,
+    // Flags: stick hold and move end
+    mtmp = stmp.PlusMove();
+    mtmp.Set( 0, 0,  10, 50,  _eComMoveFlag_StickHold | _eComMoveFlag_MoveEnd );
+}
 
+//-------------------------------------------------------------
+// Section: Common Action Definitions
+
+// Add a set of basic/common moves and combo recipes to the COM object
+AddBasicMove( com, {
+    SPSkill_XlenType = 2, // Special skill range type: 0 = point-blank, 1 = close-mid, 2 = anywhere
+    AVG_ThrowRecover = 70, // Probability of failing to break a throw (higher = worse at breaking)
+
+    // Universal combo for air juggles (UNI = universal)
+    UNI_Combo = { recipe = ["B","C","2C","3C","GuardEnd","9","iC","J214B"] },
+    Assault_GedanA = "2A", // Assault low attack
+    Assault_TyudanC = "C", // Assault mid attack
+    MutekiSkill = { recipe=["623B"] }, // "Invincible" move
+    EXMutekiSkill = { recipe=["623EX"] }, // EX version of "invincible" move
+    AntiAirSkill = { recipe=[{dl=8,random=5},"623B"] }, // Anti-air with input delay/randomness
+    GrapAtk = { stick=3, button=_eComButton_C }, // Grapple attack?
+
+    AirTuigeki_Combo = { recipe = ["9","B","C","214A"] }, // Air pursuit combo
+    Hiroi_Combo = { recipe = ["B","C","3C","GuardEnd","8",{dl=2},"B","C","J214A"] }, // "Pick-up" combo (for hitting grounded opponents)
+    Assault_Combo = { // Assault combo sequence
+        recipe = [ "6D","*C",{wait=30},"A","B","C","4C","GuardEnd","8","iC"]
+	},
+
+    // Poke/whiff punish options (差し込み技)
+    Sasikomi_Atk = [
+        { recipe=["214B"] },
+        { recipe=["236A"] },
+        { recipe=["B"] },
+    ],
+
+    // Follow-up combos after being blocked (フォロー連携)
+    // type: 0 = normal, 1 = special, 2 = EX
+    Follow_Combo = [
+        { type=0, recipe=[ "A",{irekomi=4},"2A"] },
+        { type=0, recipe=[ "2C","3C","GuardEnd",{dl=10},"236B" ] },
+        { type=0, recipe=[ "214B" ] },
+    ],
+
+	// ==============================
+	// Pro_Combos: Advanced Combo Definitions
+	// ==============================
+	Pro_Combos = [
+		// { // コンボ
+		// xlen = 30000, // dist
+		// comlv = [2,4],
+		// // debug=1,
+		// list = [
+			// { recipe=[ "*2A","B","2B","2C","2C","GuardEnd","9",{dl=2},"A","B","C",{wait=30},"B","3C",{dl=14},"8",{dl=2},"B","C",{key=["9"]},{wait=10},"A","C","A+D" ] },
+			// { recipe=[ "*B","2B","2C","2C","GuardEnd",["9jc",8],"iC",{dl=22},"A",{irekomi=5},{landwait=40},"B","iC","421B",{rapid=1},"i6B","2A",{irekomi=10},{wait=90},"22B",{irekomi=65, boundch=2},"66C"],fintag="Fin_66C" },
+			// { recipe=[ "*2A","2A","GuardEnd","2B","2C",{rapid=1},"9jc",{dl=4},"B","A","C",{landwait=40},"66C",{landwait=40},"(22B)","66C",{landwait=40},"(22B)","66C",{landwait=40},"22C",{irekomi=10},{dl=1,random=5},"C"],fintag="Fin_66C" },
+			// { recipe=[ "*C","i3C","GuardEnd",{dl=20},"iFF","9jc","iC",{dl=20},"i2B",{landwait=40},"421B",{dl=18},"i236A",{irekomi=20},{wait=40},{dash=5},"B","i3C",{dl=10},"i236B",{irekomi=20},{wait=40},"(22B)",{dash=5},"2C","(22B)","66C",{landwait=40},"22C",{irekomi=10},{dl=1,random=5},"C"],},
+			// ]
+		// },
+		
+	] // End of Pro_Combos
+	
+	// ==============================
+	// Pro_Finishs: Combo Finishers
+	// ==============================
+	Pro_Finishs = [
+	] // End of Pro_Finishs
+	
+	// ==============================
+	// Pro_Control: Advanced Pressure/Control Sequences
+	// ==============================
+	Pro_Control = [
+		{ // ----
+		comlv = [0,1,2,3,4],
+		list = [
+			{ recipe=[ "236A" ] },
+			{ recipe=[ "236B" ] },
+			{ recipe=[ "i236B" ] },
+			{ recipe=[ "i236A" ] },
+			{ recipe=[ "i236C" ] },
+			{ recipe=[ "236C" ] },
+			]
+		},
+	] // End of Pro_Control
+	
+} );
+
+//--------------------------------------------------------------
+// Section: Smart Steer
+
+{   // Skill 45: "A" button mash combo
+    stmp = com.GetSkill(45); // Create skill slot 45
+    stmp.SetLotWait( 320 ); // Wait time after finishing/failing this skill
+    stmp.SetLotFailedAvg( 10 ); // Probability of failing this skill
+
+    // Condition function for this skill
+    stmp.checkfunc = function()
+    {
+        local st = BCom.GetStatus(); // Get current status
+        if( !st.IsPMoveable() ) return 0; // Can't act? Don't use this skill
+        if( st.GetELenX() > 40000 ) return 0; // Too far from opponent? Don't use
+        if( !st.CheckPosState( _PosState_Ground ) ) return 0; // Not on the ground? Don't use
+        if( st.GetELenY() != 0 ) return 0; // Opponent must also be on the ground
+
+        return com_frequency2; // Otherwise, use global frequency
+    }
+    stmp.updatefunc = function() // Called when this skill is chosen
+    {
+        return 1; // Always return 1 (success)
+    }
+    // Add smart steer
+    stmp.PlusTagChainCombo( "SSCombo", [ "A",{rapid=1},"A","A","A","A",{rapid=1},["A",5] ] );
+}
+
+// Set current skill number for tracking (optional, for debugging or further logic)
 nowskillnum = 80;
 
-// 最後にglobal_com_tmpへ渡す
-ComBase_GlobalComTmp_Set( com );
-
-print("\n\n>com Loaded<\n")
-
+//--------------------------------------------------------------
+// Finalization: Pass the COM object to the global COM temp variable
+ComBase_GlobalComTmp_Set( com )
