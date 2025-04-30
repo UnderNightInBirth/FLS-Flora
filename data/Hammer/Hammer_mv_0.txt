@@ -969,7 +969,7 @@ t.Mv_Skill_623B <-
 			//のけぞり中は除外する（EX技からエリアルで空投げ締めができなくなるので）
 			if( !Battle_Std.CheckPlayerisDamage() )
 			{
-				BMvTbl.SetSuperArmorFlag( { val=1, time=2, flag=0 } ); // アーマー
+				// BMvTbl.SetSuperArmorFlag( { val=1, time=2, flag=0 } ); // アーマー
 				BMvEff.SetPlayerTimer( { muteki_nage=2 } );
 				BMvEff.SetSpGauge( { value=10 } );// ゲージもじわじわ増えていくぞ　魔力が多いシエルだからね
 			}
@@ -1189,6 +1189,44 @@ t.Mv_Obj_MagicPotion <-
 	}
 }
 
+SpellCard.Umbrella <- function()
+{
+	BMvEff.CreateObject( { mvname="Mv_Obj_Umbrella" } ); //abrg
+	BMvEff.PcAuraEffect_Set( { type=0, time=420, power=1, color=0x11AA11AA, colorB=0x77FF11FF, color_chara=0x11AA11AA, blendmode=1, delay=0 } ); //AARRGGBB
+}
+t.Mv_Obj_Umbrella <-
+{
+	function Init_After()
+	{
+		BMvTbl.SetLP(0,0);
+	}
+	function FrameUpdate_After()
+	{
+		Battle_Std.SetPos_MarkingPlayer();
+		// BMvEff.CreateObject( { x=0, y=0, datatype=1, start_pat=277} );
+		local s = BMvTbl.GetMvStatus(); // ステータス取得
+		if( s.MvCount%6==0 && s.MvCount!=BMvTbl.GetLP(0) )
+		{
+			BMvTbl.SetLP(0,s.MvCount); //処理したフレームを記憶
+			
+			BMvEff.CreateObject( { x=0, y=0, datatype=1, start_pat=517} );
+		}
+		
+		local player = BMvCore.GetPlayerCharaData();
+		if (player.push()) {
+					Battle_Std.SetHitMuteki(0, 16, _HitCheckFlag_FireBall);
+					BMvTbl.SetNoHoseiFlag( { val=1, time=254 } );
+					// none of this works :)
+					Battle_Std.MoveCode.AddFlag( def_MC_Sousai ); // Cancellation occurs
+					
+					BMvTbl.SetHitCheckFlag( { type=1, val=_HitCheckFlag_FireBall, time=255 } ); // Bullets miss invincible
+					
+										// BMvTbl.GetHitCheckFlag(0)&_HitCheckFlag_FireBall
+			player.pop();
+		}
+	}
+}
+
 SpellCard.SStrikeTalisman <- function()
 {
 	BMvEff.CreateObject( { mvname="Mv_Obj_SSTBox" } );
@@ -1238,28 +1276,83 @@ SpellCard.DashCancel <- function()
 // SpellCard.Grimoire <- function() {}
 // SpellCard.CustomParasol <- function() {}
 // SpellCard.SoulTorch <- function() {}
-SpellCard.FoldingFan <- function()
-{
-}
+
 // SpellCard.Gourd <- function() {}
 // SpellCard.TenguFan <- function() {}
 // SpellCard.SpellBreaker <- function() {}
 // SpellCard.DivineRaiment <- function() {}
-// SpellCard.ScarletPerception <- function() {}
-// SpellCard.RecoveryCharm <- function() {}
+
+
+
 // SpellCard.FrozenFrog <- function() {}
-// SpellCard.DragonStar <- function() {}
 // SpellCard.ControlRod <- function() {}
 // SpellCard.HeavenlyDrops <- function() {}
 // SpellCard.GreatQuake <- function() {}
 
+
+SpellCard.RecoveryCharm <- function()
+{
+	BMvEff.CreateObject( { mvname="Mv_Obj_RecoveryCharm" } );
+
+}
+t.Mv_Obj_RecoveryCharm <-
+{
+	function FrameUpdate_After()
+	{
+		Battle_Std.SetPos_MarkingPlayer();
+		local s = BMvTbl.GetMvStatus();
+		if( s.MvCount%6==0 && s.MvCount!=BMvTbl.GetLP(0) )
+		{
+			BMvTbl.SetLP(0,s.MvCount);
+			BMvEff.CreateObject( { x=0, y=0, datatype=1, start_pat=611} );
+		}
+		
+		BMvEff.SetHpGauge( { value=5} );
+		if(Battle_Std.CheckPlayerisDamage())
+		{
+			BMvTbl.SetFinalize();
+		}
+	}
+}
+
+SpellCard.ScarletPerception <- function()
+{
+	BMvEff.GRD_TS_AddValue( { val=10000 } );
+}
+
+SpellCard.DragonStar <- function()
+{
+	BMvTbl.SetSuperArmorFlag( { val=0, time=240, flag=0 } ); // アーマー
+	// BMvEff.SetPlayerTimer( { muteki_nage=2 } );
+	BMvEff.PcAuraEffect_Set( { type=0, time=240, power=1.2, color=0x00FF0000, colorB=0xFFFF0000, color_chara=0x77440000, blendmode=1, delay=0 } ); //AARRGGBB
+}
+
+
+
+
+
+
+
+SpellCard.FoldingFan <- function()
+{
+}
 t.Mv_FoldingFan <-
 {
 	function Init_After()
 	{
-		BMvTbl.SetNextMoveTable( "Mv_FoldingFan" );
-
-		BMvEff.AttackInfoString_Set({word="test"});
+		BMvEff.AttackInfoString_Set({word="blocked"});
+	}
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckGuardTiming() )
+		{
+			local enemy = BMvCore.GetEnemyCharaData();
+			if( enemy.push() )
+			{
+				BMvEff.AttackInfoString_Set({word="blocked"});
+				Battle_Std.BoundInit();
+			}
+		}
 	}
 }
 
@@ -1268,10 +1361,19 @@ t.Mv_FoldingFan <-
 local CardIcons = function()
 {
 	Battle_Std.CreateObjectEX( { x=0, y=0, pat="CardA", mvname="Mv_CardIdle", LP={ slot=0, val=0 } } );
+	
 	Battle_Std.CreateObjectEX( { x=0, y=0, pat="CardA", mvname="Mv_CardIdle", LP={ slot=0, val=1 } } );
+	Battle_Std.CreateObjectEX( { x=0, y=0, mvname="Mv_CardGuide", datatype=1, start_pat=972, FrameID=4, LP={ slot=0, val=1 } } );
+
 	Battle_Std.CreateObjectEX( { x=0, y=0, pat="CardA", mvname="Mv_CardIdle", LP={ slot=0, val=2 } } );
+	Battle_Std.CreateObjectEX( { x=0, y=0, mvname="Mv_CardGuide", datatype=1, start_pat=972, FrameID=8, LP={ slot=0, val=2 } } );
+
 	Battle_Std.CreateObjectEX( { x=0, y=0, pat="CardA", mvname="Mv_CardIdle", LP={ slot=0, val=3 } } );
+	Battle_Std.CreateObjectEX( { x=0, y=0, mvname="Mv_CardGuide", datatype=1, start_pat=972, FrameID=2, LP={ slot=0, val=3 } } );
+
 	Battle_Std.CreateObjectEX( { x=0, y=0, pat="CardA", mvname="Mv_CardIdle", LP={ slot=0, val=4 } } );
+	Battle_Std.CreateObjectEX( { x=0, y=0, mvname="Mv_CardGuide", datatype=1, start_pat=972, FrameID=6, LP={ slot=0, val=4 } } );
+
 }
 
 t.Mv_Startup <-
@@ -1281,17 +1383,48 @@ t.Mv_Startup <-
 		CardIcons();
 		Battle_Std.CreateObjectEX( { x=0, y=0, pat="CardGlow", mvname="Mv_CardSelect", LP={ slot=1, val=0 } } );
 		BMvTbl.SetLP(3,0); 
+
+		local eff = BMvEff.CreateObject( { x=0, y=0, datatype=1, mvname="Mv_CardGuidee", start_pat="TR_Stick"} );
+		if(eff.push())
+		{
+				BMvTbl.SetPrio( _CharaPrio_Near );
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_MoveTimeStopAll|_ObjFlags_NoGround|_ObjFlags_NoCamera|_ObjFlags_NoRenderOrder|_ObjFlags_NoRenderBlackOut } );
+		
+			BMvTbl.JumpFrameID(4);
+			eff.pop();
+		}
 		
 		// local heater = Battle_Std.CreateObjectEX( { mvname="Mv_HEAT" } );
 		local boing = Battle_Std.CreateObjectEX( { x=0, y=0, pat="Limit", objectflags=_ObjFlags_NoGround } );
 		if(boing.push())
 		{
+
 			Battle_Std.SetPos_MarkingEnemy();
 			boing.pop();
 		}
 		
 	}
 }
+
+t.Mv_CardGuidee <-
+{
+	function Init()
+	{
+					BMvTbl.SetPrio( _CharaPrio_Near );
+
+		BMvTbl.SetMuki( _Direction_Right );
+		local pl = BMvTbl.GetPlayerSide();
+		local posst = { x=300<<7, y=-8<<7, margin=46<<7 } ; //x=130<<7,  y=-526<<7,
+		local pos = { x=0, y=posst.y };
+		if( pl==0 ) { pos.x = -posst.x; }
+		else { pos.x = posst.x; }
+		BMvTbl.SetPosition( { x=pos.x, y=pos.y } );
+		pos.x -= (posst.margin + (posst.margin/2));
+		
+		
+	}
+}
+
 
 const currentsel = 1;
 
@@ -1386,6 +1519,46 @@ t.Mv_CardIdle <-
 	function Finalize()
 	{
 		BMvTbl.SetNextMoveTable( "Mv_CardManager" );
+	}
+}
+
+t.Mv_CardGuide <-
+{
+	function Init()
+	{
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_MoveTimeStopAll|_ObjFlags_NoGround|_ObjFlags_NoCamera|_ObjFlags_NoRenderOrder|_ObjFlags_NoRenderBlackOut } );
+		BMvTbl.SetMuki( _Direction_Right );
+		local pl = BMvTbl.GetPlayerSide();
+		local posst = { x=300<<7, y=-8<<7, margin=46<<7 } ; //x=130<<7,  y=-526<<7,
+		local pos = { x=0, y=posst.y };
+		if( pl==0 ) { pos.x = -posst.x; }
+		else { pos.x = posst.x; }
+		
+		
+		local slot = BMvTbl.GetLP(0);
+		switch( slot )
+		{
+		case 0:
+			pos.x -= (posst.margin + (posst.margin/2));
+			break;
+		case 1:
+			pos.x -= (posst.margin/2);
+			break;
+		case 2:
+			pos.x += (posst.margin/2);
+			break;
+		case 3:
+			pos.x += posst.margin + (posst.margin/2);
+			break;
+		case 4:
+			pos.x += (posst.margin*2) + (posst.margin/2);
+			break;
+		}
+		
+		BMvEff.AttackInfoString_Set({ word="made" });
+		
+		BMvTbl.SetPosition( { x=pos.x, y=pos.y } );
+		BMvTbl.SetPrio( _CharaPrio_Near );
 	}
 }
 
@@ -1486,85 +1659,76 @@ t.Mv_CardSelect <-
 			// BMvTbl.JumpFrameID(1);
 		// }
 	// }
-	function Update()// : ( BMode )
+	function Update() // : ( BMode )
 	{
-
+		// Always fetch the current slot
 		local slot = BMvTbl.GetLP(3);
-		local num = 1
-
+	
 		local player = BMvCore.GetPlayerCharaData();
-		if( player.push() )
-		{
+		if (player.push()) {
 			local activate = Battle_Std.IsMatchMvNameArray("Mv_Atk_StdBandC");
-			// local ret = ( BMvTbl.CheckCommandString("B+C") && !activate );
-			local ret = BMvTbl.CheckCommandString( "D" );
-			
+
+			if (BMvTbl.CheckCommandString( "D" )) {
+				slot = 0;
+			} else if (BMvTbl.CheckStickHoldFrameKeyBuffer(1<<4, 1)) {
+				slot = 1;
+			} else if (BMvTbl.CheckStickHoldFrameKeyBuffer(1<<8, 1)) {
+				slot = 2;
+			} else if (BMvTbl.CheckStickHoldFrameKeyBuffer(1<<2, 1)) {
+				slot = 3;
+			} else if (BMvTbl.CheckStickHoldFrameKeyBuffer(1<<6, 1)) {
+				slot = 4;
+			}
+			// If none are pressed, slot remains unchanged
+
+
+			BMvTbl.SetLP(3, slot);
 			player.pop();
+			BMvTbl.SetLP(3, slot);
 			
-			if( ret )
-			{
-				// BMvEff.AttackInfoString_Set({word=num});
-				num = (slot + 1 > 4) ? 0 : slot + 1;
-				BMvTbl.SetLP(3,num);
-				// BMvEff.AttackInfoString_Set({word=slot});
+			
+			if (activate) {
+				BMvTbl.SetScale({ x = 2 * 10000, y = 2 * 10000 });
 			}
-			
-			if( activate )
-			{
-				BMvTbl.SetScale( { x=2*10000, y=2*10000 } );
-			}
-			
-			
-			
 		}
-		
+	
 		local pl = BMvTbl.GetPlayerSide();
-		local posst = { x=300<<7, y=-8<<7, margin=46<<7 };
-		local pos = { x=0, y=posst.y };
-		if( pl==0 ) { pos.x = -posst.x; }
-		else { pos.x = posst.x; }
-		
-		local hover = BMvTbl.GetLP(3);
-		switch( hover )
-		{
-		case 0:
-			pos.x -= (posst.margin + (posst.margin/2));
-			BMvTbl.SetPP(currentsel,1);
-			BMvTbl.SetPP(SpellCardActive, SpellCardA);
-			break;
-		case 1:
-			pos.x -= (posst.margin/2);
-						BMvTbl.SetPP(currentsel,2);
-
-			break;
-		case 2:
-			pos.x += (posst.margin/2);
-						BMvTbl.SetPP(currentsel,3);
-
-			break;
-		case 3:
-			pos.x += posst.margin + (posst.margin/2);
-						BMvTbl.SetPP(currentsel,4);
-
-			break;
-		case 4:
-			pos.x += (posst.margin*2) + (posst.margin/2);
-						BMvTbl.SetPP(currentsel,5);
-
-			break;
+		local posst = { x = 300 << 7, y = -8 << 7, margin = 46 << 7 };
+		local pos = { x = 0, y = posst.y };
+		if (pl == 0) {
+			pos.x = -posst.x;
+		} else {
+			pos.x = posst.x;
 		}
-		// BMvEff.AttackInfoString_Set({word=BMvTbl.GetLP(9)});
-		BMvTbl.SetPosition( { x=pos.x, y=pos.y } );
-
-	}	
-
-			
-
-	// function Finalize()
-	// {
-		// BMvTbl.SetNextMoveTable( "Mv_CardSelectHover" );
-	// }
+	
+		local hover = BMvTbl.GetLP(3);
+		switch (hover) {
+			case 0:
+				pos.x -= (posst.margin + (posst.margin / 2));
+				BMvTbl.SetPP(currentsel, 1);
+				BMvTbl.SetPP(SpellCardActive, SpellCardA);
+				break;
+			case 1:
+				pos.x -= (posst.margin / 2);
+				BMvTbl.SetPP(currentsel, 2);
+				break;
+			case 2:
+				pos.x += (posst.margin / 2);
+				BMvTbl.SetPP(currentsel, 3);
+				break;
+			case 3:
+				pos.x += posst.margin + (posst.margin / 2);
+				BMvTbl.SetPP(currentsel, 4);
+				break;
+			case 4:
+				pos.x += (posst.margin * 2) + (posst.margin / 2);
+				BMvTbl.SetPP(currentsel, 5);
+				break;
+		}
+		BMvTbl.SetPosition({ x = pos.x, y = pos.y });
+	}
 }
+	
 
 
 
@@ -1573,41 +1737,34 @@ t.Mv_Atk_StdBandC <-
 {
     function Init_After() : (SpellCard)
     {
-		//BMvEff.AttackInfoString_Set({word=BMvTbl.GetPP(currentsel)});
-		
-		BMvEff.SetSpGauge( { value=-5000 } );
+		local slot = BMvTbl.GetLP(3);
+	    
+		switch (slot)
+        {
+        case 0:
+            SpellCard.RainCoat();
+            break;
+        case 1:
+            SpellCard.MagicPotion();
+            break;
+        case 2:
+            SpellCard.SStrikeTalisman();
+            break;
+        case 3:
+            SpellCard.Stopwatch();
+            break;
+        case 4:
+		    // SpellCard.DashCancel();
+		    // SpellCard.Umbrella();
+		    // SpellCard.DragonStar();
+		    // SpellCard.ScarletPerception();
+		    SpellCard.RecoveryCharm();
 
-		switch(BMvTbl.GetPP(currentsel))
-		{
-		case 1:
-			SpellCard.RainCoat();
-			// SpellCard.FoldingFan();
-			break;
-		case 2:
-			SpellCard.MagicPotion();
-			break;
-		case 3:
-			SpellCard.SStrikeTalisman();
-			break;
-		case 4:
-			SpellCard.Stopwatch();
-			break;
-		case 5:
-			SpellCard.DashCancel();
-			break;
-		}
-		
-        // local spellType = BMvTbl.GetLP(2);
-        // if (spellType in SpellCard)
-        // {
-            // SpellCard["Spell" + spellType]();
-        // }
-        // else
-        // {
-            // // Default spell logic if spellType is not found
-        // }
+            // BMvTbl.SetPattern("FoldingFan");
+            // Battle_Std.SwitchNextMoveTable("Mv_FoldingFan");
+            break;
+        }
     }
-
 }
 
 
