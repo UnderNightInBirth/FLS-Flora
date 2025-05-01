@@ -1,6 +1,6 @@
 lzwp1onbeaejbkCh - gauge_00, 01, 02 | demo_logo00 | sys_combo00
 
-oMtaqooqotvvonnpwmq (ENG) - mainmenu_bg00 | BtlCharaTbl_str ini | csel00
+oMtaqooqotvvonnpwmq (ENG) - mainmenu_bg00 | BtlCharaTbl_str ini | csel00 | cmddef_name
 
 rcwWiiqjmxpmojs - stringfile
 
