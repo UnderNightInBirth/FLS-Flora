@@ -234,12 +234,14 @@ t.Mv_Skill_63214EX <-
 	}
 	function FrameUpdate_After()
 	{
-		Battle_Std.JumpFrameID_NotHoldButton({ mask=(1<<2), checkid=50, jumpid=60 });
+		// Battle_Std.JumpFrameID_NotHoldButton({ mask=(1<<2), checkid=50, jumpid=60 });
+        Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<2), CheckFrameID=50, EndFrameID=60, SetPattern="623B_End" } );
 
 	    local s = BMvTbl.GetMvStatus();
-        if(s.FrameID==10)
+        if(s.MvCount==30)
         {
-			local boing = Battle_Std.CreateObjectEX( { x=0, y=0, pat="Limit", objectflags=_ObjFlags_NoGround } );
+							// local alpha = BMvTbl.GetDrawAlpha();
+			local boing = Battle_Std.CreateObjectEX( { x=0, y=0, pat="BigLimit", objectflags=_ObjFlags_NoGround } );
 			if(boing.push())
 			{
 				BMvTbl.SetScale({ x=60000, y=60000 });
@@ -258,7 +260,21 @@ t.Mv_Skill_63214EX <-
 			}
 			BMvTbl.SetLP(30,0)
 		}
-
+		
+		if(s.MvCount==160)
+		{
+			BMvEff.AttackInfoString_Set({ word = "UNBLOCKABLE" });
+			// BMvEff.AttackInfoString_Set({ word = s.MvCount });
+		}
+		
+		if(boing.push())
+		{
+			local angle = BMvTbl.GetAngle();
+			angle += 10;
+			BMvTbl.SetAngle( { angle = angle} );
+			boing.pop();
+			
+		}
 	}
 	function Finalize_After()
 	{
@@ -278,67 +294,74 @@ t.Mv_Skill_63214EX <-
 	}
 	function Update()
 	{
-		local captured = ( BMvTbl.GetMvStatus().FrameID==50 && BMvTbl.GetLP(30) );
-		if(captured)
-        {
+	
+		local s = BMvTbl.GetMvStatus();
+		if (s.FrameID != 5 && s.FrameID != 10 && s.FrameID != 200 && s.FrameID != 250)
+		{
+
+			local captured = ( BMvTbl.GetMvStatus().FrameID==50 && BMvTbl.GetLP(30) );
+			if(captured)
+			{
+				local enemy = BMvCore.GetNearEnemyCharaData();
+				if( enemy.push() )
+				{
+					Battle_Std.InitVector();
+					enemy.pop();
+				}
+			}
+			
+			local enemy = BMvCore.GetNearEnemyCharaData();
+			if(enemy.push())
+			{
+				enemy.pop()
+			}
+			
+			local stick = BMvTbl.GetStickHold();
+			
+			local vec_x = 0;
+			local vec_y = 0;
+			
+			if( stick == 9 || stick == 6 || stick == 3 ) vec_x = -1000;
+			if( stick == 7 || stick == 4 || stick == 1 ) vec_x = 1000;
+			if( stick == 7 || stick == 8 || stick == 9 ) vec_y = -1000;
+			if( stick == 1 || stick == 2 || stick == 3 ) vec_y = 1000;
+			
+			if( !captured ) vec_y = 0;
+			
+			
 			local enemy = BMvCore.GetNearEnemyCharaData();
 			if( enemy.push() )
 			{
-				Battle_Std.InitVector();
+				local airtime = ( BMvTbl.GetMvName() == "Mv_Jump_F" || BMvTbl.GetMvName() == "Mv_Jump_B" || BMvTbl.GetMvName() == "Mv_Jump_N" );
+	
+				local bs = BtlMvStd.GetBoundStatus();
+				// BMvTbl.SetPattern(313);
+	
+				// BMvTbl.SetVector( { x=vec_x, addx=0, y=vec_y, addy=0, flags=_Vector_Add } );
+				if(captured)
+				{
+					BMvTbl.SetVector( { x=vec_x, y=vec_y, flags=_Vector_Normal } );
+				}
+				
+				if(!captured)
+				{
+					if(BCMDTbl.CheckPosState( _PosState_Air ))
+					{
+						BMvTbl.SetVector( { x=vec_x/16, flags=_Vector_Normal|_VecFlag_Add } );
+					}
+					if(BCMDTbl.CheckPosState( _PosState_Ground ))
+					{
+						BMvTbl.SetVector( { x=vec_x, flags=_Vector_Normal } );
+					}
+				}
+				
+				// BMvTbl.SetVector( { x=vec_x, addx=0, y=vec_y, addy=0, flags=_Vector_Normal } );
+				
+				
 				enemy.pop();
 			}
 		}
 		
-		local enemy = BMvCore.GetNearEnemyCharaData();
-		if(enemy.push())
-		{
-			enemy.pop()
-		}
-		
-        local stick = BMvTbl.GetStickHold();
-		
-		local vec_x = 0;
-		local vec_y = 0;
-		
-		if( stick == 9 || stick == 6 || stick == 3 ) vec_x = -1000;
-		if( stick == 7 || stick == 4 || stick == 1 ) vec_x = 1000;
-		if( stick == 7 || stick == 8 || stick == 9 ) vec_y = -1000;
-		if( stick == 1 || stick == 2 || stick == 3 ) vec_y = 1000;
-		
-		if( !captured ) vec_y = 0;
-		
-		
-		local enemy = BMvCore.GetNearEnemyCharaData();
-        if( enemy.push() )
-        {
-			local airtime = ( BMvTbl.GetMvName() == "Mv_Jump_F" || BMvTbl.GetMvName() == "Mv_Jump_B" || BMvTbl.GetMvName() == "Mv_Jump_N" );
-
-            local bs = BtlMvStd.GetBoundStatus();
-			// BMvTbl.SetPattern(313);
-
-			// BMvTbl.SetVector( { x=vec_x, addx=0, y=vec_y, addy=0, flags=_Vector_Add } );
-			if(captured)
-			{
-				BMvTbl.SetVector( { x=vec_x, y=vec_y, flags=_Vector_Normal } );
-			}
-			
-			if(!captured)
-			{
-				if(BCMDTbl.CheckPosState( _PosState_Air ))
-				{
-					BMvTbl.SetVector( { x=vec_x/16, flags=_Vector_Normal|_VecFlag_Add } );
-				}
-				if(BCMDTbl.CheckPosState( _PosState_Ground ))
-				{
-					BMvTbl.SetVector( { x=vec_x, flags=_Vector_Normal } );
-				}
-			}
-			
-			// BMvTbl.SetVector( { x=vec_x, addx=0, y=vec_y, addy=0, flags=_Vector_Normal } );
-            
-			
-			enemy.pop();
-        }
 	}
 	
 	// function Finalize_After()
@@ -374,10 +397,28 @@ t.Mv_Skill_63214EX <-
 	}
 }
 
+t.Mv_Skill_236A <-
+{
+
+}
 
 
 
+t.Mv_FireBall_Pot <-
+{
+	function HitInterrupt_After()
+	{
+		BMvTbl.SetFinalize();
+	}
+};
 
+t.Mv_FireBall_Pan <-
+{
+	function HitInterrupt_After()
+	{
+		BMvTbl.SetFinalize();
+	}
+};
 
 
 
@@ -1661,13 +1702,12 @@ t.Mv_CardSelect <-
 	// }
 	function Update() // : ( BMode )
 	{
-		// Always fetch the current slot
 		local slot = BMvTbl.GetLP(3);
 	
 		local player = BMvCore.GetPlayerCharaData();
 		if (player.push()) {
 			local activate = Battle_Std.IsMatchMvNameArray("Mv_Atk_StdBandC");
-
+	
 			if (BMvTbl.CheckCommandString( "D" )) {
 				slot = 0;
 			} else if (BMvTbl.CheckStickHoldFrameKeyBuffer(1<<4, 1)) {
@@ -1679,7 +1719,6 @@ t.Mv_CardSelect <-
 			} else if (BMvTbl.CheckStickHoldFrameKeyBuffer(1<<6, 1)) {
 				slot = 4;
 			}
-			// If none are pressed, slot remains unchanged
 
 
 			BMvTbl.SetLP(3, slot);

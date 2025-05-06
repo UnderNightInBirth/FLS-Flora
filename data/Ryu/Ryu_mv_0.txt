@@ -731,6 +731,7 @@ t.Mv_Skill_63214SP <-
 		if( Battle_Std.GetUpdateFrameID()==100 )
 		{
 			Battle_Std.CreateFireBall({ x=140, y=-230, mv="Mv_FireBall_63214SP", pat="MetsuTama", vec={x=3000}, ball=6 });		
+			BMvEff.AttackInfoString_Set({ word = "UNBLOCKABLE" });
 			//BMvEff.CreateObject( { x=0, y=-90, mvname="Mv_Obj_IW_AtkLase", flags=_Position_ToolShift } ); 
 		}
 	}
