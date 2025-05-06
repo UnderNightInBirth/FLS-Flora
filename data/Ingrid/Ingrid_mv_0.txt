@@ -192,7 +192,8 @@ local maketmpl_236Series = function( param={} )
 		mvparam.vec.x = 1800;
         mvparam.mover = "Mv_FireBall_236A";
         mvparam.patter = "FB_236";
-        mvparam.pos = { x=110, y=-220 }
+        // mvparam.pos = { x=110, y=-220 }
+        mvparam.pos = { x=50, y=-220 }
 		break;
 	case "B":
 		mvparam.vec.y = 1800;
@@ -282,7 +283,7 @@ t.Mv_FireBall_236A <- {
   
     function Init_After()
     {
-    BMvTbl.SetVector( { x=3000, y=0, addx=-130, flags = _Vector_Normal } );
+    BMvTbl.SetVector( { x=4500, y=0, addx=-400, flags = _Vector_Normal } );
     Battle_Std.PlayerSE_Play( 220 );
     }
     
@@ -290,8 +291,9 @@ t.Mv_FireBall_236A <- {
     {
   
         local mvs = BMvTbl.GetMvStatus();
-        if( mvs.MvCount >= 200 )
+        if( mvs.MvCount >= 150 )
         {
+		
             Battle_Std.InitVector(); // kill movement
             BMvTbl.SetPattern("FB_236TO"); // timeout ball no reward
             BMvTbl.SetNextMoveTable( "Mv_FireBall_236End" ); // mv takeover
@@ -304,7 +306,7 @@ t.Mv_FireBall_236A <- {
         
         	if( Battle_Std.CheckPlayerisDamage( 1 ) ) BMvTbl.JumpFrameID(130); //Disappear if you get hit!
                         
-            BMvTbl.SetVector({ addx = 0, addy = 0, flags = _Vector_Normal});
+            // BMvTbl.SetVector({ addx = 0, addy = 0, flags = _Vector_Normal});
             
             
             local player = BMvCore.GetPlayerCharaData();
@@ -347,7 +349,7 @@ t.Mv_FireBall_236B <- {
 
     function Init_After()
     {
-    BMvTbl.SetVector( { x=500, y=-2600, addx=0, addy=120, flags = _Vector_Normal } );
+    BMvTbl.SetVector( { x=500, y=-3500, addx=0, addy=250, flags = _Vector_Normal } );
     //    BMvTbl.SetVector( { x=1000, y=-2700, addx=-20, addy=120, flags = _Vector_Normal } );
 
     }
@@ -356,7 +358,7 @@ t.Mv_FireBall_236B <- {
     {
   
         local mvs = BMvTbl.GetMvStatus();
-        if( mvs.MvCount >= 240	 )
+        if( mvs.MvCount >= 150	 )
         {
             Battle_Std.InitVector(); // kill movement
             BMvTbl.SetPattern("FB_236TO"); // timeout ball no reward

@@ -18,7 +18,7 @@ Palette Select Fix
 
 Chara Slot Limit
 0x24BAA1 struct 0x20 -> 0x7F
-(find FF FF 83 F8 7F 0F 82 58)
+(find FF FF 83 F8 20 0F 82 58)
 - Fixes character IDs > 32 not appearing on CSS
 
 0x5551A0 string "FLS Flora"
