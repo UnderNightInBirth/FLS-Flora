@@ -747,6 +747,28 @@ t.Mv_Atk_StdBandC <-
     }
 };
 
+
+//-----------------------------------------------------------------------------
+// idk what to call this - J214
+//-----------------------------------------------------------------------------
+
+t.Mv_Skill_J214A <-
+{
+	function FrameUpdate_After()
+	{
+        Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<0), CheckFrameID=10, SetPattern="J214A_End" } );
+	}
+}
+
+t.Mv_Skill_J214B <-
+{
+	function FrameUpdate_After()
+	{
+        Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<1), CheckFrameID=10, SetPattern="J214B_End" } );
+	}
+}
+
+
 // 0202EX does not require code.
 
 //-----------------------------------------------------------------------------
@@ -883,11 +905,8 @@ t.Mv_Skill_IWEXIST_Hit <-
         Battle_Std.InitIWExistSkill();
         BMvEff.ThrowChara_SetJoint( 0 ); // Don't attach grabs?
         BMvEff.ThrowParam( { pattern=304, x=600, y=0, } );
-        //BMvTbl.SetLP(0,0); // wtf?
-        // BMvEff.Chara_SetMessage( 640, 600, "Code... Ictus!!", 240, 600 );
         BMvEff.Chara_SetMessage( 640, 600, "Pray!", 240, 612 );
         local epos = Battle_Std.GetEnemyPosition();
-        // BMvEff.SetCamera_Focus( { num=1, x=epos.x - (340<<7)*BMvTbl.GetMuki(), y=0, zoom=0.9, time=[0,00,30], type_in=0 } );
         BMvEff.SetCamera_Focus( { num=0, x=epos.x - (340<<7)*BMvTbl.GetMuki(), y=0, zoom=0.9, time=[0,50,30], type_out=1 } );
 
     }
@@ -897,7 +916,6 @@ t.Mv_Skill_IWEXIST_Hit <-
         switch( Battle_Std.GetUpdateFrameID() )
         {
         case 100: // Hit
-            //BMvEff.ThrowParam( { x=125, y=0, pattern=320 } );
             BMvEff.SetCamera_Quake( { time=60, type=0, clear=0, } ); //揺らし
             BMvEff.Slowmotion_Set( { time=60, power=5000 } );
             BMvEff.FadeProc_Set({type=0, time=[0,10,30] color=0xFFFFFF});
@@ -906,15 +924,11 @@ t.Mv_Skill_IWEXIST_Hit <-
             BMvEff.FadeProc_Set({type=0, time=[1,100,30] color=0xFFFFFF});
             BMvEff.Cockpit_SetView( { mode=2 } ); // 一部のみ消去
             BSound.BGM_SetFade( { val=50, time=90 } );//BGMのフェードアウト
-            //白フェードでイン
-            //BMvEff.FadeProc_SetRenderFlag(0); //Hide the IWEX bg
             BMvEff.FadeProc_SetRenderFlag(0); // 0:カットインBG描画なし
-            //Battle_Std.ScreenEffect_LimitPat( { y=64*128, pat="LABG" } );
             local enemy = BMvCore.GetNearEnemyCharaData();
             if( enemy.push() )
             {
                 BMvTbl.SetVector( { x = -28, y = -64,  flags=_Vector_Bound } );
-                // BMvTbl.SetPosition( { x=200, y=-10000 } );
                 BMvEff.SetCharaFlash( { color = 0x000000, type = 0, time = 10 } );
                 BMvEff.SetCharaColor( { color = 0x000000, type = 0, intime = 60, time = 60 } );
                 enemy.pop();
@@ -940,23 +954,12 @@ t.Mv_Skill_IWEXIST_Hit <-
 
                 enemy.pop();
             }
-            //BMvTbl.SetVector( { x=-1000, addx=10, y=0, flags=_Vector_Normal } );
-            //BMvEff.SetExist( { level=_Exist_NoCamera, mode=_ExistMode_Set } ); //?J???‰?c?c?O?e?￡?・
             BMvTbl.SetVector( { x=-100, y=0 } );
-            //BMvEff.SetCamera_Focus( { num=0, x=epos.x - (340<<7)*BMvTbl.GetMuki(), y=0, zoom=0.9, time=[0,50,30], type_out=1 } );
             BMvEff.ThrowParam( { x=350, pattern = 320, frame = 0 } );
             local epos = Battle_Std.GetEnemyPosition();
             BMvEff.SetCamera_Focus( { num=0, y=-100*128, x=epos.x-200*128, zoom=4.0, time=[0,999,30] } );
             BMvEff.SetCamera_Focus( { num=1, y=-64, x=epos.x-180*128, zoom=1.3, time=[160,999,30], type_in=1 } );
-            // BMvEff.SetCamera_Focus( { num=1, zoom=1.2, time=[90,255,120], type_out=2 } );
-            //?z???C?g?C?“
             BMvEff.FadeProc_Set( { type=0, time=[ 0, 1, 10 ], color = 0xFFFFFF } );
-
-            break;
-
-        case 310:
-            // shield = Battle_Std.CreateObjectEX( { x=-25, y=-300, datatype=0, pat=983, flags=_Position_ToolShift } );
-							// BMvEff.CreateObject({ mvname="Mv_Obj_Eff_Shld" });
             break;
         case 350:
             local expl3 = Battle_Std.CreateObjectEX( { datatype=0, pat=987, flags=_Position_ToolShift } );
@@ -996,19 +999,15 @@ t.Mv_Skill_IWEXIST_Hit <-
             if( enemy.push() )
             {
                 Battle_Std.InitVector();
-                // BMvTbl.SetPosition( { x=200, y=-10000 } );
                 enemy.pop();
             }
             local LABG = Battle_Std.ScreenEffect( { pat="LABG" } );
             if( LABG.push() )
             {
 				BMvTbl.SetScale({ x=17800, y=17000 });
-				// BMvTbl.SetPosition({ x=0, y=255, flags=_Position_ToolShift|_ObjFlags_NoGround|_ObjFlags_NoCamera|_Position_Add });
 				BMvTbl.SetPosition({ x=-32, y=460, flags=_Position_ToolShift|_ObjFlags_NoGround|_ObjFlags_NoCamera|_Position_Add });
-                //BMvTbl.SetMuki( _Direction_Right );
                 LABG.pop();
             }
-			// Battle_Std.ScreenEffect_LimitPat( { y=-512, pat="LABG" } );
             if( expl.push() )
             {
                 Battle_Std.SetPos_MarkingEnemy();
@@ -1051,14 +1050,13 @@ t.Mv_Skill_IWEXIST_Hit <-
     }
     function LastUpdate_After()
     {
-        BMvEff.FadeProc_SetRenderFlag(0); // 0:カットインBG描画なし
-        BMvEff.SetCamera_Quake( { time=0, type=2, clear=0, } ); //揺らし
+        BMvEff.FadeProc_SetRenderFlag(0);
         Battle_Std.FinalizeIWExistSkill();
-        BMvEff.SetCamera_Clipping( 1 ); //‰a?E’[?I?N???b?s?“?O?a?3?d?s?・
-        BMvEff.SetCamera_Focus( { time=[0,0,30] } ); // ?J???‰?A’e?d?s?・
-        BMvEff.SetCamera_Quake( { time=0, type=2, clear=0, } ); //?h?c?μ
+        BMvEff.SetCamera_Clipping( 1 );
+        BMvEff.SetCamera_Focus( { time=[0,0,30] } );
+        BMvEff.SetCamera_Quake( { time=0, type=2, clear=0, } );
         BMvEff.SetCamera_FocusKeep( 0 );
-        BMvEff.ResetCamera(); //?J???‰?‰?u‰≫
+        BMvEff.ResetCamera();
         BMvEff.ResetViewCamera();
     }
 }

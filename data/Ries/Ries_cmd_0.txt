@@ -4,6 +4,11 @@ btl_debPrint2("\n[RIE_CommandTable.txt]");
 
 local t =
 {
+	// wanted this to be j22a but j2a conflicts somehow
+	Skill_J214A = {},
+	Skill_J214B = {},
+	// Skill_J214EX = {},
+
 	Atk_Std6B = {},
 	Atk_Std6C = {},
 	Atk_Cro3A =
@@ -44,7 +49,6 @@ local t =
 	},
     Skill_623BorC = {},
 	Skill_623A = {},
-
 
 	Skill_214A = {},
 	Skill_214B = {},

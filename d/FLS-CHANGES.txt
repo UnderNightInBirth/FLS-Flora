@@ -5,3 +5,5 @@ oMtaqooqotvvonnpwmq (ENG) - mainmenu_bg00 | BtlCharaTbl_str ini | csel00 | cmdde
 rcwWiiqjmxpmojs - stringfile
 
 fmjisrkojmp - BgList.txt, BgList_str.ini
+
+hexeojmpimrjs - effect.txt

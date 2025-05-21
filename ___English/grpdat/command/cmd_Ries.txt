@@ -7,10 +7,11 @@ tbl.append( { type = 1, text = "/def_sp_n", info = "/def_sp_i"  } );
 tbl.append( { type = 1, text = "/sp00_n", cmd = "/c_236AorBorC/c_ExOk", info = "/FLS_rie0"  } );
 tbl.append( { type = 1, text = "/sp01_n", cmd = "/c_623AorBorC/c_ExOk", info = "/FLS_rie1"  } );
 tbl.append( { type = 1, text = "/sp02_n", cmd = "/c_214AorBorC", info = "/FLS_rie2"  } );
+tbl.append( { type = 1, text = "/sp03_n", cmd = "/c_InAir/c_214AorBorC", info = "/FLS_riej"  } );
 
 tbl.append( { type = -100, color = 2 } );
 tbl.append( { type = 1, text = "/def_spex_n", info = "/def_spex_i"  } );
-tbl.append( { type = 1, text = "/sp01_e", cmd = "/c_214BC/c_ExOnly", info = "/FLS_rie3"  } );
+tbl.append( { type = 1, text = "/sp01_e", cmd = "/c_214214C/c_214BC/c_ExOnly", info = "/FLS_rie3"  } );
 tbl.append( { type = 1, text = "/ns00_n", cmd = "/c_circle/c_CmdPlus/c_C/c_ExOnly", info="/FLS_rieBM" } );
 tbl.append( { type = 1, text = "/ns02_n", cmd = "/FLS_22C/c_ExOnly", info="/FLS_rie22" } );
 
@@ -46,6 +47,8 @@ tbl.append( { type = 1, text = "/c_increased/c_BC", cmd = "", info = "" } );
 tbl.append( { type = 1, text = "/c_236B", cmd = "", info = "/FLS_high/FLS_reg" } );
 tbl.append( { type = 1, text = "/c_214A", cmd = "", info = ""  } );
 tbl.append( { type = 1, text = "/c_214B", cmd = "", info = ""  } );
+tbl.append( { type = 1, text = "/c_InAir/c_214A", cmd = "", info = ""  } );
+tbl.append( { type = 1, text = "/c_InAir/c_214B", cmd = "", info = ""  } );
 
 tbl.append( { type = -100, color = 0 } );
 tbl.append( { type = 1, text = "/def_vp_n", info = "/def_vp_i"  } );
