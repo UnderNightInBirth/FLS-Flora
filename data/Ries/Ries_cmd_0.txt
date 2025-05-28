@@ -6,8 +6,8 @@ local t =
 {
 	// wanted this to be j22a but j2a conflicts somehow
 	Skill_J214A = {},
-	Skill_J214B = {},
-	// Skill_J214EX = {},
+	Skill_J214BorC = {},
+	Skill_J214EX = {},
 
 	Atk_Std6B = {},
 	Atk_Std6C = {},

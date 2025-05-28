@@ -133,6 +133,13 @@ se["Mv_Skill_214A_FU"] <- [ { Param0=10, selist = { common = [380], } },
                             { Param0=20, selist = { common = [384], } }  ];
 se["Mv_Skill_214B_FU"] <- [ { Param0=10, selist = { common = [381], } },
                             { Param0=20, selist = { common = [385], } }  ];
+							
+se["Mv_Skill_J214A_FU"] <- [ { Param0=10, selist = { common = [329], } },
+                            { Param0=20, selist = { common = [381], } }  ];
+se["Mv_Skill_J214B_FU"] <- [ { Param0=10, selist = { common = [325], } },
+                            { Param0=20, selist = { common = [400], } }  ];							
+se["Mv_Skill_J214EX_FU"] <- { Param0=10, selist = { common = [605], } };
+
 se["Mv_Skill_214C_FU"] <- { Param0=10, selist = { common = [382], } };
 se["Mv_Skill_63214EX_FU"] <- { Param0=10, selist = { common = [383], } };
 

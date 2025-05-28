@@ -48,8 +48,6 @@ st[24] = { path=2, file="SE_BombEnergy", type=1, category=-2, }; // IWçSë©ãÖÇÃé˚
 st[25] = { path=2, file="SE_BigBomb_Short", type=1, category=-1, }; //Ç∆Ç«Çﬂîöî≠
 st[26] = { path=2, file="SE_BigBomb", type=1, category=-1, }; //Ç∆Ç«Çﬂîöî≠
 
-
-
 st[98] = { volumetype=1, path=1, file="_BEAST", type=0, category=1, };
 st[99] = { volumetype=1, path=1, file="BEASTMODE", type=0, category=1, };  // BEAST MODE
 
@@ -86,14 +84,11 @@ st[152] = { volumetype=1 path=1, file="Ries_B0AA300", type=0, category=1, }; // 
 st[153] = { volumetype=1 path=1, file="Ries_B0AA060", type=0, category=1, }; // kawashite? dodge ground
 
 
-
 //assault
 st[170] = { volumetype=1 path=1, file="Ries_B0AA091", type=0, category=1, }; // Ikkoshi
 st[171] = { volumetype=1 path=1, file="Ries_B0AA059", type=0, category=1, }; // Hmph
 
-
 st[180] = { volumetype=1 path=1, file="Ries_B0AA039", type=0, category=1, }; // Huff
-
 
 
 // Atk
@@ -110,12 +105,7 @@ st[314] = { volumetype=1 path=1, file="Ries_B0AA048", type=0, category=1, }; // 
 st[315] = { volumetype=1 path=1, file="Ries_B0AA044", type=0, category=1, }; // sura
 st[316] = { volumetype=1 path=1, file="Ries_B0AA078", type=0, category=1, }; // Hmph
 
-
-
 st[319] = { volumetype=1 path=1, file="Ries_B0AA046b", type=0, category=1, }; // soko
-
-
-
 
 
 // Heavy
@@ -134,8 +124,6 @@ st[352] = { volumetype=1 path=1, file="Ries_B0AA053", type=0, category=1, }; // 
 st[325] = { volumetype=1 path=1, file="Ries_B0AA075", type=0, category=1, }; // Ta tame
 
 
-
-
 // B+C
 st[360] = { volumetype=1 path=1, file="Ries_B0AA120", type=0, category=1, }; // yaiba yo
 st[361] = { volumetype=1 path=1, file="Ries_B0AA121", type=0, category=1, }; // Seiritsuokike
@@ -143,14 +131,10 @@ st[362] = { volumetype=1 path=1, file="Ries_B0AA107", type=0, category=1, }; // 
 st[363] = { volumetype=1 path=1, file="Ries_B0AA125", type=0, category=1, }; // Zettai tengo https://typemoon.wiki.cre.jp/wiki/%E3%83%AA%E3%83%BC%E3%82%BA%E3%83%90%E3%82%A4%E3%83%95%E3%82%A7%E3%83%BB%E3%82%B9%E3%83%88%E3%83%AA%E3%83%B3%E3%83%89%E3%83%B4%E3%82%A1%E3%83%AA
 
 
-
-
-
 // 623
 st[370] = { volumetype=1 path=1, file="Ries_B0AA028", type=0, category=1, }; // Soko da
 st[371] = { volumetype=1 path=1, file="Ries_B0AA104", type=0, category=1, }; // Kechira(su)
 st[372] = { volumetype=1 path=1, file="Ries_B0AA031", type=0, category=1, }; // Maruterado
-
 
 
 // 214
@@ -162,6 +146,8 @@ st[384] = { volumetype=1 path=1, file="Ries_B0AA113", type=0, category=1, }; // 
 st[385] = { volumetype=1 path=1, file="Ries_B0AA101", type=0, category=1, }; // Tomerareruka //c236a
 
 
+st[400] = { volumetype=1 path=1, file="Ries_B0AA024", type=0, category=1, }; // Tancho
+
 
 // Blocking
 st[401] = { volumetype=1 path=1, file="Ries_B0AA025", type=0, category=1, }; // Mudada yo //block stop?
@@ -170,11 +156,8 @@ st[403] = { volumetype=1 path=1, file="Ries_B0AA027", type=0, category=1, }; // 
 
 st[405] = { volumetype=1 path=1, file="Ries_B0AA088", type=0, category=1, }; // - koiteba!
 
-
-
 st[410] = { volumetype=1 path=1, file="Ries_B0AA040", type=0, category=1, }; // Amai //airgrab //shield
 st[411] = { volumetype=1 path=1, file="Ries_B0AA043", type=0, category=1, }; // Zapper
-
 
 st[416] = { volumetype=1 path=1, file="Ries_B0AA049", type=0, category=1, }; // anka // grab
 st[417] = { volumetype=1 path=1, file="Ries_B0AA050", type=0, category=1, }; // rinpu // grab
@@ -184,7 +167,6 @@ st[422] = { volumetype=1 path=1, file="Ries_B0AA055", type=0, category=1, }; // 
 st[423] = { volumetype=1 path=1, file="Ries_B0AA056", type=0, category=1, }; // Tch! //whiff
 
 st[424] = { volumetype=1 path=1, file="Ries_B0AA038", type=0, category=1, }; // Ngh
-
 
 
 //Pain
@@ -205,9 +187,6 @@ st[450] = { volumetype=1 path=1, file="Ries_B0AA302", type=0, category=1, }; // 
 st[451] = { volumetype=1 path=1, file="Ries_B0AA301", type=0, category=1, }; // Tcha-
 
 
-
-
-
 // Concentrate
 st[500] = { volumetype=1 path=1, file="Ries_B0AA083", type=0, category=1, }; // Eaaaaaaaa!
 st[501] = { volumetype=1 path=1, file="Ries_B0AA084", type=0, category=1, }; // Haaaaaaaa!
@@ -226,7 +205,6 @@ st[531] = { volumetype=1 path=1, file="Ries_B0AA037", type=0, category=1, }; // 
 st[532] = { volumetype=1 path=1, file="Ries_B0AA057", type=0, category=1, }; // Tcheh
 
 
-
 st[550] = { volumetype=1 path=1, file="Ries_B0AA094a", type=0, category=1, }; // Soro nagai! //ukemi
 st[551] = { volumetype=1 path=1, file="Ries_B0AA095a", type=0, category=1, }; // -kyoudai
 st[552] = { volumetype=1 path=1, file="Ries_B0AA096", type=0, category=1, }; // Kiyoudana// ukemi
@@ -239,52 +217,14 @@ st[563] = { volumetype=1 path=1, file="Ries_B0AA082", type=0, category=1, }; // 
 st[570] = { volumetype=1 path=1, file="Ries_B0AA054", type=0, category=1, }; // Yugande iru ne
 
 
-
 // Supers
 st[600] = { volumetype=1 path=1, file="Ries_B0AA201b_echo", type=0, category=1, }; // Code Ictus - IW
 st[601] = { volumetype=1 path=1, file="Ries_B0AA103_echo", type=0, category=1, }; // pouteme
+
+st[605] = { volumetype=1 path=1, file="Ries_j214ex", type=0, category=1, };
 
 st[610] = { volumetype=1 path=1, file="Ries_B0AA204a_0_echo", type=0, category=1, }; // Ictus... (poetry beat + crucifix site?)
 st[611] = { volumetype=1 path=1, file="Ries_B0AA204a_1_echo", type=0, category=1, }; // ...Calvaria, mishiron(?) (Imprison/seal?)
 
 st[612] = { volumetype=1 path=1, file="Ries_B0AA205b_echo", type=0, category=1, }; // Pray!
 st[613] = { volumetype=1 path=1, file="Ries_B0AA206a_echo", type=0, category=1, }; // ÇªÇÃç∞Ç™äÔê’ÇèhÇ∑Ç»ÇÁÅAçŸÇ´ÇÃÇ†Ç∆Ç…ã~ÇÌÇÍÇÊÇ§ÅI Should thy soul bear any miracle, shalt it be saved in the wake of judgment!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// st[400] = { volumetype=1 path=1, file="Ries_B0AA024", type=0, category=1, }; // Tancho
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-
