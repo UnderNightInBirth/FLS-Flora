@@ -155,11 +155,28 @@ t.Mv_ConvertCharge <-
 // Base Attacks
 //-----------------------------------------------------------------------------
 
-t.Mv_Atk_Std6B <- // todo - either chaos 6c reflector code or try to hook enemy obj, dunno if possible
+t.Mv_Atk_Std6B <-
 {
+	function Init_After()
+	{
+		Battle_Std.MoveCode.AddFlag( def_MC_Sousai|def_MC_Sousai_NoSubHitCount ); // Projectile Cancellation Occurs
+		BMvTbl.SetLP(1,0);
+	}
+	
     function FrameUpdate_After()
     {
         Battle_Std.JumpFrameID_NotHoldButton({ mask=(1<<1), checkid=[200], jumpid=[202], endid=250 }); // Jump to frame ID 202 if 1 (B) is not held
+		
+		Battle_Std.CheckSousai();
+		
+		if( Battle_Std.MoveCode.CheckFlag( def_MC_Sousai_EnemySubSuccess ) ) // Don't know if this is the cleanest way but it justwerks
+		{
+			if (!BMvTbl.GetLP(1))
+			{
+				BMvTbl.SetLP(1,1);
+				Battle_Std.CreateObjectEX( { pat=101, x=-64, y=-128, flags=_Position_ToolShift } );
+			}
+		}	
     }
 }
 

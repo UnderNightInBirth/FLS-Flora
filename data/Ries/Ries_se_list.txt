@@ -26,7 +26,8 @@ st[5] = { volumetype=0, path=1, file="Ries_B0AA312", type=0, category=2, }; // s
 st[6] = { volumetype=0, path=1, file="Ries_B0AA313a", type=0, category=3, };  // grinding
 st[7] = { volumetype=0, path=1, file="Ries_B0AA314", type=0, category=3, };  // coil
 
-st[8] = { volumetype=0, path=1, file="Ries_B0AA314a", type=0, category=1, }; // 236 confirm
+st[8] = { volumetype=0, path=1, file="Ries_B0AA314a", type=0, category=3, }; // 236 confirm
+st[88] = { volumetype=0, path=1, file="Ries_B0AA315a", type=0, category=0, }; // 236 confirm
 st[9] = { volumetype=0, path=1, file="Ries_B0AA315a", type=0, category=3, };  // 236 whbang
 st[10] = { volumetype=0, path=1, file="Ries_B0AA315b", type=0, category=3, };  // 236 whbang higher
 
