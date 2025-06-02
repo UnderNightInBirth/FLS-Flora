@@ -1,27 +1,21 @@
 Change Hit View Limit to 999
-0x154043 struct 0x6300 -> 0xE703
+0x154043(editme) struct 0x6300 -> 0xE703
 (find 43 28 B9 63 00 00 00 3B C1 )
-
-
-
-
-
 50 52 43 4C C8 64 00
 
 
-
 Palette Select Fix
-0x2467DE opcode 0x75 -> 0xEB
+0x2467DE(editme) opcode 0x75 -> 0xEB
 (find 85 C0 75 1F 69 CF 2C 0C 00 00 89 )
 - switching from jne to jmp instruction to avoid some weird check
 - Fixes modded characters unable to select slots higher than 10
 
 Chara Slot Limit
-0x24BAA1 struct 0x20 -> 0x7F
+0x24BB51 struct 0x20 -> 0x7F
 (find FF FF 83 F8 20 0F 82 58)
 - Fixes character IDs > 32 not appearing on CSS
 
-0x5551A0 string "FLS Flora"
+0x5551A0(editme) string "FLS Flora"
 (just find game title string)
 - i wonder if we should stylize as FLS-Flora but eehhh
 
