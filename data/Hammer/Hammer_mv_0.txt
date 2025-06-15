@@ -241,13 +241,13 @@ t.Mv_Skill_63214EX <-
         if(s.MvCount==30)
         {
 							// local alpha = BMvTbl.GetDrawAlpha();
-			local boing = Battle_Std.CreateObjectEX( { x=0, y=0, pat="BigLimit", objectflags=_ObjFlags_NoGround } );
+			local boing = Battle_Std.CreateObjectEX( { x=0, y=0, pat="BigLimit", objectflags=_ObjFlags_NoGround|_ObjFlags_ToParentStop } );
 			if(boing.push())
 			{
+				BMvEff.SetObjectFlags({ flags=_ObjFlags_EraseParentPatChange|_ObjFlags_ToParentHitStatus|_ObjFlags_EraseParentDamage });
 				BMvTbl.SetScale({ x=60000, y=60000 });
 				Battle_Std.SetPos_MarkingPlayer();
 				boing.pop();
-				
 			}
 		}
 		if(s.FrameID==250 && BMvTbl.GetLP(30))
@@ -266,15 +266,7 @@ t.Mv_Skill_63214EX <-
 			BMvEff.AttackInfoString_Set({ word = "UNBLOCKABLE" });
 			// BMvEff.AttackInfoString_Set({ word = s.MvCount });
 		}
-		
-		if(boing.push())
-		{
-			local angle = BMvTbl.GetAngle();
-			angle += 10;
-			BMvTbl.SetAngle( { angle = angle} );
-			boing.pop();
-			
-		}
+	
 	}
 	function Finalize_After()
 	{
@@ -399,7 +391,49 @@ t.Mv_Skill_63214EX <-
 
 t.Mv_Skill_236A <-
 {
+	function Init_After()
+	{
+		local offset = Battle_Std.GetHaimenGamenHajiDistance() / 128;
+		// BMvEff.AttackInfoString_Set({ word = -offset });
+		BMvEff.CreateObject( { x=-offset-128, y=0, start_pat=501, mvname="Mv_Obj_Catto", flags=_Position_ToolShift } );
+	}
+}
 
+t.Mv_Obj_Catto <-
+{
+
+	function Init_After()
+	{
+		BMvEff.AttackInfoString_Set({ word = ":3" });
+	}
+	
+	function FrameUpdate_After()
+	{
+		local s = BMvTbl.GetMvStatus();
+		
+
+		switch( s.FrameID )
+		{
+			case 0:
+				if (Battle_Std.GetEnemyDistance()/128 <= 650)
+				{
+					BMvTbl.JumpFrameID(22);
+				}
+				break;
+			
+			case 22:
+				BMvTbl.SetVector({ x=1024, y=-512, addx=0, addy=80, flags=_Vector_Normal  });
+
+				break;
+			case 30:
+				if (BMvTbl.GetPosition().y >= 4000)
+				{
+					BMvTbl.JumpFrameID(40);
+					Battle_Std.InitVector();
+				}
+				break;
+		}
+	}
 }
 
 
@@ -481,6 +515,10 @@ t.Mv_FireBall_Pan <-
 // CheckHan6Data
 t.Mv_Atk_CroA <-
 {
+	function Init_After()
+	{
+		BSound.SE_Play( { type=_SeType_Normal, num=300 } );
+	}
     function FrameUpdate_After()
     {
 
@@ -773,7 +811,6 @@ t.Mv_Atk_AirC <-
     }
 }
 
-
 t.Mv_Atk_StdB <-
 {
 	function Init_After()
@@ -787,6 +824,7 @@ t.Mv_Atk_StdB <-
 			// }
 			// Battle_Std.EnemyGRD_Drain( 5000, 1 );
 			// BMvEff.SetHpGauge( { value=-1000 } );
+			BMvEff.AttackInfoString_Set({word=BMvEff.BG_GetNum()});
 	}
 	function FrameUpdate_After()
 	{
@@ -1039,6 +1077,9 @@ t.Mv_Atk_StdA <-
 			local s = BMvTbl.GetMvStatus();
 			
 			local mvcnt = s.MvCount;
+			
+			
+
 			
 			//if(s.CallCount==0)
 		

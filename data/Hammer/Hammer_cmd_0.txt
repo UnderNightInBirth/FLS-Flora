@@ -135,7 +135,9 @@ local t =
 	Skill_J214EX = {}, 
 	
 	Atk_StdBandC = {
-
+		// CmdCheck = { Cost = { ComboGauge = 10000 } },
+		// function CmdBeforeFunc()
+			// { if (BMvEff.GRD_GetJudgeResult()<=0) {return 0}; }
 	},
 	
 	// Skill_020202EX = {
@@ -172,7 +174,14 @@ local t =
         CmdCheck = { Cost = { ComboGauge = 10000 }, SkillType = "ExSpecial" },
 	},
 	
-	
+	// Skill_Call_Catto = {
+		// cmdtmplflags = Def_SCT_Common, name = "Cmd_Call_Catto", command = ["2+B+C"], flags = [ "lastdelay" ], posstatus = _PosState_Ground,
+		// CmdCheck = { SkillType = "ExSpecial"},	
+		// UpdateTable = { name = "Mv_Call_Catto", }
+	// },
+	Skill_236A = {
+
+	},
 	
 	Skill_Romantic = {
 		cmdtmplflags = Def_SCT_Common, name = "Cmd_Romantic", command = ["A+B+D","A+C+D","B+C+D"], usegauge = 10000, flags = [ "lastdelay" ], posstatus = _PosState_Always,
