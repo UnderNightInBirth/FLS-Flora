@@ -183,6 +183,10 @@ local t =
 
 	},
 	
+	Skill_236B = {
+
+	},
+	
 	Skill_Romantic = {
 		cmdtmplflags = Def_SCT_Common, name = "Cmd_Romantic", command = ["A+B+D","A+C+D","B+C+D"], usegauge = 10000, flags = [ "lastdelay" ], posstatus = _PosState_Always,
 		CmdCheck = { Cost = { ComboGauge = 10000 }, SkillType = "ExSpecial",  PosState = "Always", },	

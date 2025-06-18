@@ -438,6 +438,42 @@ t.Mv_Obj_Catto <-
 
 
 
+t.Mv_Skill_236B <-
+{
+	function Init_After()
+	{
+		local offset = Battle_Std.GetHaimenGamenHajiDistance() / 128;
+		// BMvEff.AttackInfoString_Set({ word = -offset });
+		BMvEff.CreateObject( { x=-offset-128, y=0, start_pat=510, mvname="Mv_Obj_Bors", flags=_Position_ToolShift } );
+	}
+}
+
+t.Mv_Obj_Bors <-
+{
+	function FrameUpdate_After()
+	{
+		local mvs = BMvTbl.GetMvStatus();
+		local mvcount = mvs.MvCount;
+		
+		local s = BMvTbl.GetMvStatus();
+		switch( s.FrameID )
+		{
+			case 1:
+				if (Battle_Std.GetEnemyDistance()/128 <= 500)
+				{
+					BMvTbl.JumpFrameID(22);
+				}
+				break;
+			case 30:
+				local alpha = BMvTbl.GetDrawAlpha() - 3;				
+				BMvTbl.SetDrawAlpha( { val=alpha, time=2 } ); // �t�F�[�h�C���ݒ�
+				break;
+		}
+	}
+}
+
+
+
 t.Mv_FireBall_Pot <-
 {
 	function HitInterrupt_After()
