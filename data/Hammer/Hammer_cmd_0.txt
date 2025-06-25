@@ -180,11 +180,67 @@ local t =
 		// UpdateTable = { name = "Mv_Call_Catto", }
 	// },
 	Skill_236A = {
-
+		// CmdCheck =
+		// {
+			// SkillType = "SpecialDouji", MvCheck = { CancelOnly = ["Mv_Skill_236B","Mv_Skill_236C"] }
+		// }
+		CmdBeforeStdFunc = function()
+		{
+			if(BMvTbl.GetPP(21) == 900) return 1;
+			return 0;
+		},
+	},
+	
+	Skill_AssA = 
+	{
+		CmdBeforeStdFunc = function()
+		{
+			if(BMvTbl.GetPP(21) == 900) return 1;
+			return 0;
+		},
+		name = "Cmd_Skill_236A", command = "A", flags = [ "lastdelay" ],
+		CmdCheck = { SkillType = "AddCommand", MvCheck = { Only = ["Mv_Skill_236B","Mv_Skill_236C","Mv_Skill_236D"] } },
+		UpdateTable = { name = "Mv_Skill_236A", }
 	},
 	
 	Skill_236B = {
-
+		CmdBeforeStdFunc = function()
+		{
+			if(BMvTbl.GetPP(25) == 720) return 1;
+			return 0;
+		},
+	},
+	
+	Skill_AssB = 
+	{
+		CmdBeforeStdFunc = function()
+		{
+			if(BMvTbl.GetPP(25) == 720) return 1;
+			return 0;
+		},
+		name = "Cmd_Skill_236B", command = "B", flags = [ "lastdelay" ],
+		CmdCheck = { SkillType = "AddCommand", MvCheck = { Only = ["Mv_Skill_236A","Mv_Skill_236C","Mv_Skill_236D"] } },
+		UpdateTable = { name = "Mv_Skill_236B", }
+	},
+		
+	Skill_236C = {
+		CmdBeforeStdFunc = function()
+		{
+			if(BMvTbl.GetPP(23) == 600) return 1;
+			return 0;
+		},
+	},
+	
+	Skill_AssC = 
+	{
+		CmdBeforeStdFunc = function()
+		{
+			if(BMvTbl.GetPP(23) == 600) return 1;
+			return 0;
+		},
+		name = "Cmd_Skill_236C", command = "C", flags = [ "lastdelay" ],
+		CmdCheck = { SkillType = "AddCommand", MvCheck = { Only = ["Mv_Skill_236A","Mv_Skill_236B","Mv_Skill_236D"] } },
+		UpdateTable = { name = "Mv_Skill_236C", }
 	},
 	
 	Skill_Romantic = {
@@ -234,21 +290,20 @@ local ar =
 	{
 		ResetTmplName="Atk_StdB",
 		CheckMoveName="Mv_Atk_StdB",
-		UpdateMoveName="Mv_Atk_Std6B",
-	},
-	{
-		ResetTmplName="Atk_Std6B",
-		CheckMoveName="Mv_Atk_Std6B",
 		UpdateMoveName="Mv_Atk_StdC",
 	},
 	{
 		ResetTmplName="Atk_StdC",
 		CheckMoveName="Mv_Atk_StdC",
+		UpdateMoveName="Mv_Skill_623A",
+	},
+	{
+		ResetTmplName="Skill_623A",
+		CheckMoveName="Mv_Skill_623A",
 		UpdateMoveName="Mv_Skill_SSRelayAtk",
 		CmdCheck = 
 		{
 			SkillType = "AddCommand",
-			FrameIDCheck = { Only = [900,910] },
 		}
 		CmdTmplFlags=def_CMDFlags_AnnounceSmaetSteer, //スマートステアアナウンスの追加
 	},

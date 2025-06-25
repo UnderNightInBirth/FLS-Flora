@@ -1,5 +1,32 @@
 local t = {};
 
+//-----------------------------------------------------------------------------
+// Variables
+//-----------------------------------------------------------------------------
+// LP 0 - CARD + ASSIST(?)
+// LP 1 - CARD
+// LP 2 - CARD
+// LP 3 - Currently Selected Card
+//
+// LP 11
+// LP 12
+// LP 13
+// LP 14
+// LP 15
+//
+// LP 20 - Display Limit Circled
+// LP 21 - Assist A
+// LP 22 - Assist B
+// LP 23 - Assist C
+// LP 24 - Assist D
+//
+// LP 30 - 214BC Enemy Capture
+//
+//
+//
+
+
+
 // local maketmpl_AirSlam = function( param={} )
 // {
     // local ret_tmpl = {}
@@ -393,29 +420,27 @@ t.Mv_Skill_236A <-
 {
 	function Init_After()
 	{
-		local offset = Battle_Std.GetHaimenGamenHajiDistance() / 128;
-		// BMvEff.AttackInfoString_Set({ word = -offset });
-		BMvEff.CreateObject( { x=-offset-128, y=0, start_pat=501, mvname="Mv_Obj_Catto", flags=_Position_ToolShift } );
+		BMvTbl.SetPP(21,-300);
+		// Battle_Std.MoveCode.AddFlag( def_MC_EnableCansel_SkilltoSkill );
+		// if(BMvTbl.GetPP(21) == 900)
+		// {
+			local offset = Battle_Std.GetHaimenGamenHajiDistance() / 128;
+			BMvEff.CreateObject( { x=-offset-128, y=0, start_pat=501, mvname="Mv_Obj_Catto", flags=_Position_ToolShift|_ObjFlags_EraseParentDamage } );
+		// }
 	}
 }
 
 t.Mv_Obj_Catto <-
-{
-
-	function Init_After()
-	{
-		BMvEff.AttackInfoString_Set({ word = ":3" });
-	}
-	
+{	
 	function FrameUpdate_After()
 	{
 		local s = BMvTbl.GetMvStatus();
-		
-
+		local muki = BMvTbl.GetMuki();
+				
 		switch( s.FrameID )
 		{
-			case 0:
-				if (Battle_Std.GetEnemyDistance()/128 <= 650)
+			case 0:	
+				if ( ( Battle_Std.GetEnemyDistance()/128 <= 650 ) && ( Battle_Std.GetHaimenGamenHajiDistance() / 128 >= 32 ) )
 				{
 					BMvTbl.JumpFrameID(22);
 				}
@@ -423,7 +448,7 @@ t.Mv_Obj_Catto <-
 			
 			case 22:
 				BMvTbl.SetVector({ x=1024, y=-512, addx=0, addy=80, flags=_Vector_Normal  });
-
+					// BMvEff.CreateObject( { x=0, y=-300, start_pat=502, mvname="Mv_Obj_Pot", flags=_Position_ToolShift } );
 				break;
 			case 30:
 				if (BMvTbl.GetPosition().y >= 4000)
@@ -436,15 +461,13 @@ t.Mv_Obj_Catto <-
 	}
 }
 
-
-
 t.Mv_Skill_236B <-
 {
 	function Init_After()
 	{
 		local offset = Battle_Std.GetHaimenGamenHajiDistance() / 128;
-		// BMvEff.AttackInfoString_Set({ word = -offset });
 		BMvEff.CreateObject( { x=-offset-128, y=0, start_pat=510, mvname="Mv_Obj_Bors", flags=_Position_ToolShift } );
+		BMvTbl.SetPP(25,-300);
 	}
 }
 
@@ -466,27 +489,69 @@ t.Mv_Obj_Bors <-
 				break;
 			case 30:
 				local alpha = BMvTbl.GetDrawAlpha() - 3;				
-				BMvTbl.SetDrawAlpha( { val=alpha, time=2 } ); // ï¿½tï¿½Fï¿½[ï¿½hï¿½Cï¿½ï¿½ï¿½Ý’ï¿½
+				BMvTbl.SetDrawAlpha( { val=alpha, time=2 } );
 				break;
 		}
 	}
+}
+
+t.Mv_Skill_236C <-
+{
+	function Init_After()
+	{
+		BMvEff.CreateObject( { x=-200, y=0, start_pat=511, mvname="Mv_Obj_Inspector", flags=_Position_ToolShift } );
+		BMvTbl.SetPP(23,-300);
+	}
+}
+
+t.Mv_Obj_Inspector <-
+{
+	function Init_After()
+	{
+		local offset = Battle_Std.GetHaimenGamenHajiDistance() / 128;
+		local muki = BMvTbl.GetMuki();
+		if(offset < 0)
+		{
+			
+			BMvTbl.SetPosition( { x=150*muki, flags=_Position_Add|_Position_ToolShift } );
+		}
+	}
+	
 }
 
 
 
 t.Mv_FireBall_Pot <-
 {
-	function HitInterrupt_After()
+	function FrameUpdate_After()
 	{
-		BMvTbl.SetFinalize();
+		BMvEff.AttackInfoString_Set({ word = Battle_Std.CheckPlayerisDamage() });
+		if( Battle_Std.CheckPlayerisDamage() )
+		{
+			BMvTbl.SetFinalize();
+		}
+	}
+};
+
+t.Mv_FireBall_Pin <-
+{
+	function FrameUpdate_After()
+	{
+		if( Battle_Std.CheckPlayerisDamage() )
+		{
+			BMvTbl.SetFinalize();
+		}
 	}
 };
 
 t.Mv_FireBall_Pan <-
 {
-	function HitInterrupt_After()
+	function FrameUpdate_After()
 	{
-		BMvTbl.SetFinalize();
+		if( Battle_Std.CheckPlayerisDamage() )
+		{
+			BMvTbl.SetFinalize();
+		}
 	}
 };
 
@@ -551,32 +616,32 @@ t.Mv_FireBall_Pan <-
 // CheckHan6Data
 t.Mv_Atk_CroA <-
 {
-	function Init_After()
-	{
-		BSound.SE_Play( { type=_SeType_Normal, num=300 } );
-	}
-    function FrameUpdate_After()
-    {
+	// function Init_After()
+	// {
+		// BSound.SE_Play( { type=_SeType_Normal, num=300 } );
+	// }
+    // function FrameUpdate_After()
+    // {
 
-        local enemy = BMvCore.GetEnemyCharaData();
-        if (enemy.push())
-        {
-            local maxAttempts = 100; 
-            for (local index = 0; index < maxAttempts; index++)
-            {
-                local findobject = BMvCore.CFindObject().Get(index);
+        // local enemy = BMvCore.GetEnemyCharaData();
+        // if (enemy.push())
+        // {
+            // local maxAttempts = 100; 
+            // for (local index = 0; index < maxAttempts; index++)
+            // {
+                // local findobject = BMvCore.CFindObject().Get(index);
 				
-                if (findobject.push())
-                {
-                    // BMvTbl.SetFinalize();
-                    // BMvEff.AttackInfoString_Set({ word = index });
-					!Battle_Std.MoveCode.CheckFlag( def_MC_FireBall );
-					Battle_Std.InitVector();
-                    findobject.pop();
-                }
-            }
-        }
-    }
+                // if (findobject.push())
+                // {
+                    // // BMvTbl.SetFinalize();
+                    // // BMvEff.AttackInfoString_Set({ word = index });
+					// !Battle_Std.MoveCode.CheckFlag( def_MC_FireBall );
+					// Battle_Std.InitVector();
+                    // findobject.pop();
+                // }
+            // }
+        // }
+    // }
 }
 
 // t.Mv_Atk_CroB <-
@@ -605,24 +670,21 @@ t.Mv_Atk_CroA <-
 
 
 
-// •XŠ»‚â‚ç‚ê’†‚É‚æ‚¯‚¢‚ÈUŒ‚‚ª“–‚½‚Á‚½‚©‚Ç‚¤‚©ƒ`ƒFƒbƒN‚·‚é
-t.AttackImpact <- function( info )
-{
-	Battle_Std.AttackImpact_StdFunc(info);
-	 
-	 local enemy = BMvCore.GetEnemyCharaData();
-			if( enemy.push() ) //e‚©ƒIƒuƒWƒFƒNƒg‚ªG‚ê‚Ä‚¢‚½
-			{
-				// UŒ‚oŒ»ƒ`ƒFƒbƒN
-				local e_mvcode = BMvTbl.GetMoveCode();
-				local mvName = BMvTbl.GetMvName();
-						BMvEff.AttackInfoString_Set({ word = mvName });
+// t.AttackImpact <- function( info )
+// {
+	// Battle_Std.AttackImpact_StdFunc(info); 
+	// local enemy = BMvCore.GetEnemyCharaData();
+	// if( enemy.push() ) //e‚©ƒIƒuƒWƒFƒNƒg‚ªG‚ê‚Ä‚¢‚½
+	// {
+		// // UŒ‚oŒ»ƒ`ƒFƒbƒN
+		// local e_mvcode = BMvTbl.GetMoveCode();
+		// local mvName = BMvTbl.GetMvName();
+		// BMvEff.AttackInfoString_Set({ word = mvName });
 
 
-				enemy.pop();
-			}
-			
-}
+		// enemy.pop();
+	// }			
+// }
 
 
 
@@ -822,22 +884,20 @@ t.AttackImpact <- function( info )
 	// }
 // }
 
-t.DamageImpact <- function(info)
-{
-	Battle_Std.DamageImpact_StdFunc(info);
-		local enemy = BMvCore.GetNearEnemyCharaData();
-		if(enemy.push())
-		{
-			local bs = BtlMvStd.GetBoundStatus();
-			if( bs.WallCount>2 )
-			{
-				BMvEff.AttackInfoString_Set({ word = "bals" });
-			}
-			enemy.pop();
-		}
-		
-		
-}
+// t.DamageImpact <- function(info)
+// {
+	// Battle_Std.DamageImpact_StdFunc(info);
+	// local enemy = BMvCore.GetNearEnemyCharaData();
+	// if(enemy.push())
+	// {
+		// local bs = BtlMvStd.GetBoundStatus();
+		// if( bs.WallCount>2 )
+		// {
+			// BMvEff.AttackInfoString_Set({ word = "bals" });
+		// }
+		// enemy.pop();
+	// }
+// }
 
 t.Mv_Atk_AirC <-
 {
@@ -860,7 +920,7 @@ t.Mv_Atk_StdB <-
 			// }
 			// Battle_Std.EnemyGRD_Drain( 5000, 1 );
 			// BMvEff.SetHpGauge( { value=-1000 } );
-			BMvEff.AttackInfoString_Set({word=BMvEff.BG_GetNum()});
+		BMvEff.AttackInfoString_Set({word=BMvEff.BG_GetNum()});
 	}
 	function FrameUpdate_After()
 	{
@@ -1101,55 +1161,6 @@ t.Mv_Skill_623A <-
         Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<0), CheckFrameID=100, EndFrameID=150, SetPattern="623A_End" } );
 	}
 }
-
-
-
-
-t.Mv_Atk_StdA <-
-{
-	function Init_After()
-	{
-	
-			local s = BMvTbl.GetMvStatus();
-			
-			local mvcnt = s.MvCount;
-			
-			
-
-			
-			//if(s.CallCount==0)
-		
-			local frame = s.GetDataFrame();
-			local pat = s.GetDataPattern();
-			
-			for( local i=0; i<8; i++ )
-			{	
-				local rc2 = BMvEff.GetHanteiRect ( { check=[ _Hantei_Attack, i ], flags=_HanteiFlag_NoMukiChange | _HanteiFlag_Tool } );
-				
-					// local eff = Battle_Std.DrawHanteiRect( rc2, 0xFF4040 );
-					local eff = BMvEff.CreateObject( { datatype=1, start_pat="TR_Plus", x=rc2.x, y=rc2.y, mvname="Mv_Obj_HitboxBox" } );
-					if(eff.push())
-					{
-						BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround | _ObjFlags_ParentMove | _ObjFlags_MoveTimeStopAll } );
-						BMvEff.ObjProcFlags_Set( { flags=_ObjProcFlags_EraseParentNull|_ObjProcFlags_EraseChangeParentMv|_ObjProcFlag_EraseParentDelete } );
-
-						BMvTbl.SetLP(0,frame);
-						BMvTbl.SetLP(1,pat);
-						BMvTbl.SetLP(2,mvcnt);
-						
-						//BMvTbl.SetPrio( _CharaPrio_Near );
-						
-						eff.pop();
-					}
-			}
-			
-		
-	}
-	
-	
-}
-
-
 
 t.Mv_Skill_Romantic <-
 {
@@ -1494,11 +1505,158 @@ local CardIcons = function()
 
 }
 
+local AssistUI = function()
+{	
+	Battle_Std.CreateObjectEX( { x=0, y=0, pat="BAR", mvname="Mv_AssistHandle", LP={ slot=0, val=0 } } );
+	Battle_Std.CreateObjectEX( { x=0, y=0, pat="BAR", mvname="Mv_AssistHandle", LP={ slot=0, val=1 } } );
+	Battle_Std.CreateObjectEX( { x=0, y=0, pat="BAR", mvname="Mv_AssistHandle", LP={ slot=0, val=2 } } );
+	Battle_Std.CreateObjectEX( { x=0, y=0, pat="BAR", mvname="Mv_AssistHandle", LP={ slot=0, val=3 } } );
+		
+	Battle_Std.CreateObjectEX( { x=0, y=0, pat="BARbg", mvname="Mv_AssistUI", LP={ slot=0, val=0 } } );
+	Battle_Std.CreateObjectEX( { x=0, y=0, pat="BARbg", mvname="Mv_AssistUI", LP={ slot=0, val=1 } } );
+	Battle_Std.CreateObjectEX( { x=0, y=0, pat="BARbg", mvname="Mv_AssistUI", LP={ slot=0, val=2 } } );
+	Battle_Std.CreateObjectEX( { x=0, y=0, pat="BARbg", mvname="Mv_AssistUI", LP={ slot=0, val=3 } } );
+	
+	Battle_Std.CreateObjectEX( { x=0, y=0, pat="BARico", mvname="Mv_AssistUI", LP={ slot=0, val=1 } } );
+}
+
+t.Mv_AssistUI <-
+{
+	function Init()
+	{
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround|_ObjFlags_NoCamera|_ObjFlags_NoRenderOrder|_ObjFlags_NoRenderBlackOut } ); //_ObjFlags_MoveTimeStopAll|
+		local pl = BMvTbl.GetPlayerSide();
+		local posst = { x=320<<8, y=-256<<8, margin=64<<7 } ; //left edge
+		local pos = { x=0, y=posst.y };
+		if( pl==0 ) { pos.x = -posst.x; }
+		else { pos.x = posst.x; }
+
+		local slot = BMvTbl.GetLP(0);
+		switch( slot )
+		{
+		// case 0:
+			// pos.y -= (posst.margin + (posst.margin/2));
+			// break;
+		case 1:
+			pos.y += (posst.margin/2);
+			break;
+		case 2:
+			pos.y += (posst.margin);
+			break;
+		case 3:
+			pos.y += posst.margin + (posst.margin/2);
+			break;
+		}
+		
+		BMvTbl.SetPosition( { x=pos.x, y=pos.y } );
+		BMvTbl.SetPrio( _CharaPrio_Near );
+	}
+}
+
+t.Mv_AssistHandle <-
+{
+	function Init()
+	{
+	
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround|_ObjFlags_NoCamera|_ObjFlags_NoRenderOrder|_ObjFlags_NoRenderBlackOut } ); //_ObjFlags_MoveTimeStopAll|
+		local pl = BMvTbl.GetPlayerSide();
+		local posst = { x=320<<8, y=-256<<8, margin=64<<7 } ; //left edge
+		local pos = { x=0, y=posst.y };
+		if( pl==0 ) { pos.x = -posst.x; }
+		else { pos.x = posst.x; }
+
+		local slot = BMvTbl.GetLP(0);
+		switch( slot )
+		{
+		case 0:
+			// pos.y -= (posst.margin + (posst.margin/2));
+			break;
+		case 1:
+			pos.y += (posst.margin/2);
+			break;
+		case 2:
+			pos.y += (posst.margin);
+			break;
+		case 3:
+			pos.y += posst.margin + (posst.margin/2);
+			break;
+		}
+		
+		BMvTbl.SetPosition( { x=pos.x, y=pos.y } );
+		BMvTbl.SetPrio( _CharaPrio_Near );
+	}
+	
+	function FrameUpdate_After()
+	{
+		local s = BMvTbl.GetMvStatus();
+		
+		local slot = BMvTbl.GetLP(0);
+		
+		switch( slot )
+		{
+		
+		case 0:
+			local atime = BMvTbl.GetPP(21);
+			if(atime < 900)
+			{
+				BMvTbl.AddPP(21,1);
+			}
+			BMvTbl.SetScale({ x = atime * (10000 / 890), y = 10000 });
+			break;
+			
+		case 1:
+			local btime = BMvTbl.GetPP(25);
+			if(btime < 720)
+			{
+				BMvTbl.AddPP(25,1);
+			}
+			BMvTbl.SetScale({ x = (BMvTbl.GetPP(25)*14), y = 10000 });
+			break;
+			
+		case 2:
+			local ctime = BMvTbl.GetPP(23);
+			if(ctime < 600)
+			{
+				BMvTbl.AddPP(23,1);
+			}
+			BMvTbl.SetScale({ x = ctime * (10000 / 580), y = 10000 });
+			break;
+			
+		case 3:
+			local dtime = BMvTbl.GetPP(24);
+
+			if(dtime < 900)
+			{
+				BMvTbl.AddPP(24,1);
+			}
+			
+			BMvTbl.SetScale({ x = dtime * (10000 / 900), y = 10000 });
+			break;
+		}
+	}
+}
+
 t.Mv_Startup <-
 {
-	function Init_After() : (CardIcons)
+	function Init_After() : (CardIcons, AssistUI)
 	{
 		CardIcons();
+		AssistUI();
+		BMvTbl.SetPP(21,0);
+		BMvTbl.SetPP(25,0);
+		BMvTbl.SetPP(23,0);
+		BMvTbl.SetPP(24,0);
+		
+        if( BMvTbl.GetMvStageStatus().IsTrainingBattle() )
+        {
+			BMvTbl.SetPP(21,900);
+			BMvTbl.SetPP(25,720);
+			BMvTbl.SetPP(23,600);
+			BMvTbl.SetPP(24,600);
+        }
+		
+
+		
 		Battle_Std.CreateObjectEX( { x=0, y=0, pat="CardGlow", mvname="Mv_CardSelect", LP={ slot=1, val=0 } } );
 		BMvTbl.SetLP(3,0); 
 
@@ -1611,7 +1769,7 @@ t.Mv_CardIdle <-
 		BMvTbl.SetPosition( { x=pos.x, y=pos.y } );
 		BMvTbl.SetPrio( _CharaPrio_Near );
 		
-		BMvEff.AttackInfoString_Set({ word=BMvTbl.GetPP(SpellCardA)} );
+		// BMvEff.AttackInfoString_Set({ word=BMvTbl.GetPP(SpellCardA)} );
 		
 		BMvTbl.SetLP(2, selected);
 		// ƒgƒŒƒ‚Žž‚ÍƒQ[ƒW—Þ‚Í‚·‚®‚É•\Ž¦‚³‚¹‚é
@@ -1673,7 +1831,7 @@ t.Mv_CardGuide <-
 			break;
 		}
 		
-		BMvEff.AttackInfoString_Set({ word="made" });
+		// BMvEff.AttackInfoString_Set({ word="made" });
 		
 		BMvTbl.SetPosition( { x=pos.x, y=pos.y } );
 		BMvTbl.SetPrio( _CharaPrio_Near );
@@ -1693,9 +1851,7 @@ t.Mv_CardManager <-
 		BMvTbl.SetLP(14,0); // 
 		BMvTbl.SetLP(15,0); // 
 		BMvTbl.SetLP(20,0); // limit display				
-		
         // BMvTbl.JumpFrameID( BMvEff.	Random_Limit(9) );
-		
     }
 
     function Update()
@@ -1797,11 +1953,9 @@ t.Mv_CardSelect <-
 				slot = 4;
 			}
 
-
 			BMvTbl.SetLP(3, slot);
 			player.pop();
 			BMvTbl.SetLP(3, slot);
-			
 			
 			if (activate) {
 				BMvTbl.SetScale({ x = 2 * 10000, y = 2 * 10000 });
@@ -1844,10 +1998,6 @@ t.Mv_CardSelect <-
 		BMvTbl.SetPosition({ x = pos.x, y = pos.y });
 	}
 }
-	
-
-
-
 
 t.Mv_Atk_StdBandC <-
 {
@@ -1883,8 +2033,30 @@ t.Mv_Atk_StdBandC <-
     }
 }
 
-
-
+t.Mv_Skill_SSRelayAtk <- // Steer Ender
+{
+	function FrameUpdate_After()
+	{
+		local s = BMvTbl.GetMvStatus();
+	    switch( s.FrameID )
+        {
+		case 5:
+			if(!Battle_Std.CheckEnemyisDamage()) BMvTbl.JumpFrameID(15);
+			break;
+        case 10:
+			local epos = Battle_Std.GetEnemyPosition();
+			local muki = BMvTbl.GetMuki();
+			local set_posx = 128*-muki; // teleport offset
+			local set_posy = 256*128; // teleport offset
+			BMvTbl.SetPosition({ x=epos.x+set_posx, y=epos.y+set_posy }); // teleport beside enemy
+            break;
+        }
+	}
+    function HitInterrupt_After()
+    {
+        Battle_Std.SetPosition_DamageHanteiRect({ power=150 });
+    }
+}
 
 t.Mv_HEAT <-
 {
