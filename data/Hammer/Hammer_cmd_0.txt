@@ -196,6 +196,7 @@ local t =
 		CmdBeforeStdFunc = function()
 		{
 			if(BMvTbl.GetPP(21) == 900) return 1;
+			if(BMvEff.GRD_GetJudgeResult() > 0 ) return 1;
 			return 0;
 		},
 		name = "Cmd_Skill_236A", command = "A", flags = [ "lastdelay" ],
