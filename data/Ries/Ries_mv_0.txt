@@ -7,6 +7,7 @@ local chrFunc = {};
 // LP 0 - Air Throw Combo Counter
 //
 // LP 2 - BC Counter
+// LP 5 - 623EX Confirm
 // LP 9 - BC Init
 // LP 10 - Is Beast Mode?
 // LP 11 - Beast Mode This Round?
@@ -591,13 +592,17 @@ t.Mv_236EX_Hit <- maketmpl_PileArcatoHit( { type="EX" } );
 
 t.Mv_Skill_623EX <- //This is really butchered and scuffed especially in the ha6 (set pattern 0)
 {
+	function Init_Before()
+	{
+		BMvTbl.SetLP(5, 0);
+	}
     function FrameUpdate_After()
     {
         Battle_Std.SetHitMuteki( 1, 32, _HitCheckFlag_Legs ); // Invulnerability check
         switch( Battle_Std.GetUpdateFrameID() )
         {
         case 200:  // Frame ID
-            if ( Battle_Std.CheckEnemyisDamage() )
+            if ( BMvTbl.GetLP(5) == 1 ) // Is the Hit flag ON?
             {
                 BMvTbl.SetPattern("623EX_JHit");
             }
@@ -606,6 +611,7 @@ t.Mv_Skill_623EX <- //This is really butchered and scuffed especially in the ha6
     }
     function HitInterrupt_After()
     {
+		BMvTbl.SetLP(5, 1); // Hit flag ON
         if( Battle_Std.CheckDamageTiming() ) //Still dunno what this does
         {
             Battle_Std.SetPosition_DamageHanteiRect({ power=50 });
@@ -613,6 +619,7 @@ t.Mv_Skill_623EX <- //This is really butchered and scuffed especially in the ha6
     }
     function Finalize()
     {
+		BMvTbl.SetLP(5, 0);
         Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Skill_623EX_JHit"]); //ƒfƒtƒH,[code,mv]...
     }
 }
