@@ -432,15 +432,24 @@ t.Mv_Skill_236A <-
 
 t.Mv_Obj_Catto <-
 {	
+	function Init_Before()
+	{
+		BMvTbl.SetLP(0,0); // Initialize Player Hit Flag
+	}
 	function FrameUpdate_After()
 	{
 		local s = BMvTbl.GetMvStatus();
 		local muki = BMvTbl.GetMuki();
-				
+		
+		if(Battle_Std.CheckPlayerisDamage())
+		{
+			BMvTbl.SetLP(0,1); // Turns on Flag if player is hit
+		}
+
 		switch( s.FrameID )
 		{
 			case 0:	
-				if ( ( Battle_Std.GetEnemyDistance()/128 <= 650 ) && ( Battle_Std.GetHaimenGamenHajiDistance() / 128 >= 32 ) )
+				if ( ( Battle_Std.GetEnemyDistance()/128 <= 650 ) && ( Battle_Std.GetHaimenGamenHajiDistance() / 128 >= 32 ) && !BMvTbl.GetLP(0) )
 				{
 					BMvTbl.JumpFrameID(22);
 				}
@@ -458,6 +467,12 @@ t.Mv_Obj_Catto <-
 				}
 				break;
 		}
+		
+		if( BMvTbl.GetLP(0) )
+		{
+			local alpha = BMvTbl.GetDrawAlpha() - 1;				
+			BMvTbl.SetDrawAlpha( { val=alpha, time=5 } );
+		}
 	}
 }
 
@@ -473,16 +488,25 @@ t.Mv_Skill_236B <-
 
 t.Mv_Obj_Bors <-
 {
+	function Init_Before()
+	{
+		BMvTbl.SetLP(1,0); // Initialize Player Hit Flag
+	}
 	function FrameUpdate_After()
 	{
 		local mvs = BMvTbl.GetMvStatus();
 		local mvcount = mvs.MvCount;
 		
+		if(Battle_Std.CheckPlayerisDamage())
+		{
+			BMvTbl.SetLP(1,1); // Turns on Flag if player is hit
+		}
+		
 		local s = BMvTbl.GetMvStatus();
 		switch( s.FrameID )
 		{
 			case 1:
-				if (Battle_Std.GetEnemyDistance()/128 <= 500)
+				if ( Battle_Std.GetEnemyDistance()/128 <= 500 && !BMvTbl.GetLP(1) ) // Come close & not damaged (will keep running if hit)
 				{
 					BMvTbl.JumpFrameID(22);
 				}
@@ -491,6 +515,12 @@ t.Mv_Obj_Bors <-
 				local alpha = BMvTbl.GetDrawAlpha() - 3;				
 				BMvTbl.SetDrawAlpha( { val=alpha, time=2 } );
 				break;
+		}
+		
+		if( BMvTbl.GetLP(1) )
+		{
+			local alpha = BMvTbl.GetDrawAlpha() - 1;				
+			BMvTbl.SetDrawAlpha( { val=alpha, time=5 } );
 		}
 	}
 }
@@ -508,6 +538,7 @@ t.Mv_Obj_Inspector <-
 {
 	function Init_After()
 	{
+		BMvTbl.SetLP(2,0);
 		local offset = Battle_Std.GetHaimenGamenHajiDistance() / 128;
 		local muki = BMvTbl.GetMuki();
 		if(offset < 0)
@@ -516,7 +547,25 @@ t.Mv_Obj_Inspector <-
 			BMvTbl.SetPosition( { x=150*muki, flags=_Position_Add|_Position_ToolShift } );
 		}
 	}
-	
+	function FrameUpdate_After()
+	{
+		if(Battle_Std.CheckPlayerisDamage())
+		{
+			BMvTbl.SetLP(2,1); // Turns on Flag if player is hit
+		}
+		
+		switch( BMvTbl.GetLP(2) )
+		{
+			case 1:
+				BMvTbl.JumpFrameID( 99 );
+				BMvTbl.SetLP(2,2);
+				break;
+			case 2:
+				local alpha = BMvTbl.GetDrawAlpha() - 1;				
+				BMvTbl.SetDrawAlpha( { val=alpha, time=5 } );
+				break;
+		}
+	}
 }
 
 
@@ -1940,17 +1989,10 @@ t.Mv_CardSelect <-
 		local player = BMvCore.GetPlayerCharaData();
 		if (player.push()) {
 			local activate = Battle_Std.IsMatchMvNameArray("Mv_Atk_StdBandC");
-	
+
 			if (BMvTbl.CheckCommandString( "D" )) {
-				slot = 0;
-			} else if (BMvTbl.CheckStickHoldFrameKeyBuffer(1<<4, 1)) {
-				slot = 1;
-			} else if (BMvTbl.CheckStickHoldFrameKeyBuffer(1<<8, 1)) {
-				slot = 2;
-			} else if (BMvTbl.CheckStickHoldFrameKeyBuffer(1<<2, 1)) {
-				slot = 3;
-			} else if (BMvTbl.CheckStickHoldFrameKeyBuffer(1<<6, 1)) {
-				slot = 4;
+				slot += 1;
+				if(slot == 5) slot = 0;
 			}
 
 			BMvTbl.SetLP(3, slot);
