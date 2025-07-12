@@ -4,12 +4,19 @@ local tbl = [];
 
 tbl.append( { type = -100, color = 1 } );
 tbl.append( { type = 1, text = "/def_sp_n", info = "/def_sp_i"  } );
-tbl.append( { type = 1, text = "/sp03_n", cmd = "/c_623AorBorC/c_ExOk", info = ""  } );
-tbl.append( { type = 1, text = "/sp08_n", cmd = "/c_InAir/c_214AorBorC/c_ExOk", info = ""  } );
+tbl.append( { type = 1, text = "/sp00_n", cmd = "/c_623AorBorC/c_ExOk", info = "/FLS_fat0"  } );
+tbl.append( { type = 1, text = "/sp01_n", cmd = "/c_InAir/c_214AorBorC/c_ExOk", info = "/FLS_fat1"  } );
+tbl.append( { type = 1, text = "/sp02_n", cmd = "/c_236AorBorCorD", info = "/FLS_fata0"  } );
+tbl.append( { type = 1, text = "/c_Add/n_Add", cmd = "/c_AorBorCorD", info = "/FLS_fata1"  } );
+tbl.append( { type = 1, text = "/c_Add2", cmd = "/c_A", info = "/FLS_fataa"  } );
+tbl.append( { type = 1, text = "/c_Add2", cmd = "/c_B", info = "/FLS_fatab"  } );
+tbl.append( { type = 1, text = "/c_Add2", cmd = "/c_C", info = "/FLS_fatac"  } );
+tbl.append( { type = 1, text = "/c_Add2", cmd = "/c_D", info = "/FLS_fatad"  } );
 
 tbl.append( { type = -100, color= 2 } );
 tbl.append( { type = 1, text = "/def_spex_n", info = "/def_spex_i"  } );
-tbl.append( { type = 1, text = "/spex00_n", cmd = "/c_214BC/c_ExOnly", info="" } );
+tbl.append( { type = 1, text = "/spex00_n", cmd = "/c_214BC/c_ExOnly", info="/FLS_fat2" } );
+tbl.append( { type = 1, text = "/spex01_n", cmd = "/c_ExOnly", info="/FLS_rom" } );
 
 tbl.append( { type = -100, color= 3 } );
 tbl.append( { type = 1, text = "/def_iw_n", info = "/def_iw_i" } );
@@ -21,21 +28,23 @@ tbl.append( { type = 1, text = "/iw_n", cmd = "/def_cmd_IW", info="" } );
 
 tbl.append( { type = -100, color = 5 } );
 tbl.append( { type = 1, text = "/def_ff_n", info = "/def_ff_i"  } );
-tbl.append( { type = 1, text = "/ex04_n", cmd = "/c_BC", info = "" } );
+tbl.append( { type = 1, text = "/ex00_n", cmd = "/c_BC", info = "/FLS_card" } );
 
 tbl.append( { type = -100, color = 0 } );
 tbl.append( { type = 1, text = "/def_ex_n", info = "/def_ex_i"  } );
+tbl.append( { type = 1, text = "", cmd = "/c_InAir/c_2B", info = "" } );
 tbl.append( { type = 1, text = "", cmd = "/c_6C", info = "" } );
 tbl.append( { type = 1, text = "", cmd = "/c_4C", info = "" } );
 tbl.append( { type = 1, text = "", cmd = "/c_3C", info = "" } );
 tbl.append( { type = 1, text = "", cmd = "/c_1C", info = "" } );
 tbl.append( { type = 1, text = "", cmd = "/c_InAir/c_2C", info = "" } );
+tbl.append( { type = 1, text = "", cmd = "/c_InAir/c_6C", info = "" } );
 
 tbl.append( { type = -100, color = 0 } );
 tbl.append( { type = 1, text = "/def_in_n", info = "/def_in_i"  } );
 tbl.append( { type = 1, text = "/c_InAir/c_C", cmd = "", info = "" } );
 tbl.append( { type = 1, text = "/c_623AorB", cmd = "", info = "" } );
-tbl.append( { type = 1, text = "/c_214BC/c_ExOnly", cmd = "", info = "" } );
+tbl.append( { type = 1, text = "/c_214BC/c_ExOnly", cmd = "", info = "/FLS_fat2" } );
 
 tbl.append( { type = -100, color = 0 } );
 tbl.append( { type = 1, text = "/def_vp_n", info = "/def_vp_i"  } );
