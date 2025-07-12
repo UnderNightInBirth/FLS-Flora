@@ -938,5 +938,142 @@ t.Mv_Skill_41236SP_Hit <-
 
 
 
+
+
+//-----------------------------------------------------------------------------
+// INFINITEWORTHＥＸＳ
+//-----------------------------------------------------------------------------
+
+t.Mv_Skill_IWEXIST <- 
+{
+	flags = def_TmplFlags_NoAddComboRate // コンボレートを加算しない
+	function HitInterrupt_After()
+	{
+		Battle_Std.SetThrowHitFinalize(256); // ヒット分岐ファイナライズ
+	}
+	function Finalize() // 
+	{
+		Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Skill_IWEXIST_Hit"]); //デフォ,[code,mv]...
+	}	
+}
+
+t.Mv_Skill_IWEXIST_Hit <-
+{
+	flags = def_TmplFlags_NoAddComboRate // コンボレートを加算しない
+	function Init_After()
+	{
+		Battle_Std.InitIWExistSkill();
+		
+		BMvEff.SetCamera_Clipping( 0 ); //画面端のクリッピング補正を切る
+		BMvEff.ThrowParam( { x=256, y=0, pattern=320 } ); //やられ
+		BMvEff.ThrowChara_SetJoint( 0 ); //掴みをくっつけない
+		
+		local pos = BMvTbl.GetPosition();
+		BMvEff.SetCamera_Focus( { num=0, zoom=1.0, time=[0,999,30] } );
+		BMvEff.SetCamera_Focus( { num=1, x=pos.x+(250<<7)*BMvTbl.GetMuki(), y=0, zoom=1.0, time=[10,999,30], type_in=1 } );
+		
+		BMvEff.CreateObject( { mvname="Mv_Obj_IWEBigKuo" } );
+	}
+	function FrameUpdate_After()
+	{
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 100:
+
+			// BMvEff.CreateObject( { mvname="Mv_Obj_dunkey" } );
+			break;
+		case 199:
+			BMvEff.CreateObject( { y= -100*128, mvname="Mv_Obj_Eff_IWE_Finish" } );
+
+			BMvEff.CutInProc_SetResourceView( { mode=0 } ); // 軽量化のため謎空間を表示しない
+			break;
+		case 200:
+			BSound.BGM_SetFade( { val=50, time=240 } );//BGMのフェードアウト
+			break;
+		case 300: // 切り裂く
+			break;
+		case 1000: // とどめ爆発
+			
+			_dpn("BGM Fade 2");
+			BSound.BGM_SetFade( { val=25, time=240 } );//BGMのフェードアウト
+			break;
+		}
+	}
+	function Finalize()
+	{
+		BMvTbl.SetNextMoveTable( "Mv_Skill_IWEXIST_End" );
+	}	
+	function LastUpdate_After()
+	{
+		BMvEff.SetCamera_Clipping( 1 ); //画面端のクリッピング補正を戻す
+		BMvEff.Cockpit_SetPrioU(0); // 体力ゲージを通常に戻す
+		local enemy = BMvCore.GetNearEnemyCharaData();
+		if( enemy.push() )
+		{
+			BMvEff.EraseObjectFlags( { flags=_ObjFlags_NoRender } ); //非表示を戻す
+			
+			BMvEff.SetCharaDrawType( { type=0 } ); // 通常
+			BMvEff.SetCharaColor( { color=0xFFFFFF, intime=0, time=0, type=0 } ); // 戻す
+			
+			Battle_Std.InitVector();
+			
+			enemy.pop();
+		}
+	
+		BMvEff.FadeProc_Set({type=0, time=[0,2,10] color=0xFFFFFF}); // 2F稼ぐ
+		
+		BMvEff.FadeProc_SetRenderFlag(1); // 0:カットインBG描画なし
+
+		//カメラ初期化
+		BMvEff.SetCamera_Focus( { time=[0,0,0] } );
+		BMvEff.ResetViewCamera();
+		
+		//つかみ開放
+		BMvTbl.SetPosition( { x=0 } ); // 中央へ
+		BMvEff.ThrowParam( { x=400, y=-1024, } );
+		BMvEff.ThrowRelease( { type="真下叩きつけ", airrecover=0, flags=_ThrowRelease_NoAttackHit|_ThrowRelease_NoGroundRecover } );
+		
+		//イグジストワース終了
+		Battle_Std.FinalizeIWExistSkill();	
+	}
+}
+
+t.Mv_Skill_IWEXIST_End <-
+{
+	function Init_After()
+	{
+		BMvEff.CutInProc_SetResourceView( { mode=1 } ); // 謎空間を戻す
+		BMvEff.FadeProc_Set({type=0, time=[0,2,10] color=0xFFFFFF}); // 2F稼ぐ
+	}
+}
+
+t.Mv_Obj_dunkey <-
+{
+	function Init_After()
+	{
+		BMvEff.SetObjectFlags({flags=_ObjFlags_NoCamera|_ObjFlags_EraseParentPatChange }); // カメラを無視する|親のパターン変更で消える
+		BMvTbl.SetPosition({x=0,y=-300*128});
+	}
+}
+t.Mv_Obj_IWEBigKuo <-
+{
+	function Init_After()
+	{
+		// 画面中央にいる
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoCamera|_ObjFlags_EraseParentPatChange } );
+	}
+}
+t.Mv_Obj_Eff_IWE_Finish <-
+{
+	function Init_After()
+	{
+		BMvEff.ObjProcFlags_Set( { flags=_ObjProcFlags_EraseChangeParentMv } );
+		// BMvEff.SetObjectFlags( { flags=_ObjFlags_EraseParentPatChange } );
+		local c_pos = BMvEff.GetCameraRect( { flags=_GetPos_TrueCamera|_GetPos_NoMuki } ); //カメラから見た画面中央を取得
+		BMvTbl.SetPosition({x=(c_pos.sx+c_pos.ex)/2,y=(c_pos.sy+c_pos.ey)/2}); // 画面中央に表示
+	}
+}
+
+
 INGRID_MoveTable <- Battle_Std.MakeMoveTable( t, INGRID_CommandTable, Def_ChrNo_Ing );
 __dofile__("./data/Ingrid/Ingrid_se_category.txt");
