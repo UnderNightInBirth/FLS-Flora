@@ -298,7 +298,7 @@ se["ƒ”ƒH[ƒpƒ‹_•m€"] <- {
 //‚U‚a
 se["Mv_Atk_Std6B_FU"] <- {
 	Param0=10,
-	selist = { common = [278,279], }
+	selist = { common = [510,511,512], }
 };
 //‚R‚a
 se["Mv_Atk_Cro3B_FU"] <- {
@@ -332,9 +332,28 @@ se["Mv_Skill_236B_FU"] <- {
 	selist = { common = [501,502], }
 };
 
-se["Mv_Skill_236EX_Init"] <- {
-	selist = { common = [504], }
+se["Mv_Skill_236A_Add_FU"] <- {
+	Param0=10,
+	selist = { common = [592,593], }
 };
+
+se["Mv_Skill_236B_Add_FU"] <- {
+	Param0=10,
+	selist = { common = [592,593], }
+};
+
+se["Mv_Skill_236EX_Init"] <- {
+	selist = { common = [590], }
+};
+
+se["Mv_Skill_236EX_FU"] <- 
+[
+	{
+		LastSE=590,
+		Param0=20,
+		selist = { common = [591], }
+	},
+]
 
 //‚Q‚R‚UU’Ç‰Á“ü—Í
 se["Mv_Skill_236_236A_FU"] <- {
@@ -370,16 +389,21 @@ se["Mv_Skill_J236EX_Init"] <- {
 //‚U‚Q‚RU
 se["Mv_Skill_623A_FU"] <- {
 	Param0=10,
-	selist = { common = [518,519], }
+	selist = { common = [622,623], }
 };
 
 se["Mv_Skill_623B_FU"] <- {
 	Param0=10,
-	selist = { common = [520,521], }
+	selist = { common = [622,623], }
 };
 
 se["Mv_Skill_623EX_Init"] <- {
-	selist = { common = [523], }
+	selist = { common = [624], }
+};
+
+se["Mv_Skill_623EX_FU"] <- {
+	Param0=20,
+	selist = { common = [625], }
 };
 
 se["Mv_Skill_41236EX_Init"] <- {
@@ -441,37 +465,36 @@ se["Mv_Skill_214B_FU"] <- {
 };
 
 se["Mv_Skill_214EX_Init"] <- {
-	selist = { common = [533,536], }
+	selist = { common = [626], }
 };
 
 //ƒqƒbƒg‚Ì‚İ‰¹º
 se["Mv_Skill_214EX_JHit_FU"] <- [
 	{
-		LastSE=533,
-		Param0=10,
-			selist = { common = [534], }
-	},
-	{
-		LastSE=536,
-		Param0=10,
-			selist = { common = [537], }
-	},
-	{
-		LastSE=537,
 		Param0=20,
-			selist = { common = [538], }
+			selist = { common = [627], }
 	}
 ]
 
 //‚Q‚QU
 se["Mv_Skill_0202A_FU"] <- {
 	Param0=10,
-	selist = { common = [541], }
+	selist = { common = [595,596,597], }
+};
+
+se["Mv_Skill_J0202A_FU"] <- {
+	Param0=10,
+	selist = { common = [595,596,597], }
 };
 
 se["Mv_Skill_0202B_FU"] <- {
 	Param0=10,
-	selist = { common = [542], }
+	selist = { common = [598,599,600], }
+};
+
+se["Mv_Skill_0202C_FU"] <- {
+	Param0=10,
+	selist = { common = [601,602,603], }
 };
 
 se["Mv_Skill_0202EX_Init"] <- {
@@ -483,6 +506,10 @@ se["Mv_Skill_0202EX_FU"] <- {
 	selist = { common = [545], }
 };
 
+se["Mv_Skill_020202EX_Init"] <- {
+	selist = { common = [582], }
+};
+
 se["Mv_Atk_CroBandC_FU"] <- {
 	Param0=10,
 	selist = { common = [573,568], }
@@ -490,13 +517,17 @@ se["Mv_Atk_CroBandC_FU"] <- {
 
 //‚h‚v
 se["Mv_Skill_41236SP_Init"] <- {
-	selist = { common = [581], }
+	selist = { common = [588], }
 };
 
-se["Mv_Skill_41236SP_FU"] <- [
+se["Mv_Skill_41236SP_Hit_FU"] <- [
 	{
 		Param0=10,
-			selist = { common = [582], }
+			selist = { common = [594], }
+	}
+	{
+		Param0=20,
+			selist = { common = [589], }
 	}
 ];
 
@@ -520,7 +551,39 @@ se["Mv_Skill_IWEXIST_Hit_Init"] <- [
 	{
 		selist = {
 			common = [
-			{ [0]=585, [60]=586, [320]=587 },
+				// Ok ik what you're gonna say but it'd be pretty funny to have one rare voiceline
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+				{ [10]=616, [330]=617, [530]=618 },
+
+				// Rare audio (10%)
+				{ [0]=619 },
+			],
+		},
+	},
+]
+
+se["Mv_Skill_IWEXIST_Hittt_Init"] <- [
+	{
+		selist = {
+			common = [
+			{ [10]=616, [330]=617, [530]=618 },
 			],
 		},
 	},

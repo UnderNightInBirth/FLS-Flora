@@ -538,7 +538,7 @@ chara_no[39] =
     isAlive = 1,
 
     stage = 22,
-    bgm = 174,
+    bgm = 63,
 
     order = 189,
 }; // 
