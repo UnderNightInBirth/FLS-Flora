@@ -35,6 +35,9 @@ st[12] = { volumetype=0, path=2, file="SE_BombSlash", type=1, category=-1, }; //
 st[13] = { volumetype=0, path=2, file="SE_SpecialBombLong", type=1, category=-1, }; //放出 ：IFWを長くした音
 st[15] = { volumetype=0, path=2, file="SE_BigBomb", type=1, category=-1, }; //IWX最後赤くなるところ
 
+st[50] = { volumetype=1 path=1, file="S343", type=0, category=1, userparam=164 };//vs hamer1
+st[51] = { volumetype=1 path=1, file="S343b", type=0, category=1, userparam=164 };//
+
 // 登場
 st[100] = { volumetype=1 path=1, file="hyd_010_b_2000", type=0, category=1, userparam=112 };//「出ろ！　インスレーター！」
 st[101] = { volumetype=1 path=1, file="hyd_010_b_2001", type=0, category=1, userparam=186 };//「邪魔をするなら…片付けるまでだ！」

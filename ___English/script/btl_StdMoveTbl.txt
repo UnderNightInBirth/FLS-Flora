@@ -1688,6 +1688,48 @@ CommonStandbyParams[31] = // Ako
 	{ Enemy=girl_chara_list, WaitPAT = 49, timeline = [ { PAT=50, SE=103, time=236, delay=66 } ] }, // Girls only
 ];
 
+CommonStandbyParams[32] = // hammer
+[
+	// { WaitPAT = 900, timeline = [ { PAT=50, SE=100, time=236, delay=66 } ] },
+
+	{
+		Enemy=[39], WaitPAT = [900,905],
+		duet_timeline =
+		[
+			{ PL=1, PAT=906, delay=180, SE=50, } // 
+			{ PL=0, delay=130, SE=600, }, // 
+		],
+	},
+	{
+		Enemy=[39], WaitPAT = [900,905],
+		duet_timeline =
+		[
+			{ PL=0, delay=130, SE=600, } // 
+			{ PL=1, PAT=906, delay=300, SE=51, }, // 
+		],
+	},
+];
+
+CommonStandbyParams[39] = // exhyd
+[
+	{
+		Enemy=[32], WaitPAT = [905,906],
+		duet_timeline =
+		[
+			{ PL=0, delay=180, SE=50, } // 
+			{ PL=1, delay=130, SE=600, }, // 
+		],
+	},
+	{
+		Enemy=[32], WaitPAT = [905,906],
+		duet_timeline =
+		[
+			{ PL=1, delay=130, SE=600, } // 
+			{ PL=0, delay=260, SE=51, }, // 
+		],
+	},
+];
+
 
 //
 //
