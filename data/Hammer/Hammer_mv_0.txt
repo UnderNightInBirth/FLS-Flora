@@ -1311,7 +1311,15 @@ t.Mv_Obj_GigaFist <-
 
 
 
-
+local hideUIstandby = function()
+{
+	local rs = BMvTbl.GetMvRoundStatus();
+	local mvs = BMvTbl.GetMvStatus();
+	if( rs.CharaMoveMode==_CharaMoveMode_Disable )
+	{
+		BMvTbl.JumpFrameID(-1);
+	}
+}
 
 
 
@@ -1598,7 +1606,11 @@ t.Mv_AssistUI <-
 		}
 		
 		BMvTbl.SetPosition( { x=pos.x, y=pos.y } );
-		BMvTbl.SetPrio( _CharaPrio_Near );
+		BMvTbl.SetPrio( _CharaPrio_Parent_BG );
+	}
+	function Update() : (hideUIstandby)
+	{
+		hideUIstandby();
 	}
 }
 
@@ -1637,6 +1649,9 @@ t.Mv_AssistHandle <-
 	
 	function FrameUpdate_After()
 	{
+		local rs = BMvTbl.GetMvRoundStatus();
+		local canmove = !(rs.CharaMoveMode==_CharaMoveMode_Disable);
+
 		local s = BMvTbl.GetMvStatus();
 		
 		local slot = BMvTbl.GetLP(0);
@@ -1646,7 +1661,7 @@ t.Mv_AssistHandle <-
 		
 		case 0:
 			local atime = BMvTbl.GetPP(21);
-			if(atime < 900)
+			if(atime < 900 && canmove)
 			{
 				BMvTbl.AddPP(21,1);
 			}
@@ -1655,7 +1670,7 @@ t.Mv_AssistHandle <-
 			
 		case 1:
 			local btime = BMvTbl.GetPP(25);
-			if(btime < 720)
+			if(btime < 720 && canmove)
 			{
 				BMvTbl.AddPP(25,1);
 			}
@@ -1664,7 +1679,7 @@ t.Mv_AssistHandle <-
 			
 		case 2:
 			local ctime = BMvTbl.GetPP(23);
-			if(ctime < 600)
+			if(ctime < 600 && canmove)
 			{
 				BMvTbl.AddPP(23,1);
 			}
@@ -1674,7 +1689,7 @@ t.Mv_AssistHandle <-
 		case 3:
 			local dtime = BMvTbl.GetPP(24);
 
-			if(dtime < 900)
+			if(dtime < 900 && canmove)
 			{
 				BMvTbl.AddPP(24,1);
 			}
@@ -1682,6 +1697,28 @@ t.Mv_AssistHandle <-
 			BMvTbl.SetScale({ x = dtime * (10000 / 900), y = 10000 });
 			break;
 		}
+	}
+	function Update() : (hideUIstandby)
+	{
+		hideUIstandby();
+	}
+}
+
+t.Mv_Standby <-
+{
+	function Init_After()
+	{
+		local vs = Battle_Std.GetEnemyCharaNo();
+		if( vs == Def_ChrNo_HydEX ) BMvTbl.SetFinalize(256);
+	}
+
+	function Finalize()
+	{
+		BMvTbl.SetPP(21,0);
+		BMvTbl.SetPP(25,0);
+		BMvTbl.SetPP(23,0);
+		BMvTbl.SetPP(24,0);
+		Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Intro_ExHyd"]);
 	}
 }
 
@@ -1735,7 +1772,7 @@ t.Mv_CardGuidee <-
 {
 	function Init()
 	{
-					BMvTbl.SetPrio( _CharaPrio_Near );
+		BMvTbl.SetPrio( _CharaPrio_Parent_BG );
 
 		BMvTbl.SetMuki( _Direction_Right );
 		local pl = BMvTbl.GetPlayerSide();
@@ -1767,6 +1804,7 @@ t.Mv_CardIdle <-
 {
 	function Init()
 	{
+		BMvTbl.SetPrio( _CharaPrio_Parent_BG );
 		BMvEff.SetObjectFlags( { flags=_ObjFlags_MoveTimeStopAll|_ObjFlags_NoGround|_ObjFlags_NoCamera|_ObjFlags_NoRenderOrder|_ObjFlags_NoRenderBlackOut } );
 		BMvTbl.SetMuki( _Direction_Right );
 		local pl = BMvTbl.GetPlayerSide();
@@ -1828,19 +1866,19 @@ t.Mv_CardIdle <-
 			BMvTbl.SetFinalize();
 		}
 	}
-	// function Update()
-	// {
-		// local rs = BMvTbl.GetMvRoundStatus();
-		// local hs = BMvTbl.GetMvHitStatus();
-		// local mvs = BMvTbl.GetMvStatus();
-		
-	// CharaMoveMode 0: The round has started. 1: You can control the character but you can't attack. 2: It's before the round starts and the gauge doesn't appear.
-
-		// if( rs.CharaMoveMode!=_CharaMoveMode_Disable && mvs.FrameID!=1 )
-		// {
-			// BMvTbl.JumpFrameID(1);
-		// }
-	// }
+	function Update()
+	{
+		local rs = BMvTbl.GetMvRoundStatus();
+		local mvs = BMvTbl.GetMvStatus();
+		if( rs.CharaMoveMode==_CharaMoveMode_Disable )
+		{
+			BMvTbl.SetDrawAlpha( { val=0, time=5 } );
+		}
+		else
+		{
+			BMvTbl.SetDrawAlpha( { val=255, time=5 } );
+		}
+	}
 	function Finalize()
 	{
 		BMvTbl.SetNextMoveTable( "Mv_CardManager" );
@@ -1984,6 +2022,14 @@ t.Mv_CardSelect <-
 	// }
 	function Update() // : ( BMode )
 	{
+
+		local rs = BMvTbl.GetMvRoundStatus();
+		local mvs = BMvTbl.GetMvStatus();
+		if( rs.CharaMoveMode==_CharaMoveMode_Disable )
+		{
+			BMvTbl.JumpFrameID(1);
+		}
+
 		local slot = BMvTbl.GetLP(3);
 	
 		local player = BMvCore.GetPlayerCharaData();
@@ -1998,6 +2044,7 @@ t.Mv_CardSelect <-
 			BMvTbl.SetLP(3, slot);
 			player.pop();
 			BMvTbl.SetLP(3, slot);
+			
 			
 			if (activate) {
 				BMvTbl.SetScale({ x = 2 * 10000, y = 2 * 10000 });
