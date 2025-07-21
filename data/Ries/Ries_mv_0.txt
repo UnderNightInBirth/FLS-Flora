@@ -346,7 +346,8 @@ t.Mv_Throw_A_Hit <-
                 {
                     BMvEff.AttackInfoString_Set({ word="THROW COUNTER"}); // Announce it
                     Battle_Std.PlayerSE_Play( 23 );
-                    Battle_Std.CreateObjectEX( { x=18000, y=-30000, datatype=1, pat=977} );
+                    // Battle_Std.CreateObjectEX( { x=18000, y=-30000, datatype=1, pat=977} );
+                    Battle_Std.CreateObjectEX( { x=18000, y=-30000, datatype=1, pat=376} );
                     Battle_Std.CreateObjectEX( { x=18000, y=-30000, datatype=1, pat=136} );
                 }
         }
