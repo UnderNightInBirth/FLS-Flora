@@ -1185,6 +1185,26 @@ t.Mv_Skill_623B <-
 	{
         Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<1), CheckFrameID=100, EndFrameID=150, SetPattern="623B_End" } );
 	}
+	function HitInterrupt_After()
+	{
+		if( BMvTbl.GetMvStatus().DataPattern == 131 && BMvEff.GRD_GetJudgeResult() > 0 )
+		{
+			local enemy = BMvCore.GetNearEnemyCharaData(); // ìGèÓïÒÇìæÇÈ
+			if( enemy.push() )
+			{
+				local bs = BtlMvStd.GetBoundStatus();
+				local wc = bs.WallCount;
+				// Battle_Std.AddVector_TargetXLen( { x=100*128, xlen=100*128, power_plus=-20, power_minus=200 } );
+				local now_vec = BMvTbl.GetPosition();
+				local muki = BMvTbl.GetMuki();
+				BMvTbl.SetVector( { x=-BMvEff.Random_Limit(48)*muki, y=-BMvEff.Random_Limit(64) flags=_VecFlag_Add} );
+				// local enemy_is_damage = false;
+				// enemy_is_damage = ( bs.isBound==1 );
+				BMvTbl.SetWallCount( 0 );
+				enemy.pop();
+			}
+		}
+	}
 	function Update()
 	{
 		local player = BMvCore.GetPlayerCharaData();
@@ -1757,13 +1777,13 @@ t.Mv_Startup <-
 		}
 		
 		// local heater = Battle_Std.CreateObjectEX( { mvname="Mv_HEAT" } );
-		local boing = Battle_Std.CreateObjectEX( { x=0, y=0, pat="Limit", objectflags=_ObjFlags_NoGround } );
-		if(boing.push())
-		{
+		// local boing = Battle_Std.CreateObjectEX( { x=0, y=0, pat="Limit", objectflags=_ObjFlags_NoGround } );
+		// if(boing.push())
+		// {
 
-			Battle_Std.SetPos_MarkingEnemy();
-			boing.pop();
-		}
+			// Battle_Std.SetPos_MarkingEnemy();
+			// boing.pop();
+		// }
 		
 	}
 }
