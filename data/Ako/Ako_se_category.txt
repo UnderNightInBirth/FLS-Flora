@@ -1,50 +1,297 @@
-Battle_Std.SeTable[Def_ChrNo_Ako] = {};
+Battle_Std.SeTable[Def_ChrNo_Ako] = {}
 local se = Battle_Std.SeTable[Def_ChrNo_Ako];
 
-se["æ±ºç€å‹åˆ©_é€šå¸¸"] <- {
+
+
+//intro
+se["“oê‚P"] <- {
+	selist = {
+		common = [100,101,102,103], 
+	},
+}
+
+se["“oê‚Q"] <- {//g‚Á‚Ä‚È‚¢
+	selist = {
+		common = [100,101,102,103], 
+	},
+}
+
+se["Œˆ’…Ÿ—˜_’Êí"] <- {
 	selist = {
 		common = [110,111], 
 	},
 }
 
-se["æ±ºç€å‹åˆ©_è¾›å‹"] <- {
+se["Œˆ’…Ÿ—˜_hŸ"] <- {
 	selist = {
 		common = [112], 
 	}
 }
 
-se["æ±ºç€å‹åˆ©_åœ§å‹"] <- {
+se["Œˆ’…Ÿ—˜_ˆ³Ÿ"] <- {
 	selist = {
 		common = [113],
 	}
 }
 
-se["ãƒ©ã‚¦ãƒ³ãƒ‰å‹åˆ©"] <- {
+se["ƒ‰ƒEƒ“ƒhŸ—˜"] <- {
 	selist = 
 	{
 		common = [122,123], 
 	}
 }
 
-se["æ±ºç€å‹åˆ©_ã‚¿ã‚¤ãƒ ã‚¢ãƒƒãƒ—"] <- {
+se["Œˆ’…Ÿ—˜_ƒ^ƒCƒ€ƒAƒbƒv"] <- {
 	selist = { common = [122,123], }
 }
 
+se["ƒ^ƒCƒ€ƒAƒbƒv”s–k"] <- {
+	selist = { common = [130,131], }
+}
 
-//ï¼’ï¼“ï¼–æ”»
-se["Mv_Atk_Cro3C"] <- 
+
+
+
+// NORM a b c
+se["—§‚¿ãUŒ‚"] <- {
+	Param0 = 10,
+	average = 75,
+	selist = { common = [140,143], }
+}
+se["—§‚¿’†UŒ‚"] <- {
+	
+	Param0=10,
+	average = 100,
+	selist = { common = [150,151,153], }
+}
+se["—§‚¿‹­UŒ‚"] <-
 [
 	{
 		Param0=10,
-		selist = { common = [510], }
+		selist = { common = [160,162], },
 	},
 	{
-		Param0=20, // ã‚¨ã‚¯ã‚¹ãƒ†ãƒ³ãƒ‰
-		selist = { common = [511], }
+		Param0=20, // ‚½‚ß
+		selist = { common = [163], }
+	}
+]
+se["‚µ‚á‚ª‚İãUŒ‚"] <- {
+	Param0=10,
+	average = 75,
+	selist = { common = [141,144], }
+}
+se["‚µ‚á‚ª‚İ’†UŒ‚"] <- {
+	Param0=10,
+	average = 100,
+	selist = { common = [152,154,155], }
+}
+se["‚µ‚á‚ª‚İ‹­UŒ‚"] <- {
+	Param0=10,
+	average = 100,
+	selist = { common = [170,161,166], }
+}
+se["ƒWƒƒƒ“ƒvãUŒ‚"] <- {
+	Param0=10,
+	average = 75,
+	selist = { common = [141,142], }
+}
+se["ƒWƒƒƒ“ƒv’†UŒ‚"] <- {
+	Param0=10,
+	average = 100,
+	selist = { common = [150,152,156], }
+}
+se["ƒWƒƒƒ“ƒv‹­UŒ‚"] <- {
+	Param0=10,
+	average = 100,
+	selist = { common = [160,164,165], }
+}
+
+
+
+se["“Š‚°¬Œ÷"] <- //throw hit
+[
+	{
+		Param0=10,
+		selist = { common = [180,182,184], }
+	},
+	{
+		LastSE=180
+		Param0=20,
+		selist = { common = [181,183], }
+	},
+	{
+		LastSE=182
+		Param0=20,
+		selist = { common = [181,183], }
+	},
+	{
+		LastSE=184
+		Param0=20,
+		selist = { common = [185], }
 	}
 ]
 
-//ï¼’ï¼“ï¼–æ”»
+se["“Š‚°”²‚¯"] <- { //Throw rel
+	selist = { common = [200,201], }
+}
+
+se["“Š‚°ƒXƒJ‚è"] <- { //Throw whiff 
+	selist = { common = [200,201], }
+}
+
+
+se["’§”­"] <- { //taunt
+	average = 100,
+	selist = { common = [210,211], }
+}
+
+se["ƒAƒTƒ‹ƒg"] <- { //assault
+	selist = { common = [220], }
+}
+
+
+se["‘Oƒ_ƒbƒVƒ…"] <- { //dash
+	average = 80,
+	selist = { common = [230,232], }
+}
+se["Œã‚ëƒ_ƒbƒVƒ…"] <- {
+	selist = { common = [240,241,242], }
+}
+
+
+//GUARD
+se["ƒK[ƒhã"] <- {
+	average = 50,
+	selist = { common = [250,251,252], }
+}
+
+se["ƒK[ƒh’†"] <- {
+	average = 75,
+	selist = { common = [260,261,262], }
+}
+
+se["ƒK[ƒh‹­"] <- {
+	average = 100,
+	selist = { common = [270,271,272], }
+}
+
+se["’†’iƒK[ƒh¬Œ÷"] <- {
+	selist = { common = [280,281,282], }
+}
+se["ƒK[ƒh¸”s"] <- {
+	selist = { common = [290,291,292], }
+}
+
+
+se["ó‚¯g"] <- { //ukemi
+	selist = { common = [300,301,302], }
+}
+
+
+//DMG
+se["‚â‚ç‚êã"] <- {
+	average = 50,
+	selist = { common = [330,331,332], }
+}
+
+se["‚â‚ç‚ê’†"] <- {
+	average = 75,
+	selist = { common = [340,341,342], }
+}
+
+se["‚â‚ç‚ê‹­"] <- {
+	average = 100,
+	selist = { common = [350,351,352], }
+}
+
+se["ƒ‰ƒEƒ“ƒh‚j‚n"] <- {
+	dying = 1,
+	average = 100,
+	selist = { common = [370,371,372], }
+}
+se["Œˆ’…‚j‚n"] <- {
+	dying = 1,
+	selist = { common = [380,381,382], }
+}
+
+se["‹N‚«ã‚ª‚è"] <- {
+	selist = { common = [390,391,392], }
+}
+
+
+//boom
+se["ƒ”ƒF[ƒ‹ƒIƒt"] <- {
+	selist = { common = [410,412], }
+}
+
+se["ƒ`ƒFƒCƒ“ƒVƒtƒg"] <- {
+	selist = { common = [420,421], }
+}
+
+se["ƒm[ƒ}ƒ‹ƒ`ƒFƒCƒ“ƒVƒtƒg"] <- {
+	selist = { common = [430,431,432], }
+}
+//support
+se["ƒTƒ|[ƒgŒÄ‚Ño‚µ"] <- {
+	selist = { common = [440,441,442], }
+}
+
+se["ƒTƒ|[ƒgŒÄ‚Ño‚µ_Rus"] <- {
+	selist = { common = [465,466,467], }
+}
+
+se["ƒ”ƒH[ƒpƒ‹"] <- {
+	selist = {
+		common = [470,471,472], 
+	}
+}
+
+se["ƒ”ƒH[ƒpƒ‹_•m€"] <- {
+	selist = {
+		common = [480,481,482], 
+	}
+}
+
+
+//-----------------------“Áê‹Z------------
+
+//-----------------•KE‹Z---------------------
+
+// ‘ŠE‹Z
+
+se["Mv_Atk_Std4C_FU"] <- 
+[
+	{
+		Param0=10,
+		selist = { common = [540,542,543], }
+	},
+]
+
+se["Mv_Atk_Std3C_FU"] <- 
+{
+	Param0=10,
+	average = 100,
+	selist = { common = [550,552], }
+}
+
+se["Mv_Skill_Sousai4_FU"] <- 
+{
+	Param0=10,
+	selist = { common = [176], }
+}
+
+se["Mv_Skill_Sousai4_Add_Init"] <-
+{
+	selist = { common = [177], }
+}
+
+se["Mv_Skill_SSRelayAtk_FU"] <- // change this to some booms too 
+{
+	selist = { common = [560,561,563], },
+	[561] = { delayframe = 18  },
+}
+
+//‚Q‚R‚UU
 se["Mv_Skill_236A_FU"] <- 
 [
 	{
@@ -52,7 +299,7 @@ se["Mv_Skill_236A_FU"] <-
 		selist = { common = [511], }
 	},
 	{
-		Param0=20, // ã‚¨ã‚¯ã‚¹ãƒ†ãƒ³ãƒ‰
+		Param0=20, // ƒGƒNƒXƒeƒ“ƒh
 		selist = { common = [511], }
 	}
 ]
@@ -64,7 +311,7 @@ se["Mv_Skill_236B_FU"] <-
 		selist = { common = [510], }
 	},
 	{
-		Param0=20, // ã‚¨ã‚¯ã‚¹ãƒ†ãƒ³ãƒ‰
+		Param0=20, // ƒGƒNƒXƒeƒ“ƒh
 		selist = { common = [510], }
 	}
 ]
@@ -76,7 +323,7 @@ se["Mv_Skill_236C_FU"] <-
 		selist = { common = [512], }
 	},
 	{
-		Param0=20, // ã‚¨ã‚¯ã‚¹ãƒ†ãƒ³ãƒ‰
+		Param0=20, // ƒGƒNƒXƒeƒ“ƒh
 		selist = { common = [512], }
 	}
 ]
@@ -86,7 +333,7 @@ se["Mv_Skill_236EX_Init"] <- {
 	selist = { common = [513], }
 }
 
-//ç©ºä¸­ï¼’ï¼“ï¼–æ”»
+//‹ó’†‚Q‚R‚UU
 se["Mv_Skill_J236A_FU"] <- 
 [
 	{
@@ -94,7 +341,7 @@ se["Mv_Skill_J236A_FU"] <-
 		selist = { common = [511], }
 	},
 	{
-		Param0=20, // ã‚¨ã‚¯ã‚¹ãƒ†ãƒ³ãƒ‰
+		Param0=20, // ƒGƒNƒXƒeƒ“ƒh
 		selist = { common = [511], }
 	}
 ]
@@ -106,7 +353,7 @@ se["Mv_Skill_J236B_FU"] <-
 		selist = { common = [510], }
 	},
 	{
-		Param0=20, // ã‚¨ã‚¯ã‚¹ãƒ†ãƒ³ãƒ‰
+		Param0=20, // ƒGƒNƒXƒeƒ“ƒh
 		selist = { common = [510], }
 	}
 ]
@@ -118,7 +365,7 @@ se["Mv_Skill_J236C_FU"] <-
 		selist = { common = [512], }
 	},
 	{
-		Param0=20, // ã‚¨ã‚¯ã‚¹ãƒ†ãƒ³ãƒ‰
+		Param0=20, // ƒGƒNƒXƒeƒ“ƒh
 		selist = { common = [512], }
 	}
 ]
@@ -128,7 +375,7 @@ se["Mv_Skill_J236EX_Init"] <- {
 	selist = { common = [513], }
 }
 
-//ï¼’ï¼‘ï¼”æ”»
+//‚Q‚P‚SU
 se["214Heal"] <- {
 	selist = { common = [520,521], }
 }
@@ -145,7 +392,7 @@ se["214ExBuff"] <- {
 	selist = { common = [411], }
 }
 
-// J214åŠŸ
+// J214Œ÷
 se["Mv_Skill_J214A_FU"] <- 
 [
 	{
@@ -226,12 +473,12 @@ se["Mv_Skill_63214SP_Hit_FU"] <-
 [
 	{
 		Param0 = 10,
-		selist = { common = [533], }, // ä¹±æ‰“
+		selist = { common = [533], }, // —‘Å
 		[533] = { delayframe = 5  },
 	},
 	// {
 		// Param0 = 50,
-		// selist = { common = [591,594,597], } // ã‚½ã‚¤ãƒ¤ãŒã‚ã‚‹ã®ã§ã‚¹ã‚¯ãƒªãƒ—ãƒˆã§å†ç”Ÿ
+		// selist = { common = [591,594,597], } // ƒ\ƒCƒ„‚ª‚ ‚é‚Ì‚ÅƒXƒNƒŠƒvƒg‚ÅÄ¶
 	// },
 	{
 		Param0 = 100,
