@@ -26,7 +26,22 @@ st[72] = { volumetype=0, path=1, file="072", type=1, category=1, };
 
 st[80] = { volumetype=0, path=1, file="se/SE_BTL_CMN_Swing_Hammer_Heavy_L_b", type=1, category=1, };
 
+
+//b
+st[113] = { volumetype=0, path=1, file="alleyoop", type=0, category=3, };
+st[114] = { volumetype=0, path=1, file="desu", type=0, category=3, };
+st[115] = { volumetype=0, path=1, file="toes", type=0, category=3, };
+st[116] = { volumetype=0, path=1, file="tooie", type=0, category=3, };
+
+
+//c
+st[137] = { volumetype=0, path=1, file="hoo2", type=0, category=3, };
+st[138] = { volumetype=0, path=1, file="yo", type=0, category=3, };
+st[139] = { volumetype=0, path=1, file="hmmm", type=0, category=3, };
+
 st[142] = { volumetype=0, path=1, file="GRR", type=0, category=3, };
+st[140] = { volumetype=0, path=1, file="c_you", type=0, category=3, };
+st[141] = { volumetype=0, path=1, file="c_stay", type=0, category=3, };
 
 st[500] = { volumetype=0, path=1, file="HELP", type=0, category=3, };
 st[501] = { volumetype=0, path=1, file="HELP2", type=0, category=3, };

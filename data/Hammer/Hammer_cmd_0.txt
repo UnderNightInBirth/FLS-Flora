@@ -58,11 +58,11 @@ local t =
 		// },
 	// },
 
-	Atk_Std1C = { command = ["1+C"], },
+	// Atk_Std1C = { command = ["1+C"], },
 	//Atk_Std2C = {},
-	Atk_Air2B = {},
+	// Atk_Air2B = {},
 	Atk_Air2C = {},
-	Atk_Std3C = {},
+	// Atk_Std3C = {},
 	Atk_Std4C = {},
 	// Atk_StdB = { 
 		// CmdBeforeStdFunc = function()
@@ -77,9 +77,9 @@ local t =
 		// },
 	// },
 	Atk_Std6C = {},
-	Atk_Std7C = {},
-	Atk_Std8C = {},
-	Atk_Std9C = {},
+	// Atk_Std7C = {},
+	// Atk_Std8C = {},
+	// Atk_Std9C = {},
 	//TobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_FuncTobiParam_Func
 	
 	Skill_StdC_AddC = 
@@ -165,7 +165,7 @@ local t =
 	// },
 	// Atk_Air4C = {},
 	// Atk_AirC = {},
-	Atk_Air6C = {},
+	// Atk_Air6C = {},
 	// Atk_Air7C = {},
 	// Atk_Air8C = {},
 	// Atk_Air9C = {},
@@ -277,6 +277,15 @@ local t =
 		UpdateTable = { name = "Mv_Skill_Romantic", }
 	},	
 	// Skill_236EX = {},
+	
+	
+	
+	// Assault_Std =
+	// {
+
+		// CmdCheck = { SkillType = "Normal", MvCheck = { Fail = ["Mv_Assault_Std","Mv_Assault_Air"] }, },
+	// }
+	
 	
 }
 

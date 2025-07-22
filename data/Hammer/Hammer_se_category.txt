@@ -3,8 +3,16 @@ local se = Battle_Std.SeTable[Def_ChrNo_Fat];
 
 
 
+se["Mv_Atk_Std4C_FU"] <-  { Param0=10, selist = { common = [140], } };
+se["Mv_Atk_Std4C_Hit_FU"] <-  { Param0=20, selist = { common = [141], } };
+
 se["Mv_Atk_Air2C_FU"] <-  { Param0=20, selist = { common = [142], } };
 
+se["‚µ‚á‚ª‚Ý’†UŒ‚"] <- { Param0=10, selist = { common = [115,116], } };
+se["ƒWƒƒƒ“ƒv’†UŒ‚"] <- { Param0=10, selist = { common = [113,114], } };
+
+se["ƒWƒƒƒ“ƒv‹­UŒ‚"] <- [ { Param0=10, selist = { common = [137,138], } },
+                       { Param0=20, selist = { common = [139], } } ];
 
 se["Mv_Skill_236A_FU"] <-  { Param0=10, selist = { common = [500,501,502,503], } };
 

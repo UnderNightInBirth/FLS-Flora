@@ -9,11 +9,11 @@ Battle_Status <-
 	HpDivValue = [ 11000 ],
 	
 	
-	Liberate_AttackPlusVal	= 200, // Liberateó‘Ô‚Å‚ÌUŒ‚—Í‘‰ÁŒW”
-		Liberate_SpMinusVal_CVO	= 400, // ƒQ[ƒWg—p‹Z‚Å‚ÌŒ¸­AOverLiberate_Minus ‚¢‚­‚Â‚Ô‚ñŒ¸‚ç‚·‚©
-		Liberate_SpMinusVal_DangerCVO = 200, // ƒQ[ƒWg—p‹Z‚Å‚ÌŒ¸­AOverLiberate_Minus ‚¢‚­‚Â‚Ô‚ñŒ¸‚ç‚·‚©
+	// Liberate_AttackPlusVal	= 200, // Liberateó‘Ô‚Å‚ÌUŒ‚—Í‘‰ÁŒW”
+		// Liberate_SpMinusVal_CVO	= 400, // ƒQ[ƒWg—p‹Z‚Å‚ÌŒ¸­AOverLiberate_Minus ‚¢‚­‚Â‚Ô‚ñŒ¸‚ç‚·‚©
+		// Liberate_SpMinusVal_DangerCVO = 200, // ƒQ[ƒWg—p‹Z‚Å‚ÌŒ¸­AOverLiberate_Minus ‚¢‚­‚Â‚Ô‚ñŒ¸‚ç‚·‚©
 		
-		SpGauge_PlusVal = 200, // EXSƒQ[ƒWu‘‰ÁvŒW”@‘S•”‚¾‚ÆƒQ[ƒWÁ”ï—Ê‚Æ‚©‚É‚à‰e‹¿‚µ‚Ä‚µ‚Ü‚¤‚Ì‚ÅA‚Æ‚è‚ ‚¦
+		// SpGauge_PlusVal = 200, // EXSƒQ[ƒWu‘‰ÁvŒW”@‘S•”‚¾‚ÆƒQ[ƒWÁ”ï—Ê‚Æ‚©‚É‚à‰e‹¿‚µ‚Ä‚µ‚Ü‚¤‚Ì‚ÅA‚Æ‚è‚ ‚¦
 
 }
 

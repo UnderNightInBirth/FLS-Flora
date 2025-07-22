@@ -1478,6 +1478,14 @@ SpellCard.DashCancel <- function()
 	Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoSkill);
 }
 
+SpellCard.JumpCancel <- function()
+{
+	local pat = 36;
+	if( BMvTbl.CheckStickHold( (1<<4) | (1<<7) | (1<<1) ) ) pat = 37;
+	if( BMvTbl.CheckStickHold( (1<<6) | (1<<9) | (1<<3) ) ) pat = 35
+	BMvTbl.SetPattern(pat);
+}
+
 // SpellCard.SacrificialDoll <- function() {}
 // SpellCard.Grimoire <- function() {}
 // SpellCard.CustomParasol <- function() {}
@@ -2133,7 +2141,8 @@ t.Mv_Atk_StdBandC <-
 		    // SpellCard.Umbrella();
 		    // SpellCard.DragonStar();
 		    // SpellCard.ScarletPerception();
-		    SpellCard.RecoveryCharm();
+		    // SpellCard.RecoveryCharm();
+		    SpellCard.JumpCancel();
 
             // BMvTbl.SetPattern("FoldingFan");
             // Battle_Std.SwitchNextMoveTable("Mv_FoldingFan");
