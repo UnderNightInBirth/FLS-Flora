@@ -190,17 +190,17 @@ se["ó‚¯g"] <- { //ukemi
 
 //DMG
 se["‚â‚ç‚êã"] <- {
-	average = 50,
+	average = 30,
 	selist = { common = [330,331,332], }
 }
 
 se["‚â‚ç‚ê’†"] <- {
-	average = 75,
+	average = 40,
 	selist = { common = [340,341,342], }
 }
 
 se["‚â‚ç‚ê‹­"] <- {
-	average = 100,
+	average = 50,
 	selist = { common = [350,351,352], }
 }
 
