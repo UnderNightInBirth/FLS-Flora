@@ -826,6 +826,13 @@ t.Mv_Skill_214A <-
 
 t.Mv_Skill_214B <-
 {
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			Battle_Std.SetPosition_DamageHanteiRect({ power=32, flags=(1<<0) }); // not the y coord
+		}
+	}
 }
 
 t.Mv_Skill_214EX <-
