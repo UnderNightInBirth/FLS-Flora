@@ -4,6 +4,69 @@ local t = {};
 // 固有関数
 //-----------------------------------------------------------------------------
 
+
+t.Mv_Atk_DashStdC <-
+{
+	function FrameUpdate_After()
+	{
+	    local pos = BMvTbl.GetPosition();
+        local p_muki = BMvTbl.GetMuki();
+		
+        local corner_distance = Battle_Std.GetFrontCornerDistance();
+					BMvEff.AttackInfoString_Set({word=corner_distance});		
+
+		if( corner_distance < 1000 || BMvTbl.GetMvStatus().MvCount > 200)
+		{
+			BMvTbl.SetFinalize();
+		}
+	}
+	function HitInterrupt_After()
+	{
+        if( Battle_Std.CheckDamageTiming() )
+        {
+			BMvTbl.SetPattern("DashC_Hit");
+            Battle_Std.SwitchNextMoveTable("Mv_Skill_DashC_Hit");
+        }
+	}
+	function Finalize_After()
+	{
+		Battle_Std.SwitchNextMoveTable("Mv_Skill_DashC_Miss");
+	}	
+}
+
+t.Mv_Skill_DashC_Hit <-
+{ // this sucks dong TODO: bring it bcak to a hitgrab so cvo works
+	function Init()
+	{
+	    BMvEff.ThrowChara_SetJoint( 0 );
+	}
+	function FrameUpdate_After()
+	{
+
+		Battle_Std.MoveCodeEx.AddFlag( 2, def_MC2_EnableCVO_OnlyCS);
+		Battle_Std.MoveCodeEx.AddFlag( 7, def_MC7_AnyCancelGRD );
+		switch( Battle_Std.GetUpdateFrameID() )
+        {
+        case 10:
+			// BMvEff.ThrowRelease( { type="追撃ダウン", airrecover=0, flags=_ThrowRelease_NoGroundRecover|_ThrowRelease_NoWallRecover|_ThrowRelease_NoVecTimeaddflagHosei } )
+			break;
+		}
+	}
+	function LastUpdate_After()
+	{
+		Battle_Std.SwitchNextMoveTable("Mv_Neutral");
+	}
+}
+
+t.Mv_Skill_DashC_Miss <-
+{
+	function LastUpdate_After()
+	{
+		Battle_Std.SwitchNextMoveTable("Mv_Neutral");
+	}
+}
+
+
 // Vorpal Lower Jump Arc
 local VTrait = function()
 {
@@ -81,7 +144,7 @@ t.Mv_RoundWinPattern <- //決着勝利アニメ
 		else
 		{
 			BSound.SE_Play( { type=_SeType_Player, num=16 } );
-			BMvEff.Chara_SetMessage( 640, 640-20, "Evil Ryu: I will stop your heartbeat!", 150, 0 );
+			BMvEff.Chara_SetMessage( 640, 640-20, "FLS Ryu: I will stop your heartbeat!", 150, 0 );
 		}
 	}
 }
@@ -99,7 +162,7 @@ t.Mv_WinPattern <-
 		else
 		{
 			BSound.SE_Play( { type=_SeType_Player, num=16 } );
-			BMvEff.Chara_SetMessage( 640, 640-20, "Evil Ryu: I will stop your heartbeat!", 150, 0 );
+			BMvEff.Chara_SetMessage( 640, 640-20, "FLS Ryu: I will stop your heartbeat!", 150, 0 );
 		}
 	}
 }
@@ -220,6 +283,14 @@ t.Mv_Atk_Std6B <-
 	function Init_After()
 	{
 		Battle_Std.MoveCode.AddFlag( def_MC_Atk ); // 行動コードを追加
+	}
+}
+
+t.Mv_Atk_Std4C <-
+{
+	function FrameUpdate_After()
+	{
+        Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<2), CheckFrameID=10, SetPattern="4C_End" } );
 	}
 }
 
@@ -657,7 +728,8 @@ t.Mv_Skill_41236SP_Hit <-
 				//BMvEff.ThrowRelease( { type="崩れ落ちダウン", airrecover=0, flags=_ThrowRelease_ReverseVec|_ThrowRelease_NoGroundRecover } );
 				if(rs.isKo)
 				{
-					BMvEff.Chara_SetMessage( 640, 640-20, "Evil Ryu: I have mastered my fist!", 120, 0 );
+					BMvEff.Cockpit_SetView( { mode=2 } );
+					BMvEff.Chara_SetMessage( 640, 640-20, "FLS Ryu: I have mastered my fist!", 120, 0 );
 					BMvTbl.SetLP(13,1)
 					BMvTbl.JumpFrameID(1025);
 					BMvTbl.SetPattern("41236SP_Win");

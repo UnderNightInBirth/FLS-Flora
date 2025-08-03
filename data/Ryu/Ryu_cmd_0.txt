@@ -1,30 +1,5 @@
 local t =
-{
-	Atk_DashStdC_Normal = {
-		function CmdBeforeFunc()
-		{
-			return 0;
-		}
-	},
-	Atk_DashStdB_Normal = {
-		function CmdBeforeFunc()
-		{
-			return 0;
-		}
-	},
-	Atk_DashStdC_Direct = {
-		function CmdBeforeFunc()
-		{
-			return 0;
-		}
-	},
-	Atk_DashStdB_Direct = {
-		function CmdBeforeFunc()
-		{
-			return 0;
-		}
-	},
-	
+{	
 	Skill_DyingIWEAtk = {
 		function CmdBeforeFunc()
 		{
@@ -39,12 +14,6 @@ local t =
 		}
 	},
 	DirectSSSkill = {
-		function CmdBeforeFunc()
-		{
-			return 0;
-		}
-	},
-	ForwardShift = {
 		function CmdBeforeFunc()
 		{
 			return 0;
