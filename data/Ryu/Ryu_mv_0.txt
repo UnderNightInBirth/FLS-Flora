@@ -452,16 +452,52 @@ t.Mv_Skill_236B <-
 
 t.Mv_Skill_236EX <-
 {
+	function Init_After()
+	{
+
+	}
 	function FrameUpdate_After()
 	{
 		switch( Battle_Std.GetUpdateFrameID() )
 		{
+		// case 50:
+			// local eff = BMvEff.CreateObject( { mvname="Mv_HadoEX", start_pat="HadoEX" } );
+			// if( eff.push() )
+			// {
+				// // BMvEff.SetObjectFlags( { flags=_ObjFlags_ToParentHitStatus } );
+				// BMvTbl.SetPosition( { x=250, y=230, flags=_Position_ToolShift } );
+				// eff.pop();
+			// }
+			// break;
 		case 100:
-			Battle_Std.CreateFireBall({ x=170, y=-230, mv="Mv_FireBall_236EX", pat="HadoEXTama", vec={x=2250}, ball=5 });		
+			
+			// Battle_Std.CreateFireBall({ x=170, y=-230, mv="Mv_FireBall_236EX", pat="HadoEXTama", vec={x=2250}, ball=5 });		
 			break;
 		}
 	}
+
 }
+
+// t.Mv_Obj_HadoEX <-
+// {
+	// function Init_After()
+	// {
+	
+	// }
+	// function HitInterrupt_After()
+	// {
+		// // local dmg_val = ( vpdamage > 0 && BMvEff.GRD_GetJudgeResult() > 0 )? vpdamage : damage;
+		// if( Battle_Std.CheckGuardTiming() )
+		// {
+			// local enemy = BMvCore.GetEnemyCharaData();
+			// if( enemy.push() )
+			// {
+				// Battle_Std.SetKezurareDamage( 3000 );
+				// enemy.pop();
+			// }
+		// }
+	// }	
+// }
 
 //-----------------------------------------------------------------------------
 // J236çU
