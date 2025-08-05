@@ -68,13 +68,14 @@ t.Mv_Skill_DashC_Miss <-
 
 
 // Vorpal Lower Jump Arc
+// this isn't a popular buff actually. TODO?
 local VTrait = function()
 {
     local win = BMvEff.GRD_GetJudgeResult() > 0;
 
     if( win )
     {
-		BMvTbl.SetVector( { y=60, flags=_Vector_Normal|_VecFlag_Add } );
+		// BMvTbl.SetVector( { y=60, flags=_Vector_Normal|_VecFlag_Add } );
     }
 }
 
@@ -383,6 +384,14 @@ t.Mv_Atk_CroC <-
 	function Init_After()
 	{
 		BMvTbl.SetHitCheckFlag( { type=1, val=_HitCheckFlag_Legs, time=255, flag=_ClearFlag_ChangeMv } ); // ‘«–³“G‚ÉƒXƒJ‚é
+	}
+}
+
+t.Mv_Atk_Cro3C <-
+{
+	function FrameUpdate_After()
+	{
+		Battle_Std.SetHitMuteki( 1, 8, _HitCheckFlag_Head ); // head invuln
 	}
 }
 
@@ -898,6 +907,7 @@ t.Mv_Atk_StdBandC <-
 	function FrameUpdate_After()
 	{
 		BMvTbl.SetMuki(_Direction_Auto );	
+		Battle_Std.SetHitMutekiParam1( { [40]=_HitCheckFlag_FireBall, [32]=_HitCheckFlag_FireBall } ); // anti projectile
 	}
 	function LastUpdate_After()
 	{
@@ -905,7 +915,7 @@ t.Mv_Atk_StdBandC <-
 	}
 }
 
-t.Mv_Atk_CroBandC <-
+t.Mv_Atk_CroBandC <- //why?
 {
 	function Init_After()
 	{
@@ -914,6 +924,7 @@ t.Mv_Atk_CroBandC <-
 	function FrameUpdate_After()
 	{
 		BMvTbl.SetMuki(_Direction_Auto );	
+		Battle_Std.SetHitMutekiParam1( { [40]=_HitCheckFlag_FireBall, [32]=_HitCheckFlag_FireBall } );
 	}
 	function LastUpdate_After()
 	{
@@ -1080,7 +1091,7 @@ t.Mv_Skill_623EX <-
 		switch( Battle_Std.GetUpdateFrameID() )
 		{
 			case 10:
-				if ( BMvEff.GRD_GetJudgeResult() )
+				if ( BMvEff.GRD_GetJudgeResult() > 0 )
 				{
 					BMvTbl.SetMuki(_Direction_Auto );
 				}
