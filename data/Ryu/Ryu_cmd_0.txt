@@ -6,19 +6,7 @@ local t =
 			return 0;
 		}
 	},
-	
-	Skill_SSRelayAtk = {
-		function CmdBeforeFunc()
-		{
-			return 0;
-		}
-	},
-	DirectSSSkill = {
-		function CmdBeforeFunc()
-		{
-			return 0;
-		}
-	},
+
 	
 	
 	Atk_StdBandC = {},
@@ -112,34 +100,35 @@ local ar =
 		UpdateMoveName="Mv_Atk_StdB",
 	},
 	{
-		CheckMoveName="Mv_Atk_StdB",
-		UpdateMoveName="Mv_Atk_Cro3B",
 		ResetTmplName="Atk_StdB",
-	},
-	{
-		CheckMoveName="Mv_Atk_Cro3B",
+		CheckMoveName="Mv_Atk_StdB",
 		UpdateMoveName="Mv_Atk_StdC",
-		ResetTmplName="Atk_Cro3B",
 	},
 	{
+		ResetTmplName="Atk_StdC",
 		CheckMoveName="Mv_Atk_StdC",
 		UpdateMoveName="Mv_Skill_41236A",
-		ResetTmplName="Atk_StdC",
-		CmdTmplFlags=def_CMDFlags_AnnounceSmaetSteer, //スマートステアアナウンスの追加
 	},
 	{
-		CheckMoveName="Mv_Skill_41236A",
-		UpdateMoveName="Mv_Skill_623EX",
 		ResetTmplName="Skill_41236A",
+		CheckMoveName="Mv_Skill_41236A",
+		UpdateMoveName="Mv_Skill_SSRelayAtk",
 		CmdCheck = 
 		{
-			Cost = { ComboGauge = 10000 },
-			SkillType = "ExSpecial",
-			HitStatus="Hit",
-			FrameIDCheck = { Only = 100 },
-		},
+			SkillType = "AddCommand",
+		}
+		CmdTmplFlags=def_CMDFlags_AnnounceSmaetSteer,
 	},
-
+	{
+		CheckMoveName="Mv_Skill_SSRelayAtk",
+		UpdateMoveName="Mv_Skill_41236SP",
+		CmdCheck = 
+		{
+			Cost = { ComboGauge = 20000 },
+			SkillType = "SpSpecial",
+			HitStatus="Damage",
+		}
+	},
 ]
 Battle_Std.MakeStdCombo( t, ar );
 
