@@ -1712,6 +1712,10 @@ CommonStandbyParams[32] = // hammer
 
 CommonStandbyParams[39] = // exhyd
 [
+	{ WaitPAT = 51, timeline = [ { delay=186, SE=101, time=186 }, ], }, // �u�ז�������Ȃ�c�Еt����܂ł��I�v
+	{ WaitPAT = 50, timeline = [ { delay=124, SE=102, time=124 }, ], }, // �u�c�c���̗͂ŏI��点�Ă��I�v
+	{ WaitPAT = 51, timeline = [ { delay=146, SE=103, time=146 }, ], }, // �u�I���̗́c�c�����Ă��I�v
+	
 	{
 		Enemy=[32], WaitPAT = [905,906],
 		duet_timeline =

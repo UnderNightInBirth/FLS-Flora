@@ -134,17 +134,17 @@ st[121] =	{  file=anopath+"sys_010_s_0221", type=0, volumetype=1  }; //
 st[122] =	{  file=anopath+"sys_010_s_0222", type=0, volumetype=1  }; // 
 st[123] =	{  file=anopath+"sys_010_s_0223", type=0, volumetype=1  }; // 
 st[124] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // 
-st[125] =	{  file=anopath+"sys_010_s_0225", type=0, volumetype=1  }; // Winner
+st[125] =	{  file=anopath+"sys_010_s_0225", type=0, volumetype=1  }; // ogre
 
-st[125] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // Winner
-st[126] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // Winner
-st[127] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // Winner
-st[128] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // Winner
-st[129] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // Winner
-st[130] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // Winner
+// st[126] probaly izumi
+st[127] =	{  file=path+"winna", type=0, volumetype=1  }; // ries
+st[128] =	{  file=path+"winna", type=0, volumetype=1  }; // ing
+st[129] =	{  file=path+"winna", type=0, volumetype=1  }; // ryu
+st[130] =	{  file=path+"winna", type=0, volumetype=1  }; // dante
 
-st[131] =	{  file=anopath+"sys_010_s_0301", type=-1, volumetype=1  }; // カウンターヒット
-st[132] =	{  file=anopath+"sys_010_s_0303", type=-1, volumetype=1  }; // 投げぬけ
+st[131] =	{  file=anopath+"sys_010_s_0301", type=-1, volumetype=1  }; // カウンターヒット + ako oops
+st[132] =	{  file=anopath+"sys_010_s_0303", type=-1, volumetype=1  }; // 投げぬけ + hammer oops
+// this will probably need exe hacking with lots of cases unless you can screw around with the mv, TODO
 
 st[140] =	{  file=path+"SE140_System_AddCredit", type=0, nomute=1, volumetype=0 }; // クレジットSE（アドバタイズ制限から除外
 st[143] =	{  file=MOD+"041", type=1, volumetype=0  }; // キャンセル
