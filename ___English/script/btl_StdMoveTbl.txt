@@ -1712,9 +1712,10 @@ CommonStandbyParams[32] = // hammer
 
 CommonStandbyParams[39] = // exhyd
 [
-	{ WaitPAT = 51, timeline = [ { delay=186, SE=101, time=186 }, ], }, // ï¿½uï¿½×–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½cï¿½Ğ•tï¿½ï¿½ï¿½ï¿½Ü‚Å‚ï¿½ï¿½Iï¿½v
-	{ WaitPAT = 50, timeline = [ { delay=124, SE=102, time=124 }, ], }, // ï¿½uï¿½cï¿½cï¿½ï¿½ï¿½Ì—Í‚ÅIï¿½ï¿½ç‚¹ï¿½Ä‚ï¿½ï¿½Iï¿½v
-	{ WaitPAT = 51, timeline = [ { delay=146, SE=103, time=146 }, ], }, // ï¿½uï¿½Iï¿½ï¿½ï¿½Ì—Ícï¿½cï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Iï¿½v
+	{ WaitPAT = 50, timeline = [ { delay=112, SE=100, time=112 }, ], }, // uo‚ëI@ƒCƒ“ƒXƒŒ[ƒ^[Iv
+	{ WaitPAT = 51, timeline = [ { delay=186, SE=101, time=186 }, ], }, // u×–‚‚ğ‚·‚é‚È‚çc•Ğ•t‚¯‚é‚Ü‚Å‚¾Iv
+	{ WaitPAT = 50, timeline = [ { delay=124, SE=102, time=124 }, ], }, // ucc‚±‚Ì—Í‚ÅI‚í‚ç‚¹‚Ä‚â‚éIv
+	{ WaitPAT = 51, timeline = [ { delay=146, SE=103, time=146 }, ], }, // uƒIƒŒ‚Ì—ÍccŒ©‚¹‚Ä‚â‚éIv
 	
 	{
 		Enemy=[32], WaitPAT = [905,906],

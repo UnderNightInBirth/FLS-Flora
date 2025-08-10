@@ -5,6 +5,7 @@ FileNum= 1
 File00=csel_HydEX.ha6
 [BmpcutFile]
 FileNum= 1
-File00=../HydEX/HydEX.cg
+File00=csel_HydEX.cg
 [PAniFile]
-FileNum= 0
+FileNum= 1
+File00=csel_HydEX.pat
