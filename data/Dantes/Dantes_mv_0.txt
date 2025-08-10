@@ -84,7 +84,7 @@ t.Mv_Obj_BlackGrudge <- // Add HP drain to the enemy when they're hit in vorpal 
 				}				
 				if (BMvTbl.GetLP(12) % 19 == 0) // every 19f
 				{
-					BMvEff.SetCharaColor( { color = 0x777777, type = 2, intime = 20, time = 20 } );
+					BMvEff.SetCharaColor( { color = 0xFF0D47A1, type = 2, intime = 20, time = 20 } );
 					Battle_Std.CreateObjectEX( { x = BMvEff.Random_Limit(180) - 100, y = BMvEff.Random_Limit(300)-320, datatype=1, pat=143, flags=_Position_ToolShift } );
 				}
 		
@@ -1486,6 +1486,17 @@ local maketmpl_SkillAirDashPunch = function( param={} )
 	
 	return ret_tmpl;
 
+}
+
+t.Mv_Atk_RapidRelayAtk <-
+{
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			Battle_Std.SetPosition_DamageHanteiRect({ power=80, });
+		}
+	}
 }
 
 t.Mv_Skill_J214A <- maketmpl_SkillAirDashPunch( { type="A" } );
