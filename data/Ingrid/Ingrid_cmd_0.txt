@@ -5,12 +5,21 @@ local t =
 	MultiJump_N = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, } },
 	MultiJump_B = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, } },
 
-	MultiJumpCancel_F = { function CmdBeforeFunc()
-	{ if (BMvEff.GRD_GetJudgeResult()<=0) {return 0}; } },
-	MultiJumpCancel_N = { function CmdBeforeFunc()
-	{ if (BMvEff.GRD_GetJudgeResult()<=0) {return 0}; } },
-	MultiJumpCancel_B = { function CmdBeforeFunc()
-	{ if (BMvEff.GRD_GetJudgeResult()<=0) {return 0}; } },
+	MultiJumpCancel_F = {
+		function CmdBeforeFunc()
+		{ if (BMvEff.GRD_GetJudgeResult()<=0) {return 0}; }
+		CmdCheck = { HitStatus="Hit" },
+	},
+	MultiJumpCancel_N = {
+		function CmdBeforeFunc()
+		{ if (BMvEff.GRD_GetJudgeResult()<=0) {return 0}; }
+		CmdCheck = { HitStatus="Hit" },
+	},
+	MultiJumpCancel_B = {
+		function CmdBeforeFunc()
+		{ if (BMvEff.GRD_GetJudgeResult()<=0) {return 0}; }
+		CmdCheck = { HitStatus="Hit" },
+	},
 
 	Skill_236236EX =
     {
@@ -31,6 +40,12 @@ local t =
         //command = ["6+A"],
         //CmdCheck = { SkillType = "SpecialAdd", MvCheck={ Only = ["Mv_Skill_214A"] } },
 	},
+
+
+
+    Skill_J236A = { },
+    Skill_J236B = { },
+    Skill_J236C = { },
 
 	
 
@@ -128,11 +143,11 @@ local ar =
 	{
 		ResetTmplName="Atk_StdB",
 		CheckMoveName="Mv_Atk_StdB",
-		UpdateMoveName="Mv_Atk_Std6C",
+		UpdateMoveName="Mv_Atk_StdC",
 	},
 	{
-		ResetTmplName="Atk_Std6C",
-		CheckMoveName="Mv_Atk_Std6C",
+		ResetTmplName="Atk_StdC",
+		CheckMoveName="Mv_Atk_StdC",
 		UpdateMoveName="Mv_Skill_236A",
 	},
 	{
