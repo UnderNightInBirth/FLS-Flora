@@ -1,3 +1,6 @@
+//コマンドテーブル skillは格ゲーコマンド表記
+btl_debPrint2("\n[HYD_CommandTable]");
+
 local t =
 {
 	Skill_41236SP_ABC = {},
