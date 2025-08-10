@@ -1,6 +1,3 @@
-//コマンドテーブル skillは格ゲーコマンド表記
-btl_debPrint2("\n[HYD_CommandTable]");
-
 local t =
 {
 	Skill_41236SP_ABC = {},
@@ -15,7 +12,7 @@ local t =
 	Skill_236A_Add =
 	{
 		num = def_CN_Skill_AddCommand1,
-		command = ["0+A"],
+		command = ["6+A"],
 		CmdCheck =
 		{
 			SkillType = "AddCommand"
@@ -63,7 +60,7 @@ local t =
 	Skill_236B_Add =
 	{
 		num = def_CN_Skill_AddCommand1,
-		command = ["0+B"],
+		command = ["6+B"],
 		CmdCheck =
 		{
 			SkillType = "AddCommand"
