@@ -21,7 +21,7 @@ local t = {};
 // LP 24 - Assist D
 //
 // LP 30 - 214BC Enemy Capture
-//
+// LP 31 - Shinken count
 //
 //
 
@@ -947,6 +947,14 @@ t.Mv_Atk_CroA <-
 		// enemy.pop();
 	// }
 // }
+
+t.Mv_Atk_AirB <-
+{
+    function FrameUpdate_After()
+    {
+		Battle_Std.SetPattern_NotHoldButton({ ButtonMask=(1<<1), CheckFrameID=10, EndFrameID=20, SetPattern="JB_End" } );
+    }
+}
 
 t.Mv_Atk_AirC <-
 {
