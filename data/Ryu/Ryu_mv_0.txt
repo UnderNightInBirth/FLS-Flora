@@ -927,6 +927,12 @@ t.Mv_Atk_StdBandC <-
 	function Init_After()
 	{
 		BMvEff.PcAfterImage_Set( {  type=0, range=12, delay=3, color=0xFFA80319, blendmode=0 } );
+		if ( BMvEff.GRD_GetJudgeResult() > 0 )
+		{
+			BMvTbl.JumpFrameID(10);
+			Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoAtk);
+			Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoJump);
+		}
 	}
 	function FrameUpdate_After()
 	{
@@ -944,6 +950,12 @@ t.Mv_Atk_CroBandC <- //why?
 	function Init_After()
 	{
 		BMvEff.PcAfterImage_Set( {  type=0, range=12, delay=3, color=0xFFA80319, blendmode=0 } );
+		if ( BMvEff.GRD_GetJudgeResult() > 0 )
+		{
+			BMvTbl.JumpFrameID(10);
+			Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoAtk);
+			Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoJump);
+		}
 	}
 	function FrameUpdate_After()
 	{
@@ -986,6 +998,10 @@ t.Mv_Skill_214EX <-
 	}
 	function HitInterrupt_After()
 	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			Battle_Std.SetPosition_DamageHanteiRect({ power=100 });
+		}
 	}
 	function LastUpdate_After()
 	{
