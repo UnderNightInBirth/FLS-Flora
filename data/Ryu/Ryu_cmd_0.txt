@@ -18,9 +18,22 @@ local t =
 	Skill_41236SP_ABC = {},
 	Skill_41236SP = {}, //command = ["A,A,6,B,C"]
 	
+	Skill_63214SP_ABC =
+	{
+		command = ["4+A+B+C","1+A+B+C"], usegauge = 20000,
+		CmdBeforeStdFunc = function()
+		{
+			local gauge_status = BMvEff.Liberate_Get();
+			if( gauge_status == _SpGaugeMode_Normal ) return 0;
+			if( BMvEff.Liberate_GetType() != _LiberateType_Combo ) return 0;
+			return 1;
+		}
+		CmdCheck = { Cost = { ComboGauge = "OverLiberate" }, SkillType = "SpSpecial", },
+		UpdateTable = { name = "Mv_Skill_63214SP", }
+	},
 	Skill_63214SP = 
-	{ //-------------------------------
-		num = def_CN_Skill_63214SP, name = "Cmd_Skill_63214SP", command = ["63@D,12@214D","3214D","6214D"], usegauge = 20000,
+	{
+		num = def_CN_Skill_63214SP, name = "Cmd_Skill_63214SP", command = ["63@D,12@214D","3214D","6214D","6324D","6314D"], usegauge = 20000,
 		CmdCheck = { MvCheck={ SkillFail="Mv_Skill_63214SP"}, Cost = { ComboGauge = "OverLiberate" }, SkillType = "SpSpecial", CommandButton = def_PP_CBS_ButtonC },
 		UpdateTable = { name = "Mv_Skill_63214SP", }
 	},
