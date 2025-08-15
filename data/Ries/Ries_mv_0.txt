@@ -181,6 +181,14 @@ t.Mv_Atk_Std6B <-
     }
 }
 
+t.Mv_Atk_Cro3B <-
+{
+	function FrameUpdate_After()
+	{
+		Battle_Std.SetHitMuteki( 1, 8, _HitCheckFlag_Head ); // head invuln
+	}
+}
+
 t.Mv_Atk_CroC <-
 {
     function FrameUpdate_After()
