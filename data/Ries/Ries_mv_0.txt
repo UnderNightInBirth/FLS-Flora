@@ -11,6 +11,7 @@ local chrFunc = {};
 // LP 9 - BC Init
 // LP 10 - Is Beast Mode?
 // LP 11 - Beast Mode This Round?
+// LP 12 - Air Dodge Success
 //
 
 
@@ -812,12 +813,26 @@ t.Mv_Atk_AirBandC <-
 {
     function Init_After()
     {
+		BMvTbl.SetHitCheckFlag( { type=1, val=863, time=255, flag=_ClearFlag_ChangeMv } );
+		Battle_Std.Atemi.Init( { hantei=5, flags=0 } );
+		// BMvTbl.SetLP(12,0);
+
         BMvEff.SetCharaFlash( { color = 0x444444, time = 16 } ); // White flash
     }
     function FrameUpdate_After()
     {
-         BMvTbl.SetMuki(_Direction_Auto ); // Face Proper Direction
+        BMvTbl.SetMuki(_Direction_Auto ); // Face Proper Direction
+		Battle_Std.Atemi.FrameUpdate();
     }
+	function HitInterrupt_After() 
+	{
+		// local hitstoptime = (sousai_num==0)? 7:0; // “ñ‰ñ–ÚˆÈ~‚Í’Z‚­
+		local ahs = Battle_Std.Atemi.HitInterrupt( { hitstop = 5 } );
+		if( ahs.IsTiming() )
+		{
+			BMvTbl.SetCommandLongDelay(1);
+		}
+	}
 }
 
 //-----------------------------------------------------------------------------
