@@ -7,62 +7,35 @@ local t = {};
 
 t.Mv_Atk_DashStdC <-
 {
+	function Init_After()
+	{
+		local vp = BMvEff.GRD_GetJudgeResult() > 0;
+		local player = BMvCore.GetPlayerCharaData();
+		if( player.push() )
+		{
+			if( vp ) BMvTbl.SetSuperArmorFlag( { val=1, time=20, flag=0 } );
+			player.pop();
+		}
+	}
 	function FrameUpdate_After()
 	{
 	    local pos = BMvTbl.GetPosition();
         local p_muki = BMvTbl.GetMuki();
 		
         local corner_distance = Battle_Std.GetFrontCornerDistance();
-					BMvEff.AttackInfoString_Set({word=corner_distance});		
-
-		if( corner_distance < 1000 || BMvTbl.GetMvStatus().MvCount > 200)
-		{
-			BMvTbl.SetFinalize();
-		}
+		if( corner_distance < 1000 || BMvTbl.GetMvStatus().MvCount > 200) BMvTbl.SetFinalize();
 	}
 	function HitInterrupt_After()
 	{
         if( Battle_Std.CheckDamageTiming() )
         {
-			BMvTbl.SetPattern("DashC_Hit");
-            Battle_Std.SwitchNextMoveTable("Mv_Skill_DashC_Hit");
+			if(BMvTbl.GetMvStatus().FrameID != 10) BMvTbl.JumpFrameID(20);
         }
-	}
-	function Finalize_After()
-	{
-		Battle_Std.SwitchNextMoveTable("Mv_Skill_DashC_Miss");
-	}	
-}
-
-t.Mv_Skill_DashC_Hit <-
-{ // this sucks dong TODO: bring it bcak to a hitgrab so cvo works
-	function Init()
-	{
-	    BMvEff.ThrowChara_SetJoint( 0 );
-	}
-	function FrameUpdate_After()
-	{
-
-		Battle_Std.MoveCodeEx.AddFlag( 2, def_MC2_EnableCVO_OnlyCS);
-		Battle_Std.MoveCodeEx.AddFlag( 7, def_MC7_AnyCancelGRD );
-		switch( Battle_Std.GetUpdateFrameID() )
-        {
-        case 10:
-			// BMvEff.ThrowRelease( { type="追撃ダウン", airrecover=0, flags=_ThrowRelease_NoGroundRecover|_ThrowRelease_NoWallRecover|_ThrowRelease_NoVecTimeaddflagHosei } )
-			break;
+		if( Battle_Std.CheckGuardTiming() )
+		{
+			Battle_Std.MoveCodeEx.AddFlag( 1, def_MC1_ChainShiftOK ); // ツールでCS可なら空振りCS可能
+			BMvTbl.SetPattern("DashC_Miss");
 		}
-	}
-	function LastUpdate_After()
-	{
-		Battle_Std.SwitchNextMoveTable("Mv_Neutral");
-	}
-}
-
-t.Mv_Skill_DashC_Miss <-
-{
-	function LastUpdate_After()
-	{
-		Battle_Std.SwitchNextMoveTable("Mv_Neutral");
 	}
 }
 
@@ -945,31 +918,6 @@ t.Mv_Atk_StdBandC <-
 	}
 }
 
-t.Mv_Atk_CroBandC <- //why?
-{
-	function Init_After()
-	{
-		BMvEff.PcAfterImage_Set( {  type=0, range=12, delay=3, color=0xFFA80319, blendmode=0 } );
-		if ( BMvEff.GRD_GetJudgeResult() > 0 )
-		{
-			BMvTbl.JumpFrameID(10);
-			Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoAtk);
-			Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoJump);
-		}
-	}
-	function FrameUpdate_After()
-	{
-		BMvTbl.SetMuki(_Direction_Auto );	
-		Battle_Std.SetHitMutekiParam1( { [40]=_HitCheckFlag_FireBall, [32]=_HitCheckFlag_FireBall } );
-	}
-	function LastUpdate_After()
-	{
-		BMvEff.PcAfterImage_Clear();
-		BMvTbl.SetNextMoveTable( "Mv_Neutral" );
-		
-	}
-}
-
 //-----------------------------------------------------------------------------
 // 214攻
 //-----------------------------------------------------------------------------
@@ -985,7 +933,7 @@ t.Mv_Skill_214B <-
 	{
 		if( Battle_Std.CheckDamageTiming() )
 		{
-			Battle_Std.SetPosition_DamageHanteiRect({ power=32, flags=(1<<0) }); // not the y coord
+			Battle_Std.SetPosition_DamageHanteiRect({ power=64, flags=(1<<0) }); // not the y coord
 		}
 	}
 }
@@ -1000,7 +948,7 @@ t.Mv_Skill_214EX <-
 	{
 		if( Battle_Std.CheckDamageTiming() )
 		{
-			Battle_Std.SetPosition_DamageHanteiRect({ power=100 });
+			Battle_Std.SetPosition_DamageHanteiRect({ power=115 });
 		}
 	}
 	function LastUpdate_After()
