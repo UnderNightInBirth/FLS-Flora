@@ -1729,6 +1729,55 @@ CommonStandbyParams[25] =
 ];
 
 
+CommonStandbyParams[26] =
+[
+	{ WaitPAT = 900, timeline = [ { delay= 60, SE=100, time=125 }, { PAT=901, delay=110} ], }, //「エレフィ、準備は良いですね」
+	{ WaitPAT = 900, timeline = [ { delay= 85, SE=101, time=185 }, { PAT=901, delay=110} ], }, //「母なる海の力、ご覧にいれましょう」
+	{ WaitPAT = 900, timeline = [ { delay=125, SE=102, time=235 }, { PAT=901, delay=110} ], }, //「だ、大丈夫、命までは取られませんよきっと…」
+	{ WaitPAT = 900, timeline = [ { delay= 85, SE=103, time=194 }, { PAT=901, delay=110} ], }, //「波風立たぬよう穏やかに、いきましょうか」
+	
+	{
+		Enemy=[0], WaitPAT = [50,902],
+		duet_timeline =
+		[
+			{ PL=0, delay=267, SE=108 }, //「同じ運命を背負う者、ですか。面白いですね。」
+			{ PL=1, delay=224, time=224, SE=139, PAT=903 }, //「似ちゃいるかも知れねぇが、同じじゃねぇよ」
+		],
+	},
+	{
+		Enemy=[20], WaitPAT = [50,900],
+		duet_timeline =
+		[
+			{ PL=0, delay=171, SE=111 }, //「食べる算段、考えてません……？」
+			{ PL=1, delay=150, time=150, SE=126, PAT=50 }, //「勝者の権利だかんな、そりゃ」
+		],
+	},
+	{
+		Enemy=[23], WaitPAT = [50,900],
+		duet_timeline =
+		[
+			{ PL=0, delay=155, SE=114 }, //「エレフィ、大仕事の始まりですよ！」
+			{ PL=1, delay=213, time=213, SE=138, PAT=901 }, //「光栄だ。僕も本気でかかるとしよう……」
+		],
+	},
+	{
+		Enemy=[19], WaitPAT = [900,50],
+		duet_timeline =
+		[
+			{ PL=1, delay=201, SE=143 }, //「ま、軽い試練だ。乗り越えてくれよ」）
+			{ PL=0, delay=215, time=215, SE=117, PAT=901 }, //「メチャクチャ重そうですけど、やってみます……」
+		],
+	},
+	{
+		Enemy=[1], WaitPAT = [50,900],
+		duet_timeline =
+		[
+			{ PL=0, delay=204, SE=120 }, //「私達にお任せ頂けませんか、夜刀(やと)の姫」
+			{ PL=1, delay=144, time=144, SE=157, PAT=901 }, //「出来ぬ相談だな、それは」
+		],
+	},	
+];
+
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ //
 //								MODDED STARTUPS
 //
