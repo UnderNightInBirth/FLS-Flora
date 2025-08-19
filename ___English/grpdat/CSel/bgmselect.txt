@@ -110,10 +110,15 @@ name = <GR_BGM_btl_chr025> (<GR_CH_Chr025>)
 DLC = 5
 
 [27]
+num = 27
+name = <GR_BGM_btl_chr026> (<GR_CH_Chr026>)
+DLC = 6
+
+[28]
 num = 12
 name = <GR_BGM_btl_chr011> (<GR_CH_Chr011>)
 
-[28]
+[29]
 num = 15
 name = <GR_BGM_btl_chr014> (<GR_CH_Chr014>)
 

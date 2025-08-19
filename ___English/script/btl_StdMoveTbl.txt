@@ -59,8 +59,9 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Kuo] = 4;
 	chrparam.Param[type][Def_ChrNo_Udu] = 5;
 	chrparam.Param[type][Def_ChrNo_Ogr] = 6;
-
+	chrparam.Param[type][Def_ChrNo_Izu] = 4;
 }
+
 
 {	// Dash Unstoppable F
 // Time from when the dash hold is released until you can stop
@@ -97,7 +98,7 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Kuo] = 7;
 	chrparam.Param[type][Def_ChrNo_Udu] = 9;
 	chrparam.Param[type][Def_ChrNo_Ogr] = 4;
-
+	chrparam.Param[type][Def_ChrNo_Izu] = 4;
 }
 
 {	//F Dash vectors
@@ -130,7 +131,7 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Kuo] = [100,10,2700,200];
 	chrparam.Param[type][Def_ChrNo_Udu] = [100,10,2700,200];
 	chrparam.Param[type][Def_ChrNo_Ogr] = [100,10,2700,200];
-
+	chrparam.Param[type][Def_ChrNo_Izu] = [100,10,2700,200];
 }
 
 {	//ダッシュジャンプの慣性
@@ -163,7 +164,7 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Kuo] = 17;
 	chrparam.Param[type][Def_ChrNo_Udu] = 17;
 	chrparam.Param[type][Def_ChrNo_Ogr] = 18;
-
+	chrparam.Param[type][Def_ChrNo_Izu] = 20;
 }
 
 
@@ -197,6 +198,7 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Kuo] = 8;
 	chrparam.Param[type][Def_ChrNo_Udu] = 8;
 	chrparam.Param[type][Def_ChrNo_Ogr] = 8;
+	chrparam.Param[type][Def_ChrNo_Izu] = 8;
 }
 
 {	// バクステの投げ無敵フレーム
@@ -228,6 +230,7 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Kuo] = 10;
 	chrparam.Param[type][Def_ChrNo_Udu] = 10;
 	chrparam.Param[type][Def_ChrNo_Ogr] = 10;
+	chrparam.Param[type][Def_ChrNo_Izu] = 10;
 }
 
 //歩きやダッシュの足音ＳＥ定義
@@ -273,7 +276,7 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[typeA][Def_ChrNo_Kuo] = -1;
 	chrparam.Param[typeA][Def_ChrNo_Udu] = -1;
 	chrparam.Param[typeA][Def_ChrNo_Ogr] = _FSST_Boots;
-
+	chrparam.Param[typeA][Def_ChrNo_Izu] = _FSST_Heels;
 
 	local typeB = "足音Ｂ_ＳＥ番号";
 	
@@ -303,8 +306,8 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[typeB][Def_ChrNo_Tsu] = _FSST_Shoes+1;
 	chrparam.Param[typeB][Def_ChrNo_Kuo] = -1;
 	chrparam.Param[typeB][Def_ChrNo_Udu] = -1;
-	chrparam.Param[typeA][Def_ChrNo_Ogr] = _FSST_Boots+1;
-
+	chrparam.Param[typeB][Def_ChrNo_Ogr] = _FSST_Boots+1;
+	chrparam.Param[typeB][Def_ChrNo_Izu] = _FSST_Heels+1;
 }
 
 {
@@ -335,6 +338,8 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Tsu] = 1;
 	chrparam.Param[type][Def_ChrNo_Kuo] = 1;
 	chrparam.Param[type][Def_ChrNo_Udu] = 1;
+	chrparam.Param[type][Def_ChrNo_Ogr] = 1;
+	chrparam.Param[type][Def_ChrNo_Izu] = 1;
 }
 
 {
@@ -365,6 +370,8 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Tsu] = 0;
 	chrparam.Param[type][Def_ChrNo_Kuo] = 0;
 	chrparam.Param[type][Def_ChrNo_Udu] = 0;
+	chrparam.Param[type][Def_ChrNo_Ogr] = 0;
+	chrparam.Param[type][Def_ChrNo_Izu] = 0;
 }
 
 {
@@ -395,6 +402,8 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Tsu] = 1;
 	chrparam.Param[type][Def_ChrNo_Kuo] = 1;
 	chrparam.Param[type][Def_ChrNo_Udu] = 1;
+	chrparam.Param[type][Def_ChrNo_Ogr] = 1;
+	chrparam.Param[type][Def_ChrNo_Izu] = 1;
 	// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ //
 	chrparam.Param[type][Def_ChrNo_Rie] = 1;
 	chrparam.Param[type][Def_ChrNo_Ing] = 1;
@@ -402,10 +411,7 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Edo] = 1;
 	chrparam.Param[type][Def_ChrNo_Ako] = 1;
 	chrparam.Param[type][Def_ChrNo_Ryu] = 1;
-	// chrparam.Param[type][Def_ChrNo_Cel] = 1;
-	// chrparam.Param[type][Def_ChrNo_Sak] = 1;
 	chrparam.Param[type][Def_ChrNo_HydEX] = 1;
-
 }
 
 {
@@ -436,6 +442,8 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Tsu] = 0;
 	chrparam.Param[type][Def_ChrNo_Kuo] = 0;
 	chrparam.Param[type][Def_ChrNo_Udu] = 0;
+	chrparam.Param[type][Def_ChrNo_Ogr] = 0;
+	chrparam.Param[type][Def_ChrNo_Izu] = 0;
 }
 
 {
@@ -466,6 +474,40 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Tsu] = [100,100];
 	chrparam.Param[type][Def_ChrNo_Kuo] = [100,100];
 	chrparam.Param[type][Def_ChrNo_Udu] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Ogr] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Izu] = [100,100];
+}
+
+{	// Izuki's Soap Bubble Trap Size
+	local type = "シャボン玉やられエフェクトサイズ";
+	chrparam.Param[type] <- array(CHRMAX, [100,100]); // X Y
+	chrparam.Param[type][Def_ChrNo_Hyd] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Lin] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Wal] = [130,130];
+	chrparam.Param[type][Def_ChrNo_Car] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Ori] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Gor] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Mer] = [130,130];
+	chrparam.Param[type][Def_ChrNo_Vat] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Set] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Yuz] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Hil] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Elt] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Nan] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Bya] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Aka] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Cha] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Wag] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Enk] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Lnd] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Mik] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Pho] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Kag] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Tsu] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Kuo] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Udu] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Ogr] = [100,100];
+	chrparam.Param[type][Def_ChrNo_Izu] = [100,100];
 }
 
 {
@@ -499,6 +541,8 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Tsu] = [-1,-1,-1];
 	chrparam.Param[type][Def_ChrNo_Kuo] = [9,-1,11];
 	chrparam.Param[type][Def_ChrNo_Udu] = [-1,-1,-1];
+	chrparam.Param[type][Def_ChrNo_Ogr] = [9,9,-1];
+	chrparam.Param[type][Def_ChrNo_Izu] = [8,-1,-1];
 }
 
 {
@@ -532,6 +576,8 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Tsu] = [-1,-1,-1];
 	chrparam.Param[type][Def_ChrNo_Kuo] = [8,-1,-1];
 	chrparam.Param[type][Def_ChrNo_Udu] = [-1,-1,-1];
+	chrparam.Param[type][Def_ChrNo_Ogr] = [7,7,8];
+	chrparam.Param[type][Def_ChrNo_Izu] = [7,7,7];
 }
 
 {
@@ -563,6 +609,8 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Tsu] = [5,4];
 	chrparam.Param[type][Def_ChrNo_Kuo] = [5,4];
 	chrparam.Param[type][Def_ChrNo_Udu] = [5,4];
+	chrparam.Param[type][Def_ChrNo_Ogr] = [5,4];
+	chrparam.Param[type][Def_ChrNo_Izu] = [5,4];
 }
 
 {	// 歩きベクトル定義
@@ -574,7 +622,7 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Wal] = [  0,    0,    0,     0]; // [  0,    0,    0,     0];
 	chrparam.Param[type][Def_ChrNo_Car] = [512, 1260, -512, -1000]; // [512, 1200, -512,  -900];
 	chrparam.Param[type][Def_ChrNo_Ori] = [512, 1400, -512, -1050]; // [512, 1400, -512, -1100];
-	chrparam.Param[type][Def_ChrNo_Gor] = [512, 1180, -512,  -860]; // [512, 1100, -512,  -700];
+	chrparam.Param[type][Def_ChrNo_Gor] = [512, 1260, -512, -1000]; // [512, 1100, -512,  -700]; 1.12:[512, 1180, -512,  -860];
 	chrparam.Param[type][Def_ChrNo_Mer] = [512,  740, -512,  -660]; // [512,  500, -512,  -400];
 	chrparam.Param[type][Def_ChrNo_Vat] = [512, 1180, -512,  -910]; // [512, 1000, -512,  -800];
 	chrparam.Param[type][Def_ChrNo_Set] = [512,  740, -512,  -790]; // [512,  550, -512,  -650];
@@ -594,6 +642,8 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Tsu] = [512, 1100, -512,  -860]; // [512,  800, -700,  -600];
 	chrparam.Param[type][Def_ChrNo_Kuo] = [512, 1100, -512,  -910]; // [512, 1100, -512,  -800];
 	chrparam.Param[type][Def_ChrNo_Udu] = [512, 1050, -512,  -940];
+	chrparam.Param[type][Def_ChrNo_Ogr] = [512, 1130, -512,  -880];
+	chrparam.Param[type][Def_ChrNo_Izu] = [512, 1050, -512,  -940];
 }
 
 {	// 連キャンダメージ補正
@@ -625,14 +675,17 @@ chrparam.Get <- function( tbl={} ) //get the chara ID no
 	chrparam.Param[type][Def_ChrNo_Tsu] = [98,98];
 	chrparam.Param[type][Def_ChrNo_Kuo] = [98,97];
 	chrparam.Param[type][Def_ChrNo_Udu] = [98,97];
+	chrparam.Param[type][Def_ChrNo_Ogr] = [98,97];
+	chrparam.Param[type][Def_ChrNo_Izu] = [98,97];
 }
+// Def_Sys_RapidAtkA_Hosei で無効化されている
 local rapidAtkAHoseiAr = chrparam.Get( { type="連キャンダメージ補正", chrnum=_ChrNo } );
 
 //スマートステア専用必殺技を使用した時にかける補正・CP
-//・SS技は基礎ダメは1600前後
+//・SS技は基礎ダメは1600前後、ダメージ効率2000～2100、CP効率2400～2800くらいにする
 //・SS技は可能な限り暴れつぶし不可にする
-//・5A始動でSS技まで入れてダメージ2400～2450
-//・暴れつぶしで必殺技>SS技ヒット後のダメージと補正の効率が2700前後、CP16になるようにする（基礎ダメージが低い方が効率良くなるようにする）
+//・5A始動でSS技まで入れてダメージ2400～2450、補正20前後、CP10～20程度に収まればOK
+//・暴れつぶしで必殺技>SS技を当てた後のダメージが2300～2500、補正が30以下、CPが42以下になるようにする（ここは直前の必殺技の性能に依存するので結構キャラによるブレがあるが良しとしている。スマートステアの見た目の良さの方が大事）
 //・基本的に出し切りで反確はなし、状況は密着微不利か離れて不利
 //・原則としてキャンセルはDAMAGE時のみ
 //・多段の飛び道具からキャンセルする時は飛び道具の二段目以降にボーナス補正が乗らないように補正をかけるフレームを遅らせる
@@ -663,7 +716,9 @@ local rapidAtkAHoseiAr = chrparam.Get( { type="連キャンダメージ補正", chrnum=_Ch
 	chrparam.Param[type][Def_ChrNo_Kag] = [168,0, 1,0];
 	chrparam.Param[type][Def_ChrNo_Kuo] = [153,0,10,0];
 	chrparam.Param[type][Def_ChrNo_Pho] = [150,0, 1,0];
-	chrparam.Param[type][Def_ChrNo_Udu] = [120,0, 1,0];
+	chrparam.Param[type][Def_ChrNo_Udu] = [136,0, 1,0];
+	chrparam.Param[type][Def_ChrNo_Ogr] = [133,0, 1,0];
+	chrparam.Param[type][Def_ChrNo_Izu] = [163,0, 1,0];
 }
 local SS_ratio = chrparam.Get( { type="スマートステア補正", chrnum=_ChrNo } );
 
@@ -695,6 +750,8 @@ local SS_ratio = chrparam.Get( { type="スマートステア補正", chrnum=_ChrNo } );
 	chrparam.Param[type][Def_ChrNo_Kag] = { power=35 };
 	chrparam.Param[type][Def_ChrNo_Kuo] = { power=50 };
 	chrparam.Param[type][Def_ChrNo_Pho] = { power=50 };
+	chrparam.Param[type][Def_ChrNo_Ogr] = { power=50 };
+	chrparam.Param[type][Def_ChrNo_Izu] = { power=50 };
 }
 local SS_DamageLockParams = chrparam.Get( { type="ステアエンダー半ロック引き寄せ", chrnum=_ChrNo } );
 
@@ -726,8 +783,53 @@ local SS_DamageLockParams = chrparam.Get( { type="ステアエンダー半ロック引き寄せ
 	chrparam.Param[type][Def_ChrNo_Kag] = [6, 9];
 	chrparam.Param[type][Def_ChrNo_Kuo] = [6,10];
 	chrparam.Param[type][Def_ChrNo_Pho] = [6, 8];
+	chrparam.Param[type][Def_ChrNo_Ogr] = [6, 9];
+	chrparam.Param[type][Def_ChrNo_Izu] = [6, 9];
 }
 local SteerEnderStoptime = chrparam.Get( { type="ステアエンダー時間停止F", chrnum=_ChrNo } );
+
+
+{
+	local type = "地上アサルトダメージ補正";
+	// Ground Assault Damage Correction
+    // Set for Air A, B, and C systems, so JC and J2C will have the same value.
+    // Setting to 0 will refer to def_HOSEI_AssaultHit(85).
+	chrparam.Param[type] <- array(CHRMAX, [0,0,0] ); // 空中A系統、空中B系統、空中C系統
+	chrparam.Param[type][Def_ChrNo_Hyd] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Lin] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Wal] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Car] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Ori] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Gor] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Mer] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Vat] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Set] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Yuz] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Hil] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Elt] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Nan] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Bya] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Aka] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Cha] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Wag] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Enk] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Lnd] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Tsu] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Udu] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Mik] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Kag] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Kuo] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Pho] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Ogr] = [0,0,0];
+	chrparam.Param[type][Def_ChrNo_Izu] = [0,0,0];
+}
+local tmp = chrparam.Get( { type="地上アサルトダメージ補正", chrnum=_ChrNo } );
+
+local hosei_StdAssultAirAtk = {
+	A = tmp[0],
+	B = tmp[1],
+	C = tmp[2],
+}
 
 //パターン定義
 {	// 空中ガードからの戻りパターン
@@ -735,6 +837,19 @@ local SteerEnderStoptime = chrparam.Get( { type="ステアエンダー時間停止F", chrnu
 	chrparam.Param[type] <- array(CHRMAX, 20);
 	chrparam.Param[type][Def_ChrNo_Pho] = 39;
 }
+
+//MV定義
+{
+	local type = "クリーピングエッジ終了MV";
+	// Creeping Edge Finishing MV
+	// So crouching might look better for some 3Ds...
+	chrparam.Param[type] <- array(CHRMAX, "Mv_Neutral" ); // Normal, Smart Steer
+	chrparam.Param[type][Def_ChrNo_Izu] = "Mv_Crouch_Wait";
+}
+local ForwardShiftFinalizeMv = chrparam.Get( { type="クリーピングエッジ終了MV", chrnum=_ChrNo } ); // Creeping Edge Ending MV
+
+
+_dp1p("\n[btl_ChrParamFunc] -> end");
 
 //local test = chrparam.Get( { type="連キャンダメージ補正", chrnum=_ChrNo } );
 //print("test:"+test);
@@ -1316,10 +1431,11 @@ CommonStandbyParams[12] =
 	},
 ];
 
+// ★★キャラ追加時確認★★
 // あのこ、あのひと、の分岐用
 // 女キャラには「あの子」、それ以外は「あの人」
 // ヒルダは「あの人」
-local girl_chara_list = [1,4,7,9,11,12,16,20,21,22,24];
+local girl_chara_list = [1,4,7,9,11,12,16,20,21,22,24,26];
 
 CommonStandbyParams[13] =
 [
@@ -1578,11 +1694,11 @@ CommonStandbyParams[20] =
 	},	
 ];
 
-
+// ★★キャラ追加時確認★★
 // オーガの女性判定
 // リンネ、バティスタ、ミカあたりは子供なので除外したいが、そうすると好戦的なセリフで違和感あるので一律で残す
 // ヒルダは因縁あり＋掛け合いがあるので入らない
-local lady_chara_list = [1,4,7,9,11,12,16,20,21,22,24];
+local lady_chara_list = [1,4,7,9,11,12,16,20,21,22,24,26];
 
 CommonStandbyParams[25] =
 [
@@ -1611,7 +1727,6 @@ CommonStandbyParams[25] =
 		],
 	},
 ];
-
 
 
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ //
@@ -2886,12 +3001,20 @@ Std_MoveTable.Mv_ConvertCharge <- 	//コンバート
 				enemy.pop();
 			}
 			
+			// 250523 コンボ中のコンセでTSが進むとコンボ切りコンセでのGRD管理が難しすぎたので、相手がやられ中はTS速度は変わらないようにした
 			if( Def_Sys_Concentration_AddTS )
 			{
-				// コンセ中はTSの速度を変更してみる
-				// VP時だけ早くするとかすると曖昧なので、シンプルにちょっと早くする効果にした
-				// local speed = BMvEff.GRD_TS_SetPlusValue( { val=120 } ); // 2倍速度
-				BMvEff.GRD_TS_AddValue( { val=Def_Sys_Concentration_AddTS } );
+				if( Def_Sys_Concentration_AddTS_NoDamage && Battle_Std.CheckEnemyisDamage() )
+				{
+					// ダメージ時は除外する
+				}
+				else
+				{
+					// コンセ中はTSの速度を変更してみる
+					// VP時だけ早くするとかすると曖昧なので、シンプルにちょっと早くする効果にした
+					// local speed = BMvEff.GRD_TS_SetPlusValue( { val=120 } ); // 2倍速度
+					BMvEff.GRD_TS_AddValue( { val=Def_Sys_Concentration_AddTS } );
+				}
 			}
 			
 			
@@ -3079,13 +3202,13 @@ Std_MoveTable.Mv_Guard <-
 		//print("\nMv_Bound Init()\n");
 		
 		// ガードキャンセル用処理
-		BMvTbl.SetLP(9,0); //ガードしてから何フレーム経過したか
-
+		BMvTbl.SetLPEx(1,4,0); // 本当にガードシールドになったら1（外部エフェクトから指定される）
 		BMvTbl.SetLP(5,0); // ガードシールドを次のフレームで発動する
 		BMvTbl.SetLP(6,0); // ガードシールド状態になって何フレームたったか。ガード開始時でのみリセット。2回目の発動があった場合継続。
 		BMvTbl.SetLP(7,0); // ガードシールド発動回数
 		//BMvTbl.SetPP(def_PP_ShieldStatus,0); //シールドステータスはここで初期化
 		BMvTbl.SetLP(8,0); // ガードフロートで無敵時間のついたガードだよ
+		BMvTbl.SetLP(9,0); //ガードしてから何フレーム経過したか
 		
 		//ガードのボイスを選んで再生
 		local bs = BtlMvStd.GetBoundStatus();
@@ -3510,14 +3633,14 @@ Std_MoveTable.Mv_Guard <-
 	{
 		//ガードシールドを発動したが攻撃をとれなかった場合のみGRDコストを消費する
 		//ガードシールドを入力してて　かつ　シールド成功フラグはないかどうかチェック
-		if( BMvEff.GuardSP_Get()!=0 && BMvEff.GuardSP_Success()!=1 )
+		if( BMvEff.GuardSP_Get()!=0 && BMvEff.GuardSP_Success()!=1 && BMvTbl.GetLPEx(1,4)!=0 )
 		{
-			//_dm("ガードシールドコスト消費");
+			_dpn("ガードシールドコスト消費");
 			
 			//失敗によるコスト消費
 			Battle_Std.UseGRDStock( def_GRD_GuardShieldCost, def_GRD_GuardShieldNotEnough_Enemy); // 消費GRD数, 相手増加GRD値(単位違注意)
 			
-			_dp("\n 失敗シールド！");
+			_dpn("失敗シールド！");
 			Battle_Std.MoveCodeEx.AddFlag( 1, def_MC1_ShieldFailed ); // 失敗シールドなの
 		}
 		
@@ -3563,11 +3686,14 @@ Std_MoveTable.Mv_GuadShieldEff <-
 		}
 		else
 		{
+			_dpn("ガードシールド確定");
 			//ガードシールド発動が確定した
 			//ここでゲージとか消費するように変更 18/6/13
 			local player = BMvCore.GetPlayerCharaData();
 			if( player.push() )
 			{
+				BMvTbl.SetLPEx(1,4,1); // 本当にガードシールドになったら1（外部エフェクトから指定される）
+				
 				BSound.SE_Play( { type=_SeType_Normal, num=193 } ); //ガードシールド発動音
 
 				local guardshield_flashtime = 10;
@@ -3979,7 +4105,7 @@ Std_MoveTable.Mv_WalkStop_B <- // 後退停止
 	}
 }
 
-// カットインの絵だけ
+// IWのカットインの絵だけ
 Std_MoveTable.Mv_CutinGrp <- //カットイン スクロールの影響を受けない
 {
 	function Init_Std()
@@ -3991,6 +4117,7 @@ Std_MoveTable.Mv_CutinGrp <- //カットイン スクロールの影響を受けない
 		BMvTbl.SetPosition( { x=0, y=0 } );
 		Battle_Std.PcAuraEffect_CutinInit();
 		// _dm("カットイン呼ばれ");
+		// BMvEff.SetDefaultExtendedEffectDrawing(0); // クオリティアップ
 	}
 	function Finalize_Std()
 	{
@@ -3998,7 +4125,7 @@ Std_MoveTable.Mv_CutinGrp <- //カットイン スクロールの影響を受けない
 	}
 }
 
-// カットインの絵だけ　使わない
+// カットインの絵だけ　未使用
 
 Std_MoveTable.Mv_IWXCutinGrp <- //カットイン スクロールの影響を受けない
 {
@@ -4011,6 +4138,7 @@ Std_MoveTable.Mv_IWXCutinGrp <- //カットイン スクロールの影響を受けない
 		BMvTbl.SetPosition( { x=0, y=0 } );
 		Battle_Std.PcAuraEffect_CutinInit();
 		//_dm("カットイン呼ばれ");
+		// BMvEff.SetDefaultExtendedEffectDrawing(0); // クオリティアップ
 	}
 	function Finalize_Std()
 	{
@@ -4018,8 +4146,9 @@ Std_MoveTable.Mv_IWXCutinGrp <- //カットイン スクロールの影響を受けない
 	}
 }
 
+// IWEのカットイン
 // これは絵だけじゃない、表示して他をとめる
-//インフィニットワースイグジスト
+// インフィニットワースイグジスト
 Std_MoveTable.Mv_IWXCutin <-
 {
 	function Init_Std()
@@ -4031,6 +4160,7 @@ Std_MoveTable.Mv_IWXCutin <-
 		BMvTbl.SetPosition( { x=0, y=0 } );
 		Battle_Std.PcAuraEffect_CutinInit();
 		//_dm("カットイン呼ばれ");
+		// BMvEff.SetDefaultExtendedEffectDrawing(0); // クオリティアップ
 		
 		local eff = BMvEff.CreateObject( { datatype=1, start_pat=998 }); //黒い板を呼ぶ
 		if( eff.push() )
@@ -4093,6 +4223,7 @@ Std_MoveTable.Mv_CVPCutinGrp <- //カットイン スクロールの影響を受けない
 			BMvTbl.SetDrawAlpha( { val=0, time=255, flag=_ClearFlag_ChangeMv } ); // フェードイン設定
 			BMvEff.SetCharaColor( { color=0xCCCCCC, type=3, time=255 } ); // 少し暗くする
 		}
+		// BMvEff.SetDefaultExtendedEffectDrawing(0); // クオリティアップ
 	}
 	function Update_Std()
 	{
@@ -4143,6 +4274,13 @@ Std_MoveTable.Mv_EXCutinGrp <- //カットイン スクロールの影響を受けない
 		BMvTbl.SetPrio( _CharaPrio_Parent_BG  );//BG手前
 		BMvTbl.SetPosition( { x=0, y=0 } );
 		//_dm("Mv_EXCutinGrp　EXカットイン呼ばれ");		
+		
+		// VPとかIWに比べると白飛びがキツいので暗くする
+		if( Def_Sys_ExCutinDrawType )
+		{
+			BMvEff.SetCharaColor( { color=0xDDDDDD, type=3, time=255 } ); // 少し暗くする
+		}
+		// BMvEff.SetDefaultExtendedEffectDrawing(0); // クオリティアップ
 	}
 	function Finalize_Std()
 	{
@@ -4389,6 +4527,7 @@ Std_MoveTable.Mv_Jump_F <-
 	function Init_Std() : (func_JumpFlightInit)
 	{
 		Battle_Std.JumpStatus.Add( def_PP_JS_JumpF ); //前ジャンプからフラグを立てる
+		Battle_Std.JumpStatus.Del( def_PP_JS_JumpN|def_PP_JS_JumpB ); //ジャンプフラグを消す
 		
 		func_JumpFlightInit(); // ジャンプ空中に移行した時共通処理
 	}
@@ -4491,6 +4630,7 @@ Std_MoveTable.Mv_Jump_B <-
 	function Init_Std() : (func_JumpFlightInit)
 	{
 		Battle_Std.JumpStatus.Add( def_PP_JS_JumpB ); //後ろジャンプからフラグを立てる
+		Battle_Std.JumpStatus.Del( def_PP_JS_JumpF|def_PP_JS_JumpN ); //ジャンプフラグを消す
 		
 		func_JumpFlightInit(); // ジャンプ空中に移行した時共通処理
 	}
@@ -4577,6 +4717,7 @@ Std_MoveTable.Mv_Jump_N <-
 	function Init_Std() : (func_JumpFlightInit)
 	{
 		Battle_Std.JumpStatus.Add( def_PP_JS_JumpN ); //垂直ジャンプからフラグを立てる
+		Battle_Std.JumpStatus.Del( def_PP_JS_JumpF|def_PP_JS_JumpB ); //ジャンプフラグを消す
 		
 		func_JumpFlightInit(); // ジャンプ空中に移行した時共通処理
 	}
@@ -4606,6 +4747,7 @@ Std_MoveTable.Mv_MultiJump_F <-
 		func_MultiJumpInit();
 		
 		Battle_Std.JumpStatus.Add( def_PP_JS_MultiJumpF ); //ジャンプフラグを立てる	
+		Battle_Std.JumpStatus.Del( def_PP_JS_MultiJumpB|def_PP_JS_MultiJumpN ); //ジャンプフラグを消す
 	}
 	function FrameUpdate_Std() // 
 	{
@@ -4628,6 +4770,7 @@ Std_MoveTable.Mv_MultiJump_B <-
 		func_MultiJumpInit();
 		
 		Battle_Std.JumpStatus.Add( def_PP_JS_MultiJumpB ); //ジャンプフラグを立てる
+		Battle_Std.JumpStatus.Del( def_PP_JS_MultiJumpF|def_PP_JS_MultiJumpN ); //ジャンプフラグを消す
 	}
 	function FrameUpdate_Std() // 
 	{
@@ -4648,7 +4791,8 @@ Std_MoveTable.Mv_MultiJump_N <-
 		
 		func_MultiJumpInit();
 		
-		Battle_Std.JumpStatus.Add( def_PP_JS_MultiJumpN ); //ジャンプフラグを立てる		
+		Battle_Std.JumpStatus.Add( def_PP_JS_MultiJumpN ); //ジャンプフラグを立てる
+		Battle_Std.JumpStatus.Del( def_PP_JS_MultiJumpF|def_PP_JS_MultiJumpB ); //ジャンプフラグを消す
 	}
 	function FrameUpdate_Std() // 
 	{
@@ -5007,12 +5151,12 @@ local set_AirAtkLandStatus = function()
 // ジャンプ通常技
 Std_MoveTable.Mv_Atk_AirA <- 
 {
-	function Init_Std()
+	function Init_Std() : (hosei_StdAssultAirAtk)
 	{
 		Battle_Std.InitAirAtk( { type="A" } ); //通常攻撃共通Init
 		Battle_Std.MoveCode.AddFlag( def_MC_GRDLowBreak ); // GRDブレイクの効果が短いMv
 		
-		Battle_Std.SetStatus_AirAtkStatus(); //ジャンプ攻撃の各種フラグをリセット＋立てる
+		Battle_Std.SetStatus_AirAtkStatus( { AssaultHosei = hosei_StdAssultAirAtk.A } ); //ジャンプ攻撃の各種フラグをリセット＋立てる
 		
 		BMvTbl.SetComboLimit(DEF_BS_CL_AIRA);
 		BMvTbl.SetPattern(def_PAT_Atk_AirA);
@@ -5097,11 +5241,11 @@ Std_MoveTable.Mv_Atk_AirA_Land <-
 
 Std_MoveTable.Mv_Atk_AirB <- 
 {
-	function Init_Std()
+	function Init_Std() : (hosei_StdAssultAirAtk)
 	{
 		Battle_Std.InitAirAtk( { type="B" } ); //通常攻撃共通Init
 
-		Battle_Std.SetStatus_AirAtkStatus(); //ジャンプ攻撃の各種フラグをリセット＋立てる
+		Battle_Std.SetStatus_AirAtkStatus( { AssaultHosei = hosei_StdAssultAirAtk.B } ); //ジャンプ攻撃の各種フラグをリセット＋立てる
 	
 		BMvTbl.SetComboLimit(DEF_BS_CL_AIRB);
 		BMvTbl.SetPattern(def_PAT_Atk_AirB);
@@ -5159,11 +5303,11 @@ Std_MoveTable.Mv_Atk_AirB_Land <-
 
 Std_MoveTable.Mv_Atk_AirC <- 
 {
-	function Init_Std()
+	function Init_Std() : (hosei_StdAssultAirAtk)
 	{
 		Battle_Std.InitAirAtk( { type="C" } ); //通常攻撃共通Init
 
-		Battle_Std.SetStatus_AirAtkStatus(); //ジャンプ攻撃の各種フラグをリセット＋立てる
+		Battle_Std.SetStatus_AirAtkStatus( { AssaultHosei = hosei_StdAssultAirAtk.C } ); //ジャンプ攻撃の各種フラグをリセット＋立てる
 	
 		BMvTbl.SetComboLimit(DEF_BS_CL_AIRC);
 		BMvTbl.SetPattern(def_PAT_Atk_AirC);
@@ -5392,8 +5536,9 @@ Std_MoveTable.Mv_Skill_SSRelayAtk <-
 		// XXX:EX技扱いにしているせいでEX技の同技補正の制限を受けてしまうのを応急措置的に対応
 		Battle_Std.MoveCodeEx.AddFlag( 6, def_MC6_NoSetUseExSkillFlag ); // EX技扱いだがEX技の保証補正制限はかけない
 		
-		BMvTbl.SetLPEx(1,0,0); // 補正を適用済みかどうか
+		BMvTbl.SetLPEx(1,0,0); // 初回補正処理のチェック済みかどうか
 		BMvTbl.SetLPEx(1,1,isDirectSS); // ABで直接出したかどうか　※キャラ別で参照してることもあるので変更不可
+		BMvTbl.SetLPEx(1,2,0); // 補正を適用済みかどうか
 		
 		BMvTbl.SetForceUkemiTimeLimitFlag( { val=31, time=255, flag=_ClearFlag_ChangeMv } );
 	}
@@ -5492,9 +5637,11 @@ Std_MoveTable.Mv_Skill_SSRelayAtk <-
 				// 飛び道具系の多段技からキャンセルするとすぐに補正がかかって飛び道具のダメージが増えてしまうので攻撃直前に補正をかける
 				if( mvs.MvCount>=SS_ratio[2] )
 				{
-					BMvTbl.SetLPEx(1,0,1); // 補正を適用済みかどうか
+					BMvTbl.SetLPEx(1,0,1); // 初回補正処理のチェック済みかどうか
 					if( Battle_Std.CheckEnemyisDamage() ) // 相手がダメージ中のみ補正を適用する
 					{
+						BMvTbl.SetLPEx(1,2,1); // 補正を適用済みかどうか
+						
 						if( isDirectSS )
 						{
 							local totaldamage = BMvTbl.GetComboInfo(1);//現在のコンボダメージ
@@ -5593,9 +5740,7 @@ Std_MoveTable.Mv_Skill_SSRelayAtk <-
 		local is_mvchange = SS_ratio[3]; // Mv移行するかどうか
 		if( !is_mvchange )
 		{
-			// Mv移行しない技なら追撃不能にする(移行する技は個別に対応)
-			local check_mvdamage = (Def_Sys_StearEnderNoAttackHitCheckDamage)? 1 : 0; // MVのダメージをチェックするかどうか
-			Battle_Std.NoCansel_NoAttackHit( { no_zurasi_hosei = 1, check_mvdamage=check_mvdamage } ); //何かでキャンセルしなかった場合追撃不能にする
+			Battle_Std.SSRelayAtk_NoAttackHit_UseLP(); // ステアエンダーで抜けるときに必ずやる追撃不可能処理(LP使用)
 		}
 		
 		/*
@@ -7346,9 +7491,9 @@ Std_MoveTable.Mv_ForwardShift <-
 			}
 		}
 	}
-	function Finalize_Std() // 
+	function Finalize_Std() : (ForwardShiftFinalizeMv)
 	{
-		BMvTbl.SetNextMoveTable( "Mv_Neutral" );
+		BMvTbl.SetNextMoveTable( ForwardShiftFinalizeMv );
 	}
 	function LastUpdate_Std()
 	{
@@ -8471,6 +8616,14 @@ Std_MoveTable.Mv_Startup <- //開幕かませ・絶対通るようになった
 	{
 		BMvEff.CreateObject( { mvname="Mv_AuraKanriObject", datatype=0 } );
 		BMvTbl.SetMoveableFlag( { move=0, time=600, flag=_ClearFlag_ChangeMv } ); //Mv中は行動不能に
+		
+		// 1P側のときは描画prioを手前にしておく
+		// 攻撃がヒットすると手前になる仕様があるので、開始直後は同じprioだけど1Pが手前、という珍しい状態になってしまうのを回避
+		// Sideのチェックにしておくことでパートナー系のヒット扱いにもなるはず
+		if( BMvTbl.GetPlayerSide() == 0 )
+		{
+			BMvTbl.SetPrio( _CharaPrio_Near );
+		}
 		
 		if( Def_Dbg_LocalDebugScriptPath )
 		{
@@ -11438,46 +11591,6 @@ Std_MoveTable.Mv_DyingIWEAtk_AtkEff <-
 	}
 }
 
-Std_MoveTable.Mv_IWEAtk_Eff <-
-{
-	function Init_Std()
-	{
-	}
-	function HitInterrupt_Std()
-	{
-		if( Battle_Std.CheckDamageTiming() )
-		{
-			local player = BMvCore.GetPlayerCharaData();
-			if( player.push() )
-			{
-				BMvTbl.SetLP(0,1); // ヒット
-				// _dp("\n VOeffヒット");
-				
-				player.pop();
-			}
-			
-			local mvs = BMvTbl.GetMvStatus();
-			//二度チェックする必要あるか？　まぁ念のため
-			//（そもそもこれは相手が_MvStFlag_DangerHPDef の時だけ呼ばれるので大丈夫なはずだけど、回復されるかもしれないし…）
-			//逆の状況には対応していない。発動時体力あって、ヒット時２５％未満だとダメ。
-			if( mvs.flags & _MvStFlag_DangerHPAtk ) //HPが危険状態な相手を殴っている
-			{
-				local player = BMvCore.GetPlayerCharaData(); // 操作親の情報を得る
-				if( player.push() )
-				{
-					BMvEff.CreateObject( { mvname="Mv_IWEXS_able" } );
-					
-					player.pop();
-				}
-			}			
-		}
-	}	
-	function Finalize_Std()
-	{
-		BMvTbl.SetDeleteMoveTable();
-	}
-}
-
 Std_MoveTable.Mv_DyingIWEAtk_Land <- 	//リベレート着地
 {
 	function Init_Std()
@@ -11852,7 +11965,7 @@ Std_MoveTable.Mv_ComboLiberate <- 	//リベレート　ヴェールオフ
 		Battle_Std.MoveCodeEx.AddFlag( 1, def_MC1_CmdLvDZ_OK ); // 同時押しで他の行動に移れる行動
 	
 		Battle_Std.SetEXCutinGrp( { x=0, y=-200, frame=def_FL_EXCutinBGChangeTime } ); // @@@@@@@@ HYPE @@@@@@@@ //
-	
+
 		Battle_Std.SetCharaFlash_LiberateInit(); //光って
 		
 		BMvTbl.SetMuki(_Direction_Auto);
@@ -12447,47 +12560,6 @@ Std_MoveTable.Mv_Liberate_Eff <-
 	function Finalize_Std() // 
 	{
 		BMvTbl.SetDeleteMoveTable();
-	}
-}
-
-Std_MoveTable.Mv_IWEXS_able <-
-{
-	function Init_Std()
-	{
-		// _dm("IFWXS使用可能状態開始");
-		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoRender|_ObjFlags_NoGround } );
-		BMvEff.SetExist( { level = _Exist_NoHantei } );
-		BMvTbl.SetPosition( {y=-100, flags=_Position_CaptureShift } );
-		
-		BMvEff.Slowmotion_Set( { time=60, power=6666, power_minus=10000/60 } );
-
-		local p = BMvCore.GetPlayerCharaData(); // 操作親の情報を得る
-		if( p.IsDone )
-		{
-			BMvCore.PushCharaData( p ); //	
-				BMvEff.SetCamera_Focus( { charapos=1, zoom=1.25, time=[8,30,15], type_in=1, type_out=2 } );
-			BMvCore.PopCharaData(); //
-		}
-		
-		BMvEff.SetCamera_Quake( { time=35, type=2, clear=1 } );
-		
-		BMvTbl.SetPP(def_PP_IWEXS_ChgVO_Hit,1); //使用可能		
-	}
-	function Update_Std()
-	{
-		//コンボ状態が途切れたら終了
-		local s = BMvTbl.GetMvStatus(); // ステータス取得
-		//_dm("."+s.MvCount);
-		if( !Battle_Std.CheckEnemyisDamage() )
-		{
-			BMvTbl.SetFinalize(0);
-		}
-	}
-	function Finalize_Std()
-	{
-		// _dm("IFWXS使用可能状態終了");
-		BMvTbl.SetPP(def_PP_IWEXS_ChgVO_Hit,0); //使用不可能		
-		BMvTbl.SetDeleteMoveTable();		
 	}
 }
 
@@ -13806,14 +13878,15 @@ local makemv_BoundSirimoti = function( frame1=9, frame2=15, frame3=25, boundpow=
 
 //しりもち（作り直し）
 //ヒルダの椅子処理でこの番号決め打ちしているので注意
-//HilCheck.isSirimoti()も一緒に対応すること
+//★★★ HilCheck.isSirimoti()も一緒に対応すること　★★★
+Std_MoveTable.Mv_Bound_0100 <- makemv_BoundSirimoti( 9, 15, 25, 100 ); // しりもちCH尻特
 Std_MoveTable.Mv_Bound_0197 <- makemv_BoundSirimoti( 7, 12, 20, 100 ); // しりもち弱
 Std_MoveTable.Mv_Bound_0198 <- makemv_BoundSirimoti( 8, 14, 22, 100 ); // しりもち中
 Std_MoveTable.Mv_Bound_0201 <- makemv_BoundSirimoti( 9, 15, 25, 100 ); // しりもち
 Std_MoveTable.Mv_Bound_0205 <- makemv_BoundSirimoti( 9, 15, 25, 100 ); // しりもち特
-Std_MoveTable.Mv_Bound_0100 <- makemv_BoundSirimoti( 9, 15, 25, 100 ); // しりもちCH尻特
 Std_MoveTable.Mv_Bound_0274 <- makemv_BoundSirimoti( 9, 15, 25,  25 ); // その場しりもち
 Std_MoveTable.Mv_Bound_0286 <- makemv_BoundSirimoti( 9, 15, 25,  50 ); // しちもち中P
+Std_MoveTable.Mv_Bound_0301 <- makemv_BoundSirimoti( 9, 15, 25,  50 ); // しりもちCH尻
 
 local makemv_BoundAirSirimoti = function( type=0 )
 {
@@ -14029,6 +14102,8 @@ Std_MoveTable.Mv_Bound_0056 <- Std_MoveTable.Mv_Bound_0012; //再帰きりもみ落下
 Std_MoveTable.Mv_Bound_0057 <- Std_MoveTable.Mv_Bound_0012; //
 Std_MoveTable.Mv_Bound_0058 <- Std_MoveTable.Mv_Bound_0012; //
 Std_MoveTable.Mv_Bound_0059 <- Std_MoveTable.Mv_Bound_0012; //
+Std_MoveTable.Mv_Bound_0285 <- Std_MoveTable.Mv_Bound_0012; //セト
+Std_MoveTable.Mv_Bound_0295 <- Std_MoveTable.Mv_Bound_0012; //イズミ
 //きりもみ系統は同じ処理
 
 // 凍結落下
@@ -14433,6 +14508,158 @@ Std_MoveTable.Mv_Bound_0247 <-
 }
 
 Std_MoveTable.Mv_Bound_0248 <- Std_MoveTable.Mv_Bound_0247;
+
+
+// イズミシャボンやられ
+// ウェブやられの処理と同じ
+
+// イズミから生成されるシャボン玉エフェクト
+Std_MoveTable.Mv_BubbleLockEffect <-
+{
+	function Init_Std()
+	{
+		BMvTbl.SetPattern( "bubble_lock" );
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround } );
+		
+		BMvTbl.SetLP(0,0); // 終わりかどうか
+		// BMvTbl.SetLP(1,0); // 継続するベクトル番号　生成時に指定される
+	}
+	function FrameUpdate_Std()
+	{
+		// 相手にくっつく
+		// 相手の行動が変わったら消える
+		if( BMvTbl.GetLP(0)==0 ) // ロックしている時の処理
+		{
+			local checkVecNum = BMvTbl.GetLP(1); // 生成時に決まるチェックするベクトル番号
+			// _dp("\n ロック中");
+			local enemy = BMvCore.GetNearEnemyCharaData(); // 敵の情報をかえる
+			if( enemy.push() )
+			{
+				local pl_pos = BMvTbl.GetPosition(0);
+				local pl_kasanari = BMvEff.GetHanteiRect( { check=[ _Hantei_Kasanari, 0 ] } );
+				local set_posy = pl_pos.y+(-150<<7); // 基本値
+				if( pl_kasanari.sx != _Hantei_Error )
+				{
+					set_posy = pl_kasanari.ey + ( (pl_kasanari.sy - pl_kasanari.ey) * 6 / 10 );
+				}
+				local bs = BtlMvStd.GetBoundStatus();
+				enemy.pop();
+
+				BMvTbl.SetPosition( { x=pl_pos.x, y=set_posy } ); // とりあえず座標をセット
+				
+				if( bs.isBound && ( bs.Num == checkVecNum ) && bs.VecCount == 0 ) // アニメ停止するのはここだけ
+				{
+				}
+				else
+				{
+					BMvTbl.SetLP(0,1); // ロック終わり
+					BMvTbl.JumpFrameID( 900 ); // 消滅アニメへ進む
+				}
+			}
+			else
+			{
+				BMvTbl.SetFinalize( 0 );
+			}
+		}
+	}
+	function Finalize_Std()
+	{
+		BMvTbl.SetDeleteMoveTable();
+	}
+}
+
+
+local bubblelockeff_size = chrparam.Get( { type="シャボン玉やられエフェクトサイズ", chrnum=_ChrNo } );
+
+local makemv_BubbleLockBoundBound = function( param={} ) : (bubblelockeff_size)
+{
+	
+	local ret_tmpl = {};
+	
+	local mvparam = {
+		bubble_scale_par = 100,
+		vec_num = 293,
+	}
+	
+	switch( param.type )
+	{
+	case "Normal":
+		break;
+	case "Ex":
+		mvparam.bubble_scale_par = 120;
+		mvparam.vec_num = 294;
+		break;
+	}
+	
+	ret_tmpl.Init_Std <- function() : (bubblelockeff_size, mvparam)
+	{
+		Battle_Std.BoundInit(); //ベクトル初期化・やられ状態セット
+		
+		//ベクトルテーブルの最初だけ処理する
+		local bs = BtlMvStd.GetBoundStatus();
+		if( bs.isBound && bs.VecCount==0 )
+		{
+			local enemyChrNo = Battle_Std.GetEnemyCharaNo();
+			if( enemyChrNo==Def_ChrNo_Izu )
+			{
+				local enemy = BMvCore.GetNearEnemyCharaData(); // イズミ側からの処理
+				if( enemy.push() )
+				{
+					local eff =BMvEff.CreateObject( { mvname="Mv_BubbleLockEffect" });
+					if( eff.push() )
+					{
+						_dpn("サイズ変更:"+bubblelockeff_size[0]+", "+bubblelockeff_size[1] );
+						BMvTbl.SetScale( { x=bubblelockeff_size[0]*mvparam.bubble_scale_par, y=bubblelockeff_size[1]*mvparam.bubble_scale_par } );
+						BMvTbl.SetLP(1,mvparam.vec_num);
+						eff.pop();
+					}
+					enemy.pop();
+				}
+			}
+			BMvEff.SetCharaColor( { color = 0x808080, type = 4, intime = 4, time = 254 } );			
+		}
+		
+		BMvTbl.SetLP(0,0); //カウンタ初期化
+	}
+	ret_tmpl.FrameUpdate_Std <- function() // 
+	{
+		local mvcnt = BMvTbl.GetLP(0); //カウンタ取得
+		BMvTbl.AddLP(0,1); //1F進める
+
+		local bs = BtlMvStd.GetBoundStatus();
+		if( bs.isBound && bs.VecCount==0 )
+		{
+			//とりあえず一枚目の絵で固定する
+			local frame = BMvTbl.JumpFrameID( 0, _ValAdd );
+			BMvTbl.Frame_Proc( frame, _ValSet  );
+		}
+	}
+	ret_tmpl.Finalize_Std <- function() // 
+	{
+		BtlMvStd.SetBoundFinalize();
+	}
+	ret_tmpl.LastUpdate_Std <- function() // 
+	{
+		local bs = BtlMvStd.GetBoundStatus();
+		if( bs.isBound && bs.VecCount==0 )
+		{
+			//フェードで抜ける
+			BMvEff.SetCharaColor( { color = 0x808080, type = 0, intime = 10, time = 10 } );
+		}
+		else
+		{
+			//初期化？
+			BMvEff.SetCharaColor( { color = 0xFFFFFF, type = 0, intime = 0, time = 0 } );
+		}
+		BtlMvStd.ClearBound(); // 状態解除
+	}
+	return ret_tmpl;
+}
+
+Std_MoveTable.Mv_Bound_0293 <- makemv_BubbleLockBoundBound( { type="Normal" } );
+Std_MoveTable.Mv_Bound_0294 <- makemv_BubbleLockBoundBound( { type="Ex" } );
+// ※↑のベクトル番号キメうちでエフェクト処理しているので注意
+
 
 //空攻撃浮きのベクトル終了先
 //地面についた（しりもち）なのか、空中なのかで分岐する
@@ -14966,7 +15193,7 @@ Std_MoveTable.Mv_Obj_DelThrowMv <-
 }
 
 // Std_MoveTableに特殊技関係をガーッと追加する関数
-local Add_EXAtks = function( stdmv ) : (set_AirAtkLandStatus, set_AirAtk_LandMoveableFrame)
+local Add_EXAtks = function( stdmv ) : (set_AirAtkLandStatus, set_AirAtk_LandMoveableFrame, hosei_StdAssultAirAtk)
 {
 	//関数内関数
 	local makemv_GroundEXAtk = function( param={} )
@@ -15030,7 +15257,7 @@ local Add_EXAtks = function( stdmv ) : (set_AirAtkLandStatus, set_AirAtk_LandMov
 	}
 
 
-	local makemv_AirEXAtk = function( param={} ) : (set_AirAtkLandStatus)
+	local makemv_AirEXAtk = function( param={} ) : (set_AirAtkLandStatus, hosei_StdAssultAirAtk)
 	{
 		local retmv = {};
 		
@@ -15041,8 +15268,10 @@ local Add_EXAtks = function( stdmv ) : (set_AirAtkLandStatus, set_AirAtk_LandMov
 		
 		local atkTable = ( "atkTable" in param )? param.atkTable : {};
 		local isAdd = ( "isAdd" in atkTable && atkTable.isAdd );
+
+		local hoseiVal = (atkLv in hosei_StdAssultAirAtk)? hosei_StdAssultAirAtk[atkLv] : 0;
 		
-		retmv.Init_Std <- function() : ( limit, pat, movecode, atkLv, isAdd )
+		retmv.Init_Std <- function() : ( limit, pat, movecode, atkLv, isAdd, hoseiVal )
 		{
 			Battle_Std.InitAirAtk( { type=atkLv } ); //通常攻撃共通Init
 			
@@ -15052,8 +15281,8 @@ local Add_EXAtks = function( stdmv ) : (set_AirAtkLandStatus, set_AirAtk_LandMov
 				// _dp("\n 追加:"+movecode);
 				Battle_Std.MoveCode.AddFlag( movecode );
 			}			
-
-			Battle_Std.SetStatus_AirAtkStatus(); //ジャンプ攻撃の各種フラグをリセット＋立てる
+			
+			Battle_Std.SetStatus_AirAtkStatus( { AssaultHosei = hoseiVal } ); //ジャンプ攻撃の各種フラグをリセット＋立てる
 			
 			if( isAdd )
 			{
@@ -16798,6 +17027,44 @@ Std_MoveTable.Mv_Null_AntenStopObject <-
 		else
 		{
 			DelEnemyAntenFlags(); // LastUpdateだと遅いのでここ？
+			BMvTbl.SetFinalize(0);
+		}
+	}
+	function Finalize_Std()
+	{
+		BMvTbl.SetDeleteMoveTable();
+	}
+}
+
+// 一瞬だけ処理
+Std_MoveTable.Mv_Null_AntenStopBoundCheckObject <-
+{
+	function Init_Std()
+	{
+		// _dpn("★Mv_Null_AntenStopBoundCheckObject");
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoRender } );
+		BMvEff.SetExist( { level = _Exist_NoHantei } );
+	}
+	function Update_Std()
+	{
+		local mvs = BMvTbl.GetMvStatus();
+		if( mvs.MvCount <= 2 )
+		{
+			if( Battle_Std.CheckPlayerisBound() )
+			{
+				// 暗転しようとした瞬間に被弾した
+				local player = BMvCore.GetPlayerCharaData();
+				if( player.push() )
+				{
+					_dpn_ml("FixAntenStopBug");
+					BMvEff.SetCamera_Focus( { time=[0,0,0] } );
+					// BMvEff.SetCamera_FocusKeep(0); // これだとダメ
+					player.pop();
+				}
+			}
+		}
+		else
+		{
 			BMvTbl.SetFinalize(0);
 		}
 	}

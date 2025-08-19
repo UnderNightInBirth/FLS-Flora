@@ -134,6 +134,11 @@ File = btl_chr025 // オーガ
 IsLoop = 1
 LoopPos = 04.434
 
+[BGM_027]
+File = btl_chr026 // イズミ
+IsLoop = 1
+LoopPos = 06.571
+
 
 
 // @@@@@@@@@@@@@@@@ Additional BGM @@@@@@@@@@@@@@@@ //

@@ -24,6 +24,8 @@
 023 = <GR_BG_Stage023>
 024 = <GR_BG_Stage024>
 025 = <GR_BG_Stage025>
+026 = <GR_BG_Stage026>
+027 = <GR_BG_Stage027>
 030 = University's Gathering Spot
 031 = Metropolitan Center: Silent Crossing
 032 = Rainy Shelter by the Theatre

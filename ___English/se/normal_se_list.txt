@@ -135,8 +135,8 @@ st[122] =	{  file=anopath+"sys_010_s_0222", type=0, volumetype=1  }; //
 st[123] =	{  file=anopath+"sys_010_s_0223", type=0, volumetype=1  }; // 
 st[124] =	{  file=anopath+"sys_010_s_0224", type=0, volumetype=1  }; // 
 st[125] =	{  file=anopath+"sys_010_s_0225", type=0, volumetype=1  }; // ogre
+st[126] =	{  file=anopath+"sys_010_s_0226", type=0, volumetype=1  }; // Izumi
 
-// st[126] probaly izumi
 st[127] =	{  file=path+"winna", type=0, volumetype=1  }; // ries
 st[128] =	{  file=path+"winna", type=0, volumetype=1  }; // ing
 st[129] =	{  file=path+"winna", type=0, volumetype=1  }; // ryu

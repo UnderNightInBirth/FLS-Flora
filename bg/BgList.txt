@@ -56,7 +56,7 @@ BgList <-
 	// SelectDisable ‚È‚à‚Ì‚ð“ü‚ê‚Ä‚à–³Œø
 	// 0 ‚Í‘‚©‚È‚¢‚æ‚¤‚É
 	// “¯‚¶‚à‚Ì‚ð‘‚­‚Æ‚¢‚Á‚Ï‚¢o‚Ä‚­‚é‚Ì‚Å’ˆÓ
-	BgSelectList = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 16, 19, 23, 21, 20, 22, 24, 25,  //added missing stage 9 (boss)
+	BgSelectList = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 16, 19, 23, 21, 20, 22, 24, 25, 26, 27,  //added missing stage 9 (boss)
 						30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 50, 90, 91, 45], 
 	
 	/////////////////////////////////////////////////////////
@@ -1043,7 +1043,87 @@ BgList <-
 		DLCFlag=1<<4,
 	}
 	/////////////////////////////////////////////////////////
+	Bg_026 =
+	{
+		Name = "…‘°ŠÙƒXƒe[ƒW", // ‘SŠp32•¶Žš–¢–ž
+		DataFile = "bg026",
 
+		Scale = [ 0.2, 0.2, 0.2 ],
+		Position = [ 0.0, 0.0, 0.0 ],
+		ViewGrid = 0,
+		FOV = 45.0,
+		VanishingPoint = 0.2
+
+		IsFog = 1,
+		FogStart = -3.0, FogEnd = 2000.0,
+		FogColor = [ 0.2, 0.0, 0.0, 1.0 ], // RGBA
+
+		MSAA = 4,
+		StageW = 4096, // 2560,4096
+		
+		IsBloom = 0,
+		
+		BGBloomEnable = 1,			// OFF:0 / ON:1
+		BGBloomBlightness = 0.9,	// 0 ` 2
+		BGBloomPower = 3.50,			// 0.1 ` 5
+		BGBloomBiassR = 2.0,		// 0 ` 5
+		BGBloomBiassG = 0.7,		// 0 ` 5
+		BGBloomBiassB = 0.7,		// 0 ` 5
+		BGBloomBlurRadius = 1.10,	// 0 ` 10
+		BGBloomTextureSize = 128,	// 64 / 128 / 256 / 512 / 1024 ‚Ì“à‚Ç‚ê‚©BŒ©‚½–Ú‚ª‹–‚·ŒÀ‚èA‹É—Í¬‚³‚È’l‚ð‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢B
+		BGBloomAlpha = 0.25,			// 0 ` 1
+		BGTinyFXAAEnable = 0,		// OFF:0 / ON:1
+		BGTinyFXAAThreshold = 0.2,	// 0 ` 1
+		BGTinyFXAALerpT = 0.5,		// 0 ` 1
+
+		InterpolationType = 2,	// Matrx•âŠÔƒ‚[ƒhÝ’è(0:’ÊíA1:MatrixŠÔ‚ð2ƒtƒŒ[ƒ€‚Å•âŠÔA2FMatrixŠÔ‚ðInterpolationNum‚ÅŽw’è‚µ‚½ƒtƒŒ[ƒ€”‚Å•âŠÔ)
+		InterpolationNum  = 3,	// •âŠÔƒtƒŒ[ƒ€”(InterpolationType‚ª2‚ÌŽž‚ÉMatrixŠÔ‚ð‰½ƒtƒŒ[ƒ€‚Å•âŠÔ‚·‚é‚©‚ðŽw’è)
+
+		StageSelTex = 26,
+		DLCFlag=1<<5,
+	}
+	/////////////////////////////////////////////////////////
+	Bg_027 =
+	{
+		Name = "ƒZƒgƒXƒe[ƒWi‰¼Ìj", // ‘SŠp32•¶Žš–¢–ž
+		DataFile = "bg027",
+
+		// RandomDisable = 1, // ƒ‰ƒ“ƒ_ƒ€‹ÖŽ~‚©
+		// VsDisable = 1, // ‘Îí‹ÖŽ~‚©
+		Scale = [ 0.1, 0.1, 0.1 ],
+		Position = [ 0.0, 0.0, 0.0 ],
+		ViewGrid = 0,
+		FOV = 50.0,
+		ViewRotationX = 2.5
+		ViewTranslationY = 0.3
+		VanishingPoint = 0.3
+
+		IsFog = 1,
+		FogStart = 2.0, FogEnd = 9000.0,
+		FogColor = [ 0.8, 0.55, 0.8, 1.0 ], // RGBA
+
+		MSAA = 2,
+		StageW = 4096, // 2560,4096
+		
+		IsBloom = 0,
+		
+		BGBloomEnable = 1,			// OFF:0 / ON:1
+		BGBloomBlightness = 1.1,	// 0 ` 2
+		BGBloomPower = 2.80,			// 0.1 ` 5
+		BGBloomBiassR = 1.2,		// 0 ` 5
+		BGBloomBiassG = 0.6,		// 0 ` 5
+		BGBloomBiassB = 0.6,		// 0 ` 5
+		BGBloomBlurRadius = 1.20,	// 0 ` 10
+		BGBloomTextureSize = 256,	// 64 / 128 / 256 / 512 / 1024 ‚Ì“à‚Ç‚ê‚©BŒ©‚½–Ú‚ª‹–‚·ŒÀ‚èA‹É—Í¬‚³‚È’l‚ð‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢B
+		BGBloomAlpha = 0.6,			// 0 ` 1
+		BGTinyFXAAEnable = 0,		// OFF:0 / ON:1
+		BGTinyFXAAThreshold = 0.2,	// 0 ` 1
+		BGTinyFXAALerpT = 0.5,		// 0 ` 1
+
+		StageSelTex = 27,
+		//DLCFlag=1<<0, // –³—¿’Ç‰Á
+	}
+	/////////////////////////////////////////////////////////
 
 // MODDED //
 

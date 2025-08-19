@@ -595,9 +595,9 @@ function Battle_Std::GetMvFromTmpl( tmpl, tmpl_name )
 			}
 		}
 	}
-
+	
 	local isdebug = 0; // @@@@@@@@@@@@@@@@@@@ //
-	if(tmpl_name.find("_Debug") > 0) isdebug=1; // あれ？ 
+	if(tmpl_name.find("_Debug") > 0) isdebug=1; // あれ？
 
 	if(!( "Init" in tmpl ))
 	{
@@ -1630,17 +1630,7 @@ function Battle_Std::MakeMoveTmpl( t, mvlist, _ChrNum )
 			{
 				if( Def_Rule_SPSkillMvEnd_EraseCutIn && preParam.isSP_Init ) BMvEff.CutInProc_Erase(); //カットインがあったら消去する
 				
-				//キャラの立ちしゃがみなどの状態を見て分岐
-				if( BCMDTbl.CheckPosState(_PosState_Stand) )
-				{
-					BMvTbl.SetNextMoveTable( "Mv_Neutral" );
-				}
-				else
-				{
-					//しゃがみや空中の場合はここ
-					//空中はないはずなのと、大半は立ちなのでこの処理順
-					BMvTbl.SetNextMoveTable( "Mv_Crouch_Wait" );
-				}
+				Battle_Std.SetNextMvFromPosState(); // キャラの立ちorしゃがみの状態を見て終了先を分岐
 			}
 			
 			mv_tmpl.GetFinalizeCode_Std <- function()
@@ -1924,17 +1914,7 @@ function Battle_Std::MakeMoveTmpl( t, mvlist, _ChrNum )
 				//Finalize_Std
 				mv_tmpl.Finalize_Std <- function()
 				{
-					//キャラの立ちしゃがみなどの状態を見て分岐
-					if( BCMDTbl.CheckPosState(_PosState_Stand) )
-					{
-						BMvTbl.SetNextMoveTable( "Mv_Neutral" );
-					}
-					else
-					{
-						//しゃがみや空中の場合はここ
-						//空中はないはずなのと、大半は立ちなのでこの処理順
-						BMvTbl.SetNextMoveTable( "Mv_Crouch_Wait" );
-					}
+					Battle_Std.SetNextMvFromPosState(); // キャラの立ちorしゃがみの状態を見て終了先を分岐
 				}
 				
 				mv_tmpl.GetFinalizeCode_Std <- function()
@@ -2274,7 +2254,7 @@ function Battle_Std::MakeMoveTmpl( t, mvlist, _ChrNum )
 					}
 					if( fb_params.GuardTiming )
 					{
-						if( Battle_Std.CheckGuardTiming_WithPartner() )
+						if( Battle_Std.CheckGuardTiming() )
 						{
 							FB_GuardTiming();
 							Battle_Std.AddFireBallFlags( def_BallFlags_NoSousaiVanish ); // ヒット数0になって相殺で消える処理をしない
@@ -3176,7 +3156,7 @@ Battle_Std.MakeMv.TechWait <- function( tbl={} )
 		if( FrameID!=-1 ) BMvTbl.JumpFrameID( FrameID );
 		BMvEff.ThrowParam( ThrowParam );
 
-		Battle_Std.ThrowTech.ShiftOverGamenHajiX(); //相手が画面外にいたら自分の座標ごと補正をかける			
+		Battle_Std.ThrowTech.ShiftOverGamenHajiX( { flags=(1<<0) } ); //相手が画面外にいたら自分の座標ごと補正をかける（端埋まったときは旧処理）
 		Battle_Std.ThrowTech.DrawThrowEffect(1); //ヒット座標につかみエフェクト表示 1:金投げ
 		
 		BMvEff.ThrowChara_SetCamera( 1 ); //投げているキャラをカメラ処理に含める
