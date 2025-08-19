@@ -2,31 +2,37 @@
 
 <img src="https://github.com/user-attachments/assets/0ce958e8-e2f4-4f7b-a095-f958366e3cf0">
 
+# Quick Start:
+
 [![Download Latest Version](https://img.shields.io/github/last-commit/UnderNightInBirth/FLS-Flora/game?style=for-the-badge&logo=steam&logoColor=white&label=Download%20Latest%20Version&color=9370DB)](https://github.com/UnderNightInBirth/FLS-Flora/archive/refs/heads/game.zip)
 
-<br>**FLS Flora** ("False Flora") is a modpack for Under Night In-Birth II. It's a group effort behind the humble [documentation repo](https://github.com/Fatih120/undernightinbirth), adding sweeping changes to the game to show off some cool new characters in a fresh coat of paint - all while showcasing how easy it is for anyone to jump in and start modding UNI2 for themselves.
+Download. Copy contents *within* "FLS-Flora-game" to [game files](https://steamcommunity.com/sharedfiles/filedetails/?id=760447682) and overwrite. Play!
+
+<br>**FLS Flora** ("False Flora") is a modpack for Under Night In-Birth II. It's a group effort that shows off the game in a coat of paint - not including adding to the cast of existing characters, music, and stages!
 
 ![ezgif-6b8691991d4a38](https://github.com/user-attachments/assets/a473f24f-b52f-440d-9e6b-dc75dc301a7f)
 
 </div>
 
-:warning: This repo is in an [W.I.P. STATE](manual/ROADMAP.md). Characters are in varied progress. You can still launch the game and enjoy, even on Network, but not everything is polished!
+:warning: Characters are in [varied progress](manual/ROADMAP.md). You can still launch the game and enjoy, even on Network, but not everything is polished!
 
-FLS Flora transforms the UNI2 experience with:
-- Custom (in-progress) characters, both ported and from-scratch
-- A new look and feel
-- Lots of BGMs to tune in to
+This modpack includes:
+- Custom characters - ported, by-hand, and hand-drawn!
+- A new look to some of the UI and menus
+- Lots of added BGMs to tune in to
 - Ported Type Lumina stages with nighttime edits
-- Network play with users of the same mod
+- Network play with users of the same mod (and network-safe for everyone else)
 - The most relaxed support community around
 
 ## Characters
 
-- Riesbyfe Strindvari
+- Riesbyfe Strindvari (MBAA)
 - Ingrid (Capcom)
-- Edmond Dantes
+- Edmond Dantes (MBTL)
 - Ako (DFCI)
 - FLS Ryu (a.k.a. Evil Ryu)
+- Hammer (some guy)
+- In-Birth Hyde (Edit)
 - [And more to come!](manual/ROADMAP.md)
 
 ![image](https://github.com/user-attachments/assets/e6cd74ff-6541-4a00-9cc3-82fa474f20d9)
@@ -47,9 +53,27 @@ At the moment, due to how the game loads files, you must
 - Have the Game Language be set to **English**
 - Ensure your *Steam* language is also set to **English**
 
-Launch the game and you should be good to go! We've had reports that playing online with strangers is OK if you don't pick a custom character or stage!
+Launch the game and you should be good to go!
 
 When you want to uninstall, clean up the extra folders from the repo and use Steam's "Verify Integrity" feature to get the game back to normal.
+
+# FAQ
+
+**Q: Can I play with strangers?**
+
+You can play with people with the modpack and strangers alike. Playing ranked will still be safe as long as you try not to choose the modded stages (and characters, of course).
+
+**Q: How does updates across game versions work?**
+
+You ought to do a fresh install of FLS Flora by using Steam's feature mentioned above and removing the modded directories just in case (just not the "d" folder - check the repo layout above for what to remove. 
+
+**Q: My game is crashing...**
+
+If it crashes when launching, please try again. A new visual change may have caused issues and we're still testing. If it's confirmed, we'll roll back the change if it gets bad, but it usually launches after the second attempt. For all other strange issues, feel free to let us know.
+
+**Q: Can you put my OC in?**
+
+Maybe.
 
 # Wiki
 
