@@ -1,0 +1,32 @@
+local tmp = [];
+
+{	tmp.append( { title =  Def_Tactics_Title_Footsies,
+	cat = Def_TCNum_TacticsLv1,
+	expl = Def_TCInfo_Expl_BattleTactics,
+	stringID = "chr_tactics_footsies",
+	endtype = 1,
+	start_csv = 1,
+skill= { recipe = [
+		{ skill="B", add={ reset=0 } },
+		{ skill="C", add={ reset=0 } },
+		{ skill="214B", add={ reset=0 } },
+		{ skill="FF", add={ reset=0 } },
+		] }
+	} );
+}
+
+Table  <- GetMissionListTable();
+local skillParam = { charaNo = Def_ChrNo_Ryu, }
+Table.listcount = tmp.len();
+Table.list.resize( Table.listcount );
+for( local i=0; i<tmp.len(); i++ )
+{
+	if( "skill" in tmp[i] )
+	{
+		tmp[i].skill.param <- skillParam;
+	}
+	tmp[i].player <- Def_ChrNo_Ryu;
+	tmp[i].num <- i;
+	local skillTable = GetSkillCheckTable( tmp[i] );
+	Table.list[i] = skillTable;
+}
