@@ -264,7 +264,7 @@ t.Mv_Atk_StdB <-
 	function Init_After() : (check_NearAtk)
 	{
 		//近距離だったら別パターンにする
-		if( check_NearAtk( 170 )==1 )
+		if( check_NearAtk( 280 )==1 )
 		{
 			BMvTbl.SetPattern("Near_StdB");
 			Battle_Std.MoveCodeEx.AddFlag( 1, def_MC1_CharaFlag3 );
@@ -273,6 +273,20 @@ t.Mv_Atk_StdB <-
 		{
 			Battle_Std.MoveCodeEx.AddFlag( 2, def_MC2_CharaFlag4 );
 		}
+	}
+}
+
+t.Mv_Atk_StdB_Gat <-
+{
+	function Init_After()
+	{
+		BMvTbl.SetPattern(2);
+		Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoAtk);
+		Battle_Std.MoveCodeEx.AddFlag( 2, def_MC2_CharaFlag4 );
+	}
+	function Finalize()
+	{
+		BMvTbl.SetPattern(0);
 	}
 }
 
@@ -297,7 +311,7 @@ t.Mv_Atk_StdC <-
 	function Init_After() : (check_NearAtk)
 	{
 		//近距離だったら別パターンにする
-		if( check_NearAtk(170)==1 )
+		if( check_NearAtk(225)==1 )
 		{
 			BMvTbl.SetPattern("Near_StdC");
 			Battle_Std.MoveCodeEx.AddFlag( 1, def_MC1_CharaFlag3 );
@@ -311,6 +325,20 @@ t.Mv_Atk_StdC <-
 	//{
 	//	Battle_Std.SetHitMuteki( 1, 8, _HitCheckFlag_Head ); // Param1 & 8 の時、_HitCheckFlag_Head 頭無敵
 	//}
+}
+
+t.Mv_Atk_StdC_Gat <-
+{
+	function Init_After()
+	{
+		BMvTbl.SetPattern(3);
+		Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoAtk);
+		Battle_Std.MoveCodeEx.AddFlag( 2, def_MC2_CharaFlag4 );
+	}
+	function Finalize()
+	{
+		BMvTbl.SetPattern(0);
+	}
 }
 
 t.Mv_Atk_AirA <- { function FrameUpdate_After() : (VTrait) { VTrait(); } }

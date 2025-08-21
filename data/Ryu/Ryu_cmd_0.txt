@@ -97,6 +97,32 @@ local t =
 		UpdateTable = { name = "Mv_Atk_CroA", }
 	},
 	
+	Skill_StdC_AddC= 
+	{
+		num = def_CN_Atk_AddCommand5, command = ["0+C"], flags = ["lastdelay"],
+		function CmdBeforeFunc()
+		{
+			local s = BMvTbl.GetMvStatus();
+			if( s.FrameID == 33 ) return 1;
+			return 0;
+		},
+		CmdCheck = { SkillType = "Normal", MvCheck = { Only = ["Mv_Atk_StdC"] }, },
+		UpdateTable = { name = "Mv_Atk_StdC_Gat", }
+	},
+	
+	Skill_StdB_AddB= 
+	{
+		num = def_CN_Atk_AddCommand6, command = ["0+B"], flags = ["lastdelay"],
+		function CmdBeforeFunc()
+		{
+			local s = BMvTbl.GetMvStatus();
+			if( s.FrameID == 33 ) return 1;
+			return 0;
+		},
+		CmdCheck = { SkillType = "Normal", MvCheck = { Only = ["Mv_Atk_StdB"] }, },
+		UpdateTable = { name = "Mv_Atk_StdB_Gat", }
+	},
+	
 	
 }
 
