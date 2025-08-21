@@ -29,11 +29,11 @@ t.Mv_Atk_AirC <-
     }	
 }
 
-t.Mv_Atk_Air2C <-
+t.Mv_Atk_Air6C <-
 {
 	function FrameUpdate_After()
 	{
-        Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<2), CheckFrameID=50, SetPattern="J2C_End" } );
+        Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<2), CheckFrameID=50, SetPattern="J6C_End" } );
     }	
 }
 
@@ -42,6 +42,20 @@ t.Mv_Atk_Std6C <-
 	function FrameUpdate_After()
 	{
         Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<2), CheckFrameID=50, EndFrameID=60, SetPattern="6C_End" } );
+    }	
+}
+t.Mv_Atk_Std6B <-
+{
+	function FrameUpdate_After()
+	{
+        Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<1), CheckFrameID=50, EndFrameID=60, SetPattern="6B_End" } );
+    }	
+}
+t.Mv_Atk_StdC <-
+{
+	function FrameUpdate_After()
+	{
+        Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<2), CheckFrameID=50, EndFrameID=60, SetPattern="C_End" } );
     }	
 }
 
@@ -789,7 +803,7 @@ t.Mv_Atk_CroBandC <-
 	}
 	function Finalize()
 	{
-		Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Atk_CroBCP"]);
+		Battle_Std.SwitchNextMoveTable("Mv_Crouch_Wait",[256,"Mv_Atk_CroBCP"]);
 	}
 }
 
@@ -816,12 +830,40 @@ t.Mv_Skill_623EX <-
 	}
 }
 
+// t.Mv_Skill_J236A <-
+// {
+	// function Init_After()
+	// {
+		// BMvTbl.SetMuki(_Direction_Reverse);
+		// BMvTbl.SetVector({ x=-1500, addx=10, y=-1400, addy=140, flags=_Vector_Normal });
+	// }
+// }
 t.Mv_Skill_J236A <-
 {
 	function Init_After()
 	{
 		BMvTbl.SetMuki(_Direction_Reverse);
 		BMvTbl.SetVector({ x=-1500, addx=10, y=-1400, addy=140, flags=_Vector_Normal });
+	}
+	function FrameUpdate_After()
+	{
+		local s = BMvTbl.GetMvStatus(); // ステータス取得
+		
+
+		// local frick = BMvTbl.CheckButtonHold( 0 );
+		// BMvEff.AttackInfoString_Set({ word = frick });
+		if( s.FrameID==5 )
+		{
+		    Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<0), CheckFrameID=5, SetPattern="J236A_Atk" } );
+		}
+		if( s.FrameID==10 )
+		{
+			BMvTbl.SetMuki(_Direction_Auto);
+		}
+	}
+	function HitInterrupt_After()
+	{
+		BMvTbl.SetVector({ x=-20, addx=1, y=-80, addy=5, flags=_Vector_Normal|_VecFlag_Add });
 	}
 }
 t.Mv_Skill_J236B <-
@@ -840,6 +882,71 @@ t.Mv_Skill_J236C <-
 		BMvTbl.SetVector({ x=-1000, y=-2500, addy=180, flags=_Vector_Normal });
 	}
 }
+
+
+t.Mv_Skill_0202A <-
+{
+	function Init_After()
+	{
+		Battle_Std.CreateObjectEX( { x=256, y=-650, mvname="Mv_214Spawner", pat="Halo", flags=_Position_ToolShift, LP={slot=1, val=0 } } );
+	}
+}
+
+
+t.Mv_214Spawner <-
+{
+	function Init_After()
+	{
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround|_ObjFlags_ParentMove|_ObjFlags_EraseParentDamage|_ObjFlags_EraseParentPatChange } );
+	}
+	function Init()
+	{
+		// BMvEff.EraseObjectFlags( { flags=_ObjFlags_ParentMove } ); //もう親についていかないようにする
+		// BMvEff.EraseObjectFlags( { flags=_ObjFlags_EraseParentPatChange|_ObjFlags_EraseParentDamage } );
+		// BMvEff.ObjProcFlags_Erase( { flags=_ObjProcFlags_EraseChangeParentMv } );
+	}
+	function FrameUpdate_After()
+	{
+		local eff = Battle_Std.CreateObjectEX({ x=-256+BMvEff.Random_Limit(400), y=500, pat="Ray", //FrameID=param.FrameID,
+				flags=_Position_ToolShift,
+				// angle = useangle,
+				mvname="Mv_214Ball",
+				initfunc = function()
+				{
+					// BMvEff.ObjType_Set( { type=_ObjType_FireBall } ); //飛び道具
+					// Battle_Std.MoveCode.AddFlag( def_MC_FireBall ); // 行動コード(飛び道具)を設定
+					// BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround|_ObjFlags_ParentMove } );
+					// local tool_angle = BMvTbl.GetAngle();
+					// local angle = (tool_angle/5000.0);
+					// local v = BMvEff.GetVector_FromAngle( { angle = angle, speed = param.speed } );
+					// BMvTbl.SetVector( { x=v.x, y=v.y, flags=0 } );
+					// BMvTbl.SetVector( { x=0, y=200, flags=0 } );
+				} });
+	}
+	function Finalize()
+	{
+		BMvTbl.SetDeleteMoveTable();
+	}
+}
+
+t.Mv_214Ball <-
+{
+	function Init()
+	{
+		BMvTbl.SetPattern("Ray");
+		// BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround } );
+	
+	}
+	function Init_After()
+	{
+		BMvTbl.SetVector( { x=0, y=200, addy=20, flags=0 } );
+	}
+	function Finalize()
+	{
+		BMvTbl.SetDeleteMoveTable();
+	}
+}
+
 
 t.Mv_Skill_41236SP <-
 {

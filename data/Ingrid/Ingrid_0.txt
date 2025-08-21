@@ -8,4 +8,4 @@ FileNum= 1
 File00=Ingrid.cg
 [PAniFile]
 FileNum= 1
-File00=chr000.pat
+File00=Ingrid.pat

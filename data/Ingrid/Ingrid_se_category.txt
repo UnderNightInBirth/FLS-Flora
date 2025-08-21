@@ -56,6 +56,17 @@ se["ジャンプ強攻撃"] <- //Jc
         selist = { common = [231], }
 	}
 ];
+se["Mv_Atk_J6C"] <- //Jc
+[
+	{
+		Param0=10,
+        selist = { common = [202], }
+	},
+	{
+		Param0=20,
+        selist = { common = [231], }
+	}
+];
 
 se["ダッシュ中攻撃"] <- {
 	Param0=10,
