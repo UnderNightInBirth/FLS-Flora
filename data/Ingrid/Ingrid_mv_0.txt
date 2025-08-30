@@ -852,13 +852,51 @@ t.Mv_Skill_J236A <-
 
 		// local frick = BMvTbl.CheckButtonHold( 0 );
 		// BMvEff.AttackInfoString_Set({ word = frick });
-		if( s.FrameID==5 )
+		switch( Battle_Std.GetUpdateFrameID() )
 		{
+		case 5:
 		    Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<0), CheckFrameID=5, SetPattern="J236A_Atk" } );
-		}
-		if( s.FrameID==10 )
-		{
+			break;
+		case 10:
 			BMvTbl.SetMuki(_Direction_Auto);
+			break;
+		case 256:
+			BMvTbl.SetMuki(_Direction_Auto);
+			Battle_Std.CreateFireBall({ x=128, y=-455, mv="Mv_FireBall_J236A", pat="FB_J236A"});
+			break;
+		}
+	}
+	function HitInterrupt_After()
+	{
+		BMvTbl.SetVector({ x=-20, addx=1, y=-80, addy=5, flags=_Vector_Normal|_VecFlag_Add });
+	}
+}
+t.Mv_Skill_J236A <-
+{
+	function Init_After()
+	{
+		BMvTbl.SetMuki(_Direction_Reverse);
+		BMvTbl.SetVector({ x=-1500, addx=10, y=-1400, addy=140, flags=_Vector_Normal });
+	}
+	function FrameUpdate_After()
+	{
+		local s = BMvTbl.GetMvStatus(); // ステータス取得
+		
+
+		// local frick = BMvTbl.CheckButtonHold( 0 );
+		// BMvEff.AttackInfoString_Set({ word = frick });
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 5:
+		    Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<0), CheckFrameID=5, SetPattern="J236A_Atk" } );
+			break;
+		case 10:
+			BMvTbl.SetMuki(_Direction_Auto);
+			break;
+		case 256:
+			BMvTbl.SetMuki(_Direction_Auto);
+			Battle_Std.CreateFireBall({ x=128, y=-455, mv="Mv_FireBall_J236A", pat="FB_J236A"});
+			break;
 		}
 	}
 	function HitInterrupt_After()
@@ -873,6 +911,31 @@ t.Mv_Skill_J236B <-
 		BMvTbl.SetMuki(_Direction_Reverse);
 		BMvTbl.SetVector({ x=-2100, addx=15, y=-1900, addy=140, flags=_Vector_Normal });
 	}
+	function FrameUpdate_After()
+	{
+		local s = BMvTbl.GetMvStatus(); // ステータス取得
+		
+
+		// local frick = BMvTbl.CheckButtonHold( 0 );
+		// BMvEff.AttackInfoString_Set({ word = frick });
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 5:
+		    Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<1), CheckFrameID=5, SetPattern="J236B_Atk" } );
+			break;
+		case 10:
+			BMvTbl.SetMuki(_Direction_Auto);
+			break;
+		case 256:
+			BMvTbl.SetMuki(_Direction_Auto);
+			Battle_Std.CreateFireBall({ x=128, y=0, mv="Mv_FireBall_J236B", pat="FB_J236B"});
+			break;
+		}
+	}
+	function HitInterrupt_After()
+	{
+		BMvTbl.SetVector({ x=-20, addx=1, y=-80, addy=5, flags=_Vector_Normal|_VecFlag_Add });
+	}
 }
 t.Mv_Skill_J236C <-
 {
@@ -881,6 +944,52 @@ t.Mv_Skill_J236C <-
 		BMvTbl.SetMuki(_Direction_Reverse);
 		BMvTbl.SetVector({ x=-1000, y=-2500, addy=180, flags=_Vector_Normal });
 	}
+}
+t.Mv_FireBall_J236A <-
+{
+	function FrameUpdate_After()
+	{
+		// local s = BMvTbl.GetMvStatus();
+		// if( s.MvCount%5==0 )
+		// {
+			// Battle_Std.CreateObjectEX( { pat="236TamaFragment", FrameID=[10,20,30], objectflags=_ObjFlags_NoGround } );
+		// }
+	}
+	function HitInterrupt_After()
+	{
+
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			BMvTbl.JumpFrameID(256);
+		}
+	}	
+}
+t.Mv_FireBall_J236B <-
+{
+	function Init_After()
+	{
+		BMvTbl.SetLP(0,0);
+	}
+	function FrameUpdate_After()
+	{
+		local s = BMvTbl.GetMvStatus();
+		if( s.MvCount>=160 && BMvTbl.GetLP(0)==0 )
+		{
+			BMvTbl.SetLP(0,1);
+			BMvTbl.JumpFrameID(256);
+		}
+	}
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckGuardTiming() )
+		{
+			BMvTbl.JumpFrameID(256);
+		}
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			BMvTbl.JumpFrameID(256);
+		}
+	}	
 }
 
 
