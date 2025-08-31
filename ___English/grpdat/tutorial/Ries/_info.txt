@@ -184,6 +184,13 @@ skill= { recipe = [
 	skill= { recipe = ["2C","3B","i6B","i236B","2C","C","236B"] } } );
 }
 
+{	tmp.append( { title=Def_TCInfo_Title_Rampage,
+	pos="’[",cat=Def_TCNum_Level3, gauge="EX",
+	stringID="corner_shieldsmashdown_",
+	expl = Def_TCInfo_Expl_RampageSmash,
+	skill= { recipe = ["B","2C","C","i6B","623A","2A","JB","JC","J214B","J214EX","214C","2C","3B","i6B","236B"] } } );
+}
+
 
 
 
