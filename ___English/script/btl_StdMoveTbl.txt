@@ -845,6 +845,7 @@ local hosei_StdAssultAirAtk = {
 	// So crouching might look better for some 3Ds...
 	chrparam.Param[type] <- array(CHRMAX, "Mv_Neutral" ); // Normal, Smart Steer
 	chrparam.Param[type][Def_ChrNo_Izu] = "Mv_Crouch_Wait";
+	chrparam.Param[type][Def_ChrNo_Ing] = "Mv_Crouch_Wait";
 }
 local ForwardShiftFinalizeMv = chrparam.Get( { type="クリーピングエッジ終了MV", chrnum=_ChrNo } ); // Creeping Edge Ending MV
 
