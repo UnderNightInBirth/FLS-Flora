@@ -16,40 +16,38 @@ foreach ($entry in $dlist.GetEnumerator()) {
         Write-Warning "$dFile missing, is your game install OK?"
         continue
     }
-	try	{
-		$bytes = [System.IO.File]::ReadAllBytes($dFile)
-		$changed = $false
-		foreach ($str in $entry.Value) {
-			$oldBytes = [Text.Encoding]::ASCII.GetBytes($str)
-			$flsStr   = [IO.Path]::GetFileNameWithoutExtension($str) + ".FLS"
-			$newBytes = [Text.Encoding]::ASCII.GetBytes($flsStr)
-		
-			for ($i = 0; $i -le $bytes.Length - $oldBytes.Length; $i++) {
-				$match = $true
-				for ($j = 0; $j -lt $oldBytes.Length; $j++) {
-					if ($bytes[$i + $j] -ne $oldBytes[$j]) {
-						$match = $false
-						break
-					}
-				}
-				if ($match) {
-					for ($j = 0; $j -lt $newBytes.Length; $j++) {
-						$bytes[$i + $j] = $newBytes[$j]
-					}
-				    $changesMade = $true
-				}
-			}
-		}
-
-        if ($changed) {
+    try {
+        $bytes = [System.IO.File]::ReadAllBytes($dFile)
+        $changesMade = $false
+        foreach ($str in $entry.Value) {
+            $oldBytes = [Text.Encoding]::ASCII.GetBytes($str)
+            $flsStr   = [IO.Path]::GetFileNameWithoutExtension($str) + ".FLS"
+            $newBytes = [Text.Encoding]::ASCII.GetBytes($flsStr)
+            for ($i = 0; $i -le $bytes.Length - $oldBytes.Length; $i++) {
+                $match = $true
+                for ($j = 0; $j -lt $oldBytes.Length; $j++) {
+                    if ($bytes[$i + $j] -ne $oldBytes[$j]) {
+                        $match = $false
+                        break
+                    }
+                }
+                if ($match) {
+                    for ($j = 0; $j -lt $newBytes.Length; $j++) {
+                        $bytes[$i + $j] = $newBytes[$j]
+                    }
+                    $changesMade = $true
+                }
+            }
+        }
+        if ($changesMade) {
             [System.IO.File]::WriteAllBytes($dFile, $bytes)
             Write-Host "Done: $dFile" -ForegroundColor Cyan
         } else {
             Write-Host "Found nothing to do in $dFile"
         }
-	}
-	catch {
-        Write-Error "Error with $dFile : $($_.Exception.Message)"
+    }
+    catch {
+        Write-Error "Issue with $dFile : $($_.Exception.Message)"
     }
 }
 
