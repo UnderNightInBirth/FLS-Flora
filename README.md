@@ -6,7 +6,7 @@
 
 [![Download Latest Version](https://img.shields.io/github/last-commit/UnderNightInBirth/FLS-Flora/game?style=for-the-badge&logo=steam&logoColor=white&label=Download%20Latest%20Version&color=9370DB)](https://github.com/UnderNightInBirth/FLS-Flora/archive/refs/heads/game.zip)
 
-Download. Copy contents *within* "FLS-Flora-game" to [game files](https://steamcommunity.com/sharedfiles/filedetails/?id=760447682) and overwrite. Play!
+Download. Copy contents *within* "FLS-Flora-game" to [game files](https://steamcommunity.com/sharedfiles/filedetails/?id=760447682) and overwrite. Run the install-FLS.bat/ps1 script. Play!
 
 <br>**FLS Flora** ("False Flora") is a modpack for Under Night In-Birth II. It's a group effort that shows off the game in a coat of paint - not including adding to the cast of existing characters, music, and stages!
 
@@ -14,10 +14,9 @@ Download. Copy contents *within* "FLS-Flora-game" to [game files](https://steamc
 
 </div>
 
-:warning: Characters are in [varied progress](manual/ROADMAP.md). You can still launch the game and enjoy, even on Network, but not everything is polished!
-
 This modpack includes:
-- Custom characters - ported, by-hand, and hand-drawn!
+- Custom characters - some ported, some by-hand, and hand-drawn!
+- Functional in-game Command List and future Missions
 - A new look to some of the UI and menus
 - Lots of added BGMs to tune in to
 - Ported Type Lumina stages with nighttime edits
@@ -33,7 +32,7 @@ This modpack includes:
 - FLS Ryu (a.k.a. Evil Ryu)
 - Hammer (some guy)
 - In-Birth Hyde (Edit)
-- [And more to come!](manual/ROADMAP.md)
+- [And more to come!](manual/ROADMAP.md) Characters are in varied progress.
 
 ![image](https://github.com/user-attachments/assets/e6cd74ff-6541-4a00-9cc3-82fa474f20d9)
 ![uni2_2025_0224-065415](https://github.com/user-attachments/assets/cd75ac86-8f3d-4e50-a539-ed692e4bc61c)
@@ -47,29 +46,31 @@ This modpack includes:
 
 To download and try out the mod in its current state, clone the repo or [click here to download the pack](https://github.com/UnderNightInBirth/FLS-Flora/archive/refs/heads/game.zip). Navigate to your game's installation folder and unpack the *contents* of FLS-Flora-game in there (overwrite), so your folder should end up looking a bit like this:
 
-![image](https://github.com/user-attachments/assets/b1f98416-6103-4f71-8b89-a294e383555d)
+<img width="773" height="266" alt="file layout" src="https://github.com/user-attachments/assets/f698c644-9515-42b7-b544-6d6ceb8e519b" />
 
-At the moment, due to how the game loads files, you must
+Next, double-click `install-FLS.bat` (or run the ps1 file if you know how) to quickly patch the game. Skipping this step will still let you play the modpack, but there will be issues with the UI and stages.
+
+At the moment, due to how the game loads files, you must also
 - Have the Game Language be set to **English**
 - Ensure your *Steam* language is also set to **English**
 
 Launch the game and you should be good to go!
 
-When you want to uninstall, clean up the extra folders from the repo and use Steam's "Verify Integrity" feature to get the game back to normal.
+When you want to uninstall, clean up the extra folders from the repo and use Steam's "[Verify Integrity](https://help.steampowered.com/en/faqs/view/0C48-FCBD-DA71-93EB)" feature to get the game back to normal.
 
 # FAQ
 
 **Q: Can I play with strangers?**
 
-You can play with people with the modpack and strangers alike. Playing ranked will still be safe as long as you try not to choose the modded stages (and characters, of course).
+You can play on the modpack with friends and strangers alike, as long as you don't play as custom characters or on modded stages (as in, those without the modpack). You can still play online matches, and the worst that will happen is the game crashing.
 
-**Q: How does updates across game versions work?**
+**Q: How does updating work?**
 
-You ought to do a fresh install of FLS Flora by using Steam's feature mentioned above and removing the modded directories just in case (just not the "d" folder - check the repo layout above for what to remove. 
+You ought to do a fresh install of FLS Flora by using Steam's feature mentioned above and removing the modded directories just in case (check the repo layout above for what to remove if needed).
 
 **Q: My game is crashing...**
 
-If it crashes when launching, please try again. A new visual change may have caused issues and we're still testing. If it's confirmed, we'll roll back the change if it gets bad, but it usually launches after the second attempt. For all other strange issues, feel free to let us know.
+If it crashes when launching, please try again. A new visual change may have caused issues and we're still testing. If it's confirmed to be annoying and breaking the experience, we'll roll back the change if it gets bad. It usually launches after the second attempt. For all other strange issues, please let us know.
 
 **Q: Can you put my OC in?**
 
