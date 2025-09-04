@@ -1,0 +1,1 @@
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& '.\install-FLS.ps1'"
