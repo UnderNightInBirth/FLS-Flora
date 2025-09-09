@@ -6,7 +6,7 @@ $dlist = @{
     "lzwp1onbeaejbkCh" = @("gauge_00.dds","gauge_01.dds","gauge_02.dds","demo_logo00.dds","sys_combo00.pat")
     "oMtaqooqotvvonnpwmq" = @("mainmenu_bg00.pat","BtlCharaTbl_str.ini","network00.pat","csel00.pat","cmddef_name.ini")
     "rcwWiiqjmxpmojs" = @("stringfile.csv")
-    "fmjisrkojmp" = @("BgList.txt","BgList_str.ini")
+    "fmjisrkojmp" = @("BgList.txt","BgList_str.txt")
     "hexeojmpimrjs" = @("effect.txt")
 }
 
