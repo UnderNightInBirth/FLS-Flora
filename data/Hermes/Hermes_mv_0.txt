@@ -1,0 +1,153 @@
+local t = {};
+local chrFunc = {};
+
+// local setCam = function()
+// {
+	// BMvEff.SetCamera_Focus( { zoom=0.6, time=[30,9999,0] } ); // in wait out
+// }
+
+t.Mv_Startup <-
+{
+	function Init_After()
+	{
+		// local heater = Battle_Std.CreateObjectEX( { mvname="Mv_HEAT" } );
+		BMvEff.CreateObject( { mvname="Mv_Null_ArmorMng" } );
+	}
+}
+
+
+t.Mv_Null_ArmorMng <-
+{
+	function Update()
+	{
+		local player = BMvCore.GetPlayerCharaData();
+		if( player.push() )
+		{
+			if( !Battle_Std.CheckPlayerisDamage() )
+			{
+				BMvTbl.SetSuperArmorFlag( { val=90, time=32, flag=0 } ); // ƒA[ƒ}[
+				// BMvEff.SetPlayerTimer( { muteki_nage=2 } );
+				// BMvEff.SetSpGauge( { value=10 } );// ƒQ[ƒW‚à‚¶‚í‚¶‚í‘‚¦‚Ä‚¢‚­‚¼@–‚—Í‚ª‘½‚¢ƒVƒGƒ‹‚¾‚©‚ç‚Ë
+			}
+			BMvTbl.SetHitCheckFlag( { type=1, val=HitCheckFlag_Throw, time=254 } );
+			player.pop();
+		}
+	}
+}
+
+// t.Mv_HEAT <-
+// {
+    // function Init()
+    // {
+		// BMvTbl.SetLP(90,0); // JustHeated? flag
+		// BMvTbl.SetLP(91,0); // DidEX? flag
+    // }
+    // function FrameUpdate_After()
+    // {
+		// local player = BMvCore.GetPlayerCharaData();
+		// if (player.push() )
+		// {	
+				// BMvTbl.SetPrio( _CharaPrio_Far );
+
+		// local mvname = BMvTbl.GetMvName();
+		// local change_mvname = BMvTbl.ChangeMv_GetMvName();
+		// local mvs = BMvTbl.GetMvStatus();
+			// BMvEff.AttackInfoString_Set({ word = mvname+" "+change_mvname+" "+mvs.MvCount});
+			// BMvEff.SetSpGauge( { value=1 } );
+			// local exs = BCMDTbl.GetComboGauge();
+			// local gaugeType = BMvEff.Liberate_Get();
+			
+			// if( exs==20000 && gaugeType==0 ) // Check for max bar
+			// {
+				// BMvTbl.SetLP(90,1); // We JustHeated
+				// BMvEff.Liberate_Set();
+				// BMvEff.Liberate_SetType( _LiberateType_Normal ); 
+			// }
+			
+			// local EXmvs = Battle_Std.IsMatchMvNameArray( ["Mv_Skill_236EX","Mv_Skill_623EX"] ) // There is probably a better way to do this
+			// if( gaugeType==1 && EXmvs )
+			// {
+				// BMvTbl.SetLP(91,1); // We DidEx
+			// }
+			
+			// if( exs==0 && BMvTbl.GetLP(90)==1 && BMvTbl.GetLP(91)==0 ) // Check we didnt EX and were out of HEAT
+			// {
+				// BMvEff.SetSpGauge( { value=5000 } );
+				// BMvTbl.SetLP(90,0);
+				// BMvTbl.SetLP(91,0);
+			// }
+		// }
+    // }
+// }
+
+
+// t.Mv_CamHelp <-
+// {
+	// function FrameUpdate_After()
+	// {
+		// // BMvEff.SetCamera_Focus( { zoom=0.6, time=[30,9999,0] } ); // in wait out
+	// }
+// }
+
+// t.Mv_Atk_StdA <-
+// {
+	// function Init_After() : (setCam)
+	// {
+		// // BMvEff.SetCamera_Focus( { zoom=0.3, time=[30,9999,0] } ); // in wait out
+	// }
+// }
+
+// t.Mv_Bound <- 
+// {
+
+	// function Init_After()
+	// {
+		// BtlMvStd.ClearBound();
+		// BtlMvStd.SetBoundFinalize();
+	// }
+	// function FrameUpdate_After() // 
+	// {
+		// BtlMvStd.ClearBound();
+		// BMvEff.SetPlayerTimer( { muteki_nage=0, muteki_dage=0, muteki_nageX=0 } );		
+		// BtlMvStd.SetBoundFinalize();
+	// }
+// }
+
+// t.DamageImpact <- function(info) : (chrFunc)
+// {
+	// BMvEff.AttackInfoString_Set({ word = "hit" });
+	// //BMvTbl.SetPattern(0);
+	// BtlMvStd.ClearBound();
+	
+	// BMvTbl.ClearHitStatus();
+	
+// }
+
+// t.AttackImpact <- function(info) : (chrFunc) //t.GeneralInterrupt
+// {
+
+	// Battle_Std.AttackImpact_StdFunc(info);
+	// local Guard = ((info.flags&_ImpactFlag_IsGuard)!=0);
+	// local Nage = (info.atk_throw!=0); //g??‹hâfe?c?C???c
+	// local Yarare = (((info.flags&_ImpactFlag_IsBound)!=0)&&!Guard);
+	// local Capture = (((info.flags&_ImpactFlag_IsCapture)!=0 ) && !Guard );
+	// local Nage_Shodan = (!Capture &&Nage); // g??‹?I?Y ?|g??‹?ñfi?A?????d?E?e?A?AfE?ig??‹?Ig??‹h2?PeO?@?A?c?ah?ñ??E?e?a
+	// local Syodan = (!Yarare); // eA??
+	// local Zenbu_Shodan = (Syodan || Nage_Shodan); // eA???A?ag??‹?A
+	// //BMvEff.AttackInfoString_Set({ word = Guard });
+
+	// BMvEff.AttackInfoString_Set({ word = "hit" });
+	
+	// if(Nage_Shodan || Syodan || Capture)
+	// {
+		// BMvEff.SetPlayerTimer( { muteki_nage=0, muteki_dage=0, muteki_nageX=0 } );		
+		// BtlMvStd.ClearBound();
+		// BtlMvStd.SetBoundFinalize();
+	// }
+
+	
+// }
+
+
+HERMES_MoveTable <- Battle_Std.MakeMoveTable( t, HERMES_CommandTable, Def_ChrNo_Hermes );
+__dofile__("./data/chr011/chr011_se_category.txt"); //‚r‚d’è‹`

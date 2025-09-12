@@ -1,0 +1,1 @@
+__dofile__( "./data/Hermes/Hermes_com_0.txt" );
