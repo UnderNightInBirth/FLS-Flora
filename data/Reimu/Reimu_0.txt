@@ -1,0 +1,11 @@
+[System]
+ProjectName=Reimu
+[DataFile]
+FileNum= 1
+File00=Reimu.ha6
+[BmpcutFile]
+FileNum= 1
+File00=Reimu.cg
+[PAniFile]
+FileNum= 1
+File00=Reimu.pat

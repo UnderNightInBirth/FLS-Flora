@@ -1,0 +1,324 @@
+local t = {}; // Collects all the move data
+// local chrFunc = {};
+
+//-----------------------------------------------------------------------------
+// Variables
+//-----------------------------------------------------------------------------
+// LP 1 - 2C Counter
+// LP 10 - Fantasy Heaven Orb Counter
+// LP 11 - Melee Hit Counter
+//
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// For Objects:
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// LP 0 - Yin Yang Orb ID (Start from 1)
+// LP 1 - Hit Effect Flag
+//
+//
+//
+
+// chrFunc.RegisterMelee = function()
+// {
+	
+// }
+
+t.Mv_Startup <-
+{
+	function Init_After()
+	{
+		BMvTbl.SetLP(11,0);
+	}
+}
+
+t.Mv_Atk_StdA <-
+{
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			BMvTbl.AddLP(11,1);
+			BMvEff.AttackInfoString_Set({ word = BMvTbl.GetLP(11) });
+		}
+	}
+}
+
+t.Mv_Atk_StdB <-
+{
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			BMvTbl.AddLP(11,1);
+			BMvEff.AttackInfoString_Set({ word = BMvTbl.GetLP(11) });
+		}
+	}
+}
+
+t.Mv_Atk_StdC <-
+{
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			BMvTbl.AddLP(11,1);
+			BMvEff.AttackInfoString_Set({ word = BMvTbl.GetLP(11) });
+		}
+	}
+}
+
+t.Mv_Atk_CroA <-
+{
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckDamageTiming_FrameID(5) )
+		{
+			BMvTbl.AddLP(11,1);
+			BMvEff.AttackInfoString_Set({ word = BMvTbl.GetLP(11) });
+		}
+	}
+}
+
+t.Mv_Atk_CroB <-
+{
+	function Init_After()
+	{
+	
+	}
+	function FrameUpdate_After()
+	{
+		local mvs = BMvTbl.GetMvStatus();
+        if(Battle_Std.GetUpdateFrameID()==10)
+		{
+			Battle_Std.CreateFireBall({ x=90, y=0, mv="Mv_FireBall_CroB", pat = "FireBall_CroB", vec = { x=6000, y=0, addx=-345, addy=0 }});
+		}
+	}
+}
+
+t.Mv_FireBall_CroB <-
+{
+	function Init_After()
+	{
+	}
+	function FrameUpdate_After()
+	{
+	}
+}
+
+t.Mv_Atk_CroC <-
+{
+	function Init_After()
+	{
+		BMvTbl.SetLP(1, 0); // Set Counter
+	}
+	function FrameUpdate_After()
+	{
+		local mvs = BMvTbl.GetMvStatus();
+		local cnt = BMvTbl.GetLP(1);
+		switch(Battle_Std.GetUpdateFrameID())
+		{
+			case 10:
+			{
+				Battle_Std.CreateFireBall({ 
+					x = 0, 
+					y = cnt*-150, // Increment Y by Counter
+					mv = "Mv_FireBall_CroC", 
+					pat = "FireBall_CroC",
+					vec = { x = 0, y = -1000, addx = 0, addy = 20 }
+				});
+				BMvTbl.AddLP(1, 1); // Increment Counter
+				break;
+			}
+		}
+	}
+}
+
+t.Mv_FireBall_CroC <-
+{
+	function Init_After()
+	{
+	}
+	function FrameUpdate_After()
+	{
+	}
+	function HitInterrupt_After()
+	{
+		// local player = BMvCore.GetPlayerCharaData();
+		// if (player.push() )
+		// {
+			// Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoJump);
+			// Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoJump);
+			// Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoJump);
+			// player.pop();
+		// }
+	}
+}
+
+t.Mv_Atk_AirA <-
+{
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			BMvTbl.AddLP(11,1);
+			BMvEff.AttackInfoString_Set({ word = BMvTbl.GetLP(11) });
+		}
+	}
+}
+
+t.Mv_Atk_AirB <-
+{
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			BMvTbl.AddLP(11,1);
+			BMvEff.AttackInfoString_Set({ word = BMvTbl.GetLP(11) });
+		}
+	}
+}
+
+t.Mv_Atk_AirC <-
+{
+	function FrameUpdate_After()
+	{
+		Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<2), CheckFrameID=50, EndFrameID=60, SetPattern="AirC_End" } );
+	}
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			BMvTbl.AddLP(11,1);
+			BMvEff.AttackInfoString_Set({ word = BMvTbl.GetLP(11) });
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------
+// Movement Code File
+//
+////	t.Mv_Atk_Name <- // Mv_Skill_Name
+////	{
+////		function Init_After()
+////		{
+////			// Things that happen when the move is called
+////		}
+////		function FrameUpdate_After()
+////		{
+////			// Things that happen every frame
+////		}
+////		function Finalize_After()
+////		{
+////			// Things that happen when the move is done
+////		}
+////		function HitInterrupt_After()
+////		{
+////			// Things that happen when the attack lands, even if blocked
+////		}
+////		function LastUpdate_After()
+////		{
+////			// Things that happen after the move is done
+////		}
+////	}
+//
+//-----------------------------------------------------------------------------
+
+t.Mv_Skill_IWEXIST <-
+{
+	flags = def_TmplFlags_NoAddComboRate // Don't add to combo
+    function HitInterrupt_After()
+    {
+        Battle_Std.SetThrowHitFinalize(256);
+		BMvTbl.SetLP(11, 0);
+    }
+    function Finalize()
+    {
+        Battle_Std.SwitchNextMoveTable("Mv_Neutral",[256,"Mv_Skill_IWEXIST_Hit"]);
+    }
+}
+
+t.Mv_Skill_IWEXIST_Hit <-
+{
+	flags = def_TmplFlags_NoAddComboRate // Don't add to combo
+	function Init_After()
+	{
+		BMvTbl.SetLP(10, 1); // Set Counter
+		BMvTbl.SetLP(11, 0);
+		BMvEff.FadeProc_SetRenderFlag(0); // 0:カットインBG描画なし
+		BMvEff.SetCamera_Focus( { charapos=1, zoom=1.25, time=[8,40,15], type_in=1, type_out=2 } );
+		BMvEff.SetStopTime( { time=60, stopme=0 } );
+	}
+	function FrameUpdate_After()
+	{
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 10:
+			local cnt = BMvTbl.GetLP(10);
+			Battle_Std.CreateObjectEX( { x=256, y=-128, mvname="Mv_Obj_YinYang", pat="YinYang", LP={ slot=0, val=cnt }, flags=_Position_ToolShift } );
+			BMvTbl.AddLP(10, 1); // Increment Counter
+			break;
+		}
+	}
+	function Finalize_After()
+	{
+		// Battle_Std.FinalizeIWExistSkill();
+		// // // BMvEff.ThrowParam( { x=400, y=0, } );
+		// BMvEff.ThrowRelease( { type="鋭角斜め下バウンド", airrecover=0, flags=_ThrowRelease_NoAttackHit|_ThrowRelease_NoGroundRecover|_ThrowRelease_ReverseVec } );
+	}
+}
+
+t.Mv_Obj_YinYang <-
+{
+	function Init_After()
+	{
+		BMvEff.SetObjectFlags({ flags=_ObjFlags_ParentMove|_ObjFlags_NoGround });
+		BMvTbl.SetLP(1,0);
+	}
+	function FrameUpdate_After()
+	{
+		local orbNum = BMvTbl.GetLP(0);
+		
+		local mvs = BMvTbl.GetMvStatus();
+		local pos = BMvTbl.GetPosition();
+		local player = BMvCore.GetPlayerCharaData();
+		if( player.push() )
+		{
+			local damageCnt = BMvTbl.GetLP(11);
+			player.pop()
+			
+			if( orbNum==damageCnt && !BMvTbl.GetLP(1) )
+			{
+				local eff = Battle_Std.CreateObjectEX( { mvname="Mv_Obj_Hamon", pat="YinYangHit" } );
+				if(eff.push())
+				{
+					BMvEff.SetObjectFlags({ flags=_ObjFlags_ParentMove|_ObjFlags_NoGround });
+					eff.pop();
+				}
+				BMvTbl.SetLP(1,1);
+			}
+		}
+
+		// local player = BMvCore.GetPlayerCharaData(); // 操作親の情報を得る
+		// if( player.push() )
+		// {
+			// local oya_UpdateFrameID = Battle_Std.GetUpdateFrameID();
+			
+			// local rc = BMvEff.GetHanteiRect( { check=[ _Hantei_Etc, 0 ], flags=0 } );
+			// player.pop();
+			
+			// if( rc.sx != _Hantei_Error ) // 存在するか
+			// {
+				// local use_Xpos = (BMvTbl.GetMuki() == 1)? rc.sx : rc.ex; // 右向きならsx、左向きならex
+				// BMvTbl.SetPosition( { x=use_Xpos, y=rc.sy } );
+			// }
+			// if( oya_UpdateFrameID == 600 ) // 親が終了のところまで進んだ
+			// {
+				// BMvTbl.JumpFrameID( 600 ); // 消滅アニメへ
+			// }
+		// }
+	}
+}
+
+t.Mv_Obj_Hamon <- {}; 	
+
+REIMU_MoveTable <- Battle_Std.MakeMoveTable( t, REIMU_CommandTable, Def_ChrNo_Rei ); // Registers the table
+__dofile__("./data/Reimu/Reimu_se_category.txt"); // Pulls up the audio mappings
