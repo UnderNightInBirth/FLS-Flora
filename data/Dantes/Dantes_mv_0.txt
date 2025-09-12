@@ -99,6 +99,13 @@ t.Mv_Obj_BlackGrudge <- // Add HP drain to the enemy when they're hit in vorpal 
 // 固有関数
 //-----------------------------------------------------------------------------
 
+t.Mv_Skill_SSRelayAtk <-
+{
+	function FrameUpdate_After()
+    {
+	}
+}
+
 t.Mv_Atk_StdBandC <-
 {
     function FrameUpdate()
@@ -575,32 +582,6 @@ t.Mv_Throw_A_Hit <-
 }
 
 //-----------------------------------------------------------------------------
-// 空中ダッシュ
-//-----------------------------------------------------------------------------
-
-t.Mv_MultiJump_F <- 
-{
-	function Init_After()
-	{
-		BMvTbl.SetMuki(_Direction_Auto );		
-	}
-}
-t.Mv_MultiJump_N <- 
-{
-	function Init_After()
-	{
-		BMvTbl.SetMuki(_Direction_Auto );		
-	}
-}
-t.Mv_MultiJump_B <- 
-{
-	function Init_After()
-	{
-		BMvTbl.SetMuki(_Direction_Auto );		
-	}
-}
-
-//-----------------------------------------------------------------------------
 // 通常技
 //-----------------------------------------------------------------------------
 
@@ -637,6 +618,14 @@ t.Mv_Atk_StdA <-
 	function LastUpdate_After()
 	{
 		BMvTbl.SetHan6LayerMask( { val = 0 } ); // レイヤーマスクを元に戻す
+	}
+}
+
+t.Mv_Atk_StdC <-
+{
+	function FrameUpdate_After()
+	{
+		Battle_Std.JumpFrameID_NotHoldButton({ mask=(1<<2), checkid=[50], jumpid=[55], endid=60 });
 	}
 }
 
@@ -752,22 +741,25 @@ t.Mv_Atk_Std4C <-
 	}
 }
 
-t.Mv_Skill_623BC <-
+t.Mv_Skill_623A <-
 {
-	function Init_After()
+	function FrameUpdate_After()
 	{
-		BMvEff.PcAfterImage_Set( { type=1, range=14, delay=2, color=0xFF03A9F4, blendmode=1 } );
-		BMvEff.AttackInfoString_Set({word="MOON SKILL"});
+		Battle_Std.JumpFrameID_NotHoldButton({ mask=(1<<0), checkid=[100,200], jumpid=[101,201], endid=250 });
 	}
-	function LastUpdate_After()
+	function HitInterrupt_After() : (set_blackfiredamage)
 	{
-		BMvEff.PcAfterImage_Clear()
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			Battle_Std.SetPosition_DamageHanteiRect( { power = 80 } );
+		}
+		set_blackfiredamage();
 	}
 }
 
 
 //-----------------------------------------------------------------------------
-// 236攻 地上ビーム
+// 	攻 地上ビーム
 //-----------------------------------------------------------------------------
 local maketmpl_SkillShotBeam = function( param={} )
 {
@@ -790,12 +782,8 @@ local maketmpl_SkillShotBeam = function( param={} )
 		mvParam.ball = {
 			[100] = { x=260, y=-270, mv="Mv_FireBall_236B1", pat="FB_236B" },
 			[110] = { x=190, y=-270, mv="Mv_FireBall_236B2", pat="FB_236B" },
-		}
-		break;
-	case "BC":
-		mvParam.ball = {
-			[100] = { x=260, y=-270, mv="Mv_FireBall_236BC1", pat="FB_236BC" },
-			[110] = { x=190, y=-270, mv="Mv_FireBall_236BC2", pat="FB_236BC" },
+			[200] = { x=260, y=-270, mv="Mv_FireBall_236BC1", pat="FB_236BC" },
+			[210] = { x=190, y=-270, mv="Mv_FireBall_236BC2", pat="FB_236BC" },
 		}
 		break;
 	case "EX":
@@ -836,6 +824,8 @@ local maketmpl_SkillShotBeam = function( param={} )
 		case 120:
 		case 130:
 		case 140:
+		case 200:
+		case 210:
 			if( mvParam.ball && update_frameid in mvParam.ball )
 			{
 				local ball = Battle_Std.CreateFireBall( mvParam.ball[update_frameid] );

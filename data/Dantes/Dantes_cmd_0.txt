@@ -1,16 +1,7 @@
 local t =
 {
-
 	Atk_StdBandC = {},
 	Atk_AirBandC = {},
-
-
-	MultiJump_F = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, }	},
-	MultiJump_N = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, }	},
-	MultiJump_B = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, }	},
-	MultiJumpCancel_F = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, }	},
-	MultiJumpCancel_N = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, }	},
-	MultiJumpCancel_B = { CmdCheck = { HeightLimit = def_POS_AirDashLimitHeight, }	},
 	
 	Skill_236A = {},
 	Skill_236BorC = {},
@@ -159,16 +150,15 @@ local ar =
 	{
 		ResetTmplName="Atk_StdC",
 		CheckMoveName="Mv_Atk_StdC",
-		UpdateMoveName="Mv_Skill_0202A",
+		UpdateMoveName="Mv_Atk_Std4C",
 	},
 	{
-		ResetTmplName="Skill_0202A",
-		CheckMoveName="Mv_Skill_0202A",
+		ResetTmplName="Atk_Std4C",
+		CheckMoveName="Mv_Atk_Std4C",
 		UpdateMoveName="Mv_Skill_SSRelayAtk",
 		CmdCheck = 
 		{
 			SkillType = "AddCommand",
-			FrameIDCheck = { Only = [110,120] },
 		}
 		CmdTmplFlags=def_CMDFlags_AnnounceSmaetSteer,
 	},
