@@ -30,7 +30,7 @@ local t =
         UpdateTable = { name = "Mv_Skill_236236EX", }
         CmdCheck = { BallLimit = { [0] = 1 }, MvCheck={ SkillFail="Mv_Skill_236236EX"}, Cost = { ComboGauge = 10000 }, SkillType = "ExSpecial" },
 	},
-	Skill_236C = { CmdCheck = { BallLimit = { [1] = 1 } } },
+	Skill_236EX = { CmdCheck = { BallLimit = { [1] = 1 } } },
 	Skill_236B = { CmdCheck = { BallLimit = { [1] = 1 } } },
 	Skill_236A = { CmdCheck = { BallLimit = { [1] = 1 } } },
     
@@ -49,6 +49,9 @@ local t =
 	
 	
     Skill_0202A = { },
+	
+	
+	Skill_CircleEX = {},
 
 	
 
