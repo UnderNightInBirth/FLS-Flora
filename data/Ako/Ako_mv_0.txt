@@ -3564,42 +3564,48 @@ t.Mv_Atk_StdBandC <-
 	}
 }
 
+t.Mv_Atk_CroBandC <-
+{
+	function Init_After()
+	{
+		BMvEff.CreateObject( { x=128, y=0, start_pat=465, mvname="Mv_Obj_RusianRun", flags=_Position_ToolShift } );
+			// local eff = BMvEff.CreateObject( { mvname="Mv_Sup10AtkObj_Inbound" } );
+			// if( eff.push() )
+			// {
+				// Battle_Std.SetXPos_BackCorner(0); // 背後の画面端から出現
+				// eff.pop();
+			// }
+				
+			// BSound.SE_Play( { type=_SeType_Player, num=[219,221,223]} );
+	}
+}
+
 t.Mv_Obj_Rusian <-
 {
 	function Init_After()
 	{
-	
 		BMvTbl.SetHitCheckFlag( { type=1, val=863, time=255, flag=_ClearFlag_ChangeMv } );
-		Battle_Std.Atemi.Init( { hantei=0, flags=0 } );
+		Battle_Std.Atemi.Init( { hantei=0, flags=0 } );	
+
+		Battle_Std.AddXPos_NearEnemy( 150, 270 ); // dist, min dist
+
+		BMvTbl.SetNoHoseiFlag( { val=1, time=1000, flag=_ClearFlag_ChangeMv } ); // do i need this
+		Battle_Std.Sousai.Init_NoHitFlag(); // do i need this
 		
-		// 表示座標指定
-		Battle_Std.AddXPos_NearEnemy( 150, 100 ); // 移動距離, これ以上相手と近くならない
+		BMvTbl.SetLP(1,0); // if already comboing
+		BMvTbl.SetLP(9,0); // remove on iw counter
 		
-		// 各種補正は最初の１ヒットのみ
-		BMvTbl.SetNoHoseiFlag( { val=1, time=1000, flag=_ClearFlag_ChangeMv } );
-		
-		Battle_Std.Sousai.Init_NoHitFlag(); // ヒットフラグを与えない相殺
-		
-		BMvTbl.SetLP(0,0); // 相殺取った回数
-		BMvTbl.SetLP(1,0); // 相手がやられ中に呼び出したか
-		BMvTbl.SetLP(2,0); // 前回相殺でとって消えてもいいエフェクトを呼んだときのMvCount
-		BMvTbl.SetLP(9,0); // アコのCAで非表示にしたか（5Sと6SでLP同じものを使う）
-		
-		// 相手がやられ中の時はすぐに攻撃する
-		if(  Battle_Std.CheckEnemyisDamage_ExceptDown() )
+		if( Battle_Std.CheckEnemyisDamage() )
 		{
 			BMvTbl.SetLP(1,1);
 		}
 		else
 		{
-			BSound.SE_Play( { type=_SeType_Player, num=[170,172,176]} );
+			BSound.SE_Play( { type=_SeType_Player, num=[212,214,217]} );
 		}
 	}
 	function FrameUpdate_After()
 	{
-		Battle_Std.Atemi.FrameUpdate();
-		// 超法規的措置
-		// アコ41236B+Cのヒットタイミングで非表示にする
 		if( BMvTbl.GetLP(9) == 0 )
 		{
 			local main = BMvCore.GetPlayerCharaData();
@@ -3613,90 +3619,374 @@ t.Mv_Obj_Rusian <-
 				{
 					BMvTbl.SetPattern( 453 );
 					BMvEff.SetObjectFlags( { flags=_ObjFlags_MoveTimeStopAll } );
-					BMvTbl.SetLP(9,1); // 非表示にしたのを記憶して何度も処理しない
+					BMvTbl.SetLP(9,1);
 					// BMvTbl.SetFinalize( 0 ); // 終了する
 				}
 			}
 		}
 		
-		// Battle_Std.Sousai.FrameUpdate_NoHitFlag();
-		// switch( Battle_Std.GetUpdateFrameID( ) )
-		// {
-		// case 100: // でてきて最初の相殺判定
-			// if( BMvTbl.GetLP(1)==1 )
-			// {
-				// BMvTbl.JumpFrameID(150); // 相手がやられ中に呼び出したのですぐ攻撃
-			// }
-			// break;
-		// case 110:
-			// break;
-		// case 200: // クリティカル判定
-			// // if(BMvEff.Random_Limit(100)<80) // のけぞりやヒットストップがランダムだと使い辛い気がするのでランダムはなしで
-			// if( BMvTbl.GetLP(0)>=1 ) // 相殺取ってたら痛い方出る
-			// {
-				// BMvTbl.JumpFrameID( 310 ); // クリティカル版
-				// BSound.SE_Play( { type=_SeType_Player, num=[173,177]} );
-			// }
-			// else
-			// {
-				// BMvTbl.JumpFrameID( 300 ); // 通常版
-				// BSound.SE_Play( { type=_SeType_Player, num=[171,175]} );
-			// }
-			// break;
-		// }
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 100: // でてきて最初の相殺判定
+			if( BMvTbl.GetLP(1)==1 )
+			{
+				BSound.SE_Play( { type=_SeType_Player, num=[216,81] } );
+				BMvTbl.JumpFrameID(300); // jump for combos
+			}
+			break;
+		case 900:
+			BSound.SE_Play( { type=_SeType_Player, num=[210,211,194,195]} );
+			break;
+		}
 	}
 	function HitInterrupt_After() 
 	{
 		// local hitstoptime = (sousai_num==0)? 7:0; // 二回目以降は短く
-		local ahs = Battle_Std.Atemi.HitInterrupt( { hitstop = 10 } );
+		local ahs = Battle_Std.Atemi.HitInterrupt( { hitstop = 15 } );
 		if( ahs.IsTiming() )
 		{
+			BSound.SE_Play( { type=_SeType_Player, num=[213,215,218]} );
 			// BMvTbl.SetCommandLongDelay(1);
-			BMvTbl.JumpFrameID( 300 );
+			BMvTbl.SetPattern( "Sup00_Parry" );
 		}
-	
-		local mvhs = Battle_Std.Sousai.HitInterrupt( { noeffect=1, nosound=1, hitstop=4 } );
-		if( mvhs ) // 有効なら0以外
+	}
+}
+
+
+local pat_num_Sup10 = BMvEff.GetPatternNum( { datatype=0, pat="Sup10" } ); // パターン文字列のパターン番号を事前取得
+
+// 特殊判定0 : 相手に殴られるとノックバック処理を行うやられ判定
+// 特殊判定1 : ゴブリンと接触すると反転する判定
+
+t.Mv_Obj_RusianRun <-
+{
+	function Init_After() : (pat_num_Sup10)
+	{
+		BMvTbl.SetPattern( pat_num_Sup10 );
+		
+		// BMvTbl.SetPP(def_PP_Rus_Retry,0); // サポゲージ回復時に「リトライだ」を言うフラグ
+		// BMvTbl.SetPP(def_PP_Rus_GobuNearRus,0); // 6S中ゴブリンが近くにくると1
+		
+		Battle_Std.SetXPos_BackCorner( -150 ); // 背後の端から出現
+		
+		// 各種補正は最初の１ヒットのみ
+		BMvTbl.SetNoHoseiFlag( { val=1, time=1000, flag=_ClearFlag_ChangeMv } );
+		
+		BMvTbl.SetLP(1,0); // ゴブリンの状態　0：呼んでない　1：呼んだ
+		
+		BMvTbl.SetLP(3,0); // 走り中のアニメカウンタ
+		
+		BMvTbl.SetLP(4,0); // やられエフェクトカウンタ
+		
+		BMvTbl.SetLP(9,0); // アコのCAで非表示にしたか（5Sと6SでLP同じものを使う）
+		
+		// Battle_Std.SupSt_AddFlag( def_PP_DmgEscNoSafeFinalize ); // サポのDmgやEscの保険処理で60Fで消えるのを999Fにするフラグ
+	}
+	function FrameUpdate_After()
+	{
+		if( BMvTbl.GetLP(9) == 0 )
 		{
-			if( mvhs.isFirstUpdate )
+			local main = BMvCore.GetPlayerCharaData();
+			if( main.push() )
 			{
-				// Battle_Std.SupSt_AddFlag( def_PP_Success ); // 当身成功
+				local main_mvs = BMvTbl.GetMvStatus();
+				local main_mvname = BMvTbl.GetMvName();
+				main.pop();
 				
-				local mvs = BMvTbl.GetMvStatus();
-				
-				local count = BMvTbl.AddLP(0,1); // 相殺とった回数
-				local mvcount = mvs.MvCount;
-				local last_mvcount = BMvTbl.GetLP(2); // 前回消えてもいいエフェクトを呼んだMvCount(0もある)
-				local is_CallEffectTiming = ( count== 1 || (mvcount - last_mvcount > 10) ); // 前回エフェクトから10Fぐらい経過してないとエフェクトは呼ばない
-				
-				if( count<30 || mvs.MvCount<180 ) // この回数まで相殺取る
+				if( main_mvname == "Mv_Skill_41236SP_Hit" ) // || main_mvname == "Mv_Skill_41236SP" ) // && main_mvs.Param1 == 100 )
 				{
-					BMvTbl.JumpFrameID( 110 ); // 相殺のループ
-					
-					// エフェクトは時々呼ぶようにする
-					if( is_CallEffectTiming )
+					BMvTbl.SetPattern( 453 );
+					BMvEff.SetObjectFlags( { flags=_ObjFlags_MoveTimeStopAll } );
+					BMvTbl.SetLP(9,1);
+				}
+			}
+		}
+		
+		// _dp("\n Param3:"+mvs.Param3 );
+		// & 1 : ディレイ5（それ以外はディレイ4）
+		// & 2 : アニメジャンプ-5予定
+		// & 4 : 端まで走ってる
+		// & 8 : やられで逃げ帰ってるアニメ中
+		// &128: 画面外まで行った後の往復待機中
+		// &16 : 往復して猛ダッシュ中
+		// &32 : ゴブリンにやられて画面外でボコられてる時？　（BG消え開始）
+		// &64 : ルシアンのやることが終わった状態　（BG消え開始）
+		if( mvs.FrameCallCount == 0 )
+		{
+			if( mvs.Param3 & 8 || mvs.Param3 & 32 )
+			{
+				local count = BMvTbl.AddLP(4,1);
+				
+				if( count % 10 == 1 )
+				{
+					if( mvs.Param3 & 8 )
 					{
-						// local sousaiEff = BMvEff.CreateObject({ datatype=1, start_pat=110, x=90, y=-220, flags=_Position_ToolShift } );
-						// if( sousaiEff.push() )
-						// {
-							// BMvEff.SetObjectFlags( { flags=_ObjFlags_EraseParentPatChange|_ObjFlags_ParentMove } );
-							// sousaiEff.pop();
-						// }
-						
-						// BMvEff.StdCall( { type=8, no=110, param=[ 90,-220,36,0,0, 0,0,0,0,0, 0,0 ]} ); // 相殺エフェクト表示
-						// local eff = BMvEff.CreateObject({ start_pat=pat_num_Eff_ShieldCounter}); // シールドのエフェクト表示
-						// if( eff.push() )
-						// {
-							// BMvEff.SetObjectFlags( { flags=_ObjFlags_MoveTimeStopAll|_ObjFlags_EraseParentPatChange } ); // 時間停止の影響を受けない|親のパターン変更で消える
-							// eff.pop();
-						// }
-						BSound.SE_Play( { type=_SeType_Normal, num=255 } ); // 相殺音声
-						BMvTbl.SetLP(2,mvcount); // 消えてもいいエフェクトを呼んだMvCountを記憶
+						local rpos = BMvEff.Random_PointRad( { radx=32, rady=64 } );
+						local eff = BMvEff.CreateObject( { datatype=1, start_pat="Rus_Dmg", x=0+rpos.x, y=-230+rpos.y, flags=_Position_ToolShift } );
+					}
+					else
+					{
+						BSound.SE_Play( { type=_SeType_Normal, num=1 } ); // 
 					}
 				}
 			}
-			BMvTbl.SetFinalizeCode(0);
+			// 走っている時にアニメをベクトルに応じて変化させる処理
+			if( mvs.Param3 & 4 )
+			{
+				local vec = BMvTbl.GetVector( { flags=_Vector_Normal } );
+				local vec_BoundDiv = BMvTbl.GetVector( { flags=_Vector_Div } );
+				local useSpeed = vec.x + ( (5000) - abs( vec_BoundDiv.x + (5000) ) );
+				if( useSpeed >  5000 ) useSpeed =  5000;
+				if( useSpeed < -5000 ) useSpeed = -5000;
+				if( useSpeed == 0    ) useSpeed = 1; // zerodiv用
+				
+				// 2500で5,4,4のアニメ再生速度
+				local aniDelay5 = 12500 / useSpeed;
+				local aniDelay4 = 10000 / useSpeed;
+				
+				local checkDelay = ( mvs.Param3 & 1 )? aniDelay5 : aniDelay4;
+				local frame = BMvTbl.AddLP(3,1);
+				// _dp("\n 走り中...:"+useSpeed+" fra:"+frame+"/"+checkDelay+" div:"+vec_BoundDiv.x );
+				if( frame >= checkDelay )
+				{
+					BMvTbl.SetLP(3,0);
+					if( mvs.Param3 & 2 )
+					{
+						// _dp("-> アニメジャンプ");
+						BMvTbl.Frame_Proc( -5, _ValAdd );
+					}
+					else
+					{
+						// _dp("-> アニメすすめる");
+						BMvTbl.Frame_Proc( 1, _ValAdd );
+					}
+				}
+				
+				
+				// やられると少し動く処理
+				local hanteiobj = BMvEff.CCheckRect(); // オブジェクト作成
+
+				hanteiobj.SetPlayer(); //プレイヤー情報設定
+				hanteiobj.SetSrc( [ _Hantei_Etc, 0, 1 ] ); //自分の情報設定
+				hanteiobj.SetDst( [ _Hantei_Attack, 0, -1 ] ); //相手の情報設定
+				hanteiobj.SetFlags( _HC_EnemyPc|_HC_EnemyObj ); //検索条件設定
+
+				local nagurare = 0;
+				while( hanteiobj.Check() != 0 ) // 見つかっている間ループ
+				{
+					local naguriEnemy = hanteiobj.GetCharaData(); // 見つかったオブジェクト取得
+					if( naguriEnemy.push() )
+					{
+						local leftHitCount = BMvTbl.CalcHitValue(0);
+						local atkThrow = Battle_Std.MvAction.CheckFlag( def_MC_ThrowRect );
+						local muki = BMvTbl.GetMuki()*-1; // 攻撃したキャラの向き
+						local mvCode1 = BMvTbl.GetMoveCodeEx( 1 );
+						local naguriZumi = Battle_Std.MoveCodeEx.CheckFlag( 2, def_MC2_FromEnemyCharaFlag1 );
+
+						// ルシアンが殴られた技、を記憶
+						Battle_Std.MoveCodeEx.AddFlag( 2, def_MC2_FromEnemyCharaFlag1 );
+						
+						naguriEnemy.pop();
+						
+						if( leftHitCount > 0 && !atkThrow && !naguriZumi && !nagurare)
+						{
+							nagurare = 1; // ルシアン殴られたのを記憶して何度も処理しないようにする
+							// 最初に弱攻撃検知するとアレだけど、まぁ許して
+							local rpos = BMvEff.Random_PointRad( { radx=32, rady=64 } );
+							local eff = BMvEff.CreateObject( { datatype=1, start_pat="Rus_Dmg", x=0+rpos.x, y=-230+rpos.y, flags=_Position_ToolShift } );
+							
+							if( mvCode1&def_MC1_AtkLow ) // 弱攻撃
+							{
+								BMvTbl.SetVector( { x=-5000*muki, addx=215*muki, flags=_Vector_Div|_VecFlag_NoMuki } );
+								// BMvTbl.SetVector( { x=-500, flags=_Vector_Normal|_VecFlag_Add  } );
+								BMvEff.SetCharaFlash( { color = 0xFF0000, type = 0, time = 16 } );
+							}
+							else
+							{
+								BMvTbl.SetVector( { x=-7000*muki, addx=300*muki, flags=_Vector_Div|_VecFlag_NoMuki } );
+								// BMvTbl.SetVector( { x=-500, flags=_Vector_Normal|_VecFlag_Add  } );
+								BMvEff.SetCharaFlash( { color = 0xFF0000, type = 0, time = 16 } );
+							}
+						}
+					}
+				}
+			}
+			
 		}
+		
+		// ↑でパターンとかフレーム調整しているので再取得
+		local mvs = BMvTbl.GetMvStatus();
+		switch( Battle_Std.GetUpdateFrameID( mvs ) )
+		{
+		case 400: // 画面外で猛ダッシュする待機
+			// 消えた時点では微妙なステージ位置なので、ステージ端（画面外）に移動しておく
+			local pos = BMvTbl.GetPosition();
+			local gamenXsoto = def_POS_GamenHajiX+(150*128);
+			if( pos.x > 0 )
+			{
+				BMvTbl.SetPosition( { x=gamenXsoto } );
+			}
+			else
+			{
+				BMvTbl.SetPosition( { x=-gamenXsoto } );
+			}
+			BMvTbl.SetMuki( _Direction_Reverse  ); // 振り向く
+			break;
+		case 500: // 猛ダッシュ開始
+			Battle_Std.SetXPos_BackCorner( -150 ); // 画面端まで移動
+			break;
+		case 600: // 往復してでてきたところ
+			// モンスタートレインを呼ぶ
+			local eff = BMvEff.CreateObject( { mvname="Mv_Sup10AtkObj_Inbound" } );
+			if( eff.push() )
+			{
+				Battle_Std.SetXPos_BackCorner(-800); // 背後の画面端から出現
+				eff.pop();
+			}
+				
+			BSound.SE_Play( { type=_SeType_Player, num=[191,193,197]} );
+			break;
+		case 1900: // ゴブリン巻き添えで画面外にいって少したった
+			// KO後はセリフなしにする（セリフが被るので）
+			if( !Battle_Std.CharaisKO() )
+			{
+				// KOしてないなら床ペロする
+				// tDDC.Support_SetMessage( "@C150", 200, 150 ); // 
+			}
+			break;
+		}		
+		
+		// 背景切り替えたりモンスター呼んだりするフレーム
+		// まだゴブリン呼んでない＆適当なフレーム経過したら処理開始
+		if( BMvTbl.GetLP(1)==0 && mvs.MvCount >= 26 )
+		{
+			// モンスタートレインを呼ぶ
+			BMvTbl.SetLP(1,1); // ゴブリンよんだ
+			BSound.SE_Play( { type=_SeType_Player, num=[190,194,196]} );
+			
+			local eff = BMvEff.CreateObject( { mvname="Mv_Sup10AtkObj_Outbound" } );
+			if( eff.push() )
+			{
+				Battle_Std.SetXPos_BackCorner(-630); // 背後の画面端から出現
+				eff.pop();
+			}
+			BMvEff.CreateObject({ mvname="Mv_Eff_BG" }); // 背景暗転エフェクト
+		}		
+		
+		// // ゴブリンが接触したら1になってるので、逃げるアニメに変更
+		// if( BMvTbl.GetPP( def_PP_Rus_GobuNearRus ) == 1 )
+		// {
+			// BMvTbl.SetPattern( "Sup10_Nige" );
+			// BMvTbl.SetPP( def_PP_Rus_GobuNearRus, 2 ); // アニメ変更済み
+			// BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround } );
+			// BSound.SE_Play( { type=_SeType_Player, num=[195]} );
+			// return;
+		// }
+		
+		// 画面外まで進んだらパターンを変えて戻ってくる
+		// この条件がゆるいっぽい
+		local checkFrontCorner = Battle_Std.CheckFromtCornerDistance_with_RoundEnd( -150 );
+		if( checkFrontCorner && mvs.Param3 & 4 )
+		{
+			BMvTbl.SetPattern( "Sup10_Return" );
+			return;
+		}
+		
+		// // 端まで行った後、ゴブリンが画面外に消えるまで待機
+		// if( mvs.FrameID==400 && !Battle_Std.PP_CheckFlag( def_PP_Rus_ObjectStatus, def_PP_Rus_OS_Gob ) ) // ゴブリンが消えた
+		// {
+			// BMvTbl.JumpFrameID( 500 ); // 画面外待機から走り始める
+			// return;
+		// }
+
+		// 1往復して画面外に消えたら終わる
+		if( mvs.Param3&16 && checkFrontCorner )
+		{
+			BMvTbl.SetPattern("Sup10_FinWait");
+			return;
+		}
+		
+		// ゴブリンに捕まった後、画面外まで進んだら終わる
+		// この時はやられ扱いにしたくはあるけど…
+		if( mvs.Param3 & 8 && checkFrontCorner )
+		{
+			BMvTbl.SetPattern("Sup10_NigeEnd");
+			return;
+		}
+		
+		
+		// ルシアン関係のオブジェクトが全部無くなるまで終了待機
+		// setFinalize_RusEffEnd();
+	}
+	function LastUpdate_After()
+	{
+	}
+}
+
+
+// オーク
+local pat_num_Sup10AtkObj_Inbound = BMvEff.GetPatternNum( { datatype=0, pat="Sup10AtkObj_Inbound" } ); // パターン文字列のパターン番号を事前取得
+t.Mv_Sup10AtkObj_Inbound <-
+{
+	function Init() : (pat_num_Sup10AtkObj_Inbound)
+	{
+		BMvTbl.SetPattern( pat_num_Sup10AtkObj_Inbound );
+		// Battle_Std.PP_AddFlag( def_PP_Rus_ObjectStatus, def_PP_Rus_OS_Orc );
+		
+		BMvTbl.SetLP(1,0); // 敵にヒットしたら1
+	}
+	function FrameUpdate()
+	{
+		// 画面外まで進んだら親に伝える
+		if( Battle_Std.CheckFromtCornerDistance_with_RoundEnd( -950 ) )
+		{
+			BMvTbl.SetFinalize(0);
+		}
+		
+		// 他の画面揺らしで上書きされるとしょぼいので定期的に画面を揺らす
+		switch( Battle_Std.GetUpdateFrameID( ) )
+		{
+		case 100:
+			BMvEff.SetCamera_Quake( { time=240, type=0 } );
+			break;
+		}
+	}
+	function HitInterrupt()
+	{
+		if( Battle_Std.CheckHitTiming() )
+		{
+			BMvTbl.SetLP(1,1); // 敵にヒットした
+		}
+		if( Battle_Std.CheckDamageTiming_ExceptDown() )
+		{
+			local enemy = BMvCore.GetNearEnemyCharaData(); // 敵情報を得る
+			if( enemy.push() )
+			{
+				local bs = BtlMvStd.GetBoundStatus();
+				if( bs.isCapture == 0 ) // 非ロック中
+				{
+					BMvEff.SetCamera_Focus( { charapos=1, zoom=1.5, time=[10,12,6] } ); // カメラズーム
+					BMvEff.SetStopTime({ time=28, stopme=1, });
+					BMvEff.SetCamera_Quake( { time=30, type=2, } ); // 揺らす			
+				}
+				enemy.pop();
+			}
+			BSound.SE_Play( { type=_SeType_Normal, num=209 } ); // フィニッシュ攻撃
+		}
+		else if( Battle_Std.CheckGuardTiming() )
+		{
+			BMvEff.Slowmotion_Set( { type=0, time=30, power=10000, power_minus=5000/30 } );
+			BMvEff.SetCamera_Quake( { type=2, time=20 } );
+		}
+	}
+	function LastUpdate()
+	{
+		BMvEff.SetCamera_Quake( { clear=1 } );
+		// Battle_Std.PP_DelFlag( def_PP_Rus_ObjectStatus, def_PP_Rus_OS_Orc );
+	}
+	function Finalize()
+	{
+		BMvTbl.SetDeleteMoveTable();
 	}
 }
 

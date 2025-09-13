@@ -217,3 +217,51 @@ st[595] = { volumetype=1, path=1, file="Ako00_8101_s2", type=0, category=1}; // 
 st[596] = { volumetype=1, path=1, file="Ako00_8102_s0", type=0, category=1}; // これでっ！
 st[597] = { volumetype=1, path=1, file="Ako00_8102_s1", type=0, category=1}; // たぁぁぁー！
 st[598] = { volumetype=1, path=1, file="Ako00_8102_s2", type=0, category=1}; // 出し惜しみはなしです！
+
+st[50] = { volumetype=1, path=1, file="Monster_Footstep", type=1, category=4, }; // ドドドド
+st[51] = { volumetype=1, path=1, file="Monster_Footstep_Large", type=1, category=4, }; // ドドドド(大)
+
+// プレイヤー勝利	win?
+st[190] = { volumetype=1, path=1, file="Rus00_2100", type=0, category=2}; // よし、クエストクリアだ
+st[191] = { volumetype=1, path=1, file="Rus00_2101", type=0, category=2}; // た、耐えたー！勝ったぞー！
+
+// ラウンド敗北	 round lose
+st[192] = { volumetype=1, path=1, file="Rus00_2200", type=0, category=2}; // 今のハメでしょ？俺のシマじゃノーカンだから
+st[193] = { volumetype=1, path=1, file="Rus00_2201", type=0, category=2}; // あああ俺の経験値が！
+
+// 撤退	 //retreat
+st[194] = { volumetype=1, path=1, file="Rus00_4000", type=0, category=2}; // 下がる
+st[195] = { volumetype=1, path=1, file="Rus00_4001", type=0, category=2}; // 出直す
+
+// ダメージ	damage
+// st[140] = { path=1, file="Rus00_4500", type=0, category=2}; // うわっ！
+st[196] = { volumetype=1, path=1, file="Rus00_4501", type=0, category=2}; // いてっ！
+st[197] = { volumetype=1, path=1, file="Rus00_4502", type=0, category=2}; // げげっ！
+
+// ダウン（1～2秒程度）	down
+st[198] = { volumetype=1, path=1, file="Rus00_4600", type=0, category=2}; // 床ペロ状態……
+
+// 戦闘準備完了	 ready
+st[210] = { volumetype=1, path=1, file="Rus00_4900", type=0, category=2}; // よし、リトライだ！
+st[211] = { volumetype=1, path=1, file="Rus00_4901", type=0, category=2}; // 仕切りなおしだ！
+
+// 必殺技１	
+st[212] = { volumetype=1, path=1, file="Rus00_7000_s0", type=0, category=2}; // 守る！　おりゃあっ！ shld start
+st[213] = { volumetype=1, path=1, file="Rus00_7000_s1", type=0, category=2}; // 守る！　おりゃあっ！
+st[214] = { volumetype=1, path=1, file="Rus00_7001_s0", type=0, category=2}; // ガード！　カウンター！ shld start
+st[215] = { volumetype=1, path=1, file="Rus00_7001_b_s1", type=0, category=2}; // ガード！　カウンター！
+// st[174] = { path=1, file="Rus00_7002_s0", type=0, category=2}; // 防ぎきる！　喰らえ！
+st[216] = { volumetype=1, path=1, file="Rus00_7002_s1", type=0, category=2}; // 防ぎきる！　喰らえ！
+st[81] = { volumetype=1, path=1, file="Rus00_7003_s1", type=0, category=2}; 
+st[217] = { volumetype=1, path=1, file="Rus00_7003_s0", type=0, category=2}; // シールド！　吹き飛べ！ shld start
+st[218] = { volumetype=1, path=1, file="Rus00_7003_b_s1", type=0, category=2}; // シールド！　吹き飛べ！
+
+// 必殺技２
+st[219] = { volumetype=1, path=1, file="Rus00_7100_s0", type=0, category=2}; // 餌持って来たぞ！　うおおおおおお！！
+st[220] = { volumetype=1, path=1, file="Rus00_7100_s1", type=0, category=2}; // 餌持って来たぞ！　うおおおおおお！！
+st[221] = { volumetype=1, path=1, file="Rus00_7101_s0", type=0, category=2}; // 急げええええ！　うわああああああ！！
+st[222] = { volumetype=1, path=1, file="Rus00_7101_s1", type=0, category=2}; // 急げええええ！　うわああああああ！！
+st[223] = { volumetype=1, path=1, file="Rus00_7102_s0", type=0, category=2}; // 連れてきたぞ！　ちょっとは受け持ってくれ！！
+st[224] = { volumetype=1, path=1, file="Rus00_7102_s1", type=0, category=2}; // 連れてきたぞ！　ちょっとは受け持ってくれ！！
+st[225] = { volumetype=1, path=1, file="Rus00_7103_s0", type=0, category=2}; // モンスタートレインだ！　逃げろおおおお！！
+st[226] = { volumetype=1, path=1, file="Rus00_7103_s1", type=0, category=2}; // モンスタートレインだ！　逃げろおおおお！！

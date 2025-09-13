@@ -13,7 +13,8 @@ local t =
 	Atk_Std4C = {},
 	Atk_Std3C = {},
 	
-	Atk_StdBandC = {},
+	Atk_StdBandC = { },
+	Atk_CroBandC = { command="6+B+C" },
 
 	Skill_J214A = {},
 	Skill_J214B = {},
