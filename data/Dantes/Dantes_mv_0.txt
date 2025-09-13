@@ -95,6 +95,9 @@ t.Mv_Obj_BlackGrudge <- // Add HP drain to the enemy when they're hit in vorpal 
     }	
 }
 
+t.Mv_Walk_F <- { function FrameUpdate_After() { BMvTbl.SetVector( { x=1180, y=0, addx=0, addy=0, flags=_Vector_Normal } ); } }
+t.Mv_Walk_B <- { function FrameUpdate_After() { BMvTbl.SetVector( { x=-900, y=0, addx=0, addy=0, flags=_Vector_Normal } ); } }
+
 //-----------------------------------------------------------------------------
 // ŒÅ—LŠÖ”
 //-----------------------------------------------------------------------------
