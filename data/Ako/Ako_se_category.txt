@@ -68,7 +68,7 @@ se["立ち強攻撃"] <-
 [
 	{
 		Param0=10,
-		selist = { common = [160,162], },
+		selist = { common = [160,162], }
 	},
 	{
 		Param0=20, // ため
@@ -106,6 +106,12 @@ se["ジャンプ強攻撃"] <- {
 	selist = { common = [160,164,165], }
 }
 
+//スマートステア
+se["Mv_Skill_SSRelayAtk_FU"] <- 
+{
+	Param0=10,
+	selist = { common = [560,561,563], },
+};
 
 
 se["投げ成功"] <- //throw hit
@@ -221,7 +227,12 @@ se["起き上がり"] <- {
 
 //boom
 se["ヴェールオフ"] <- {
+	Param0 = 10,
 	selist = { common = [410,412], }
+}
+
+se["ダッシュ中攻撃"] <- {
+	selist = { common = [154,155], }
 }
 
 se["チェインシフト"] <- {
@@ -232,12 +243,12 @@ se["ノーマルチェインシフト"] <- {
 	selist = { common = [430,431,432], }
 }
 //support
-se["サポート呼び出し"] <- {
-	selist = { common = [440,441,442], }
+se["Mv_Atk_StdBandC_Init"] <- {
+	selist = { common = [440,441,442,465,466,467], }
 }
 
-se["サポート呼び出し_Rus"] <- {
-	selist = { common = [465,466,467], }
+se["Mv_Atk_CroBandC_Init"] <- {
+	selist = { common = [440,441,442,465,466,467], }
 }
 
 se["ヴォーパル"] <- {
@@ -268,28 +279,24 @@ se["Mv_Atk_Std4C_FU"] <-
 ]
 
 se["Mv_Atk_Std3C_FU"] <- 
-{
-	Param0=10,
-	average = 100,
-	selist = { common = [550,552], }
-}
+[
+	{
+		Param0=10,
+		selist = { common = [550,552], }
+	},
+	{
+		Param0=20,
+		selist = { common = [176,177], }
+	}
+];
 
-se["Mv_Skill_Sousai4_FU"] <- 
-{
-	Param0=10,
-	selist = { common = [176], }
-}
-
-se["Mv_Skill_Sousai4_Add_Init"] <-
-{
-	selist = { common = [177], }
-}
-
-se["Mv_Skill_SSRelayAtk_FU"] <- // change this to some booms too 
-{
-	selist = { common = [560,561,563], },
-	[561] = { delayframe = 18  },
-}
+se["Mv_Skill_623A_FU"] <- 
+[
+	{
+		Param0=10,
+		selist = { common = [511], }
+	},
+]
 
 //２３６攻
 se["Mv_Skill_236A_FU"] <- 
@@ -328,7 +335,7 @@ se["Mv_Skill_236C_FU"] <-
 	}
 ]
 
-se["Mv_Skill_236EX_Init"] <- {
+se["Mv_Skill_41236EX_Init"] <- {
 	average = 100,
 	selist = { common = [513], }
 }
@@ -370,10 +377,18 @@ se["Mv_Skill_J236C_FU"] <-
 	}
 ]
 
-se["Mv_Skill_J236EX_Init"] <- {
+se["Mv_Skill_J41236EX_Init"] <- {
 	average = 100,
 	selist = { common = [513], }
 }
+
+se["IWE攻撃"] <- {
+	selist = { common = [595], }
+}
+
+se["Mv_Skill_IWEXIST_Hit_Init"] <- {
+	selist = { common = [578], }
+};
 
 //２１４攻
 se["214Heal"] <- {

@@ -13,8 +13,21 @@ local t =
 	Atk_Std4C = {},
 	Atk_Std3C = {},
 	
-	Atk_StdBandC = { },
-	Atk_CroBandC = { command="6+B+C" },
+	Atk_StdBandC = {
+		CmdBeforeStdFunc = function()
+		{
+			if(BMvTbl.GetPP(21) == 480 && !BMvTbl.GetLP(5) ) return 1; // wonder if cooldown is the way to go but i cant be bothered anymore
+			return 0;
+		},
+	},
+	Atk_CroBandC = {
+		command="6+B+C",
+		CmdBeforeStdFunc = function()
+		{
+			if(BMvTbl.GetPP(25) >= 960 && !BMvTbl.GetLP(5) ) return 1;
+			return 0;
+		},
+	},
 
 	Skill_J214A = {},
 	Skill_J214B = {},

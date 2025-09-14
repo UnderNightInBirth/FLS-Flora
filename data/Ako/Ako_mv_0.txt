@@ -1,5 +1,10 @@
 local t = {};
 
+// TODO
+// Outtro with Rusian
+// Missing Magic SFX and other polish
+// Why doesnt her damn voices work sometimes
+
 const CDef_Ako_SP_RoundWinCount = 0; // 勝利ラウンド数を記録する
 
 local pat_num_HitStar_S = BMvEff.GetPatternNum( { datatype=0, pat="HitStar_S" } ); // パターン文字列のパターン番号を事前取得
@@ -592,10 +597,89 @@ t.Mv_Startup <-
 {
 	function Init_After()
 	{
+		Battle_Std.CreateObjectEX( { x=0, y=0, pat="IconA", mvname="Mv_Assist", LP={ slot=0, val=0 } } );
+		Battle_Std.CreateObjectEX( { x=0, y=0, pat="IconB", mvname="Mv_Assist", LP={ slot=0, val=1 } } );
 		BMvEff.CreateObject( { mvname="Mv_Obj_SupHealingMng" } );
+
+		BMvTbl.SetPP(21,470);
+		BMvTbl.SetPP(25,950);
+
 	}
 	function FrameUpdate_After()
 	{
+	}
+}
+
+local hideUIstandby = function()
+{
+	local rs = BMvTbl.GetMvRoundStatus();
+	local mvs = BMvTbl.GetMvStatus();
+	if( rs.CharaMoveMode==_CharaMoveMode_Disable )
+	{
+		BMvTbl.JumpFrameID(-1);
+	}
+}
+
+t.Mv_Assist <-
+{
+	function Init()
+	{
+		local slot = BMvTbl.GetLP(0);
+
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround|_ObjFlags_NoCamera|_ObjFlags_NoRenderOrder|_ObjFlags_NoRenderBlackOut } );
+		local pl = BMvTbl.GetPlayerSide();
+		local posst = { x=300<<8, y=-250<<8, margin=64<<7 } ; //left edge
+		local pos = { x=posst.x, y=posst.y };
+		if( pl==0 ) { pos.x = -posst.x; }
+		else { pos.x = posst.x; }
+
+		switch( slot )
+		{
+		case 0:
+			pos.x += (posst.margin);
+			break;
+		case 1:
+			pos.x += (posst.margin*2);
+			break;
+		}
+		BMvTbl.SetPosition( { x=pos.x, y=pos.y } );
+		BMvTbl.SetPrio( _CharaPrio_Parent_BG );
+	}
+
+	function FrameUpdate_After()
+	{
+		local rs = BMvTbl.GetMvRoundStatus();
+		local canmove = !(rs.CharaMoveMode==_CharaMoveMode_Disable);
+		local slot = BMvTbl.GetLP(0);
+		switch( slot )
+		{
+		case 0:
+			local atime = BMvTbl.GetPP(21);
+			if(atime < 480 && canmove)
+			{
+				BMvTbl.AddPP(21,1);
+			}
+			if(!(atime >= 480))
+			{
+				BMvTbl.JumpFrameID( 1 );
+			}
+			break;
+		case 1:
+			local btime = BMvTbl.GetPP(25);
+			if(btime < 960 && canmove)
+			{
+				BMvTbl.AddPP(25,1);
+			}
+			if(!(btime >= 960))
+			{
+				BMvTbl.JumpFrameID( 1 );
+			}
+			break;
+		}
+	}
+	function Update() : (hideUIstandby)
+	{
+		hideUIstandby();
 	}
 }
 
@@ -850,8 +934,10 @@ t.Mv_Standby <-
 	function Init_After()
 	{
 	}
-	function FrameUpdate_After()
+	function Finalize()
 	{
+		BMvTbl.SetPP(21,0);
+		BMvTbl.SetPP(23,0);
 	}
 }
 
@@ -975,7 +1061,20 @@ t.Mv_Atk_Std3C <-
 	}
 }
 
-t.Mv_Atk_Std4C <- { function HitInterrupt_After() : (createStar) { createStar( "L" ); } }
+t.Mv_Atk_Std4C <- { function HitInterrupt_After() : (createStar) { createStar( "L" ); }
+	function FrameUpdate_After()
+	{
+		if( Battle_Std.CheckEnemyisDamage() )
+		{
+			local mvs = BMvTbl.GetMvStatus();
+			if( mvs.FrameID==50 )
+			{
+				BMvTbl.JumpFrameID(55); // jump for combo stuff
+			}
+		}
+	}
+}
+
 t.Mv_Atk_DashStdB <- { function HitInterrupt_After() : (createStar) { createStar( "M" ); } }
 t.Mv_Atk_DashStdC <- { function HitInterrupt_After() : (createStar) { createStar( "L" ); } }
 t.Mv_Atk_CroA <- { function HitInterrupt_After() : (createStar) { createStar( "S" ); } }
@@ -990,6 +1089,18 @@ t.Mv_Atk_CroC <-
 		case 100:
 			Battle_Std.AddToolShift_NoSurinuke(80); // すり抜けないように座標加算
 			break;
+		}
+	}
+}
+
+t.Mv_Skill_SSRelayAtk <-
+{
+	function HitInterrupt_After() : (createStar)
+	{
+		createStar( "M" );
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			Battle_Std.SetPosition_DamageHanteiRect({ power=50 });
 		}
 	}
 }
@@ -3549,18 +3660,17 @@ t.Mv_Obj_IWEXIST_Add <-
 	}
 }
 
-
-
 //-----------------------------------------------------------------------------
-// 攻撃１
+// FORCE FUNCTION
 //-----------------------------------------------------------------------------
-
 
 t.Mv_Atk_StdBandC <-
 {
 	function Init_After()
 	{
-		BMvEff.CreateObject( { x=128, y=0, start_pat=450, mvname="Mv_Obj_Rusian", flags=_Position_ToolShift } );
+		BMvEff.CreateObject( { x=128, y=0, start_pat=450, mvname="Mv_Obj_Rusian", flags=_Position_ToolShift, id=7 } );
+		BMvTbl.SetPP(21,-300);
+		BMvTbl.SetLP(5,1);
 	}
 }
 
@@ -3568,15 +3678,9 @@ t.Mv_Atk_CroBandC <-
 {
 	function Init_After()
 	{
-		BMvEff.CreateObject( { x=128, y=0, start_pat=465, mvname="Mv_Obj_RusianRun", flags=_Position_ToolShift } );
-			// local eff = BMvEff.CreateObject( { mvname="Mv_Sup10AtkObj_Inbound" } );
-			// if( eff.push() )
-			// {
-				// Battle_Std.SetXPos_BackCorner(0); // 背後の画面端から出現
-				// eff.pop();
-			// }
-				
-			// BSound.SE_Play( { type=_SeType_Player, num=[219,221,223]} );
+		BMvEff.CreateObject( { x=128, y=0, start_pat=465, mvname="Mv_Obj_RusianRun", flags=_Position_ToolShift, id=8 } );
+		BMvTbl.SetPP(25,-300);
+		BMvTbl.SetLP(5,1);
 	}
 }
 
@@ -3650,40 +3754,35 @@ t.Mv_Obj_Rusian <-
 			BMvTbl.SetPattern( "Sup00_Parry" );
 		}
 	}
+	function LastUpdate_After()
+	{
+		local main = BMvCore.GetPlayerCharaData();
+		if( main.push() )
+		{
+			BMvTbl.SetLP(5,0);
+			main.pop();
+		}	
+	}
 }
 
-
-local pat_num_Sup10 = BMvEff.GetPatternNum( { datatype=0, pat="Sup10" } ); // パターン文字列のパターン番号を事前取得
-
-// 特殊判定0 : 相手に殴られるとノックバック処理を行うやられ判定
-// 特殊判定1 : ゴブリンと接触すると反転する判定
-
+local pat_num_Sup10 = BMvEff.GetPatternNum( { datatype=0, pat="Sup10" } );
 t.Mv_Obj_RusianRun <-
 {
 	function Init_After() : (pat_num_Sup10)
 	{
-		BMvTbl.SetPattern( pat_num_Sup10 );
-		
-		// BMvTbl.SetPP(def_PP_Rus_Retry,0); // サポゲージ回復時に「リトライだ」を言うフラグ
-		// BMvTbl.SetPP(def_PP_Rus_GobuNearRus,0); // 6S中ゴブリンが近くにくると1
-		
-		Battle_Std.SetXPos_BackCorner( -150 ); // 背後の端から出現
-		
-		// 各種補正は最初の１ヒットのみ
+		BMvTbl.SetPattern( pat_num_Sup10 ); 
+		Battle_Std.SetXPos_BackCorner( -150 );
 		BMvTbl.SetNoHoseiFlag( { val=1, time=1000, flag=_ClearFlag_ChangeMv } );
-		
-		BMvTbl.SetLP(1,0); // ゴブリンの状態　0：呼んでない　1：呼んだ
-		
-		BMvTbl.SetLP(3,0); // 走り中のアニメカウンタ
-		
-		BMvTbl.SetLP(4,0); // やられエフェクトカウンタ
-		
-		BMvTbl.SetLP(9,0); // アコのCAで非表示にしたか（5Sと6SでLP同じものを使う）
-		
-		// Battle_Std.SupSt_AddFlag( def_PP_DmgEscNoSafeFinalize ); // サポのDmgやEscの保険処理で60Fで消えるのを999Fにするフラグ
+		BMvTbl.SetPP(0,0);
+		BMvTbl.SetLP(1,0);
+		BMvTbl.SetLP(3,0);
+		BMvTbl.SetLP(4,0);
+		BMvTbl.SetLP(9,0);
 	}
 	function FrameUpdate_After()
 	{
+		local mvs = BMvTbl.GetMvStatus();
+
 		if( BMvTbl.GetLP(9) == 0 )
 		{
 			local main = BMvCore.GetPlayerCharaData();
@@ -3702,35 +3801,25 @@ t.Mv_Obj_RusianRun <-
 			}
 		}
 		
-		// _dp("\n Param3:"+mvs.Param3 );
-		// & 1 : ディレイ5（それ以外はディレイ4）
-		// & 2 : アニメジャンプ-5予定
-		// & 4 : 端まで走ってる
-		// & 8 : やられで逃げ帰ってるアニメ中
-		// &128: 画面外まで行った後の往復待機中
-		// &16 : 往復して猛ダッシュ中
-		// &32 : ゴブリンにやられて画面外でボコられてる時？　（BG消え開始）
-		// &64 : ルシアンのやることが終わった状態　（BG消え開始）
+		// why do we need all this again
 		if( mvs.FrameCallCount == 0 )
 		{
 			if( mvs.Param3 & 8 || mvs.Param3 & 32 )
 			{
 				local count = BMvTbl.AddLP(4,1);
-				
 				if( count % 10 == 1 )
 				{
-					if( mvs.Param3 & 8 )
-					{
-						local rpos = BMvEff.Random_PointRad( { radx=32, rady=64 } );
-						local eff = BMvEff.CreateObject( { datatype=1, start_pat="Rus_Dmg", x=0+rpos.x, y=-230+rpos.y, flags=_Position_ToolShift } );
-					}
-					else
-					{
-						BSound.SE_Play( { type=_SeType_Normal, num=1 } ); // 
-					}
+					// if( mvs.Param3 & 8 )
+					// {
+						// local rpos = BMvEff.Random_PointRad( { radx=32, rady=64 } );
+						// local eff = BMvEff.CreateObject( { datatype=1, start_pat="Rus_Dmg", x=0+rpos.x, y=-230+rpos.y, flags=_Position_ToolShift } );
+					// }
+					// else
+					// {
+						BSound.SE_Play( { type=_SeType_Normal, num=1 } );
+					// }
 				}
 			}
-			// 走っている時にアニメをベクトルに応じて変化させる処理
 			if( mvs.Param3 & 4 )
 			{
 				local vec = BMvTbl.GetVector( { flags=_Vector_Normal } );
@@ -3738,39 +3827,28 @@ t.Mv_Obj_RusianRun <-
 				local useSpeed = vec.x + ( (5000) - abs( vec_BoundDiv.x + (5000) ) );
 				if( useSpeed >  5000 ) useSpeed =  5000;
 				if( useSpeed < -5000 ) useSpeed = -5000;
-				if( useSpeed == 0    ) useSpeed = 1; // zerodiv用
-				
-				// 2500で5,4,4のアニメ再生速度
+				if( useSpeed == 0    ) useSpeed = 1;
 				local aniDelay5 = 12500 / useSpeed;
 				local aniDelay4 = 10000 / useSpeed;
-				
 				local checkDelay = ( mvs.Param3 & 1 )? aniDelay5 : aniDelay4;
 				local frame = BMvTbl.AddLP(3,1);
-				// _dp("\n 走り中...:"+useSpeed+" fra:"+frame+"/"+checkDelay+" div:"+vec_BoundDiv.x );
 				if( frame >= checkDelay )
 				{
 					BMvTbl.SetLP(3,0);
 					if( mvs.Param3 & 2 )
 					{
-						// _dp("-> アニメジャンプ");
 						BMvTbl.Frame_Proc( -5, _ValAdd );
 					}
 					else
 					{
-						// _dp("-> アニメすすめる");
 						BMvTbl.Frame_Proc( 1, _ValAdd );
 					}
 				}
-				
-				
-				// やられると少し動く処理
 				local hanteiobj = BMvEff.CCheckRect(); // オブジェクト作成
-
 				hanteiobj.SetPlayer(); //プレイヤー情報設定
 				hanteiobj.SetSrc( [ _Hantei_Etc, 0, 1 ] ); //自分の情報設定
 				hanteiobj.SetDst( [ _Hantei_Attack, 0, -1 ] ); //相手の情報設定
 				hanteiobj.SetFlags( _HC_EnemyPc|_HC_EnemyObj ); //検索条件設定
-
 				local nagurare = 0;
 				while( hanteiobj.Check() != 0 ) // 見つかっている間ループ
 				{
@@ -3792,8 +3870,8 @@ t.Mv_Obj_RusianRun <-
 						{
 							nagurare = 1; // ルシアン殴られたのを記憶して何度も処理しないようにする
 							// 最初に弱攻撃検知するとアレだけど、まぁ許して
-							local rpos = BMvEff.Random_PointRad( { radx=32, rady=64 } );
-							local eff = BMvEff.CreateObject( { datatype=1, start_pat="Rus_Dmg", x=0+rpos.x, y=-230+rpos.y, flags=_Position_ToolShift } );
+							// local rpos = BMvEff.Random_PointRad( { radx=32, rady=64 } );
+							// local eff = BMvEff.CreateObject( { datatype=1, start_pat="Rus_Dmg", x=0+rpos.x, y=-230+rpos.y, flags=_Position_ToolShift } );
 							
 							if( mvCode1&def_MC1_AtkLow ) // 弱攻撃
 							{
@@ -3837,21 +3915,20 @@ t.Mv_Obj_RusianRun <-
 			break;
 		case 600: // 往復してでてきたところ
 			// モンスタートレインを呼ぶ
+			BSound.SE_Play( { type=_SeType_Player, num=[220,222,224,226]} );
+			BSound.SE_Play( { type=_SeType_Normal, num=640} );
 			local eff = BMvEff.CreateObject( { mvname="Mv_Sup10AtkObj_Inbound" } );
 			if( eff.push() )
 			{
-				Battle_Std.SetXPos_BackCorner(-800); // 背後の画面端から出現
+				Battle_Std.SetXPos_BackCorner(-1000); // 背後の画面端から出現
 				eff.pop();
 			}
-				
-			BSound.SE_Play( { type=_SeType_Player, num=[191,193,197]} );
 			break;
 		case 1900: // ゴブリン巻き添えで画面外にいって少したった
 			// KO後はセリフなしにする（セリフが被るので）
 			if( !Battle_Std.CharaisKO() )
 			{
-				// KOしてないなら床ペロする
-				// tDDC.Support_SetMessage( "@C150", 200, 150 ); // 
+
 			}
 			break;
 		}		
@@ -3862,26 +3939,25 @@ t.Mv_Obj_RusianRun <-
 		{
 			// モンスタートレインを呼ぶ
 			BMvTbl.SetLP(1,1); // ゴブリンよんだ
-			BSound.SE_Play( { type=_SeType_Player, num=[190,194,196]} );
+			BSound.SE_Play( { type=_SeType_Player, num=[219,221,223,225]} );
 			
 			local eff = BMvEff.CreateObject( { mvname="Mv_Sup10AtkObj_Outbound" } );
 			if( eff.push() )
 			{
-				Battle_Std.SetXPos_BackCorner(-630); // 背後の画面端から出現
+				Battle_Std.SetXPos_BackCorner(-320); // 背後の画面端から出現
 				eff.pop();
 			}
-			BMvEff.CreateObject({ mvname="Mv_Eff_BG" }); // 背景暗転エフェクト
+			// BMvEff.CreateObject({ mvname="Mv_Eff_BG" }); // 背景暗転エフェクト
 		}		
 		
-		// // ゴブリンが接触したら1になってるので、逃げるアニメに変更
-		// if( BMvTbl.GetPP( def_PP_Rus_GobuNearRus ) == 1 )
-		// {
-			// BMvTbl.SetPattern( "Sup10_Nige" );
-			// BMvTbl.SetPP( def_PP_Rus_GobuNearRus, 2 ); // アニメ変更済み
-			// BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround } );
-			// BSound.SE_Play( { type=_SeType_Player, num=[195]} );
-			// return;
-		// }
+		// ゴブリンが接触したら1になってるので、逃げるアニメに変更
+		if( BMvTbl.GetPP( 1 ) == 1 )
+		{
+			BMvTbl.SetPattern( "Sup10_Nige" );
+			BMvTbl.SetPP( 1, 2 ); // アニメ変更済み
+			BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround } );
+			return;
+		}
 		
 		// 画面外まで進んだらパターンを変えて戻ってくる
 		// この条件がゆるいっぽい
@@ -3892,12 +3968,12 @@ t.Mv_Obj_RusianRun <-
 			return;
 		}
 		
-		// // 端まで行った後、ゴブリンが画面外に消えるまで待機
-		// if( mvs.FrameID==400 && !Battle_Std.PP_CheckFlag( def_PP_Rus_ObjectStatus, def_PP_Rus_OS_Gob ) ) // ゴブリンが消えた
-		// {
-			// BMvTbl.JumpFrameID( 500 ); // 画面外待機から走り始める
-			// return;
-		// }
+		// 端まで行った後、ゴブリンが画面外に消えるまで待機
+		if( mvs.FrameID==400 && !Battle_Std.PP_CheckFlag( 3, 2 ) ) // ゴブリンが消えた
+		{
+			BMvTbl.JumpFrameID( 500 ); // 画面外待機から走り始める
+			return;
+		}
 
 		// 1往復して画面外に消えたら終わる
 		if( mvs.Param3&16 && checkFrontCorner )
@@ -3914,15 +3990,49 @@ t.Mv_Obj_RusianRun <-
 			return;
 		}
 		
-		
-		// ルシアン関係のオブジェクトが全部無くなるまで終了待機
-		// setFinalize_RusEffEnd();
-	}
-	function LastUpdate_After()
-	{
 	}
 }
 
+
+// ゴブリン
+local pat_num_Sup10AtkObj_Outbound = BMvEff.GetPatternNum( { datatype=0, pat="Sup10AtkObj_Outbound" } ); // パターン文字列のパターン番号を事前取得
+t.Mv_Sup10AtkObj_Outbound <-
+{
+	function Init() : (pat_num_Sup10AtkObj_Outbound)
+	{
+		BMvTbl.SetPattern( pat_num_Sup10AtkObj_Outbound );
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround } );
+		Battle_Std.PP_AddFlag( 3, 2 );
+		
+		BMvTbl.SetLP(0,0); // 帰りはじめたか　1:ルシアンに触れたので反転して帰る 2:ルシアンいなくなったのでとぼとぼ帰る
+	}
+	function FrameUpdate()
+	{
+		// 画面外まで進んだら消える
+		if( Battle_Std.CheckFromtCornerDistance_with_RoundEnd( -950 ) )
+		{
+			BMvTbl.SetFinalize(0);
+		}
+		
+		// まだ帰りアニメしてない
+		if( BMvTbl.GetLP(0)==0 )
+		{			
+			// なんかもうルシアンがいないならトボトボ帰ろう
+			// 親のmv=ルシアンが変わってるようなら処理
+			if( !BMvTbl.CheckMvUniqueID( { datatype=_DataType_Parent } ) )
+			{
+				BMvTbl.SetMuki( _Direction_Reverse );
+				BMvTbl.JumpFrameID( 900 );
+				BMvTbl.SetLP(0,2);
+			}
+		}
+		
+	}
+	function Finalize()
+	{
+		BMvTbl.SetDeleteMoveTable();
+	}
+}
 
 // オーク
 local pat_num_Sup10AtkObj_Inbound = BMvEff.GetPatternNum( { datatype=0, pat="Sup10AtkObj_Inbound" } ); // パターン文字列のパターン番号を事前取得
@@ -3930,10 +4040,9 @@ t.Mv_Sup10AtkObj_Inbound <-
 {
 	function Init() : (pat_num_Sup10AtkObj_Inbound)
 	{
-		BMvTbl.SetPattern( pat_num_Sup10AtkObj_Inbound );
-		// Battle_Std.PP_AddFlag( def_PP_Rus_ObjectStatus, def_PP_Rus_OS_Orc );
-		
+		BMvTbl.SetPattern( pat_num_Sup10AtkObj_Inbound );		
 		BMvTbl.SetLP(1,0); // 敵にヒットしたら1
+		BSound.SE_Play( { type=_SeType_Normal, num=641 } ); // フィニッシュ攻撃
 	}
 	function FrameUpdate()
 	{
@@ -3965,16 +4074,21 @@ t.Mv_Sup10AtkObj_Inbound <-
 				local bs = BtlMvStd.GetBoundStatus();
 				if( bs.isCapture == 0 ) // 非ロック中
 				{
-					BMvEff.SetCamera_Focus( { charapos=1, zoom=1.5, time=[10,12,6] } ); // カメラズーム
-					BMvEff.SetStopTime({ time=28, stopme=1, });
+					// BMvEff.SetCamera_Focus( { charapos=1, zoom=1.5, time=[10,12,6] } ); // カメラズーム
+					BMvEff.SetStopTime({ time=12, stopme=1, });
 					BMvEff.SetCamera_Quake( { time=30, type=2, } ); // 揺らす			
 				}
 				enemy.pop();
 			}
-			BSound.SE_Play( { type=_SeType_Normal, num=209 } ); // フィニッシュ攻撃
 		}
 		else if( Battle_Std.CheckGuardTiming() )
 		{
+			local enemy = BMvCore.GetEnemyCharaData();
+			if( enemy.push() )
+			{
+				BMvEff.SetHpGauge( { value=-100, valuetype=3 } ); // 実削り
+			}			
+			// 切り札と同じ演出
 			BMvEff.Slowmotion_Set( { type=0, time=30, power=10000, power_minus=5000/30 } );
 			BMvEff.SetCamera_Quake( { type=2, time=20 } );
 		}
@@ -3982,7 +4096,12 @@ t.Mv_Sup10AtkObj_Inbound <-
 	function LastUpdate()
 	{
 		BMvEff.SetCamera_Quake( { clear=1 } );
-		// Battle_Std.PP_DelFlag( def_PP_Rus_ObjectStatus, def_PP_Rus_OS_Orc );
+		local main = BMvCore.GetPlayerCharaData();
+		if( main.push() )
+		{
+			BMvTbl.SetLP(5,0);
+			main.pop();
+		}
 	}
 	function Finalize()
 	{
