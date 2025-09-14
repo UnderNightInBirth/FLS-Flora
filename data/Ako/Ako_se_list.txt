@@ -218,8 +218,8 @@ st[596] = { volumetype=1, path=1, file="Ako00_8102_s0", type=0, category=1}; // 
 st[597] = { volumetype=1, path=1, file="Ako00_8102_s1", type=0, category=1}; // たぁぁぁー！
 st[598] = { volumetype=1, path=1, file="Ako00_8102_s2", type=0, category=1}; // 出し惜しみはなしです！
 
-st[50] = { volumetype=1, path=1, file="Monster_Footstep", type=1, category=4, }; // ドドドド
-st[51] = { volumetype=1, path=1, file="Monster_Footstep_Large", type=1, category=4, }; // ドドドド(大)
+st[640] = { volumetype=1, path=1, file="Monster_Footstep", type=1, category=4, }; // ドドドド
+st[641] = { volumetype=1, path=1, file="Monster_Footstep_Large", type=1, category=4, }; // ドドドド(大)
 
 // プレイヤー勝利	win?
 st[190] = { volumetype=1, path=1, file="Rus00_2100", type=0, category=2}; // よし、クエストクリアだ

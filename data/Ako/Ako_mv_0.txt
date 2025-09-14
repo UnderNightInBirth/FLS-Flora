@@ -631,7 +631,7 @@ t.Mv_Assist <-
 		local posst = { x=300<<8, y=-250<<8, margin=64<<7 } ; //left edge
 		local pos = { x=posst.x, y=posst.y };
 		if( pl==0 ) { pos.x = -posst.x; }
-		else { pos.x = posst.x; }
+		else { pos.x = posst.x*0.68; } //dont laugh...
 
 		switch( slot )
 		{
@@ -2193,8 +2193,8 @@ local maketmpl_Heal = function( param={} ) : (pat_num_healLoop, buffParam)
 				
 				if( use_param.isConvert && !(BCMDTbl.GetHP() <= 30) ) // shouldn't gain ex if minimum hp
 				{
-					BMvEff.SetHpGauge( { value=-30 } ); //exs here
-					BMvEff.SetSpGauge( { value=54,limitval=0.0, } );
+					BMvEff.SetHpGauge( { value=-30+(vorpal*2) } ); //exs here
+					BMvEff.SetSpGauge( { value=54+(vorpal*2),limitval=0.0, } );
 				}
 
 				BMvTbl.AddPP( def_PP_Ako_TotalHealVal, healVal ); // ヒール増加量を加算
