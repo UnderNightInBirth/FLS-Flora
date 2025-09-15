@@ -925,6 +925,8 @@ local maketmpl_SkillAirShotBeam = function( param={} )
 		mvParam.ball = {
 			[100] = { x=150, y=-220, mv="Mv_FireBall_J236B1", pat="FB_J236B" },
 			[110] = { x=130, y=-210, mv="Mv_FireBall_J236B2", pat="FB_J236B2" },
+			[200] = { x=150, y=-220, mv="Mv_FireBall_J236BC1", pat="FB_J236BC" },
+			[210] = { x=130, y=-210, mv="Mv_FireBall_J236BC2", pat="FB_J236BC2" },
 		}
 		break;
 	case "BC":
@@ -971,6 +973,8 @@ local maketmpl_SkillAirShotBeam = function( param={} )
 		case 120:
 		case 130:
 		case 140:
+		case 200:
+		case 210:
 			if( mvParam.ball && update_frameid in mvParam.ball )
 			{
 				local ball = Battle_Std.CreateFireBall( mvParam.ball[update_frameid] );
