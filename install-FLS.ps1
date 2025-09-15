@@ -1,6 +1,6 @@
 # Snooping around? That's a good thing!
 # This script just changes a bunch of "d" file directories to "de-index" some files as the game uses said d files as a lookup of sorts.
-# Redistributing the d files was becoming problematic, so binary editing is hopefully the way to go.
+# Redistributing the d files was becoming problematic, so this script was made to make things easier to maintain.
 
 $dlist = @{
     "lzwp1onbeaejbkCh" = @("gauge_00.dds","gauge_01.dds","gauge_02.dds","demo_logo00.dds","sys_combo00.pat")

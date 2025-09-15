@@ -1,0 +1,448 @@
+
+Scene_VsScreenFunc <-  // âΩÇí«â¡ÇµÇƒÇ‡Ç¢Ç¢Ç™ Finalize() Ç≈ä÷êîÇÃÇ›Ç…Ç»ÇÈÇ±Ç∆
+{
+	IsDone = 0, // ÉçÅ[ÉhÇ≈Ç´ÇΩÇ©
+	Count = 0,
+};
+
+// ÇÕÇ∂Ç‹ÇË
+function Scene_VsScreenFunc::Initialize()
+{
+	local p = Scene_VsScreenFunc;
+	local fnc = tPAni;
+
+	p.IsDone = 1; // Ç∆ÇËÇ†Ç¶Ç∏ê¨å˜Ç…ÇµÇƒÇ®Ç≠
+
+	// ëŒêÌé“èÓïÒ
+	local st = tSceneVS.GetStatus(); // ÉvÉçÉOÉâÉÄÇ©ÇÁéÊìæ
+	if( st.Player1.len() == 0 )  st.Player1 = "hyd";
+	if( st.Player2.len() == 0 )  st.Player2 = "lin";
+	
+	// îCà”Ç…ì¸ÇÍÇΩÇ¢éû
+	//st.Player1 = "lin";
+	//st.Player2 = "wal";
+
+	//print("\n" + st.Player1 );
+	//print("\n" + st.Player2 );
+
+	local prio = 0; // ëSëÃÉvÉâÉCÉIÉäÉeÉB
+
+	// ògê∂ê¨
+	p.PA_Bg <- tPAni.CDat();
+	p.PA_1P <- tPAni.CDat();
+	p.PA_2P <- tPAni.CDat();
+
+	p.PA_Manager <- fnc.CAniManager(); // É}ÉlÅ[ÉWÉÉê∂ê¨
+
+	// PAniÉfÅ[É^ì«Ç›çûÇ›
+	local sFilePath = "./grpdat/VsScreen";
+	local sPcFile;
+	local ret=0;
+
+	sPcFile = format( "%s/vs_demo000.pat", sFilePath ); // BG
+	if( p.PA_Bg.Load( sPcFile ) == 0 )
+	{
+		print( format( "\n >> %s Load error.", sFilePath ) );
+		p.IsDone = 0;
+	}
+
+	sPcFile = format( "%s/vs_demo_%s.pat", sFilePath, st.Player1 ); // Pl_1
+	if( p.PA_1P.Load( sPcFile ) == 0 )
+	{
+		print( format( "\n >> %s Load error.", sFilePath ) );
+		p.IsDone = 0;
+	}
+	sPcFile = format( "%s/vs_demo_%s.pat", sFilePath, st.Player2 ); // Pl_2
+	if( p.PA_2P.Load( sPcFile ) == 0 )
+	{
+		print( format( "\n >> %s Load error.", sFilePath ) );
+		p.IsDone = 0;
+	}
+
+
+	if( p.IsDone != 0 )
+	{
+		// íÜêSï\é¶à íuê›íË
+		local cx = 1280/2;
+		local cy = (720/2)+16; //â∫Ç…16ÉhÉbÉgÉYÉâÇ∑
+		p.PA_Bg.SetPosition( cx, cy ); //
+		p.PA_1P.SetPosition( cx, cy ); //
+		p.PA_2P.SetPosition( cx, cy ); //
+	
+		local framestep = 1.0/60; // 1ÉtÉåÅ[ÉÄ
+		local fWait = 0.0;
+		local fr = 0;
+	
+		// ÉtÉåÅ[ÉÄìoò^
+	
+		// IMMORTALIZED
+		fWait = framestep * 15;
+		fr = p.PA_Manager.Add( p.PA_Bg, "S1_word" );
+		fr.AddFrame( "S1_a00", framestep * 10 );
+		fr.AddFrame( "S1_a01", framestep * 10 );
+		fr.AddFrame( "S1_a02", framestep * 20 );
+		fr.AddFrame( "S1_a03", framestep * 60 );
+		fr.AddFrame( "S1_a04", framestep * 10 );
+		fr.AddJump( -1 );
+		fr.SetPrio( prio+101 );
+		//fr.SetView( 0 );
+	
+		// âŒâ‘
+		fWait = framestep * 15;
+		fr = p.PA_Manager.Add( p.PA_Bg, "S1_obj" );
+		fr.AddFrame( "S1_b00", fWait );
+		fr.AddFrame( "S1_b01", fWait );
+		fr.AddFrame( "S1_b02", fWait );
+		fr.AddFrame( "S1_b03", fWait );
+		fr.AddFrame( "S1_b04", fWait );
+		fr.AddFrame( "S1_b05", fWait );
+		fr.AddFrame( "S1_b06", fWait );
+		fr.AddJump( -1 );
+	
+		fr.SetPrio( prio );
+		fr.SetStartWait( framestep * 30 );
+		//fr.SetView( 0 );
+	
+	
+		fWait = framestep * 30;
+		fr = p.PA_Manager.Add( p.PA_Bg, "S1_bg" );
+		fr.AddFrame( "S1_BG00", fWait );
+		fr.AddFrame( "S1_BG01", fWait );
+		fr.AddFrame( "S1_BG02", fWait );
+		fr.AddFrame( "S1_BG03", fWait );
+		fr.AddFrame( "S1_BG04", fWait );
+		fr.AddJump( -1 );
+		fr.SetPrio( prio );
+		//fr.SetView( 0 );
+	
+	
+		// Scene2 bg
+		fWait = framestep * 1.8;
+		fr = p.PA_Manager.Add( p.PA_Bg, "S2_bg" );
+		// SÇQ_a00 ÇQÇ™ëSäpÇ»ÇÃÇ≈íºÇ∑ÇÊÇ§Ç…
+		// ñ ì|Ç»ÇÃÇ≈
+		for( local i=0; i<=35; i++ )
+		{
+			local s = format( "SÇQ_a%02d", i );
+			fr.AddFrame( s, fWait );
+		}
+		fr.AddJump( -1 );
+		fr.SetPrio( prio );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 120 );
+	
+	
+		// Scene3 bg
+		fWait = framestep * 1.8;
+		fr = p.PA_Manager.Add( p.PA_Bg, "S3_bg" );
+		// SÇR_a00 ÇRÇ™ëSäpÇ»ÇÃÇ≈íºÇ∑ÇÊÇ§Ç…
+		// ñ ì|Ç»ÇÃÇ≈
+		for( local i=0; i<=36; i++ )
+		{
+			local s = format( "SÇR_a%02d", i );
+			fr.AddFrame( s, fWait );
+		}
+		fr.AddJump( -1 );
+		fr.SetPrio( prio );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 180 );
+	
+	
+		// ê^ÇÒíÜâpåÍ
+		fWait = framestep * 60;
+		fr = p.PA_Manager.Add( p.PA_Bg, "" );
+		fr.AddFrame( "SÇS_font01", framestep * 30 );
+		fr.AddFrame( "SÇS_font00", framestep * 60 );
+		fr.AddFrame( "SÇS_font00", framestep * 30);
+		fr.AddFrame( "SÇS_font01", framestep * 1 );
+		fr.AddJump( -1 );
+		fr.SetPrio( prio + 50 );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 240 );
+	
+		// âH
+		fWait = framestep * 30;
+		fr = p.PA_Manager.Add( p.PA_Bg, "" );
+		fr.AddFrame( "SÇS_a00", fWait );
+		fr.AddFrame( "SÇS_a01", fWait );
+		fr.AddFrame( "SÇS_a02", fWait );
+		fr.AddJump( -1 );
+		fr.SetPrio( prio+31 );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 240 );
+	
+		// player
+		fWait = framestep * 30;
+		fr = p.PA_Manager.Add( p.PA_Bg, "" );
+		fr.AddFrame( "SÇS_player00", fWait );
+		fr.AddFrame( "SÇS_player01", fWait );
+		fr.AddFrame( "SÇS_player02", fWait );
+		fr.AddFrame( "SÇS_player03", fWait );
+		fr.AddJump( -1 );
+		fr.SetPrio( prio+50 );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 240 );
+	
+		// Fight
+		fWait = framestep * 15;
+		fr = p.PA_Manager.Add( p.PA_Bg, "" );
+		// SÇS_name00 ÇSÇ™ëSäpÇ»ÇÃÇ≈íºÇ∑ÇÊÇ§Ç…
+		// ñ ì|Ç»ÇÃÇ≈
+		for( local i=0; i<=8; i++ )
+		{
+			local s = format( "SÇS_name%02d", i );
+			fr.AddFrame( s, fWait );
+		}
+		fr.AddJump( -1 );
+		fr.SetPrio( prio+50 );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 300 );
+	
+		//
+		fWait = framestep * 6;
+		fr = p.PA_Manager.Add( p.PA_Bg, "S4_bg_a" );
+		// SÇS_bg_a00 ÇSÇ™ëSäpÇ»ÇÃÇ≈íºÇ∑ÇÊÇ§Ç…
+		// ñ ì|Ç»ÇÃÇ≈
+		for( local i=0; i<=10; i++ )
+		{
+			local s = format( "SÇS_bg_a%02d", i );
+			fr.AddFrame( s, fWait );
+		}
+		fr.AddJump( -1 );
+		fr.SetPrio( prio );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 240 );
+	
+		//
+		fr = p.PA_Manager.Add( p.PA_Bg, "S4_bg_b" );
+		// SÇS_bg_b00 ÇSÇ™ëSäpÇ»ÇÃÇ≈íºÇ∑ÇÊÇ§Ç…ÅASÇS_bg_b34Ç™Ç»Ç¢
+		// ñ ì|Ç»ÇÃÇ≈
+		fWait = framestep * 2;
+		for( local i=0; i<=18; i++ )
+		{
+			local s = format( "SÇS_bg_b%02d", i );
+			fr.AddFrame( s, fWait );
+		}
+		// å„îºíxÇ¢
+		fWait = framestep * 12;
+		for( local i=19; i<=35; i++ )
+		{
+			local s = format( "SÇS_bg_b%02d", i );
+			fr.AddFrame( s, fWait );
+		}
+
+		
+		// PS3í«â¡ÉmÉCÉYÉãÅ[Évïîï™
+		fr.AddFrame( "SÇS_bg_b35", framestep*60 ); // ÉãÅ[ÉvÇ…ì¸ÇÈëOÇ…ÇøÇÂÇ¡Ç∆ë“Ç¬
+
+		fr.AddTag( "looptag" ); // É^ÉOê›íË
+		fWait = framestep * 3;
+		fr.AddFrame( "SÇS_bg_b35", framestep*30 ); // ÉãÅ[Évì™ÇÃÉEÉFÉCÉg
+		for( local i=50; i<=70; i++ )
+		{
+			local s = format( "SÇS_bg_b%02d", i );
+			fr.AddFrame( s, fWait );
+		}
+		fr.AddTagJump( "looptag" ); // "looptag"É^ÉOÇ÷ÇÃÉWÉÉÉìÉv
+		fr.SetPrio( prio );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 300 );
+	
+	
+		// 1P
+		//
+		fWait = framestep * 1.8;
+		fr = p.PA_Manager.Add( p.PA_1P, "S2_1P" );
+		// SÇQ_a00 ÇQÇ™ëSäpÇ»ÇÃÇ≈íºÇ∑ÇÊÇ§Ç…
+		// ñ ì|Ç»ÇÃÇ≈
+		for( local i=0; i<=35; i++ )
+		{
+			local s = format( "SÇQ_a%02d", i );
+			fr.AddFrame( s, fWait );
+		}
+		fr.AddJump( -1 );
+		fr.SetPrio( prio + 30 );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 120 );
+	
+		// 1PóßÇø
+		fWait = framestep * 3;
+		fr = p.PA_Manager.Add( p.PA_1P, "S2_1P_st" );
+		// SÇQ_a00 ÇQÇ™ëSäpÇ»ÇÃÇ≈íºÇ∑ÇÊÇ§Ç…
+		// ñ ì|Ç»ÇÃÇ≈
+		for( local i=0; i<=15; i++ )
+		{
+			local s = format( "SÇS_a%02d", i );
+			fr.AddFrame( s, fWait );
+		}
+		{
+			// ç≈å„ÇæÇØíxÇ≠
+			fr.AddFrame( "SÇS_a15", framestep * 180 );
+			fr.AddFrame( "SÇS_a16", framestep * 180 );
+			fr.AddFrame( "SÇS_a17", framestep * 180 );
+		}
+		fr.AddJump( -1 );
+		fr.SetPrio( prio + 40 );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 240 );
+	
+		// name
+		fWait = framestep * 15;
+		fr = p.PA_Manager.Add( p.PA_1P, "" );
+		// SÇS_name00 ÇSÇ™ëSäpÇ»ÇÃÇ≈íºÇ∑ÇÊÇ§Ç…
+		// ñ ì|Ç»ÇÃÇ≈
+		for( local i=0; i<=8; i++ )
+		{
+			local s = format( "SÇS_1p_name%02d", i );
+			fr.AddFrame( s, fWait );
+		}
+		fr.AddJump( -1 );
+		fr.SetPrio( prio+50 );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 300 );
+	
+	
+	
+		// 2P
+		fWait = framestep * 1.8;
+		fr = p.PA_Manager.Add( p.PA_2P, "S3_2P" );
+		// SÇR_a00 ÇRÇ™ëSäpÇ»ÇÃÇ≈íºÇ∑ÇÊÇ§Ç…
+		// ñ ì|Ç»ÇÃÇ≈
+		for( local i=0; i<=38; i++ )
+		{
+			local s = format( "SÇR_a%02d", i );
+			fr.AddFrame( s, fWait );
+		}
+		fr.AddJump( -1 );
+		fr.SetPrio( prio + 30 );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 180 );
+	
+		// 2PóßÇø
+		fWait = framestep * 3;
+		fr = p.PA_Manager.Add( p.PA_2P, "S2_2P_st" );
+		// SÇQ_a00 ÇQÇ™ëSäpÇ»ÇÃÇ≈íºÇ∑ÇÊÇ§Ç…
+		// ñ ì|Ç»ÇÃÇ≈
+		for( local i=0; i<=14; i++ )
+		{
+			local s = format( "SÇS_b%02d", i );
+			fr.AddFrame( s, fWait );
+		}
+		{
+			// ç≈å„ÇæÇØíxÇ≠
+			fr.AddFrame( "SÇS_b15", framestep * 180 );
+			fr.AddFrame( "SÇS_b16", framestep * 180 );
+			fr.AddFrame( "SÇS_b17", framestep * 180 );
+		}
+		fr.AddJump( -1 );
+		fr.SetPrio( prio + 40 );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 240 );
+	
+		// name
+		fWait = framestep * 15;
+		fr = p.PA_Manager.Add( p.PA_2P, "" );
+		// SÇS_name00 ÇSÇ™ëSäpÇ»ÇÃÇ≈íºÇ∑ÇÊÇ§Ç…
+		// ñ ì|Ç»ÇÃÇ≈
+		for( local i=0; i<=8; i++ )
+		{
+			local s = format( "SÇS_2p_name%02d", i );
+			fr.AddFrame( s, fWait );
+		}
+		fr.AddJump( -1 );
+		fr.SetPrio( prio+50 );
+		//fr.SetView( 0 );
+		fr.SetStartWait( framestep * 300 );
+	
+		fWait = framestep * 15;
+		fr = p.PA_Manager.Add( p.PA_Bg, "cine" );
+		fr.AddFrame( "cinesco00", 9999 );
+		fr.AddJump( -1 );
+		fr.SetPrio( prio+30 );
+	}
+	
+	
+	print("\nScene_VsScreenFunc::Initialize()" + " " );
+	//btl_debCheckTable( Scene_WinDemoFunc );
+}
+
+// èIóπèàóù
+function Scene_VsScreenFunc::Finalize()
+{
+	local p = Scene_VsScreenFunc;
+	local fnc = tPAni;
+
+	// ÉAÉjÉÅÉ}ÉlÅ[ÉWÉÉÇÃâï˙ÅAìoò^ÇµÇΩíÜêgÇ‡ëSïîè¡Ç¶ÇÈ
+	delete p.PA_Manager;
+
+	// PAniÉIÉuÉWÉFÉNÉgÇÃâï˙
+	delete p.PA_Bg;
+	delete p.PA_1P;
+	delete p.PA_2P;
+
+	delete Scene_VsScreenFunc;
+
+	print("\nScene_VsScreenFunc::Finalize()");
+	//btl_debCheckTable( Scene_VsScreenFunc );
+}
+
+//
+function Scene_VsScreenFunc::Update()
+{
+	local p = Scene_VsScreenFunc;
+	local fnc = tPAni;
+
+	local fr;
+
+	if( p.IsDone != 0 )
+	{
+		// ìríÜÇ≈è¡Ç≥Ç»Ç¢Ç∆Ç¢ÇØÇ»Ç¢Ç‡ÇÃ
+		if( p.Count == 121 )
+		{
+			fr = p.PA_Manager.GetCAnime( "S1_word" );
+			fr.SetView(0);
+			fr = p.PA_Manager.GetCAnime( "S1_bg" );
+			fr.SetView(0);
+			fr = p.PA_Manager.GetCAnime( "S1_obj" );
+			fr.SetView(0);
+		}
+		else
+		if( p.Count == 181 )
+		{
+			fr = p.PA_Manager.GetCAnime( "S2_bg" );
+			fr.SetView(0);
+			fr = p.PA_Manager.GetCAnime( "S2_1P" );
+			fr.SetView(0);
+		}
+		else
+		if( p.Count == 241 )
+		{
+			fr = p.PA_Manager.GetCAnime( "S3_bg" );
+			fr.SetView(0);
+			fr = p.PA_Manager.GetCAnime( "S3_2P" );
+			fr.SetView(0);
+		}
+		else
+		if( p.Count == 301 )
+		{
+			fr = p.PA_Manager.GetCAnime( "S4_bg_a" );
+			fr.SetView(0);
+		}
+	}
+
+	p.PA_Manager.Update();
+	p.Count++;
+}
+
+//
+function Scene_VsScreenFunc::Render()
+{
+	local p = Scene_VsScreenFunc;
+	local fnc = tPAni;
+
+	p.PA_Manager.Render();
+
+	//print( format( "\n[Count:%d]", p.Count ) );
+}
+
+print("\n\nvsscreen.txt Running!!!");
