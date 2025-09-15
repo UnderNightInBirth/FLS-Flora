@@ -5,137 +5,137 @@ Volume = // default 10000 but that's the max so change the file instead
 
 // Character-specific BGM during battle
 [BGM_001]
-File = btl_chr000 // ƒnƒCƒh
+File = btl_chr000 // ãƒã‚¤ãƒ‰
 IsLoop = 1
 LoopPos = 20.306
 
 [BGM_002]
-File = btl_chr001 // ƒŠƒ“ƒl
+File = btl_chr001 // ãƒªãƒ³ãƒ
 IsLoop = 1
 LoopPos = 12.163
 
 [BGM_003]
-File = btl_chr002 // ƒƒŒƒ“
+File = btl_chr002 // ãƒ¯ãƒ¬ãƒ³
 IsLoop = 1
 LoopPos = 05.774
 
 [BGM_004]
-File = btl_chr003 // ƒJ[ƒ}ƒCƒ“
+File = btl_chr003 // ã‚«ãƒ¼ãƒã‚¤ãƒ³
 IsLoop = 1
 LoopPos = 00.731
 
 [BGM_005]
-File = btl_chr004 // ƒIƒŠƒG
+File = btl_chr004 // ã‚ªãƒªã‚¨
 IsLoop = 1
 LoopPos = 12.433
 
 [BGM_006]
-File = btl_chr005 // ƒSƒ‹ƒh[
+File = btl_chr005 // ã‚´ãƒ«ãƒ‰ãƒ¼
 IsLoop = 1
 LoopPos = 02.279
 
 [BGM_007]
-File = btl_chr006 // ƒƒ‹ƒJƒ”ƒ@
+File = btl_chr006 // ãƒ¡ãƒ«ã‚«ãƒ´ã‚¡
 IsLoop = 1
 LoopPos = 11.004
 
 [BGM_008]
-File = btl_chr007 // ƒoƒeƒBƒXƒ^
+File = btl_chr007 // ãƒãƒ†ã‚£ã‚¹ã‚¿
 IsLoop = 1
 LoopPos = 06.857
 
 [BGM_009]
-File = btl_chr008 // ƒZƒg
+File = btl_chr008 // ã‚»ãƒˆ
 IsLoop = 1
 LoopPos = 02.594
 
 [BGM_010]
-File = btl_chr009 // ƒ†ƒYƒŠƒn
+File = btl_chr009 // ãƒ¦ã‚ºãƒªãƒ
 IsLoop = 1
 LoopPos = 02.571
 
 [BGM_011]
-File = btl_chr010 // ƒqƒ‹ƒ_
+File = btl_chr010 // ãƒ’ãƒ«ãƒ€
 IsLoop = 1
 LoopPos = 03.493
 
 [BGM_012]
-File = btl_chr011 // ƒGƒ‹ƒgƒiƒ€
+File = btl_chr011 // ã‚¨ãƒ«ãƒˆãƒŠãƒ 
 IsLoop = 1
 LoopPos = 16.108
 
 [BGM_013]
-File = btl_chr012 // ƒiƒiƒZ
+File = btl_chr012 // ãƒŠãƒŠã‚»
 IsLoop = 1
 LoopPos = 99.679
 
 [BGM_014]
-File = btl_chr013 //ƒrƒƒƒNƒ„
+File = btl_chr013 //ãƒ“ãƒ£ã‚¯ãƒ¤
 IsLoop = 1
 LoopPos = 22.917
 
 [BGM_015]
-File = btl_chr014 // ƒAƒJƒcƒL
+File = btl_chr014 // ã‚¢ã‚«ãƒ„ã‚­
 IsLoop = 1
 LoopPos = 08.691
 
 [BGM_016]
-File = btl_chr015 // ƒPƒCƒAƒX
+File = btl_chr015 // ã‚±ã‚¤ã‚¢ã‚¹
 IsLoop = 1
 LoopPos = 02.759
 
 [BGM_017]
-File = btl_chr016 // ƒ[ƒOƒi[
+File = btl_chr016 // ãƒ¯ãƒ¼ã‚°ãƒŠãƒ¼
 IsLoop = 1
 LoopPos = 03.604
 
 [BGM_018]
-File = btl_chr017 // ƒGƒ“ƒLƒhƒD
+File = btl_chr017 // ã‚¨ãƒ³ã‚­ãƒ‰ã‚¥
 IsLoop = 1
 LoopPos = 18.377
 
 [BGM_019]
-File = btl_chr018 // ƒƒ“ƒhƒŒƒLƒA
+File = btl_chr018 // ãƒ­ãƒ³ãƒ‰ãƒ¬ã‚­ã‚¢
 IsLoop = 1
 LoopPos = 05.900
 
 [BGM_020]
-File = btl_chr019 // ƒcƒ‹ƒM
+File = btl_chr019 // ãƒ„ãƒ«ã‚®
 IsLoop = 1
 LoopPos = 14.047
 
 [BGM_021]
-File = btl_chr020 // ƒEƒdƒL
+File = btl_chr020 // ã‚¦ãƒ…ã‚­
 IsLoop = 1
 LoopPos = 16.401
 
 [BGM_022]
-File = btl_chr021 // ƒ~ƒJ
+File = btl_chr021 // ãƒŸã‚«
 IsLoop = 1
 LoopPos = 10.290
 
 [BGM_023]
-File = btl_chr022 // ƒJƒOƒ„
+File = btl_chr022 // ã‚«ã‚°ãƒ¤
 IsLoop = 1
 LoopPos = 17.700
 
 [BGM_024]
-File = btl_chr023 // ƒNƒIƒ“
+File = btl_chr023 // ã‚¯ã‚ªãƒ³
 IsLoop = 1
 LoopPos = 15.487
 
 [BGM_025]
-File = btl_chr024 // ƒtƒHƒmƒ“
+File = btl_chr024 // ãƒ•ã‚©ãƒãƒ³
 IsLoop = 1
 LoopPos = 01.202
 
 [BGM_026]
-File = btl_chr025 // ƒI[ƒK
+File = btl_chr025 // ã‚ªãƒ¼ã‚¬
 IsLoop = 1
 LoopPos = 04.434
 
 [BGM_027]
-File = btl_chr026 // ƒCƒYƒ~
+File = btl_chr026 // ã‚¤ã‚ºãƒŸ
 IsLoop = 1
 LoopPos = 06.571
 
@@ -293,7 +293,7 @@ LoopPos = 14.352
 
 
 
-//ƒV[ƒ“‚a‚f‚l
+//ã‚·ãƒ¼ãƒ³ï¼¢ï¼§ï¼­
 [BGM_040]
 File = Menu_GUN_AkitoBass
 IsLoop = 1
@@ -304,55 +304,55 @@ File = Menu_WiFi
 IsLoop = 1
 LoopPos = 17.498
 
-//ƒXƒg[ƒŠ[ŠÖŒW
+//ã‚¹ãƒˆãƒ¼ãƒªãƒ¼é–¢ä¿‚
 [BGM_050]
-File = st_saidan // ŒˆíiŒŠ‚Ì‘OjƒNƒIƒ“‚ÌÕ’d‘O
+File = st_saidan // æ±ºæˆ¦ï¼ˆç©´ã®å‰ï¼‰ã‚¯ã‚ªãƒ³ã®ç¥­å£‡å‰
 IsLoop = 1
 LoopPos = 24.000
 
 [BGM_052]
-File = st_hazimari1 // ŠJn‚Ì‰ï˜bi–¾‚é‚ßj@n‚Ü‚èi“®“IA‹­‚³A’jj
+File = st_hazimari1 // é–‹å§‹ã®ä¼šè©±ï¼ˆæ˜ã‚‹ã‚ï¼‰ã€€å§‹ã¾ã‚Šï¼ˆå‹•çš„ã€å¼·ã•ã€ç”·ï¼‰
 IsLoop = 1
 LoopPos = 13.199
 
 [BGM_053]
-File = st_hazimari2 // ŠJn‚Ì‰ï˜biˆÃ‚ßj@n‚Ü‚èiÃ“IA”ß‚µ‚İA—j
+File = st_hazimari2 // é–‹å§‹ã®ä¼šè©±ï¼ˆæš—ã‚ï¼‰ã€€å§‹ã¾ã‚Šï¼ˆé™çš„ã€æ‚²ã—ã¿ã€å¥³ï¼‰
 IsLoop = 1
 LoopPos = 00.000
 
 [BGM_054]
-File = st_owari1 // ƒGƒ“ƒfƒBƒ“ƒO‰ï˜bi–¾‚é‚ßj@ƒNƒIƒ““|‚µ‚½ŒãiŠó–]j
+File = st_owari1 // ã‚¨ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ä¼šè©±ï¼ˆæ˜ã‚‹ã‚ï¼‰ã€€ã‚¯ã‚ªãƒ³å€’ã—ãŸå¾Œï¼ˆå¸Œæœ›ï¼‰
 IsLoop = 1
 LoopPos = 21.333
 
 [BGM_055]
-File = st_owari2 // ƒGƒ“ƒfƒBƒ“ƒO‰ï˜biˆÃ‚ßj@ƒNƒIƒ““|‚µ‚½Œãiâ–]j
+File = st_owari2 // ã‚¨ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ä¼šè©±ï¼ˆæš—ã‚ï¼‰ã€€ã‚¯ã‚ªãƒ³å€’ã—ãŸå¾Œï¼ˆçµ¶æœ›ï¼‰
 IsLoop = 1
 LoopPos = 00.000
 
 [BGM_056]
-File = st_kyouteki1 // “¹’†‚Ì‰ï˜bi”Ä—pj
+File = st_kyouteki1 // é“ä¸­ã®ä¼šè©±ï¼ˆæ±ç”¨ï¼‰
 IsLoop = 1
 LoopPos = 01.088
 
 [BGM_057]
-File = st_kyouteki2 // “¹’†‚Ì‰ï˜bid‚ßj
+File = st_kyouteki2 // é“ä¸­ã®ä¼šè©±ï¼ˆé‡ã‚ï¼‰
 IsLoop = 1
 LoopPos = 00.000
 
 [BGM_058]
-File = st_kyouteki3 // “¹’†‚Ì‰ï˜biƒVƒŠƒAƒXj
+File = st_kyouteki3 // é“ä¸­ã®ä¼šè©±ï¼ˆã‚·ãƒªã‚¢ã‚¹ï¼‰
 IsLoop = 1
 LoopPos = 08.726
 
-//‚n‚o‹È
+//ï¼¯ï¼°æ›²
 [BGM_060]
 File = op_unistcs // Unknown Actor
 IsLoop = 1
 LoopPos = 00.000
 
 [BGM_061]
-File = op_uniclrcs // ‹U‚è‚Ì–³ŒÀ•À—ñiƒpƒ‰ƒŠƒAƒ‹j
+File = op_uniclrcs // å½ã‚Šã®ç„¡é™ä¸¦åˆ—ï¼ˆãƒ‘ãƒ©ãƒªã‚¢ãƒ«ï¼‰
 IsLoop = 1
 LoopPos = 00.000
 
@@ -367,7 +367,7 @@ IsLoop = 1
 LoopPos = 17.140
 
 
-//ƒGƒ“ƒfƒBƒ“ƒO‚a‚f‚l
+//ã‚¨ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ï¼¢ï¼§ï¼­
 [BGM_070]
 File = ed_good // Good Ending
 IsLoop = 0
@@ -378,39 +378,39 @@ File = ed_bad // Bad Ending
 IsLoop = 0
 LoopPos = 00.000
 
-//ƒV[ƒ“‚a‚f‚l
+//ã‚·ãƒ¼ãƒ³ï¼¢ï¼§ï¼­
 [BGM_082]
-File = sys_continue //ƒRƒ“ƒeƒBƒjƒ…[
+File = sys_continue //ã‚³ãƒ³ãƒ†ã‚£ãƒ‹ãƒ¥ãƒ¼
 IsLoop = 0
 LoopPos = 0.0
 
 [BGM_083]
-File = sys_gameover //ƒQ[ƒ€ƒI[ƒo[
+File = sys_gameover //ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼
 IsLoop = 0
 LoopPos = 0.0
 
 [BGM_084]
-File = sys_vsdemo //‚u‚rƒfƒ‚
+File = sys_vsdemoOG //ï¼¶ï¼³ãƒ‡ãƒ¢
 IsLoop = 0
 LoopPos = 0.0
 
-//“Áêƒoƒgƒ‹‚a‚f‚l
+//ç‰¹æ®Šãƒãƒˆãƒ«ï¼¢ï¼§ï¼­
 [BGM_091]
-File = btl_chr005_vs_chr015 // ƒSƒ‹ƒh[vsƒPƒCƒAƒX
+File = btl_chr005_vs_chr015 // ã‚´ãƒ«ãƒ‰ãƒ¼vsã‚±ã‚¤ã‚¢ã‚¹
 IsLoop = 1
 LoopPos = 08.040
 
 [BGM_092]
-File = btl_chr000_vs_chr008 // ƒnƒCƒhvsƒZƒg
+File = btl_chr000_vs_chr008 // ãƒã‚¤ãƒ‰vsã‚»ãƒˆ
 IsLoop = 1
 LoopPos = 00.891
 
 [BGM_093]
-File = btl_chr016_vs_chr018 // ƒ[ƒOƒi[vsƒƒ“ƒhƒŒƒLƒA
+File = btl_chr016_vs_chr018 // ãƒ¯ãƒ¼ã‚°ãƒŠãƒ¼vsãƒ­ãƒ³ãƒ‰ãƒ¬ã‚­ã‚¢
 IsLoop = 1
 LoopPos = 01.614
 
-//ƒfƒ‚‚a‚f‚l
+//ãƒ‡ãƒ¢ï¼¢ï¼§ï¼­
 [BGM_098] // I prefer Underdog! but...
 File = Menu_EasyJob
 IsLoop = 1
@@ -421,11 +421,11 @@ File = Menu_asayake
 IsLoop = 1
 LoopPos = 05.590
 
-//100ˆÈ~‚Í‚â‚ß‚Æ‚­=======
+//100ä»¥é™ã¯ã‚„ã‚ã¨ã=======
 
 //========================================================
-// ‰ï˜bŠÖŒW—p’Ç‰Á‹È’è‹`(BattleRes\talk\st_bgm“à‚Å’è‹`‚³‚ê‚Ä‚Ü‚·)
-//  ¦100`139‚Ü‚Å—\–ñ’†‚Å‚·
+// ä¼šè©±é–¢ä¿‚ç”¨è¿½åŠ æ›²å®šç¾©(BattleRes\talk\st_bgmå†…ã§å®šç¾©ã•ã‚Œã¦ã¾ã™)
+//  â€»100ï½139ã¾ã§äºˆç´„ä¸­ã§ã™
 //========================================================
 
 
