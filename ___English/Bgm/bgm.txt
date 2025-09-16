@@ -5,137 +5,137 @@ Volume = // default 10000 but that's the max so change the file instead
 
 // Character-specific BGM during battle
 [BGM_001]
-File = btl_chr000 // ハイド
+File = btl_chr000 // �n�C�h
 IsLoop = 1
 LoopPos = 20.306
 
 [BGM_002]
-File = btl_chr001 // リンネ
+File = btl_chr001 // �����l
 IsLoop = 1
 LoopPos = 12.163
 
 [BGM_003]
-File = btl_chr002 // ワレン
+File = btl_chr002 // ������
 IsLoop = 1
 LoopPos = 05.774
 
 [BGM_004]
-File = btl_chr003 // カーマイン
+File = btl_chr003 // �J�[�}�C��
 IsLoop = 1
 LoopPos = 00.731
 
 [BGM_005]
-File = btl_chr004 // オリエ
+File = btl_chr004 // �I���G
 IsLoop = 1
 LoopPos = 12.433
 
 [BGM_006]
-File = btl_chr005 // ゴルドー
+File = btl_chr005 // �S���h�[
 IsLoop = 1
 LoopPos = 02.279
 
 [BGM_007]
-File = btl_chr006 // メルカヴァ
+File = btl_chr006 // �����J���@
 IsLoop = 1
 LoopPos = 11.004
 
 [BGM_008]
-File = btl_chr007 // バティスタ
+File = btl_chr007 // �o�e�B�X�^
 IsLoop = 1
 LoopPos = 06.857
 
 [BGM_009]
-File = btl_chr008 // セト
+File = btl_chr008 // �Z�g
 IsLoop = 1
 LoopPos = 02.594
 
 [BGM_010]
-File = btl_chr009 // ユズリハ
+File = btl_chr009 // ���Y���n
 IsLoop = 1
 LoopPos = 02.571
 
 [BGM_011]
-File = btl_chr010 // ヒルダ
+File = btl_chr010 // �q���_
 IsLoop = 1
 LoopPos = 03.493
 
 [BGM_012]
-File = btl_chr011 // エルトナム
+File = btl_chr011 // �G���g�i��
 IsLoop = 1
 LoopPos = 16.108
 
 [BGM_013]
-File = btl_chr012 // ナナセ
+File = btl_chr012 // �i�i�Z
 IsLoop = 1
 LoopPos = 99.679
 
 [BGM_014]
-File = btl_chr013 //ビャクヤ
+File = btl_chr013 //�r���N��
 IsLoop = 1
 LoopPos = 22.917
 
 [BGM_015]
-File = btl_chr014 // アカツキ
+File = btl_chr014 // �A�J�c�L
 IsLoop = 1
 LoopPos = 08.691
 
 [BGM_016]
-File = btl_chr015 // ケイアス
+File = btl_chr015 // �P�C�A�X
 IsLoop = 1
 LoopPos = 02.759
 
 [BGM_017]
-File = btl_chr016 // ワーグナー
+File = btl_chr016 // ���[�O�i�[
 IsLoop = 1
 LoopPos = 03.604
 
 [BGM_018]
-File = btl_chr017 // エンキドゥ
+File = btl_chr017 // �G���L�h�D
 IsLoop = 1
 LoopPos = 18.377
 
 [BGM_019]
-File = btl_chr018 // ロンドレキア
+File = btl_chr018 // �����h���L�A
 IsLoop = 1
 LoopPos = 05.900
 
 [BGM_020]
-File = btl_chr019 // ツルギ
+File = btl_chr019 // �c���M
 IsLoop = 1
 LoopPos = 14.047
 
 [BGM_021]
-File = btl_chr020 // ウヅキ
+File = btl_chr020 // �E�d�L
 IsLoop = 1
 LoopPos = 16.401
 
 [BGM_022]
-File = btl_chr021 // ミカ
+File = btl_chr021 // �~�J
 IsLoop = 1
 LoopPos = 10.290
 
 [BGM_023]
-File = btl_chr022 // カグヤ
+File = btl_chr022 // �J�O��
 IsLoop = 1
 LoopPos = 17.700
 
 [BGM_024]
-File = btl_chr023 // クオン
+File = btl_chr023 // �N�I��
 IsLoop = 1
 LoopPos = 15.487
 
 [BGM_025]
-File = btl_chr024 // フォノン
+File = btl_chr024 // �t�H�m��
 IsLoop = 1
 LoopPos = 01.202
 
 [BGM_026]
-File = btl_chr025 // オーガ
+File = btl_chr025 // �I�[�K
 IsLoop = 1
 LoopPos = 04.434
 
 [BGM_027]
-File = btl_chr026 // イズミ
+File = btl_chr026 // �C�Y�~
 IsLoop = 1
 LoopPos = 06.571
 
@@ -293,7 +293,7 @@ LoopPos = 14.352
 
 
 
-//シーンＢＧＭ
+//�V�[���a�f�l
 [BGM_040]
 File = Menu_GUN_AkitoBass
 IsLoop = 1
@@ -304,55 +304,55 @@ File = Menu_WiFi
 IsLoop = 1
 LoopPos = 17.498
 
-//ストーリー関係
+//�X�g�[���[�֌W
 [BGM_050]
-File = st_saidan // 決戦（穴の前）クオンの祭壇前
+File = st_saidan // ����i���̑O�j�N�I���̍Ւd�O
 IsLoop = 1
 LoopPos = 24.000
 
 [BGM_052]
-File = st_hazimari1 // 開始の会話（明るめ）　始まり（動的、強さ、男）
+File = st_hazimari1 // �J�n�̉�b�i����߁j�@�n�܂�i���I�A�����A�j�j
 IsLoop = 1
 LoopPos = 13.199
 
 [BGM_053]
-File = st_hazimari2 // 開始の会話（暗め）　始まり（静的、悲しみ、女）
+File = st_hazimari2 // �J�n�̉�b�i�Â߁j�@�n�܂�i�ÓI�A�߂��݁A���j
 IsLoop = 1
 LoopPos = 00.000
 
 [BGM_054]
-File = st_owari1 // エンディング会話（明るめ）　クオン倒した後（希望）
+File = st_owari1 // �G���f�B���O��b�i����߁j�@�N�I���|������i��]�j
 IsLoop = 1
 LoopPos = 21.333
 
 [BGM_055]
-File = st_owari2 // エンディング会話（暗め）　クオン倒した後（絶望）
+File = st_owari2 // �G���f�B���O��b�i�Â߁j�@�N�I���|������i��]�j
 IsLoop = 1
 LoopPos = 00.000
 
 [BGM_056]
-File = st_kyouteki1 // 道中の会話（汎用）
+File = st_kyouteki1 // �����̉�b�i�ėp�j
 IsLoop = 1
 LoopPos = 01.088
 
 [BGM_057]
-File = st_kyouteki2 // 道中の会話（重め）
+File = st_kyouteki2 // �����̉�b�i�d�߁j
 IsLoop = 1
 LoopPos = 00.000
 
 [BGM_058]
-File = st_kyouteki3 // 道中の会話（シリアス）
+File = st_kyouteki3 // �����̉�b�i�V���A�X�j
 IsLoop = 1
 LoopPos = 08.726
 
-//ＯＰ曲
+//�n�o��
 [BGM_060]
 File = op_unistcs // Unknown Actor
 IsLoop = 1
 LoopPos = 00.000
 
 [BGM_061]
-File = op_uniclrcs // 偽りの無限並列（パラリアル）
+File = op_uniclrcs // �U��̖�������i�p�����A���j
 IsLoop = 1
 LoopPos = 00.000
 
@@ -367,7 +367,7 @@ IsLoop = 1
 LoopPos = 17.140
 
 
-//エンディングＢＧＭ
+//�G���f�B���O�a�f�l
 [BGM_070]
 File = ed_good // Good Ending
 IsLoop = 0
@@ -378,39 +378,39 @@ File = ed_bad // Bad Ending
 IsLoop = 0
 LoopPos = 00.000
 
-//シーンＢＧＭ
+//�V�[���a�f�l
 [BGM_082]
-File = sys_continue //コンティニュー
+File = sys_continue //�R���e�B�j���[
 IsLoop = 0
 LoopPos = 0.0
 
 [BGM_083]
-File = sys_gameover //ゲームオーバー
+File = sys_gameover //�Q�[���I�[�o�[
 IsLoop = 0
 LoopPos = 0.0
 
 [BGM_084]
-File = sys_vsdemoOG //ＶＳデモ
+File = sys_vsdemoOG
 IsLoop = 0
 LoopPos = 0.0
 
-//特殊バトルＢＧＭ
+//����o�g���a�f�l
 [BGM_091]
-File = btl_chr005_vs_chr015 // ゴルドーvsケイアス
+File = btl_chr005_vs_chr015 // �S���h�[vs�P�C�A�X
 IsLoop = 1
 LoopPos = 08.040
 
 [BGM_092]
-File = btl_chr000_vs_chr008 // ハイドvsセト
+File = btl_chr000_vs_chr008 // �n�C�hvs�Z�g
 IsLoop = 1
 LoopPos = 00.891
 
 [BGM_093]
-File = btl_chr016_vs_chr018 // ワーグナーvsロンドレキア
+File = btl_chr016_vs_chr018 // ���[�O�i�[vs�����h���L�A
 IsLoop = 1
 LoopPos = 01.614
 
-//デモＢＧＭ
+//�f���a�f�l
 [BGM_098] // I prefer Underdog! but...
 File = Menu_EasyJob
 IsLoop = 1
@@ -421,11 +421,11 @@ File = Menu_asayake
 IsLoop = 1
 LoopPos = 05.590
 
-//100以降はやめとく=======
+//100�ȍ~�͂�߂Ƃ�=======
 
 //========================================================
-// 会話関係用追加曲定義(BattleRes\talk\st_bgm内で定義されてます)
-//  ※100～139まで予約中です
+// ��b�֌W�p�ǉ��Ȓ�`(BattleRes\talk\st_bgm���Œ�`����Ă܂�)
+//  ��100�`139�܂ŗ\�񒆂ł�
 //========================================================
 
 
