@@ -19,6 +19,21 @@ skill= { recipe = [
 	} );
 }
 
+{	tmp.append( { title=Def_TCName_BNBLv2,
+	pos="近距離",cat=Def_TCNum_Level2,
+	stringID="SimpleJ236_",
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["2A","2A","2B","2C","3C","4C","iJ236C","B","SS"] } } );
+}
+
+{	tmp.append( { title=Def_TCName_BNBLv2,
+	pos="微中",cat=Def_TCNum_Level2,
+	stringID="HealExample_", 
+	expl = Def_TCInfo_Expl_Overhead,
+	skill= { recipe = ["4C","J214B","C","_214A"] } } );
+}
+
+
 Table  <- GetMissionListTable();
 local skillParam = { charaNo = Def_ChrNo_Ako, }
 Table.listcount = tmp.len();

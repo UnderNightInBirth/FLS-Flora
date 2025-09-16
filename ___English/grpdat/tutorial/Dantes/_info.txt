@@ -16,6 +16,21 @@ skill= { recipe = [
 	} );
 }
 
+{	tmp.append( { title=Def_TCInfo_Title_Low,
+	pos="近距離",cat=Def_TCNum_Level2,
+	stringID="2cintoVanish_",
+	expl = Def_TCInfo_Expl_Low,
+	skill= { recipe = ["2C","3C","iJC","iC","FF","66C","i214B"] } } );
+}
+
+{	tmp.append( { title=Def_TCInfo_Title_Low,
+	pos="中距離",cat=Def_TCNum_Level2,
+	stringID="66Bcarry_", 
+	expl = Def_TCInfo_Expl_Low,
+	skill= { recipe = ["66B","2B","C","jc","JA","JB","JC","J214B","66C","214A",">214_AddA",">J22_Add6A"] } } );
+}
+
+
 Table  <- GetMissionListTable();
 local skillParam = { charaNo = Def_ChrNo_Edo, }
 Table.listcount = tmp.len();

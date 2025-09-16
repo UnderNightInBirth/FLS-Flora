@@ -152,7 +152,7 @@ se["’§”­"] <- { //taunt
 }
 
 se["ƒAƒTƒ‹ƒg"] <- { //assault
-	selist = { common = [220], }
+	selist = { common = [441,442], }
 }
 
 
