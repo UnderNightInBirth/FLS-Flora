@@ -601,8 +601,8 @@ t.Mv_Startup <-
 		Battle_Std.CreateObjectEX( { x=0, y=0, pat="IconB", mvname="Mv_Assist", LP={ slot=0, val=1 } } );
 		BMvEff.CreateObject( { mvname="Mv_Obj_SupHealingMng" } );
 
-		BMvTbl.SetPP(21,470);
-		BMvTbl.SetPP(25,950);
+		BMvTbl.SetPP(21,479);
+		BMvTbl.SetPP(25,959);
 
 	}
 	function FrameUpdate_After()
