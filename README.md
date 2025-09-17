@@ -17,10 +17,11 @@ Download. Copy contents *within* "FLS-Flora-game" to [game files](https://steamc
 This modpack includes:
 - Custom characters - some ported, some by-hand, and hand-drawn!
 - Functional in-game Command List and future Missions
-- A new look to some of the UI and menus
+- A new look to some of the UI and menus - ported UNI1 Vs screen!
 - Lots of added BGMs to tune in to
 - Ported Type Lumina stages with nighttime edits
 - Network play with users of the same mod (and network-safe for everyone else)
+- Hitbox viewer
 - The most relaxed support community around
 
 ## Characters
@@ -34,11 +35,20 @@ This modpack includes:
 - In-Birth Hyde (Edit)
 - [And more to come!](manual/ROADMAP.md) Characters are in varied progress.
 
-![image](https://github.com/user-attachments/assets/e6cd74ff-6541-4a00-9cc3-82fa474f20d9)
-![uni2_2025_0224-065415](https://github.com/user-attachments/assets/cd75ac86-8f3d-4e50-a539-ed692e4bc61c)
-![image](https://github.com/user-attachments/assets/e35b130e-ab66-4b3c-9e17-764192a0be3e)
-![uni2_2025_0224-072445](https://github.com/user-attachments/assets/d868e47b-8917-4918-ad21-f6ff6f5fba87)
-![uni2_2025_0224-072653](https://github.com/user-attachments/assets/ac860083-e771-4983-b797-ead0b5962d89)
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/e6cd74ff-6541-4a00-9cc3-82fa474f20d9"></td>
+    <td><img src="https://github.com/user-attachments/assets/5b1f3a1f-f9c4-4a29-9756-215b59d03542"></td>
+    <td><img src="https://github.com/user-attachments/assets/cd75ac86-8f3d-4e50-a539-ed692e4bc61c"></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/d868e47b-8917-4918-ad21-f6ff6f5fba87"></td>
+    <td><img src="https://github.com/user-attachments/assets/ac860083-e771-4983-b797-ead0b5962d89"></td>
+    <td><img src="https://github.com/user-attachments/assets/e35b130e-ab66-4b3c-9e17-764192a0be3e"></td>
+</td>
+  </tr>
+</table>
+
 
 [A VOD of some online matches in action can be watched here.](https://youtu.be/mOypLX7B9Ok?t=1454)
 
@@ -58,6 +68,16 @@ Launch the game and you should be good to go!
 
 When you want to uninstall, clean up the extra folders from the repo and use Steam's "[Verify Integrity](https://help.steampowered.com/en/faqs/view/0C48-FCBD-DA71-93EB)" feature to get the game back to normal.
 
+# Contributing
+
+This mod is a joint effort among those who spent the time learning the intricacies of the game engine. If you have ideas, want to learn how to add content, or just have a few small contributions such as palettes, you are free to make a pull request or join the discussion on Discord.
+[![Discord](https://img.shields.io/badge/Discord-220077?logo=discord)](https://discord.gg/invite/yAfMaD34eV)
+
+If you need to contact the maintainer directly, the best place to do so is through Steam.
+[![Steam](https://img.shields.io/badge/Steam-231f20?logo=steam)](https://steamcommunity.com/id/Fatih120/)
+
+Any shoutouts, playtests, and videos are welcome and appreciated!
+
 # FAQ
 
 **Q: Can I play with strangers?**
@@ -76,19 +96,15 @@ If it crashes when launching, please try again. A new visual change may have cau
 
 Maybe.
 
-# Wiki
+# Disclaimer
 
-[Workin' on it!](/manual/wiki)
-
-# Contributing
-
-This mod is a joint effort among those who spent the time learning the intricacies of the game engine. If you have ideas, want to learn how to add content, or just have a few small contributions such as palettes, you are free to make a pull request or join the discussion on (unfortunately) Discord. Any shoutouts, playtests, and videos are welcome and appreciated!
-
-[![Steam](https://img.shields.io/badge/Steam-231f20?logo=steam)](https://steamcommunity.com/id/Fatih120/)
-[![Discord](https://img.shields.io/badge/Discord-220077?logo=discord)](https://discord.com/invite/Cy27FNfQtc)
-
-(Be sure to direct yourself to #undernightinbirth if you join the latter.)
+As stated, playing online with modded installations has been tried and tested - even since the late UNI1 days. There should not be any risk of bans from playing FLS Flora unless you're actively using memory-modifying cheats. That said, we don't have the power to see the future or know whether certain online interactions could be a cause for concern. Please, avoid uploading in-game data that's related to the new characters to stay safe.
 
 # Credits
 
 Check [CREDITS.md](manual/CREDITS.md).
+
+# Wiki
+
+[Workin' on it!](/manual/wiki)
+
