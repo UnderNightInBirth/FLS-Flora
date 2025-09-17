@@ -3,7 +3,7 @@ local tmp = [];
 {	tmp.append( { title =  Def_Tactics_Title_Footsies,
 	cat = Def_TCNum_TacticsLv1,
 	expl = Def_TCInfo_Expl_BattleTactics,
-	stringID = "rie_tactics_footsies",
+	stringID = "rie_tactics_footsies_",
 	endtype = 1,
 	start_csv = 1,//CSVの定義あり
 skill= { recipe = [
@@ -169,28 +169,139 @@ skill= { recipe = [
 	} );
 }
 
+{	tmp.append( { title=Def_TCName_BNBLv0,
+	cat=Def_TCNum_Level0,
+	stringID="ezStdBnB_",
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["A","B","6B","C","236A"] } } );
+}
 
+{	tmp.append( { title=Def_TCName_BNBLv0,
+	cat=Def_TCNum_Level0,
+	stringID="ezBRoundStart_",
+	pos="中距離",
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["B","C","236B"] } } );
+}
 
+{	tmp.append( { title=Def_TCName_BNBLv0,
+	cat=Def_TCNum_Level0,
+	stringID="ezBnBsimple_", 
+	enemy = "立",
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["2A","2B","2C","3B","jc","dJA","JB","JC","236A"] } } );
+}
 
+{	tmp.append( { title=Def_TCName_BNBLv0,
+	cat=Def_TCNum_Level0,
+	stringID="ez2a214_", 
+	enemy = "立",
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["2A","2A","2B","2C","214A"] } } );
+}
 
+{	tmp.append( { title=Def_TCName_BNBLv0,
+	cat=Def_TCNum_Level0,
+	gauge = "IW",
+	stringID="ezReverseSS", 
+	enemy = "立",
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["2A","2B","3B","B","6B","C","A","A2","A3","A4","A5","A6"] } } );
+}
 
+{	tmp.append( { title=Def_TCName_BNBLv0,
+	cat=Def_TCNum_Level0,
+	stringID="ez66cStarter_", 
+	pos="微中",
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["66C","i214A","66C","d236B"] } } );
+}
 
+{	tmp.append( { title=Def_TCName_BNBLv0,
+	cat=Def_TCNum_Level0,
+	stringID="ez214ICpoke_",
+	pos="微中",
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["i214A","iJC"] } } );
+}
 
+{	tmp.append( { title=Def_TCName_BNBLv0,
+	cat=Def_TCNum_Level0,
+	stringID="ezCornerCarry_", 
+	enemy = "立",
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["2A","2B","2C","3B","i6C","66","66C","236B"] } } );
+}
+
+{	tmp.append( { title=Def_TCName_BNBLv1,
+	pos="端",cat=Def_TCNum_Level1,
+	stringID="mdFFLoop_", 
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["2C","3B","FF","2B","FF","2B","FF","2B","FF","2B","236A"] } } );
+}
+
+{	tmp.append( { title=Def_TCName_BNBLv1,
+	pos="端",cat=Def_TCNum_Level1,
+	stringID="mdic6cConf_", 
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["i6C","C","i6B","214A","3B","jc","JC","J6C","i6B","236B"] } } );
+}
+
+{	tmp.append( { title=Def_TCName_BNBLv1,
+	cat=Def_TCNum_Level1,
+	pos="端",stringID="mdBnBcornerlow_", 
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["2A","2A","2B","2C","3B","jc","JB","JC","J6C","i6B","iFF","2B","236B"] } } );
+}
+
+{	tmp.append( { title=Def_TCName_BNBLv1,
+	pos="微遠",enemy="COM",cat=Def_TCNum_Level1,
+	stringID="mdATCounter_", 
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["cJAD","2C","C","jc","JA","JB","JC","J214A","2C","C","SS"] } } );
+}
+
+{	tmp.append( { title=Def_TCName_BNBLv1,
+	pos="微近",cat=Def_TCNum_Level1,
+	stringID="mdCornerCarry_", 
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["2C","3B","i6C","66","C","i6B","214B","66C","i214B"] } } );
+}
 
 {	tmp.append( { title=Def_TCInfo_Title_Punishment,
-	pos="端背負い",cat=Def_TCNum_Level2,
+	pos="端背負い",cat=Def_TCNum_Level1,
 	stringID="cornered_2c_sideswap_", 
 	expl = Def_TCInfo_Expl_ChangePosSide,
 	skill= { recipe = ["2C","3B","i6B","i236B","2C","C","236B"] } } );
 }
 
-{	tmp.append( { title=Def_TCInfo_Title_Rampage,
-	pos="端",cat=Def_TCNum_Level3, gauge="EX",
-	stringID="corner_shieldsmashdown_",
-	expl = Def_TCInfo_Expl_RampageSmash,
-	skill= { recipe = ["B","2C","C","i6B","623A","2A","JB","JC","J214B","J214EX","214C","2C","3B","i6B","236B"] } } );
+{	tmp.append( { title=Def_TCName_BNBLv2,
+	cat=Def_TCNum_Level2,
+	pos="中距離",stringID="mdBMaxRange_", 
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["B","C","214B","66","2B","B","SS"] } } );
 }
 
+{	tmp.append( { title=Def_TCName_BNBLv2,
+	cat=Def_TCNum_Level2,
+	pos="中距離",stringID="hd66cStarter_", 
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["66C","i214A","66B","623A","A","jc","JA","JB","JC","J214A","2B","C","SS"] } } );
+}
+
+{	tmp.append( { title=Def_TCInfo_Title_Rampage,
+	pos="端微近",cat=Def_TCNum_Level3, gauge="EX",
+	stringID="corner_shieldsmashdown_",
+	expl = Def_TCInfo_Expl_RampageSmash,
+	skill= { recipe = ["B","2C","C","i6B","623A","2A","jc","JB","JC","J214B","J214EX","214C","2C","3B","i6B","236B"] } } );
+}
+
+{	tmp.append( { title=Def_TCName_BNBLv3,
+	cat=Def_TCNum_Level3,
+	pos="中距離",stringID="ex214wAssault_", 
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill= { recipe = ["i214A","6D","*J214A","2C","C","i6B","jc","JA","JB","JC","J214B","2C","C","236B"] } } );
+}
 
 
 
