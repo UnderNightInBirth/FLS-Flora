@@ -116,15 +116,14 @@ skill= { recipe = [
 	start_csv = 1,//CSV‚Ì’è‹`‚ ‚è
 
 skill= { recipe = [
-		{ skill="cFF", add={ mvcode1=def_MC1_SidouHitSkill } },
-		{ skill="2C", add={ postype=1 } },
-		{ skill="236A", add={ postype=1 } },
-		{ skill=">236_AddA", add={ postype=1 } },
-		{ skill=">236Add_AddA", add={ postype=1 } },
+		{ skill="3B", add={ mvcode1=def_MC1_SidouHitSkill } },
 		{ skill="checkpoint" },
-		
-		{ skill="4C", add={ mvcode1=def_MC1_SidouHitSkill } },
-		{ skill="checkpoint" }
+		{ skill="cFF", add={ mvcode1=def_MC1_SidouHitSkill } },
+		{ skill="checkpoint" },
+		{ skill="icFF", add={ mvcode1=def_MC1_SidouHitSkill } },
+		{ skill="checkpoint" },
+		{ skill="JAD", add={ mvcode1=def_MC1_SidouHitSkill } },
+		{ skill="checkpoint" },
 		] }
 	} );
 }
@@ -144,7 +143,7 @@ skill= { recipe = [
 	start_csv = 1,//CSV‚Ì’è‹`‚ ‚è	
 
 skill= { recipe = [
-		{ skill="FF", add={ reset=0, mvcode1=def_MC1_TutoBallMuteki|def_MC1_SidouHitSkill, instext=TCW_BallInvincible } },
+		{ skill="FF", add={ reset=0, instext=TCW_BallInvincible } },
 		{ skill="r236EX", add={ postype=1 } },
 		] }
 	} );
@@ -164,7 +163,7 @@ skill= { recipe = [
 	start_csv = 1,//CSV‚Ì’è‹`‚ ‚è	
 
 skill= { recipe = [
-		{ skill="JFF", add={ reset=0, instext="Before getting hit: " } },
+		{ skill="JFF", add={ reset=0, mvcode4=def_MC4_AtemiSousaiSuccess, instext="Before getting hit: " } },
 		] }
 	} );
 }
