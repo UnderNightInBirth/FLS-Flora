@@ -16,15 +16,115 @@ skill= { recipe = [
 	} );
 }
 
+// todo recordings dont feel like it
+
+{	tmp.append( { title=Def_TCName_BNB,
+	cat=Def_TCNum_Level1,
+	gauge = "EX",
+	stringID="lv1_ex01",
+	skill={ recipe = ["B","2B","2C","214A",">214A_4A",">214_AddA","22EX"] }, } );
+}
+
+{	tmp.append( { title=Def_TCInfo_Title_Poke,
+	cat=Def_TCNum_Level1,
+	pos = "中央遠",
+	gauge = "EX",
+	stringID="lv1_poke01",
+	skill={ recipe = ["236B","236EX"] }, } );
+}
+
 {	tmp.append( { title=Def_TCInfo_Title_Low,
-	pos="霑題ｷ晞屬",cat=Def_TCNum_Level2,
+	cat=Def_TCNum_Level2,
+	stringID="lv2_rampage01",
+	skill={ recipe = ["2A","2A","2B","2C","C","236A",">236_AddB","B","3C","jc","JB","JC","JAD"] }, } );
+}
+
+{	tmp.append( { title=Def_TCInfo_Title_Poke,
+	cat=Def_TCNum_Level2,
+	pos = "微近",
+	gauge = "EX",
+	stringID="lv2_poke01",
+	skill={ recipe = ["214A",">214A_4A",">214A_6A","214EX","B","C","jc","JA","JB","JC","JAD"] }, } );
+}
+
+{	tmp.append( { title=Def_TCInfo_Title_Poke,
+	cat=Def_TCNum_Level2,
+	pos = "端微近",
+	// enemy = "螻・,
+	// gauge = "EX",
+	stringID="lv2_poke02",
+	skill={ recipe = ["236A",">236_AddA","C","i623A","3C","jc","JA","JB","JC","JAD"] }, } );
+}
+
+// // 荳顔ｴ・
+// {	tmp.append( { title=Def_TCInfo_Title_Poke,
+	// cat=Def_TCNum_Level2,
+	// pos = "近距離",
+	// // enemy = "螻・,
+	// gauge = "EX",
+	// stringID="lv2_poke02",
+	// skill={ recipe = ["236A",">236A2A","2A","C","214B","A","A2","214A",">214A2",">214A3","623EX"] }, } );
+// }
+
+// // 荳顔ｴ・
+// {	tmp.append( { title=Def_TCInfo_Title_Poke,
+	// cat=Def_TCNum_Level2,
+	// pos = "近距離",
+	// // enemy = "遶・,
+	// gauge = "EX",
+	// stringID="lv2_poke03",
+	// skill={ recipe = ["214B","4C","J236B","C","623A","jc","JC","J214EX"] }, } );
+// }
+
+/*
+// 荳顔ｴ・
+{	tmp.append( { title=Def_TCInfo_Title_Overhead,
+	cat=Def_TCNum_Level2,
+	pos = "蠕ｮ驕",
+	enemy = "螻・,
+	// gauge = "EX",
+	stringID="lv2_overhead01",
+	skill={ recipe = ["i6C","236A","B","d2C","iC","C2","623A","jc","JC","JAD"] }, } );
+}
+*/
+
+// // 荳顔ｴ・
+// {	tmp.append( { title=Def_TCInfo_Title_Low,
+	// cat=Def_TCNum_Level2,
+	// pos = "近距離",
+	// gauge = "IW",
+	// stringID="lv2_sp01",
+	// skill={ recipe = ["2B","2C","C","236A",">236A2B","B","B2","214A",">214A2",">214A3","SP"] }, } );
+// }
+
+// // 荳顔ｴ・
+// {	tmp.append( { title=Def_TCInfo_Title_Low,
+	// cat=Def_TCNum_Level2,
+	// pos = "近距離",
+	// gauge = "EX",
+	// stringID="lv2_damageup01",
+	// skill={ recipe = ["2A","2A","2B","2C","C","4C(1)","J214A","236A",">236A2A","B","3C","JB","JC","jc","JB","JC","J214EX"] }, } );
+// }
+
+// 荳顔ｴ夲ｼ壻ｽ弱ムJC>2A>2C蟋句虚
+{	tmp.append( { title=Def_TCInfo_Title_Overhead,
+	cat=Def_TCNum_Level2,
+	pos = "近距離",
+	// enemy = "螻・,
+	// gauge = "EX",
+	stringID="lv2_overhead01",
+	skill={ recipe = ["6D","*JC","2A","2B","2C","4C(1)","J214B","d66C","214A",">214A_4A",">214A_6A","3C","jc","JA","JAD"] }, } );
+}
+
+{	tmp.append( { title=Def_TCInfo_Title_Low,
+	pos="近距離",cat=Def_TCNum_Level2,
 	stringID="2cintoVanish_",
 	expl = Def_TCInfo_Expl_Low,
 	skill= { recipe = ["2C","3C","iJC","iC","FF","66C","i214B"] } } );
 }
 
 {	tmp.append( { title=Def_TCInfo_Title_Low,
-	pos="荳ｭ霍晞屬",cat=Def_TCNum_Level2,
+	pos="中距離",cat=Def_TCNum_Level2,
 	stringID="66Bcarry_", 
 	expl = Def_TCInfo_Expl_Low,
 	skill= { recipe = ["66B","2B","C","jc","JA","JB","JC","J214B","66C","214A",">214_AddA",">J22_Add6A"] } } );

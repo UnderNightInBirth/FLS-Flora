@@ -47,7 +47,7 @@ local t =
 	Skill_214A = {},
 	Skill_214A_Add = {
 		num = def_CN_Skill_AddCommand8,
-		command = ["A"],
+		command = ["4+A","4+B","4+C"],
 		CmdCheck = {
 			SkillType = "SpecialAdd",
 			MvCheck = { Only = ["Mv_Skill_214A"] }
@@ -56,7 +56,7 @@ local t =
 	
 	Skill_214A_Add_Add = {
 		num = def_CN_Skill_AddCommand8,
-		command = ["5+A"],
+		command = ["5+A","5+B","5+C"],
 		CmdCheck = {
 			SkillType = "SpecialAdd",
 			MvCheck = { Only = ["Mv_Skill_214A_Add"] }
@@ -65,7 +65,7 @@ local t =
 	
 	Skill_214A_Add_Add4 = {
 		num = def_CN_Skill_AddCommand8,
-		command = ["4+A"],
+		command = ["4+A","4+B","4+C"],
 		CmdCheck = {
 			SkillType = "SpecialAdd",
 			MvCheck = { Only = ["Mv_Skill_214A_Add"] }
@@ -74,7 +74,7 @@ local t =
 	
 	Skill_214A_Add_Add6 = {
 		num = def_CN_Skill_AddCommand8,
-		command = ["6+A"],
+		command = ["6+A","6+B","6+C"],
 		CmdCheck = {
 			SkillType = "SpecialAdd",
 			MvCheck = { Only = ["Mv_Skill_214A_Add"] }

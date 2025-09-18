@@ -14,10 +14,10 @@ tbl.append( { type = 1, text = "/sp01_n", cmd = "/c_623AorBorC/c_ExOk", info = "
 
 tbl.append( { type = 1, text = "/sp02_n", cmd = "/c_214AorBorC/c_ExOk", info = ""  } );
 tbl.append( { type = 1, text = "/sp02_n", cmd = "/c_214A", info = ""  } );
-tbl.append( { type = 1, text = "/c_Add/n_Add", cmd = "/c_A", info = ""  } );
-tbl.append( { type = 1, text = "/c_Add2/sp03_n", cmd = "/c_Add2/c_A", info = ""  } );
-tbl.append( { type = 1, text = "/c_Add2/sp04_n", cmd = "/c_Add2/c_6A", info = ""  } );
-tbl.append( { type = 1, text = "/c_Add2/sp05_n", cmd = "/c_Add2/c_4A", info = ""  } );
+tbl.append( { type = 1, text = "/c_Add/n_Add", cmd = "/c_4AorBorC", info = ""  } );
+tbl.append( { type = 1, text = "/c_Add2/sp03_n", cmd = "/c_Add2/c_AorBorC", info = ""  } );
+tbl.append( { type = 1, text = "/c_Add2/sp04_n", cmd = "/c_Add2/c_6AorBorC", info = ""  } );
+tbl.append( { type = 1, text = "/c_Add2/sp05_n", cmd = "/c_Add2/c_4AorBorC", info = ""  } );
 
 tbl.append( { type = -100, color= 2 } );
 tbl.append( { type = 1, text = "/def_spex_n", info = "/def_spex_i"  } );
