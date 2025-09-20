@@ -22,7 +22,7 @@ skill= { recipe = [
 	cat=Def_TCNum_Level1,
 	gauge = "EX",
 	stringID="lv1_ex01",
-	skill={ recipe = ["B","2B","2C","214A",">214A_4A",">214_AddA","22EX"] }, } );
+	skill={ recipe = ["B","2B","2C","214A",">214_AddA",">214_4A","22EX"] }, } );
 }
 
 {	tmp.append( { title=Def_TCInfo_Title_Poke,
@@ -44,7 +44,7 @@ skill= { recipe = [
 	pos = "”÷‹ß",
 	gauge = "EX",
 	stringID="lv2_poke01",
-	skill={ recipe = ["214A",">214A_4A",">214A_6A","214EX","B","C","jc","JA","JB","JC","JAD"] }, } );
+	skill={ recipe = ["214A",">214_AddA",">214A_4C","214EX","B","C","jc","JA","JB","JC","JAD"] }, } );
 }
 
 {	tmp.append( { title=Def_TCInfo_Title_Poke,
@@ -113,7 +113,7 @@ skill= { recipe = [
 	// enemy = "å±E,
 	// gauge = "EX",
 	stringID="lv2_overhead01",
-	skill={ recipe = ["6D","*JC","2A","2B","2C","4C(1)","J214B","d66C","214A",">214A_4A",">214A_6A","3C","jc","JA","JAD"] }, } );
+	skill={ recipe = ["6D","*JC","2A","2B","2C","4C(1)","J214B","d66C","214A",">214_AddA",">214A_4C","3C","jc","JA","JAD"] }, } );
 }
 
 {	tmp.append( { title=Def_TCInfo_Title_Low,
@@ -127,7 +127,7 @@ skill= { recipe = [
 	pos="’†‹——£",cat=Def_TCNum_Level2,
 	stringID="66Bcarry_", 
 	expl = Def_TCInfo_Expl_Low,
-	skill= { recipe = ["66B","2B","C","jc","JA","JB","JC","J214B","66C","214A",">214_AddA",">J22_Add6A"] } } );
+	skill= { recipe = ["66B","2B","C","jc","JA","JB","JC","J214B","66C","214A",">214_AddA",">214A_4C"] } } );
 }
 
 

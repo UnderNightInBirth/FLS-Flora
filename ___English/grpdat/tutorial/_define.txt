@@ -1616,7 +1616,7 @@ local skillList =
 	
 	["214_AddA"] = {
 		common = { type=0,  text="\\@A@",  mvname="Mv_Skill_214_AddA", }, // @@@ //
-		[Def_ChrNo_Edo] = { type=0,  text="\\@A@",  mvname=["Mv_Skill_214A_Add_Add"], }, // @@@ //
+		[Def_ChrNo_Edo] = { type=0,  text="\\@4+AorBorC@",  mvname=["Mv_Skill_214A_Add"], }, // @@@ //
 	},
 	["214_AddB"] = 
 	[
@@ -1738,24 +1738,21 @@ local skillList =
 		common = { type=0,  text="\\@4+A@",  mvname="Mv_Skill_214A_Add4A", },
 		[Def_ChrNo_Udu] = { type=0,  text="\\@4+A@",  mvname=["Mv_Skill_214A_AddA","Mv_AtkLandObj_CA_AtkA"], },
 		[Def_ChrNo_Ogr] = { type=0,  text="\\@A@",  mvname=["Mv_Skill_214A_AddA"], },
-		[Def_ChrNo_Edo] = { type=0,  text="\\@4+A@",  mvname=["Mv_Skill_214A_Add","Mv_Skill_214A_Add_Add4"], }, // @@@ //
-	},	
-	["214A_6A"] = 
-	{
-		common = { type=0,  text="\\@4+A@",  mvname="Mv_Skill_214A_Add6A", },
-		[Def_ChrNo_Edo] = { type=0,  text="\\@6+A@",  mvname=["Mv_Skill_214A_Add_Add6"], }, // @@@ //
-	},	
+		[Def_ChrNo_Edo] = { type=0,  text="\\@4+C@",  mvname=["Mv_Skill_214A_Add_Add"], },
+	},
 	["214A_4B"] = 
 	{
 		common = { type=0,  text="\\@4+B@",  mvname="Mv_Skill_214A_Add4B", },
 		[Def_ChrNo_Udu] = { type=0,  text="\\@4+B@",  mvname=["Mv_Skill_214A_AddB","Mv_AtkLandObj_CA_AtkB"], },
 		[Def_ChrNo_Ogr] = { type=0,  text="\\@B@",  mvname=["Mv_Skill_214A_AddB"], },
+		[Def_ChrNo_Edo] = { type=0,  text="\\@4+C@",  mvname=["Mv_Skill_214A_Add_Add4"], },
 	},	
 	["214A_4C"] = 
 	{
 		common = { type=0,  text="\\@4+C@",  mvname="Mv_Skill_214A_Add4C", },
 		[Def_ChrNo_Udu] = { type=0,  text="\\@4+C@",  mvname=["Mv_Skill_214A_AddC","Mv_AtkLandObj_CA_AtkC"], },
 		[Def_ChrNo_Ogr] = { type=0,  text="\\@C@",  mvname=["Mv_Skill_214A_AddC"], },
+		[Def_ChrNo_Edo] = { type=0,  text="\\@4+C@",  mvname=["Mv_Skill_214A_Add_Add6"], },
 	},	
 	["214B_4A"] = 
 	{

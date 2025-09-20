@@ -4162,7 +4162,7 @@ Battle_Std.AddHitEffects <- function( std, _ChrNo=0 )
 		return retmv;
 	}
 	
-	if( _ChrNo==Def_ChrNo_Hyd || _ChrNo==Def_ChrNo_Kuo || _ChrNo==Def_ChrNo_HydEX )
+	if( _ChrNo==Def_ChrNo_Hyd || _ChrNo==Def_ChrNo_Kuo || _ChrNo==Def_ChrNo_HydEX ) // @@@ !!! @@@ //
 	{
 		std.Mv_Eff_Hit_SlashA <- makemv_UNISlash_HitEff( { datatype=0, pat="Grp_Hit_HydSlashA" } );
 		std.Mv_Eff_Hit_SlashB <- makemv_UNISlash_HitEff( { datatype=0, pat="Grp_Hit_HydSlashB" } );
