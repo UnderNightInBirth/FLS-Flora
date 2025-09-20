@@ -632,6 +632,17 @@ t.Mv_Atk_StdC <-
 	}
 }
 
+t.Mv_Atk_DashStdC <-
+{
+    function HitInterrupt_After()
+    {
+        if( Battle_Std.CheckDamageTiming() ) //Still dunno what this does *exactly*
+        {
+            Battle_Std.SetPosition_DamageHanteiRect( { power=20 } );
+        }
+    }
+}
+
 t.Mv_Atk_CroA <-
 {
 	function Init_After()

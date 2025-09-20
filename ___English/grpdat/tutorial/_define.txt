@@ -891,6 +891,7 @@ local skillList =
 	["AD_Add4"] = { type=0,  text=WAdd+"\\@4@",  mvname=["Mv_Throw_F_Hit_Add4"], },
 
 	["JAD"] = { type=0,  text=lws_JThrow,  mvname=["Mv_Throw_A"], },
+	["4JAD"] = { type=0,  text="\\@4@"+lws_JThrow,  mvname=["Mv_Throw_A"], }, // @@@ //
 	
 	["J66"] = { type=0,  text=lws_Hikou+"\\@66@",  mvname=["Mv_Skill_JFlyDash"] },
 	
@@ -1738,14 +1739,14 @@ local skillList =
 		common = { type=0,  text="\\@4+A@",  mvname="Mv_Skill_214A_Add4A", },
 		[Def_ChrNo_Udu] = { type=0,  text="\\@4+A@",  mvname=["Mv_Skill_214A_AddA","Mv_AtkLandObj_CA_AtkA"], },
 		[Def_ChrNo_Ogr] = { type=0,  text="\\@A@",  mvname=["Mv_Skill_214A_AddA"], },
-		[Def_ChrNo_Edo] = { type=0,  text="\\@4+C@",  mvname=["Mv_Skill_214A_Add_Add"], },
+		[Def_ChrNo_Edo] = { type=0,  text="\\@4+A@",  mvname=["Mv_Skill_214A_Add_Add"], },
 	},
 	["214A_4B"] = 
 	{
 		common = { type=0,  text="\\@4+B@",  mvname="Mv_Skill_214A_Add4B", },
 		[Def_ChrNo_Udu] = { type=0,  text="\\@4+B@",  mvname=["Mv_Skill_214A_AddB","Mv_AtkLandObj_CA_AtkB"], },
 		[Def_ChrNo_Ogr] = { type=0,  text="\\@B@",  mvname=["Mv_Skill_214A_AddB"], },
-		[Def_ChrNo_Edo] = { type=0,  text="\\@4+C@",  mvname=["Mv_Skill_214A_Add_Add4"], },
+		[Def_ChrNo_Edo] = { type=0,  text="\\@4+B@",  mvname=["Mv_Skill_214A_Add_Add4"], },
 	},	
 	["214A_4C"] = 
 	{
@@ -1986,6 +1987,7 @@ local skillList =
 		[Def_ChrNo_Cha] = { type=0,  text=WAAir+"\\@236+B@",  mvname=["Mv_Skill_236B","Mv_Dah_StdUpperAtk","Mv_Dah_AirUpperAtk"] },
 		[Def_ChrNo_Nan] = { type=0,  text=WAAir+"\\@236+B@",  mvname=["Mv_Skill_J236B","Mv_FireBall_J236B","Mv_FireBall_J236BAdd"] },
 		[Def_ChrNo_Udu] = { type=0,  text=WAAir+"\\@236+B@",  mvname=["Mv_Skill_J236B","Mv_FireBall_J236B","Mv_FireBall_J236B2"] },
+		[Def_ChrNo_Edo] = { type=0,  text=WAAir+"\\@236+B@",  mvname=["Mv_Skill_J236B","Mv_FireBall_J236B1","Mv_FireBall_J236B2","Mv_FireBall_J236BC1","Mv_FireBall_J236BC2"] }, // @@@ //
 	},
 	["J236C"] = { type=0,  text=WAAir+"\\@236+C@",  mvname=["Mv_Skill_J236C","Mv_FireBall_J236C"] },
 	["Kuo_J236C"] = { type=0,  text=WAAir+"\\@6+B+C@",  mvname=["Mv_Skill_J236C","Mv_FireBall_J236C"] },

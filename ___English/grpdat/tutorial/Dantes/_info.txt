@@ -130,6 +130,15 @@ skill= { recipe = [
 	skill= { recipe = ["66B","2B","C","jc","JA","JB","JC","J214B","66C","214A",">214_AddA",">214A_4C"] } } );
 }
 
+{	tmp.append( { title=Def_TCInfo_Title_Low,
+	pos="’†‹——£",cat=Def_TCNum_Level3,
+	stringID="66Bcarry_", 
+	gauge = "EX",
+	pos="”÷‹ß",
+	expl = Def_TCInfo_Expl_Low,
+	skill= { recipe = ["4C","i623A","dC","4C(1)","J236B","d2C","jc","J214B","236A",">236_AddB","B","214A","d>214_AddA",">214A_4A","22EX","iJC","4JAD"] } } );
+}
+
 
 Table  <- GetMissionListTable();
 local skillParam = { charaNo = Def_ChrNo_Edo, }
