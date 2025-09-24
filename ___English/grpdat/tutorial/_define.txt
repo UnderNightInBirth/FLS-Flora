@@ -1142,7 +1142,10 @@ local skillList =
 		[Def_ChrNo_Kuo] = { type=0,  text="\\@236+B@",  mvname=["Mv_FireBall_236A","Mv_FireBall_236B"] },
 	},
 	
-	["236C"] = { type=0,  text="\\@236+C@",  mvname=["Mv_Skill_236C","Mv_FireBall_236C"] },
+	["236C"] = {
+		common = { type=0,  text="\\@236+C@",  mvname=["Mv_Skill_236C","Mv_FireBall_236C"] },
+		[Def_ChrNo_Edo] = { type=0,  text="\\@236+C@",  mvname=["Mv_Skill_236EX","Mv_FireBall_236EX1","Mv_FireBall_236EX2","Mv_FireBall_236EX3","Mv_FireBall_236EX4","Mv_FireBall_236EX5"] },
+	},
 	
 	["236EX"] = {
 		common = { type=0,  text="\\@236+C@",  mvname=["Mv_Skill_236EX","Mv_FireBall_236EX"] },
@@ -1979,6 +1982,7 @@ local skillList =
 		[Def_ChrNo_Car] = { type=0,  text=WAAir+"\\@236+A@",  pat=140 }, // ŽÔ—Ö‚Ìƒqƒbƒg‚ðŠÄŽ‹
 		[Def_ChrNo_Cha] = { type=0,  text=WAAir+"\\@236+A@",  mvname=["Mv_Skill_236A","Mv_Dah_StdDashAtk","Mv_Dah_AirDashAtk"] },
 		[Def_ChrNo_Udu] = { type=0,  text=WAAir+"\\@236+A@",  mvname=["Mv_Skill_J236A","Mv_FireBall_J236A","Mv_FireBall_J236A2"] },
+		[Def_ChrNo_Ako] = { type=0,  text=WAAir+"\\@236+A@",  mvname=["Mv_Skill_J236A","Mv_FireBall_J236A"] }, // @@@ //
 	},
 	["J236B"] = 
 	{
@@ -1988,8 +1992,13 @@ local skillList =
 		[Def_ChrNo_Nan] = { type=0,  text=WAAir+"\\@236+B@",  mvname=["Mv_Skill_J236B","Mv_FireBall_J236B","Mv_FireBall_J236BAdd"] },
 		[Def_ChrNo_Udu] = { type=0,  text=WAAir+"\\@236+B@",  mvname=["Mv_Skill_J236B","Mv_FireBall_J236B","Mv_FireBall_J236B2"] },
 		[Def_ChrNo_Edo] = { type=0,  text=WAAir+"\\@236+B@",  mvname=["Mv_Skill_J236B","Mv_FireBall_J236B1","Mv_FireBall_J236B2","Mv_FireBall_J236BC1","Mv_FireBall_J236BC2"] }, // @@@ //
+		[Def_ChrNo_Ako] = { type=0,  text=WAAir+"\\@236+B@",  mvname=["Mv_Skill_J236B","Mv_FireBall_J236B","Mv_FireBall_J236B1","Mv_FireBall_J236B2"] }, // @@@ //
 	},
-	["J236C"] = { type=0,  text=WAAir+"\\@236+C@",  mvname=["Mv_Skill_J236C","Mv_FireBall_J236C"] },
+	["J236C"] =
+	{
+		common = { type=0,  text=WAAir+"\\@236+C@",  mvname=["Mv_Skill_J236C","Mv_FireBall_J236C"] },
+		[Def_ChrNo_Ako] = { type=0,  text=WAAir+"\\@236+C@",  mvname=["Mv_Skill_J236C","Mv_FireBall_J236C"] }, // @@@ //
+	},
 	["Kuo_J236C"] = { type=0,  text=WAAir+"\\@6+B+C@",  mvname=["Mv_Skill_J236C","Mv_FireBall_J236C"] },
 	["J236EX"] = 
 	{
@@ -2238,8 +2247,9 @@ local skillList =
 		[Def_ChrNo_Hil] = { type=0,  text="\\@236B+C@",  mvname="Mv_HomingObject" },
 	},
 	["J41236EX"] = {
-		common = { type=0,  text=WAAir+"\\@236B+C@",  mvname="Mv_Skill_J41236EX" },
+		common = { type=0,  text=WAAir+"\\@236B+C@",  mvname=["Mv_Skill_J41236EX","Mv_FireBall_236EX","Mv_FireBall_236EX1","Mv_FireBall_236EX2","Mv_FireBall_236EX3","Mv_FireBall_236EX4"] },
 		[Def_ChrNo_Hil] = { type=0,  text=WAAir+"\\@236B+C@",  mvname=["Mv_FireBall_623EXArrow1","Mv_FireBall_623EXArrow2","Mv_FireBall_623EXArrow3","Mv_FireBall_623EXArrow4","Mv_FireBall_623EXArrow5","Mv_FireBall_623EXArrow6","Mv_FireBall_623EXArrow7"] },
+		[Def_ChrNo_Ako] = { type=0,  text=WAAir+"\\@236B+C@",  mvname=["Mv_Skill_J41236EX","Mv_FireBall_623EXArrow2","Mv_FireBall_623EXArrow3","Mv_FireBall_623EXArrow4","Mv_FireBall_623EXArrow5","Mv_FireBall_623EXArrow6","Mv_FireBall_623EXArrow7"] },
 	},	
 
 	["FF"] = 
@@ -2260,10 +2270,17 @@ local skillList =
 		],
 		[Def_ChrNo_Tsu] = { type=0,  text="\\@B+C@",  mvname=["Mv_Atk_StdBandC"], reset=4 },
 		[Def_ChrNo_Kuo] = { type=0,  text="\\@B+C@",  mvname=["Mv_Atk_StdBandC"], reset=4 },
+		[Def_ChrNo_Rie] = { type=0,  text="\\@ZZB+C@",  mvname=["Mv_Atk_StdBandC"], pat=[122] },
 	},
 	["elt_iFF"] = [
 			{ type=0,  text="",  mvname=["Mv_Atk_StdBandC"], reset=2, mvcode1=def_MC1_ExtendAction },
 			{ type=0,  text="\\@ZB+C@",  mvname=["Mv_Obj_BandCAtk"] },
+	],
+	["rie_iFF"] = [
+			{ type=0, text="\\@ZB+C@", mvname="Mv_Atk_StdBandC", pat=[121] },
+	],
+	["rie_iFF2"] = [
+			{ type=0, text="\\@ZZB+C@", mvname="Mv_Atk_StdBandC", pat=[120] },
 	],
 	["ori_shidouFF_J214A"] =
 	[

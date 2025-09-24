@@ -590,6 +590,8 @@ t.Mv_StandbyWait <-
 	}
 	function FrameUpdate_After()
 	{
+		BMvTbl.SetPP(21,470);
+		BMvTbl.SetPP(25,950);
 	}
 }
 

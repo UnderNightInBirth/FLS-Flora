@@ -27,3 +27,70 @@ battlevoice_chr030_134,Dantes: You've done it now. I can see that same old hell 
 battlevoice_chr030_135,Dantes: Ha... Haha... Hahahahaha!,
 battlevoice_chr030_136,Dantes: Wallow in despair, the true hell!,
 battlevoice_chr030_137,Dantes: May my flames of vengeance consume everything!,
+
+dan_tactics_footsies_start,"\\@MESSAGE@
+Dantes is a character of many talents.\n
+He is capable of playing at all ranges, and is threatening mid-range during neutral.\n
+While his normals vary on advantage and range, he can always change his gameplan with his versatile kit.\n
+\n
+\k
+\\@MESSAGE@
+His \@C@ and \@2+C@ can oppress the air and ground respectively, with \@4+C@ being an attack that helps him back off.\n
+Dancing outside of your opponent's range, Dantes has access to \@214+A@'s follow-ups, which can seem fast.\n
+\n
+Stay safe with follow-up \@A@, or trip them up low with follow-up \@B@.\n
+Alternatively, forego this with a similar dashing \@B@.\n
+\n
+If you're far away, fill the screen with \@236+B@, increased \@236+B@, and \@236+C@.\n
+And if you're feeling especially daring, sneak in a grounded or aerial \@B+C@ to throw off your opponent.\n
+\k"
+
+dan_tactics_pressure_start,"\\@MESSAGE@
+Start with a standing \@B@, continue into \@C@,\n
+then use \@236+A@> follow-up \@6+A@ to stay safe.\n
+Or, use Passing Link to stay safe with an \@A@ normal.\n
+\n
+If your attacks hit, follow up with normals or other pick-ups to deal more damage.\n
+\k"
+
+dan_tactics_mixup_start,"\\@MESSAGE@
+Once you get close to your opponent, try to confuse them with a low \@Z6+B@,\n
+or \@Z+6C@, \@Z236B@, and \@214C@ as overhead options.\n
+\n
+As \@214C@ and \@Z236B@ are heavy hits, you should be careful while using them without access to Chain Shift.\n
+\n
+From an Assault, you can try use jumping \@C@ for a slow but reliable overhead attack.\n
+\k"
+
+dan_tactics_invincible_start,"\\@MESSAGE@
+When your opponent gets aggressive, try reversing the situation\n
+with your invulnerable attacks, \@623+B@ or \@623+C@.\n
+\n
+If you use Chain Shift to confirm the situation first,\n
+you won't miss a chance to deal damage.\n
+\k"
+
+dan_tactics_antiair_start,"\\@MESSAGE@
+If your opponent attacks from the air, you can attempt a starter using \@B+C@ or \@3+B@.\n
+\@B+C@ can lead into a combo in the corner. Also, note that this attack can be Increased TWICE.\n
+\n
+\@623A@ is also a suitable anti-air that can start combos, but the follow-up timing is tricky.\n
+\n
+Lastly, Riesbyfe's Air Throw has a special counter-hit property, and will act as a combo starter.\n
+The speed of this move cannot be underestimated, and can be a great option when assessing the situation with a Chain Shift.\n
+\k"
+
+dan_tactics_ball_invincible_start,"\\@MESSAGE@
+If your opponent is threatening you with their projectiles, a properly-timed \@B+C@\n
+will grant you a window of invulnerability to evade such attacks and give an opportunity to strike back.\n
+\n
+Try to hit the projectile with the Force Function, then attempt to follow-up with a powerful attack.\n
+\k"
+
+dan_tactics_aaa_start,"\\@MESSAGE@
+If you're stuck in an unfortunate position in the air, you might be able to evade a grounded opponent.\n
+Try using an aerial \@B+C@ to dodge oncoming attacks before landing.\n
+\n
+While this dodge makes you invulnerable, you're unable to act while in the air, and you may be at risk while landing.\n
+Use your aerial Force Function with caution to make the opponent whiff, then punish them.\n
+\k"

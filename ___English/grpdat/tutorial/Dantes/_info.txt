@@ -3,26 +3,115 @@ local tmp = [];
 {	tmp.append( { title =  Def_Tactics_Title_Footsies,
 	cat = Def_TCNum_TacticsLv1,
 	expl = Def_TCInfo_Expl_BattleTactics,
-	stringID = "chr_tactics_footsies",
+	stringID = "dan_tactics_footsies",
+	gauge = "EX",
 	endtype = 1,
 	start_csv = 1,
 skill= { recipe = [
+		{ skill="C", add={ reset=0 } },
+		{ skill="2C", add={ reset=0 } },
+		{ skill="iC", add={ reset=0 } },
+		{ skill="4C", add={ reset=0 } },
+		{ skill="66B", add={ reset=0 } },
 		{ skill="236A", add={ reset=0 } },
-		{ skill="623B", add={ reset=0 } },
-		{ skill="214B", add={ reset=0 } },
-		{ skill="jFF", add={ reset=0 } },
+		{ skill=">236_AddA", add={ reset=0 } },
+		{ skill=">236_AddB", add={ reset=0 } },
+		{ skill="236B", add={ reset=0 } },
+		{ skill="i236B", add={ reset=0 } },
+		{ skill="236C", add={ reset=0 } },
 		{ skill="FF", add={ reset=0 } },
+		{ skill="JFF", add={ reset=0 } },
 		] }
 	} );
 }
 
+{	tmp.append( { title = Def_Tactics_Title_Sequence,
+	cat = Def_TCNum_TacticsLv1,
+	expl = Def_TCInfo_Expl_BattleTactics,
+	stringID = "dan_tactics_pressure",
+	enemy="COM",		
+	skilltype = 0,//1ステップずつチェック
+	endtype = 1,
+	viewtype = 0, //矢型
+	start_csv = 1,//CSVの定義あり
+skill= { recipe = [
+		// ガード時の固め連携
+		{ skill="B", add={ reset=3, instext=TCW_Pressure_Guard } },
+		{ skill="C", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill="236A", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill=">236_AddA", add={ reset=3, resetX=(1<<8), postype=1  } },
+		{ skill="checkpoint" },
+		// pass
+		{ skill="B", add={ reset=3, instext=TCW_Pressure_Guard } },
+		{ skill="C", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill="2C", add={ reset=3, resetX=(1<<8), postype=1 } },
+		{ skill="2B", add={ reset=3, resetX=(1<<8), postype=1  } },
+		{ skill="2A", add={ reset=3, resetX=(1<<8), postype=1  } },
+		{ skill="checkpoint" },
+		// ヒット時の固め連携
+		{ skill="B", add={ instext=TCW_Pressure_Hit } },
+		{ skill="C", add={ postype=1 } },
+		{ skill="236A", add={ postype=1 } },
+		{ skill=">236_AddA", add={ postype=1 } },
+		{ skill="214A", add={ postype=1 } },
+		{ skill=">214_AddA", add={ postype=1 } },
+		{ skill=">214A_4B", add={ postype=1 } },
+		] }
+	} );
+}
+
+
 // todo recordings dont feel like it
+
+{	tmp.append( { title=Def_TCName_BNBLv0,
+	cat=Def_TCNum_Level0,
+	stringID="aaa",
+	expl = Def_TCInfo_Expl_FastPushBack,
+	skill={ recipe = ["2A","2B","C","2C"] }, } );
+}
+
+{	tmp.append( { title=Def_TCName_BNBLv0,
+	cat=Def_TCNum_Level0,
+	enemy = "立",
+	stringID="asd",
+	expl = Def_TCInfo_Expl_PokePushBack,
+	skill={ recipe = ["2C","3C","J236B"] }, } );
+}
+
+{	tmp.append( { title=Def_TCName_BNBLv0,
+	cat=Def_TCNum_Level0,
+	stringID="sda",
+	enemy = "立",
+	expl = Def_TCInfo_Expl_UseAerial,
+	skill={ recipe = ["2A","2B","2C","3C","jc","JA","JB","JC","JAD"] }, } );
+}
+
+{	tmp.append( { title=Def_TCName_BNBLv0,
+	cat=Def_TCNum_Level0,
+	stringID="ssd",
+	expl = Def_TCInfo_Expl_Rampage,
+	skill={ recipe = ["A","B","C","214A",">214_AddA",">214A_4B"] }, } );
+}
+
+{	tmp.append( { title=Def_TCName_BNBLv0,
+	cat=Def_TCNum_Level0,
+	stringID="bb",
+	expl = Def_TCInfo_Expl_Poke,
+	skill={ recipe = ["66C","i214B"] }, } );
+}
+
+{	tmp.append( { title=Def_TCName_BNBLv1,
+	cat=Def_TCNum_Level1,
+	stringID="bb",
+	expl = Def_TCInfo_Expl_Poke,
+	skill={ recipe = ["4C(1)","J214B"] }, } );
+}
 
 {	tmp.append( { title=Def_TCName_BNB,
 	cat=Def_TCNum_Level1,
 	gauge = "EX",
 	stringID="lv1_ex01",
-	skill={ recipe = ["B","2B","2C","214A",">214_AddA",">214_4A","22EX"] }, } );
+	skill={ recipe = ["2A","2B","2C","214A",">214_AddA",">214A_4A","22EX"] }, } );
 }
 
 {	tmp.append( { title=Def_TCInfo_Title_Poke,
@@ -120,7 +209,7 @@ skill= { recipe = [
 	pos="近距離",cat=Def_TCNum_Level2,
 	stringID="2cintoVanish_",
 	expl = Def_TCInfo_Expl_Low,
-	skill= { recipe = ["2C","3C","iJC","iC","FF","66C","i214B"] } } );
+	skill= { recipe = ["2C","3C","diJC","diC","dFF","66C","i214B"] } } );
 }
 
 {	tmp.append( { title=Def_TCInfo_Title_Low,
