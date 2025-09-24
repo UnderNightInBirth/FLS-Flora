@@ -1,0 +1,10 @@
+[System]
+ProjectName=ava_hydex
+[DataFile]
+FileNum= 1
+File00=ava_hydex.ha6
+[BmpcutFile]
+FileNum= 1
+File00=data/HydEX/HydEX.cg
+[PAniFile]
+FileNum= 0

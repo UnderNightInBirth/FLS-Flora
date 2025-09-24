@@ -1,0 +1,11 @@
+[System]
+ProjectName=ava_dantes
+[DataFile]
+FileNum= 1
+File00=ava_dantes.ha6
+[BmpcutFile]
+FileNum= 1
+File00=data/Dantes/Dantes.cg
+[PAniFile]
+FileNum= 1
+File00=data/Dantes/Dantes.pat

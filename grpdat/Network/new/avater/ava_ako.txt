@@ -1,0 +1,10 @@
+[System]
+ProjectName=ava_ako
+[DataFile]
+FileNum= 1
+File00=ava_ako.ha6
+[BmpcutFile]
+FileNum= 1
+File00=data/Ako/Ako.cg
+[PAniFile]
+FileNum= 0

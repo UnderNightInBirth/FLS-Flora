@@ -1,0 +1,10 @@
+[System]
+ProjectName=ava_ryu
+[DataFile]
+FileNum= 1
+File00=ava_ryu.ha6
+[BmpcutFile]
+FileNum= 1
+File00=data/Ryu/Ryu.cg
+[PAniFile]
+FileNum= 0

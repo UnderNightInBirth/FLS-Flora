@@ -1,0 +1,10 @@
+[System]
+ProjectName=ava_hammer
+[DataFile]
+FileNum= 1
+File00=ava_hammer.ha6
+[BmpcutFile]
+FileNum= 1
+File00=data/Hammer/Hammer.cg
+[PAniFile]
+FileNum= 0
