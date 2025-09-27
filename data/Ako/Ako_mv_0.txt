@@ -1315,6 +1315,8 @@ local maketmpl_FireBall236A = function( param={})
 	local ret_tmpl = {};
 	ret_tmpl.Init_After <- function()
 	{
+		BSound.SE_Play( { type=_SeType_Player, num=63 } ); // 成功SE
+
 		// 各種補正は最初の１ヒットのみ
 		BMvTbl.SetNoHoseiFlag( { val=1, time=254, flag=_ClearFlag_ChangeMv } );
 		BMvEff.SetObjectFlags( { flags=_ObjFlags_ToParentHitBack } ); // 親にヒットバックを伝える
@@ -1346,6 +1348,8 @@ local maketmpl_FireBall236C = function( param={})
 	local ret_tmpl = {};
 	ret_tmpl.Init_After <- function()
 	{
+		BSound.SE_Play( { type=_SeType_Player, num=63 } ); // 成功SE
+
 		// 各種補正は最初の１ヒットのみ
 		BMvTbl.SetNoHoseiFlag( { val=1, time=254, flag=_ClearFlag_ChangeMv } );
 		BMvEff.SetObjectFlags( { flags=_ObjFlags_ToParentHitBack } ); // 親にヒットバックを伝える
@@ -1617,10 +1621,12 @@ local maketmpl_FireBall236B = function( param={}) : (pat_num_Eff_Icetrack1,pat_n
 	
 	ret_tmpl.Init_After <- function()
 	{
+		BSound.SE_Play( { type=_SeType_Player, num=60 } ); // 成功SE
+		
 		// 各種補正は最初の１ヒットのみ
 		BMvTbl.SetNoHoseiFlag( { val=1, time=254, flag=_ClearFlag_ChangeMv } );
 		BMvEff.EraseObjectFlags( { flags=_ObjFlags_NoGround } ); // 地面を無視しない
-		
+
 		BMvTbl.SetLP(0,0); // エクステンドしないフラグ
 		BMvTbl.SetLP(1,0); // 氷の状態　0：未生成　1：生成
 	}
@@ -1698,6 +1704,8 @@ local maketmpl_FireBall236B_Hit = function()
 	local ret_tmpl = {};
 	ret_tmpl.Init_After <- function()
 	{
+		BSound.SE_Play( { type=_SeType_Player, num=62 } ); // 成功SE
+		
 		// 各種補正は最初の１ヒットのみ
 		BMvTbl.SetNoHoseiFlag( { val=0x80, time=254, flag=_ClearFlag_ChangeMv } );
 		BMvEff.EraseObjectFlags( { flags=_ObjFlags_NoGround } ); // 地面を無視しない
@@ -1886,6 +1894,8 @@ local maketmpl_FireBall236EX = function( param={})
 	local ret_tmpl = {};
 	ret_tmpl.Init_After <- function()
 	{
+		BSound.SE_Play( { type=_SeType_Player, num=65 } ); // 成功SE
+
 		BMvEff.EraseObjectFlags( { flags=_ObjFlags_NoGround } ); // 地面を無視しない
 		Battle_Std.MoveCodeEx.AddFlag( 1, def_MC1_VeryWeakImpactAtk ); // インパクトスキルに超弱いレベル
 		
@@ -1958,6 +1968,8 @@ local maketmpl_FireBall236EX_Miss = function()
 	local ret_tmpl = {};
 	ret_tmpl.Init_After <- function()
 	{
+		BSound.SE_Play( { type=_SeType_Player, num=67 } ); // 成功SE
+	
 		BMvEff.EraseObjectFlags( { flags=_ObjFlags_NoGround } ); // 地面を無視しない
 		BMvTbl.JumpFrameID( 512 );
 	}
@@ -2002,7 +2014,7 @@ t.Mv_FireBall_236EX4_Blocked <- maketmpl_FireBall236EX_Miss();
 // 623EX
 //-----------------------------------------------------------------------------
 
-local maketmpl_Spinner = function( param={} )
+local maketmpl_Spinner = function( param={} ) : (createStar)
 {
 	local ret_tmpl = {};
 	
@@ -2035,8 +2047,9 @@ local maketmpl_Spinner = function( param={} )
 	
 	}
 	
-	ret_tmpl.HitInterrupt_After <- function() : (mvparam)
+	ret_tmpl.HitInterrupt_After <- function() : (mvparam,createStar)
 	{
+		createStar( "L" );
 		if( Battle_Std.CheckDamageTiming() )
 		{
 			Battle_Std.SetPosition_DamageHanteiRect({ power=50 });
@@ -2289,6 +2302,8 @@ local maketmpl_Heal = function( param={} ) : (pat_num_healLoop, buffParam)
 			{
 				BMvEff.CreateObject({mvname="Mv_Obj_Eff_Heal_Ex"});
 				
+				BMvEff.CreateObject({ x=use_param.attackXPos*128, mvname="Mv_Obj_Eff_HealAttack_Ex" }); // 攻撃エフェクト表示
+
 				// EXだったらここでポテ発動
 				// Initだと同時押しで死ぬ
 				tDDC.Jem_AddCount( _JemCheckType_Ex + Def_PTNT_ChraFlag1 ); // キャラ固有回数加算

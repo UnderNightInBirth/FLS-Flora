@@ -17,6 +17,21 @@ SeList_Table.Status.resize(650); // 確保
 local st = SeList_Table.Status; // 登録しやすいように省略
 
 
+st[50] = { path=1, file="Heal", type=1, category=4, }; // ヒール（214）
+st[51] = { path=1, file="Magic_Chant", type=1, category=4, }; // 魔法詠唱
+st[52] = { path=1, file="Soiya", type=1, category=4, }; // ソイヤでバーを止めた音
+st[53] = { path=1, file="GroundCrap", type=1, category=4, }; // 床バン
+st[54] = { path=1, file="Levelup", type=1, category=4, }; // レベルアップ
+
+st[60] = { volumetype=0, path=2, file="SE_Skating", type=1, category=-1, }; //ダッシュ
+st[61] = { volumetype=0, path=2, file="SE_IceLong", type=1, category=-1, }; //氷やられ特大
+st[62] = { volumetype=0, path=2, file="SE_IceShort", type=1, category=-1, }; //氷やられ
+st[63] = { volumetype=0, path=2, file="SE_LaserBeam", type=1, category=-1, }; // ビーム
+st[64] = { volumetype=0, path=2, type=1, category=-1, file="SE_ManaBurst" }; //魔力弾臨界
+st[65] = { path=2, file="SE_ManaCharge", type=1, category=-1, }; //爆弾爆発前集中
+st[66] = { volumetype=0, path=2, file="SE_BombInsulator", type=1, category=-1, }; // IW ビーム
+st[67] = { volumetype=0, path=2, file="SE_BombSlash", type=1, category=-1, }; // IWE ビーム破裂
+
 st[90] = { volumetype=1, path=1, file="Ako00_2076", type=0, category=1}; // リア充ネットゲーマー……敵ですね。
 st[91] = { volumetype=1, path=1, file="Ako00_2077", type=0, category=1}; // あ、ニート師匠！こんにちわー！！
 st[92] = { volumetype=1, path=1, file="Ako00_2079", type=0, category=1}; // 可愛いは……正義です！
