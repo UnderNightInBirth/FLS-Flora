@@ -2,6 +2,8 @@
 
 <img src="https://github.com/user-attachments/assets/0ce958e8-e2f4-4f7b-a095-f958366e3cf0">
 
+FLS Flora Status: Ver 1.34 ❌ Does not match Ver 1.35 <br>Modpack may not work properly
+
 # Quick Start:
 
 [![Download Latest Version](https://img.shields.io/github/last-commit/UnderNightInBirth/FLS-Flora/game?style=for-the-badge&logo=steam&logoColor=white&label=Download%20Latest%20Version&color=9370DB)](https://github.com/UnderNightInBirth/FLS-Flora/archive/refs/heads/game.zip)
