@@ -1680,7 +1680,7 @@ t.Mv_Skill_41236SP_Hit <-
 	flags = def_TmplFlags_NoAddComboRate // コンボレートを加算しない
 	function Init_After()
 	{
-		Battle_Std.InitArcDriveHit();
+		// Battle_Std.InitArcDriveHit();
 		
 		//超技つかみのテンプレ
 		BMvEff.ThrowChara_SetJoint( 0 ); // 親にくっつけない
@@ -1720,8 +1720,10 @@ t.Mv_Skill_41236SP_Hit <-
 	{
 		BMvEff.SetCamera_Focus( { time=[0,0,10], type_out=1 } );
 		BMvEff.FadeProc_Set( { type=0, time=[0,0,30] color=0xFFFFFF } ); // 
-		Battle_Std.ClearSPLockCamera( { flags=(1<<0) } );
-		Battle_Std.LastUpdateArcDriveHit();
+		// Battle_Std.ClearSPLockCamera( { flags=(1<<0) } );
+		BMvEff.SetExist( { level = 0 } );
+		BMvEff.SetCamera_Clipping( 1 );
+		// Battle_Std.LastUpdateArcDriveHit();
 		
 		//つかみ開放
 		BMvEff.ThrowParam( { pattern=324, x=300, y=-300, } );
