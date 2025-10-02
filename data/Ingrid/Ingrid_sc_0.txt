@@ -9,10 +9,7 @@ Battle_Status <-
 	ScratchDamageVal_ExDef = 110, // 削りダメージ、ジャストディフェンス
 
 	// HP分割値と総体力（上位から見る）
-	// HpDivValue = [ 9500 ], // EL
-	// HpDivValue = [ 10000 ], // st3.11
-	// HpDivValue = [ 10000 ], // st3.20
-	HpDivValue = [ 10500 ],
+	HpDivValue = [ 11400 ],
 
 }
 

@@ -8,7 +8,7 @@ Battle_Status <-
 	ScratchDamageVal_Def = 100,
 	ScratchDamageVal_ExDef = 100,
 	
-	HpDivValue = [ 10300 ],
+	HpDivValue = [ 11300 ],
 }
 
 Battle_Std.InsertTable( Battle_Status, Battle_Std.GetStd_BattleStatusTable() ); //デフォルト

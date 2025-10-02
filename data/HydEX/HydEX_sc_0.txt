@@ -9,11 +9,7 @@ Battle_Status <-
 	ScratchDamageVal_ExDef = 110, // 削りダメージ、ジャストディフェンス
 
 	// HP分割値と総体力（上位から見る）
-	// HpDivValue = [ 9500 ], // EL
-	// HpDivValue = [ 10000 ], // st3.11
-	// HpDivValue = [ 10000 ], // st3.20
-	// HpDivValue = [ 10300 ], // UNi2 
-	HpDivValue = [ 9500 ], // Welcome back to EXE:Late Hyde.
+	HpDivValue = [ 10500 ], // Welcome back to EXE:Late Hyde. // exelate 2 1.35
 
 }
 

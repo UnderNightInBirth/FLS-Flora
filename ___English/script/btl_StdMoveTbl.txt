@@ -1847,9 +1847,9 @@ CommonStandbyParams[30] = // Dantes
 
 CommonStandbyParams[31] = // Ako
 [
-	{ WaitPAT = 49, timeline = [ { PAT=50, SE=100, time=236, delay=66 } ] },
-	{ WaitPAT = 49, timeline = [ { PAT=50, SE=101, time=236, delay=66 } ] },
-	{ WaitPAT = 49, timeline = [ { PAT=50, SE=102, time=236, delay=66 } ] },
+	{ WaitPAT = 49, timeline = [ { PAT=50, SE=100, time=136, delay=66 } ] },
+	{ WaitPAT = 49, timeline = [ { PAT=50, SE=101, time=136, delay=66 } ] },
+	{ WaitPAT = 49, timeline = [ { PAT=50, SE=102, time=136, delay=66 } ] },
 	{ Enemy=girl_chara_list, WaitPAT = 49, timeline = [ { PAT=50, SE=103, time=236, delay=66 } ] }, // Girls only
 ];
 
@@ -4469,6 +4469,14 @@ local func_JumpFlightInit = function()
 	
 	BMvTbl.SetPP(def_PP_JumpFrame,0);//離陸から何フレームかを記憶する
 	Battle_Std.MoveCodeEx.AddFlag( 3, def_MC3_EnableJumpFramePP ); // def_PP_JumpFrameが有効なMV
+	
+	// のぼりジャンプ攻撃に補正をかける
+	if( Def_Sys_FastRocketeerDamageHoseiLimit )
+	{
+		BMvTbl.SetPP(def_PP_LimitJumpFrameMng, 1-BMvTbl.GetPP(def_PP_LimitJumpFrameMng) );
+		
+		BMvEff.CreateObject( { mvname="Mv_Null_LimitJumpFrameCountMng"} );
+	}
 }
 
 //二段ジャンプで浮いたときの共通処理
@@ -4489,6 +4497,46 @@ local func_MultiJumpInit = function()
 	
 	Battle_Std.MoveCodeEx.AddFlag( 7, def_MC7_LightLegsMuteki );//小足属性へ空振り予定のMV
 	BMvTbl.SetHitCheckFlag( { type=0, val=Def_HitCheckFlag_LightLegs, time=255, flag=_ClearFlag_ChangeMv } ); // 小足無敵にスカる
+}
+
+// のぼりジャンプ攻撃に補正をかけるためジャンプの時間を記憶する（一定時間だけ）
+// Def_Sys_FastRocketeerMaxJumpFrame = 20
+Std_MoveTable.Mv_Null_LimitJumpFrameCountMng <- 
+{
+	function Init_Std()
+	{
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_NoRender } );
+		BMvEff.SetExist( { level = _Exist_NoHantei } );
+		BMvTbl.SetPosition( {y=1024, flags=_Position_CaptureShift } );
+		
+		local type = BMvTbl.GetPP(def_PP_LimitJumpFrameMng);
+		BMvTbl.SetLP(0,type);
+		
+		BMvTbl.SetPP(def_PP_LimitJumpFrameCount,Def_Sys_FastRocketeerMaxJumpFrame);
+	}
+	function Update_Std()
+	{
+		// 監視オブジェクトが二重に生成されるのを防ぐ
+		if( BMvTbl.GetLP(0) != BMvTbl.GetPP(def_PP_LimitJumpFrameMng) )
+		{
+			// _dpn("2つ目が出てきたので消滅");
+			BMvTbl.SetFinalize();
+			return;
+		}
+
+		local left = BMvTbl.AddPP(def_PP_LimitJumpFrameCount,-1);
+		local mvs = BMvTbl.GetMvStatus();
+		// _dpn("left:"+left+" mvs:"+mvs.MvCount);
+		if( left <= 0 || mvs.MvCount >= Def_Sys_FastRocketeerMaxJumpFrame )
+		{
+			BMvTbl.SetPP(def_PP_LimitJumpFrameCount,0); // 初期化（MvCountで入ってくると0になっていないこともあるかも？）
+			BMvTbl.SetFinalize();
+		}
+	}
+	function Finalize_Std()
+	{
+		BMvTbl.SetDeleteMoveTable();
+	}
 }
 
 // CVO中の簡易IW用かませMv
@@ -5668,11 +5716,46 @@ Std_MoveTable.Mv_Skill_SSRelayAtk <-
 					// Battle_Std.GRD_AddValue( { val= sub_grd, boundplus=1 } );
 				}
 			}
-			else
+			else 
 			{
-				// 固定のボーナス
-				// GRDの増加を入れる
-				Battle_Std.GRD_AddValue({ val=def_GRD_SSkill_SmartSteer, pressure=0, boundplus=1 });
+				if( Def_Sys_SmartStear_GRDBonusLimit ) // UNI2 1.35 CPが極端に低いときはスマートステアのGRDボーナスを減らす
+				{
+					// 固定のボーナス　→　最初期の想定よりもコンボに組み込みやすいケースもあるためver1.35でCPを見て増加量を減らすように。
+					// スマートステアの時点でcp_levelに到達するキャラクターもいるため、増加量を減らすのはcp_level=0のときのみにした
+					local add_grd_ratio = 100;
+					local cp_level = GetCPLevel(); // 0～3
+					// _dpn("cp_level="+cp_level);
+					
+					if( cp_level == 3 )
+					{
+						add_grd_ratio = 100;
+					}
+					else if( cp_level == 2 )
+					{
+						add_grd_ratio = 100;
+					}
+					else if( cp_level == 1 )
+					{
+						add_grd_ratio = 100;
+					}
+					else
+					{
+						add_grd_ratio = 50; // GRDの増加量を半分にする
+					}
+					local add_grd_val = def_GRD_SSkill_SmartSteer * add_grd_ratio /100;
+					// _dpn("add_grd_val="+add_grd_val);
+					
+					// GRDの増加を入れる
+					// Battle_Std.GRD_AddValue({ val=def_GRD_SSkill_SmartSteer, pressure=0, boundplus=1 });
+					Battle_Std.GRD_AddValue({ val=add_grd_val, pressure=0, boundplus=1 });
+				}
+				else // UNI2 ～1.34
+				{
+					// 固定のボーナス
+					// GRDの増加を入れる
+					Battle_Std.GRD_AddValue({ val=def_GRD_SSkill_SmartSteer, pressure=0, boundplus=1 });
+					_dpn("def_GRD_SSkill_SmartSteer="+def_GRD_SSkill_SmartSteer);
+				}
 			}
 		}
 	}
@@ -6291,14 +6374,14 @@ Std_MoveTable.Mv_Dash_B <- // バクステ
 			Battle_Std.MoveCodeEx.AddFlag( 1, def_MC1_GenFlag ); // ボタンダッシュ		
 		}
 		
-		//デバッグ用
+		//デバッグ用だが初期化でもあるのでDef_Dbg_LocalDebugModeで括らないでおく
 		local pos = BMvTbl.GetPosition();
 		BMvTbl.SetLP(9,pos.x);
 		BMvTbl.SetLP(8,0);//無敵が切れたところ
 	}
 	function Update_Std() : (dageki_mutekiF)
 	{
-		if(1)
+		if(Def_Dbg_LocalDebugMode)
 		{
 			if( BMvTbl.GetMvStatus().MvCount == dageki_mutekiF )
 			{
@@ -6307,17 +6390,48 @@ Std_MoveTable.Mv_Dash_B <- // バクステ
 			}
 		}
 	}
+	function FrameUpdate_Std()
+	{
+		if( Def_Sys_BackDashPunishDamageHosei )
+		{
+			// バクステでパニッシュをとったら補正をかける
+			// バクステは無敵の回避行動なので、そこからの反撃はリターンを抑えたい
+			// バクステ中の相手の行動を見てバクステでよけられてるっぽいフラグを立てていく
+
+			// ※追加派生とかでのフラグ引き継ぎなどややこしいので相手の地上投げに限定
+			// コマ投げについては共通システムではなく性能もまちまちなので除外（固定の範疇）
+			// とっさの投げ抜けに対して強い、というところを防ぎたいだけなので通常投げ（投げ抜け）へのリターンを抑えるのみ
+			local enemy = BMvCore.GetEnemyCharaData();
+			if( enemy.push() )
+			{
+				// local is_skill_throw = Battle_Std.MoveCodeEx.CheckFlag( 2, def_MC2_SkillThrow );
+				local mvname = BMvTbl.GetMvName();
+				if( mvname == "Mv_Throw_F" )
+				{
+					if( !Battle_Std.MoveCodeEx.CheckFlag( 4, def_MC4_BackDashAvoided ) )
+					{
+						Battle_Std.MoveCodeEx.AddFlag( 4, def_MC4_BackDashAvoided );
+						_dpn(mvname+"にバクステされたフラグを付与");
+					}
+				}
+				enemy.pop();
+			}
+		}		
+	}
 	function Finalize_Std() // 
 	{
 		BMvTbl.SetNextMoveTable( "Mv_Neutral" );
 	}
 	function LastUpdate_Std()
 	{
-		local start_pos = BMvTbl.GetLP(9);
-		local muteki_pos = BMvTbl.GetLP(8);
-		local pos = BMvTbl.GetPosition();
-		local mvs = BMvTbl.GetMvStatus();
-		_dpn((mvs.MvCount)+","+(start_pos-pos.x)+","+(start_pos-muteki_pos)/128 );
+		if( Def_Dbg_LocalDebugMode )
+		{
+			local start_pos = BMvTbl.GetLP(9);
+			local muteki_pos = BMvTbl.GetLP(8);
+			local pos = BMvTbl.GetPosition();
+			local mvs = BMvTbl.GetMvStatus();
+			_dpn((mvs.MvCount)+","+(start_pos-pos.x)+","+(start_pos-muteki_pos)/128 );
+		}
 	}
 }
 
@@ -12859,7 +12973,7 @@ Std_MoveTable.Mv_Convert <- 	//リバースコンバート
 			// BMvTbl.Achievement_Unlock(4); // 【トロフィー】ゲージ回収120％！
 			
 			//補正をゆるくする（少し回復するイメージ）
-			local hosei = BMvEff.ComboView_Set();
+			local hosei = BMvEff.ComboView_Get();
 			if( hosei < def_HOSEI_ChainShiftMax )
 			{
 				BMvEff.ComboView_Set( { val=def_HOSEI_ChainShift, type=1 } ); // 乗算
