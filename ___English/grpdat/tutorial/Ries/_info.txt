@@ -299,7 +299,7 @@ skill= { recipe = [
 	pos="’†‹——£",cat=Def_TCNum_Level3, gauge="DCVO",
 	stringID="corner_shieldsmashdown_",
 	expl = Def_TCInfo_Expl_RampageSmash,
-	skill= { recipe = ["6D","i*JC","B","2B","6B","C","2C","214A","3B","jc","JC","J6C","CVO","66","FF","J214A","J214EX","63214EX","dCIW"] } } );
+	skill= { recipe = ["6D","i*JC","B","2B","6B","C","2C","214A","3B","jc","JC","J6C","CVO","66","2FF","J214A","J214EX","63214EX","dCIW"] } } );
 }
 
 {	tmp.append( { title=Def_TCName_BNBLv3,

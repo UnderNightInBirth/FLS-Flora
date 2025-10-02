@@ -2270,17 +2270,11 @@ local skillList =
 		],
 		[Def_ChrNo_Tsu] = { type=0,  text="\\@B+C@",  mvname=["Mv_Atk_StdBandC"], reset=4 },
 		[Def_ChrNo_Kuo] = { type=0,  text="\\@B+C@",  mvname=["Mv_Atk_StdBandC"], reset=4 },
-		[Def_ChrNo_Rie] = { type=0,  text="\\@ZZB+C@",  mvname=["Mv_Atk_StdBandC"], pat=[122] },
+		[Def_ChrNo_Rie] = { type=0,  text="\\@ZB+C@",  mvname=["Mv_Atk_StdBandC"], pat=[122] }, // @@@ //
 	},
 	["elt_iFF"] = [
 			{ type=0,  text="",  mvname=["Mv_Atk_StdBandC"], reset=2, mvcode1=def_MC1_ExtendAction },
 			{ type=0,  text="\\@ZB+C@",  mvname=["Mv_Obj_BandCAtk"] },
-	],
-	["rie_iFF"] = [
-			{ type=0, text="\\@ZB+C@", mvname="Mv_Atk_StdBandC", pat=[121] },
-	],
-	["rie_iFF2"] = [
-			{ type=0, text="\\@ZZB+C@", mvname="Mv_Atk_StdBandC", pat=[120] },
 	],
 	["ori_shidouFF_J214A"] =
 	[
@@ -2301,6 +2295,7 @@ local skillList =
 	{
 		common = { type=0,  text="\\@2+B+C@",  mvname=["Mv_Atk_CroBandC"] },
 		[Def_ChrNo_Izu] = { type=0,  text="\\@6+B+C@",  mvname=["Mv_Atk_CroBandC"] },
+		[Def_ChrNo_Rie] = { type=0,  text="\\@ZZB+C@",  mvname=["Mv_Atk_StdBandC"], pat=[120] },// @@@ // 
 	},
 
 	["FF_Atk"] =
