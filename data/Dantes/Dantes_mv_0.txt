@@ -1031,6 +1031,10 @@ t.Mv_FireBall_236A <-
 	function HitInterrupt_After() : (set_blackfiredamage)
 	{
 		set_blackfiredamage();
+		if( Battle_Std.CheckDamageTiming() )
+		{
+			Battle_Std.SetPosition_DamageHanteiRect( { power=100, flags=(1<<0) } ); // X disabled
+		}
 	}
 }
 
