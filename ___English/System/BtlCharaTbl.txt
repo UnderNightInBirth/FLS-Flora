@@ -216,7 +216,7 @@ chara_no[10] =
 	isAlive = 1,
 
 	stage = 9, // àŠO‚ÌÕ’d
-	bgm = 11, // Overwhelm Despairiƒqƒ‹ƒ_j
+	bgm = 130, // Overwhelm Despairiƒqƒ‹ƒ_j
 
 	order = 10,
 }; // 
@@ -555,7 +555,7 @@ chara_no[39] =
     stage = 22,
     bgm = 63,
 
-    order = 189,
+    order = 106,
 }; // 
 
 // chara_no[40] = 
@@ -574,6 +574,6 @@ chara_no[39] =
 
 // chara_no[33] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
 // chara_no[34] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
-chara_no[35] = { norandom=1, name_short = "Reimu", name_long = "Reimu", name_str = "Reimu", name_master = "Reimu", isAlive = 1, };
+chara_no[35] = { norandom=1, name_short = "Reimu", name_long = "Reimu", name_str = "Reimu", name_master = "Reimu", isAlive = 1, stage = 8, bgm = 145, order = 107, };
 // chara_no[36] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
 // chara_no[37] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };

@@ -5,137 +5,137 @@ Volume = // default 10000 but that's the max so change the file instead
 
 // Character-specific BGM during battle
 [BGM_001]
-File = btl_chr000 // ï¿½nï¿½Cï¿½h
+File = btl_chr000 // ƒnƒCƒh
 IsLoop = 1
 LoopPos = 20.306
 
 [BGM_002]
-File = btl_chr001 // ï¿½ï¿½ï¿½ï¿½ï¿½l
+File = btl_chr001 // ƒŠƒ“ƒl
 IsLoop = 1
 LoopPos = 12.163
 
 [BGM_003]
-File = btl_chr002 // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+File = btl_chr002 // ƒƒŒƒ“
 IsLoop = 1
 LoopPos = 05.774
 
 [BGM_004]
-File = btl_chr003 // ï¿½Jï¿½[ï¿½}ï¿½Cï¿½ï¿½
+File = btl_chr003 // ƒJ[ƒ}ƒCƒ“
 IsLoop = 1
 LoopPos = 00.731
 
 [BGM_005]
-File = btl_chr004 // ï¿½Iï¿½ï¿½ï¿½G
+File = btl_chr004 // ƒIƒŠƒG
 IsLoop = 1
 LoopPos = 12.433
 
 [BGM_006]
-File = btl_chr005 // ï¿½Sï¿½ï¿½ï¿½hï¿½[
+File = btl_chr005 // ƒSƒ‹ƒh[
 IsLoop = 1
 LoopPos = 02.279
 
 [BGM_007]
-File = btl_chr006 // ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½ï¿½@
+File = btl_chr006 // ƒƒ‹ƒJƒ”ƒ@
 IsLoop = 1
 LoopPos = 11.004
 
 [BGM_008]
-File = btl_chr007 // ï¿½oï¿½eï¿½Bï¿½Xï¿½^
+File = btl_chr007 // ƒoƒeƒBƒXƒ^
 IsLoop = 1
 LoopPos = 06.857
 
 [BGM_009]
-File = btl_chr008 // ï¿½Zï¿½g
+File = btl_chr008 // ƒZƒg
 IsLoop = 1
 LoopPos = 02.594
 
 [BGM_010]
-File = btl_chr009 // ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½n
+File = btl_chr009 // ƒ†ƒYƒŠƒn
 IsLoop = 1
 LoopPos = 02.571
 
 [BGM_011]
-File = btl_chr010 // ï¿½qï¿½ï¿½ï¿½_
+File = btl_chr010 // ƒqƒ‹ƒ_
 IsLoop = 1
 LoopPos = 03.493
 
 [BGM_012]
-File = btl_chr011 // ï¿½Gï¿½ï¿½ï¿½gï¿½iï¿½ï¿½
+File = btl_chr011 // ƒGƒ‹ƒgƒiƒ€
 IsLoop = 1
 LoopPos = 16.108
 
 [BGM_013]
-File = btl_chr012 // ï¿½iï¿½iï¿½Z
+File = btl_chr012 // ƒiƒiƒZ
 IsLoop = 1
 LoopPos = 99.679
 
 [BGM_014]
-File = btl_chr013 //ï¿½rï¿½ï¿½ï¿½Nï¿½ï¿½
+File = btl_chr013 //ƒrƒƒƒNƒ„
 IsLoop = 1
 LoopPos = 22.917
 
 [BGM_015]
-File = btl_chr014 // ï¿½Aï¿½Jï¿½cï¿½L
+File = btl_chr014 // ƒAƒJƒcƒL
 IsLoop = 1
 LoopPos = 08.691
 
 [BGM_016]
-File = btl_chr015 // ï¿½Pï¿½Cï¿½Aï¿½X
+File = btl_chr015 // ƒPƒCƒAƒX
 IsLoop = 1
 LoopPos = 02.759
 
 [BGM_017]
-File = btl_chr016 // ï¿½ï¿½ï¿½[ï¿½Oï¿½iï¿½[
+File = btl_chr016 // ƒ[ƒOƒi[
 IsLoop = 1
 LoopPos = 03.604
 
 [BGM_018]
-File = btl_chr017 // ï¿½Gï¿½ï¿½ï¿½Lï¿½hï¿½D
+File = btl_chr017 // ƒGƒ“ƒLƒhƒD
 IsLoop = 1
 LoopPos = 18.377
 
 [BGM_019]
-File = btl_chr018 // ï¿½ï¿½ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Lï¿½A
+File = btl_chr018 // ƒƒ“ƒhƒŒƒLƒA
 IsLoop = 1
 LoopPos = 05.900
 
 [BGM_020]
-File = btl_chr019 // ï¿½cï¿½ï¿½ï¿½M
+File = btl_chr019 // ƒcƒ‹ƒM
 IsLoop = 1
 LoopPos = 14.047
 
 [BGM_021]
-File = btl_chr020 // ï¿½Eï¿½dï¿½L
+File = btl_chr020 // ƒEƒdƒL
 IsLoop = 1
 LoopPos = 16.401
 
 [BGM_022]
-File = btl_chr021 // ï¿½~ï¿½J
+File = btl_chr021 // ƒ~ƒJ
 IsLoop = 1
 LoopPos = 10.290
 
 [BGM_023]
-File = btl_chr022 // ï¿½Jï¿½Oï¿½ï¿½
+File = btl_chr022 // ƒJƒOƒ„
 IsLoop = 1
 LoopPos = 17.700
 
 [BGM_024]
-File = btl_chr023 // ï¿½Nï¿½Iï¿½ï¿½
+File = btl_chr023 // ƒNƒIƒ“
 IsLoop = 1
 LoopPos = 15.487
 
 [BGM_025]
-File = btl_chr024 // ï¿½tï¿½Hï¿½mï¿½ï¿½
+File = btl_chr024 // ƒtƒHƒmƒ“
 IsLoop = 1
 LoopPos = 01.202
 
 [BGM_026]
-File = btl_chr025 // ï¿½Iï¿½[ï¿½K
+File = btl_chr025 // ƒI[ƒK
 IsLoop = 1
 LoopPos = 04.434
 
 [BGM_027]
-File = btl_chr026 // ï¿½Cï¿½Yï¿½~
+File = btl_chr026 // ƒCƒYƒ~
 IsLoop = 1
 LoopPos = 06.571
 
@@ -146,6 +146,11 @@ LoopPos = 06.571
 
 
 ////////////// Character specific //////////////
+
+[BGM_130]
+File = chr_10Hil // ƒqƒ‹ƒ_
+IsLoop = 1
+LoopPos = 36.363
 
 [BGM_140] // Ries
 File = chr_ries
@@ -172,9 +177,14 @@ File = chr_prisontower
 IsLoop = 1
 LoopPos = 10.927
 
+[BGM_145]
+File = chr_reimu
+IsLoop = 1
+LoopPos = 10.05
+
 // Nothing for Ako
 
-[BGM_146] // M but not really
+[BGM_146]
 File = stage_lesvagas
 IsLoop = 1
 LoopPos = 08.577
@@ -183,6 +193,11 @@ LoopPos = 08.577
 File = stage_moonlight
 IsLoop = 1
 LoopPos = 01.670
+
+[BGM_148] // reimu 2
+File = ex_SkyHigh
+IsLoop = 1
+LoopPos = 14.11
 
 [BGM_150] // Ries IWEX
 File = ex_BDRies
@@ -198,6 +213,11 @@ LoopPos = 04.786
 File = ex_MBtribreath
 IsLoop = 1
 LoopPos = 00.000
+
+[BGM_160]
+File = cutin_bgm000
+IsLoop = 0
+LoopPos = 0
 
 [BGM_198] // Hermes
 File = chr_GPA
@@ -216,22 +236,22 @@ LoopPos = 33.600
 [BGM_160]
 File = mbaa_stage_bgm28 //Modernism Street
 IsLoop = 1
-LoopPos = 08.020
+LoopPos = 10.741
 
 [BGM_161]
 File = mbaa_stage_bgm39 //Strange Dreamer
 IsLoop = 1
-LoopPos = 07.110
+LoopPos = 07.206
 
 [BGM_162]
 File = mbaa_stage_bgm41 //SAKURA-KOI-UTA
 IsLoop = 1
-LoopPos = 13.629
+LoopPos = 16.637
 
 [BGM_163]
 File = mbaa_stage_bgm42 //Rhythmical Bustle
 IsLoop = 1
-LoopPos = 06.436
+LoopPos = 06.456
 
 [BGM_164]
 File = mbaa_stage46 //Uncommon Sense
@@ -293,7 +313,7 @@ LoopPos = 14.352
 
 
 
-//ï¿½Vï¿½[ï¿½ï¿½ï¿½aï¿½fï¿½l
+//ƒV[ƒ“‚a‚f‚l
 [BGM_040]
 File = Menu_GUN_AkitoBass
 IsLoop = 1
@@ -304,55 +324,55 @@ File = Menu_WiFi
 IsLoop = 1
 LoopPos = 17.498
 
-//ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½[ï¿½ÖŒW
+//ƒXƒg[ƒŠ[ŠÖŒW
 [BGM_050]
-File = st_saidan // ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½Ì‘Oï¿½jï¿½Nï¿½Iï¿½ï¿½ï¿½ÌÕ’dï¿½O
+File = st_saidan // ŒˆíiŒŠ‚Ì‘OjƒNƒIƒ“‚ÌÕ’d‘O
 IsLoop = 1
 LoopPos = 24.000
 
 [BGM_052]
-File = st_hazimari1 // ï¿½Jï¿½nï¿½Ì‰ï¿½bï¿½iï¿½ï¿½ï¿½ï¿½ßjï¿½@ï¿½nï¿½Ü‚ï¿½iï¿½ï¿½ï¿½Iï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½jï¿½j
+File = st_hazimari1 // ŠJn‚Ì‰ï˜bi–¾‚é‚ßj@n‚Ü‚èi“®“IA‹­‚³A’jj
 IsLoop = 1
 LoopPos = 13.199
 
 [BGM_053]
-File = st_hazimari2 // ï¿½Jï¿½nï¿½Ì‰ï¿½bï¿½iï¿½Ã‚ßjï¿½@ï¿½nï¿½Ü‚ï¿½iï¿½Ã“Iï¿½Aï¿½ß‚ï¿½ï¿½İAï¿½ï¿½ï¿½j
+File = st_hazimari2 // ŠJn‚Ì‰ï˜biˆÃ‚ßj@n‚Ü‚èiÃ“IA”ß‚µ‚İA—j
 IsLoop = 1
 LoopPos = 00.000
 
 [BGM_054]
-File = st_owari1 // ï¿½Gï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Oï¿½ï¿½bï¿½iï¿½ï¿½ï¿½ï¿½ßjï¿½@ï¿½Nï¿½Iï¿½ï¿½ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½]ï¿½j
+File = st_owari1 // ƒGƒ“ƒfƒBƒ“ƒO‰ï˜bi–¾‚é‚ßj@ƒNƒIƒ““|‚µ‚½ŒãiŠó–]j
 IsLoop = 1
 LoopPos = 21.333
 
 [BGM_055]
-File = st_owari2 // ï¿½Gï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Oï¿½ï¿½bï¿½iï¿½Ã‚ßjï¿½@ï¿½Nï¿½Iï¿½ï¿½ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½]ï¿½j
+File = st_owari2 // ƒGƒ“ƒfƒBƒ“ƒO‰ï˜biˆÃ‚ßj@ƒNƒIƒ““|‚µ‚½Œãiâ–]j
 IsLoop = 1
 LoopPos = 00.000
 
 [BGM_056]
-File = st_kyouteki1 // ï¿½ï¿½ï¿½ï¿½ï¿½Ì‰ï¿½bï¿½iï¿½Ä—pï¿½j
+File = st_kyouteki1 // “¹’†‚Ì‰ï˜bi”Ä—pj
 IsLoop = 1
 LoopPos = 01.088
 
 [BGM_057]
-File = st_kyouteki2 // ï¿½ï¿½ï¿½ï¿½ï¿½Ì‰ï¿½bï¿½iï¿½dï¿½ßj
+File = st_kyouteki2 // “¹’†‚Ì‰ï˜bid‚ßj
 IsLoop = 1
 LoopPos = 00.000
 
 [BGM_058]
-File = st_kyouteki3 // ï¿½ï¿½ï¿½ï¿½ï¿½Ì‰ï¿½bï¿½iï¿½Vï¿½ï¿½ï¿½Aï¿½Xï¿½j
+File = st_kyouteki3 // “¹’†‚Ì‰ï˜biƒVƒŠƒAƒXj
 IsLoop = 1
 LoopPos = 08.726
 
-//ï¿½nï¿½oï¿½ï¿½
+//‚n‚o‹È
 [BGM_060]
 File = op_unistcs // Unknown Actor
 IsLoop = 1
 LoopPos = 00.000
 
 [BGM_061]
-File = op_uniclrcs // ï¿½Uï¿½ï¿½Ì–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½pï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½j
+File = op_uniclrcs // ‹U‚è‚Ì–³ŒÀ•À—ñiƒpƒ‰ƒŠƒAƒ‹j
 IsLoop = 1
 LoopPos = 00.000
 
@@ -367,7 +387,7 @@ IsLoop = 1
 LoopPos = 17.140
 
 
-//ï¿½Gï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Oï¿½aï¿½fï¿½l
+//ƒGƒ“ƒfƒBƒ“ƒO‚a‚f‚l
 [BGM_070]
 File = ed_good // Good Ending
 IsLoop = 0
@@ -378,39 +398,40 @@ File = ed_bad // Bad Ending
 IsLoop = 0
 LoopPos = 00.000
 
-//ï¿½Vï¿½[ï¿½ï¿½ï¿½aï¿½fï¿½l
+//ƒV[ƒ“‚a‚f‚l
 [BGM_082]
-File = sys_continue //ï¿½Rï¿½ï¿½ï¿½eï¿½Bï¿½jï¿½ï¿½ï¿½[
+File = sys_continue //ƒRƒ“ƒeƒBƒjƒ…[
 IsLoop = 0
 LoopPos = 0.0
 
 [BGM_083]
-File = sys_gameover //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[
+File = sys_gameover //ƒQ[ƒ€ƒI[ƒo[
 IsLoop = 0
 LoopPos = 0.0
 
 [BGM_084]
-File = sys_vsdemoOG
+// File = sys_vsdemo //‚u‚rƒfƒ‚
+File = sys_vsOG
 IsLoop = 0
 LoopPos = 0.0
 
-//ï¿½ï¿½ï¿½ï¿½oï¿½gï¿½ï¿½ï¿½aï¿½fï¿½l
+//“Áêƒoƒgƒ‹‚a‚f‚l
 [BGM_091]
-File = btl_chr005_vs_chr015 // ï¿½Sï¿½ï¿½ï¿½hï¿½[vsï¿½Pï¿½Cï¿½Aï¿½X
+File = btl_chr005_vs_chr015 // ƒSƒ‹ƒh[vsƒPƒCƒAƒX
 IsLoop = 1
 LoopPos = 08.040
 
 [BGM_092]
-File = btl_chr000_vs_chr008 // ï¿½nï¿½Cï¿½hvsï¿½Zï¿½g
+File = btl_chr000_vs_chr008 // ƒnƒCƒhvsƒZƒg
 IsLoop = 1
 LoopPos = 00.891
 
 [BGM_093]
-File = btl_chr016_vs_chr018 // ï¿½ï¿½ï¿½[ï¿½Oï¿½iï¿½[vsï¿½ï¿½ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Lï¿½A
+File = btl_chr016_vs_chr018 // ƒ[ƒOƒi[vsƒƒ“ƒhƒŒƒLƒA
 IsLoop = 1
 LoopPos = 01.614
 
-//ï¿½fï¿½ï¿½ï¿½aï¿½fï¿½l
+//ƒfƒ‚‚a‚f‚l
 [BGM_098] // I prefer Underdog! but...
 File = Menu_EasyJob
 IsLoop = 1
@@ -421,11 +442,11 @@ File = Menu_asayake
 IsLoop = 1
 LoopPos = 05.590
 
-//100ï¿½È~ï¿½Í‚ï¿½ß‚Æ‚ï¿½=======
+//100ˆÈ~‚Í‚â‚ß‚Æ‚­=======
 
 //========================================================
-// ï¿½ï¿½bï¿½ÖŒWï¿½pï¿½Ç‰ï¿½ï¿½È’ï¿½`(BattleRes\talk\st_bgmï¿½ï¿½ï¿½Å’ï¿½`ï¿½ï¿½ï¿½ï¿½Ä‚Ü‚ï¿½)
-//  ï¿½ï¿½100ï¿½`139ï¿½Ü‚Å—\ï¿½ñ’†‚Å‚ï¿½
+// ‰ï˜bŠÖŒW—p’Ç‰Á‹È’è‹`(BattleRes\talk\st_bgm“à‚Å’è‹`‚³‚ê‚Ä‚Ü‚·)
+//  ¦100`139‚Ü‚Å—\–ñ’†‚Å‚·
 //========================================================
 
 

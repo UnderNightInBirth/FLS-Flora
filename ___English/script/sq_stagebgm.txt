@@ -60,6 +60,20 @@ stage_bgm.initround <- function()
 		{
 			private_bgm = 177;
 		}
+		// reimu vs gang
+		else
+		if( btlobj.CheckCharaAlive(35)!= 0  && ( btlobj.CheckCharaAlive_str("chr000") != 0 //scraper... sky... high?!
+											|| btlobj.CheckCharaAlive(27) != 0
+											|| btlobj.CheckCharaAlive(28) != 0
+											|| btlobj.CheckCharaAlive(29) != 0
+											|| btlobj.CheckCharaAlive(30) != 0
+											|| btlobj.CheckCharaAlive(31) != 0
+											|| btlobj.CheckCharaAlive(32) != 0
+											|| btlobj.CheckCharaAlive(35) != 0
+											|| btlobj.CheckCharaAlive(39) != 0 ) )
+		{
+			private_bgm = 148;
+		}
 	}
 
 	//-----------------------------------------------------------------------------

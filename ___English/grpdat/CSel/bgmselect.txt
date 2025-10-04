@@ -136,6 +136,10 @@ name = False Infinite Parallel
 num = 62
 name = The End of Reincarnation
 
+[33]
+num = 130
+name = Overwhelm Despair (Hilda)
+
 
 [34]
 num = 176
@@ -159,13 +163,21 @@ name = There's No Sunrise or Sunset (Hammer)
 num = 144
 name = The Astral Prison (Edmond Dantes)
 
+[40]
+num = 145
+name = The Ground is Yellow -Primrose- (Reimu)
+
+[41]
+num = 148
+name = SKY HIGH (Reimu)
+
 [45]
 num = 199
 name = Gigantic Power
 
 [49]
 num = 155
-name = Melty Blood (Tribreath) (Riesbyfe vs Eltnum)
+name = Melty Blood -Tribreath- (Riesbyfe vs Eltnum)
 
 //tbd
 [50]
