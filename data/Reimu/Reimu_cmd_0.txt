@@ -9,6 +9,8 @@ local t =
 	{
 		CmdCheck = { SkillType = "Normal", ComboLimit = DEF_BS_CL_CROA },
 	},
+	
+	Atk_Cro3C = {},
 
 }
 

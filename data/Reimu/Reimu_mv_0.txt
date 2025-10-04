@@ -17,6 +17,56 @@ local t = {}; // Collects all the move data
 //
 //
 
+//-----------------------------------------------------------------------------
+// Sys
+//-----------------------------------------------------------------------------
+
+t.Mv_Throw_F_Hit <-
+{
+	function Init_After()
+	{
+		// Battle_Std.SetThrowEnemyMuteki( 254 ); // Set Invincible Time
+	}
+	function FrameUpdate_After()
+	{
+		local enemy = BMvCore.GetEnemyCharaData();
+		if( enemy.push() )
+		{
+			BMvEff.SetBoundSt( { addtime = 10 } );
+			enemy.pop();
+		}
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 90:
+
+			break;
+		case 900:
+			// BMvEff.ThrowParam( { pat=326, x=50, y=-100 } );
+			// BMvEff.ThrowRelease( { type="前転倒", airrecover=0, flags=0 } ); // this shit dont work dawg its useless as shit man even doe ingrid works
+			break;
+		case 1000: // Attack
+			Battle_Std.SetThrowEnemyMuteki( 0 ); // Reset Invincible Time
+			break;
+		}
+	}
+}
+
+t.Mv_Walk_F <-
+{
+	function FrameUpdate_After()
+	{	
+		BMvTbl.SetVector( { x=1250, y=0, addx=0, addy=0, flags=_Vector_Normal } );
+	}
+}
+
+t.Mv_Walk_B <-
+{
+	function FrameUpdate_After()
+	{	
+		BMvTbl.SetVector( { x=-950, y=0, addx=0, addy=0, flags=_Vector_Normal } );
+	}
+}
+
 // chrFunc.RegisterMelee = function()
 // {
 	
@@ -150,6 +200,14 @@ t.Mv_FireBall_CroC <-
 			// Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoJump);
 			// player.pop();
 		// }
+	}
+}
+
+t.Mv_Atk_Cro3C <-
+{
+	function FrameUpdate_After()
+	{
+		Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<2), CheckFrameID=10, EndFrameID=11, SetPattern="3C_End" } );
 	}
 }
 

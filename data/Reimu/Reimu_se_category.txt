@@ -1,0 +1,83 @@
+//-----------------------------------------------------------------------------
+// Sound Effect Declarations
+// SE labels use Japanese naming conventions. Please refer to doc/se_categories.txt.
+//-----------------------------------------------------------------------------
+
+Battle_Std.SeTable[Def_ChrNo_Rei] = {};
+local se = Battle_Std.SeTable[Def_ChrNo_Rei];
+
+
+se["立ち弱攻撃"] <- {
+	// Param0 = 10,
+	average = 75,
+	selist = { common = [200], }
+};
+se["立ち中攻撃"] <- {
+	// Param0=10,
+	selist = { common = [201], }
+};
+se["立ち強攻撃"] <- 
+[
+	// {
+		// Param0=10,
+		selist = { common = [207], }
+	// },
+	// {
+		// Param0=20,
+		// selist = { common = [246,248], }
+	// }
+];
+
+se["しゃがみ弱攻撃"] <- {
+	// Param0=10,
+	average = 75,
+	selist = { common = [200], }
+};
+se["しゃがみ中攻撃"] <- {
+	Param0=10,
+	selist = { common = [209], }
+};
+se["しゃがみ強攻撃"] <- {
+	Param0=10,
+	selist = { common = [209], }
+};
+se["ジャンプ弱攻撃"] <- {
+	// Param0=10,
+	// average = 75,
+	selist = { common = [204], }
+};
+se["ジャンプ中攻撃"] <- {
+	Param0=10,
+	selist = { common = [209], }
+};
+se["ジャンプ強攻撃"] <-
+[
+	{
+		Param0=10,
+		selist = { common = [245,249], }
+	},
+	{
+		Param0=20,
+		selist = { common = [277], }
+	}
+];
+
+
+//	se["Name of SE Goes Here"] <- {
+//		selist = {
+//			common = [100, 101], // General Sound Effects
+//			[Def_ChrNo_Hyd] = [102], // (Ex.) Character-Specific Line for Hyde
+//		}
+//	};
+//	
+//	se["Multi-Line Move"] <-
+//	[ // Watch for the square brackets!
+//		{ // Enclose the first trigger
+//			Param0=10, // 1st AF Param Value in HA6-chan
+//			selist = { common = [200], } // First SE
+//		},
+//		{ // Enclose the first trigger
+//			Param0=20, // 2nd AF Param Value
+//			selist = { common = [201], } // Second SE
+//		}
+//	]; // Watch for the square brackets!

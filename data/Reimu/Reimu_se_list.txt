@@ -1,0 +1,42 @@
+__dofile__("./script/btl_SEDefine.txt");
+
+SeList_Table <-
+{
+	TableNum = 1, // No need to touch!
+	UseTable = 0, // No need to touch!
+	Path = [],    // No need to touch!
+	Status = [],  // No need to touch!
+};
+
+SeList_Table.Path.append( "./se/normal_se/" );        // 0: Battle SE used by Everyone
+SeList_Table.Path.append( "./se/battle_se/Reimu/" ); // 1: Character Voice Folder
+SeList_Table.Path.append( "./se/battle_se/" );        // 2: Special, Unique SE
+
+SeList_Table.Status.resize(999); // Set it to much as you need
+local st = SeList_Table.Status;  // No need to touch!
+
+// Battle_SE, if needed
+// st[0]   = { volumetype=0 path=2, file=" ", type=0, category=3, }; // You can put transcriptions here for easy checking!
+
+// Banter and Dialogue
+// st[100] = { volumetype=1 path=1, file=" ", type=0, category=1, }; //
+
+// Standard Attacks
+st[200] = { volumetype=1 path=1, file="0_300", type=0, category=1, }; // ya a
+st[201] = { volumetype=1 path=1, file="0_301", type=0, category=1, }; // to f.a
+st[202] = { volumetype=1 path=1, file="0_302", type=0, category=1, }; // tei 6a
+st[203] = { volumetype=1 path=1, file="0_303", type=0, category=1, }; // dou?
+st[204] = { volumetype=1 path=1, file="0_304", type=0, category=1, }; // ya
+st[205] = { volumetype=1 path=1, file="0_305", type=0, category=1, }; // Tei
+st[206] = { volumetype=1 path=1, file="0_306", type=0, category=1, }; // yo
+st[207] = { volumetype=1 path=1, file="0_307", type=0, category=1, }; // yA
+st[208] = { volumetype=1 path=1, file="0_308", type=0, category=1, }; // TaA
+st[209] = { volumetype=1 path=1, file="0_309", type=0, category=1, }; // hun
+
+// Special Attacks
+st[300] = { volumetype=1 path=1, file=" ", type=0, category=1, }; //
+
+// System Mechanics
+st[400] = { volumetype=1 path=1, file=" ", type=0, category=1, }; //
+
+// And so on and so on...
