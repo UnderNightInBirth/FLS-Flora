@@ -18,7 +18,10 @@ __dofile__( "./script/btl_CmdCheck.txt" );
 __dofile__( "./script/btl_ChrTableFunc.txt"); //Tables
 __dofile__( "./script/btl_MvInitFunc.txt"); //Init for normal/special
 __dofile__( "./script/btl_MvFunc.txt"); //Mv functions
+
+__dofile__( "./script/btl_Environment.txt"); // Environmental Noise
 __dofile__( "./script/btl_Hantei.txt"); //hantei data
+
 __dofile__( "./script/btl_StdCommdandTbl.txt" ); //Existing Commands
 __dofile__( "./script/btl_StdMoveTbl.txt" ); //Main move code
 __dofile__( "./script/btl_Std_BattleStatusTbl.txt" ); //chara SC File

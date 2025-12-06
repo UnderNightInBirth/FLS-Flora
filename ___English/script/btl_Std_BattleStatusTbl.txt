@@ -1,0 +1,184 @@
+btl_debPrint2( "\n>>> [btl_Std_BattleStatusTbl]" );
+
+//標準バトルステータステーブル
+//キャラ毎SCで読み込む
+
+Battle_Std.GetStd_BattleStatusTable <- function()
+{
+	local tbl = {};
+	
+	tbl = 
+	{	
+		StartPosition = 320,	// スタート位置、中心からの距離
+		StartPosition_Partner = 240, // デフォルト240
+		
+		GuardEffName = "", // ガード default Eff_Hit_Guard
+	//	FailedGuardEffName = "Eff_Hit_FaultGuard", // 失敗ガード default Eff_Hit_Guard	
+		FailedGuardEffName = "Eff_Hit_Guard", // 失敗ガード default Eff_Hit_Guard	
+
+		AttackRate = 100, // 最終攻撃力修正係数
+		ComboRate = 100,// １ヒット毎の乗算係数 基本値９６ ツールのヒット数修正が無かった場合使われる値（0-255）
+		
+		SeedGaugeCorrectValue_Plus = 100, // seedgaugeプラス方向の変動補正値
+		SeedGaugeCorrectValue_Minus = 100, // seedgaugeマイナス方向の変動補正値
+
+		ScratchDamageVal_Atk = 100, // 削りダメージ、攻撃時
+		ScratchDamageVal_Def = 100, // 削りダメージ、防御時
+		ScratchDamageVal_ExDef = 100, // 削りダメージ、ジャストディフェンス
+		
+		SpGauge_PlusVal = 100, // EXSゲージ「増加」係数　全部だとゲージ消費量とかにも影響してしまうので、とりあえず加算だけ
+		Swing_ExsPlusVal = 0, // 空振り時のEXS増加係数、要ツール設定
+
+		// HP分割値と総体力（上位から見る）
+		HpDivValue = [ 10000 ],
+
+		// HPゲージ上の配分（足した値は 100 であること）
+		HpDivRatio = [ 100 ],
+
+		// 自動ガード距離
+		GuardRange = (128 << 7),
+
+		// 固有能力
+		IsKoArmor = false,  // default[false] KO耐性、１回だけ耐える
+		
+		SpGauge_Max			= def_SC_SpGauge_Max, // ゲージ最大値(20000)
+		Liberate_Minus		= def_SC_Liberate_Minus, // Liberate状態での減少値(20)
+		OverLiberate_Minus	= def_SC_OverLiberate_Minus, // OverLiberate状態での減少値(15)
+
+		// コンボレート
+		ComboRate_HitCount = 1, // 乗算係数のかかるヒット数、０だと無効
+		ComboRate_CorrectVal = 72, // 乗算係数
+	
+		// Liberate_EXSPlusVal	= 100, // Liberate状態でのEXS増加係数（ゲージが共通なので意味がない）
+		Liberate_AttackPlusVal	= 120, // Liberate状態での攻撃力増加係数
+		
+		Liberate_SpMinusVal	= 400, // ゲージ使用技での減少、Liberate_Minus いくつぶん減らすか
+		Liberate_SpMinusVal_CVO	= 640, // ゲージ使用技での減少、OverLiberate_Minus いくつぶん減らすか
+		Liberate_SpMinusVal_DangerCVO = 400, // ゲージ使用技での減少、OverLiberate_Minus いくつぶん減らすか
+		// OverLiberate時には、OverLiberate_Minus が参照される
+		// 例：Liberate時 に 15000 減る技だった場合
+		// 減少量＝ (Liberate_Minus * Liberate_SpMinusVal * 15000) / 10000;
+		
+		GRD =
+		{
+			Liberate_AutoPlusVal = 150, // Liberate状態でのGRD自動増加係数
+
+			AutoFramePlus = [ 15,12,5,3,2,0, 0,0,0,0,0,0 ], // 12個ぶん マイナスがあると押し込みで勝ってるほど減るのでダメよ
+			ShieldFramePlus = 10,
+			JustShieldPlus = 10000,
+			PassiveMovePlus = 5000,
+
+			PressureVal_Min = 50, // 押し込み係数最低値 100=1.0
+			PressureVal_Max = 700, // 押し込み係数最大値 100=1.0
+
+			TimeResultVal = 100, // 時間強化係数 100=1.0
+
+			MaxKeepTime = 10*60, // 最大状態持続時間
+			BreakTime = 10*60,
+			OverBreakTime = 10*60,
+
+			JustShieldMinus = 1,
+			FaildGuardMinus = 1,
+			
+			ReduceSuccessPlus = 0, // レデュース成功時の増加量（廃止）
+
+			// Judgement
+			//ヴォーパル時
+			JudgeWin_ExsPlusVal = 105, // GRD判定勝ち時、EXS増加係数 100=1.0
+			JudgeWin_AttackPlusVal = 110, // GRD判定勝ち時、攻撃力増加係数 100=1.0		
+			JudgeCelestialWin_AttackPlusVal = 120, // GRD判定勝ち時、攻撃力増加係数 100=1.0		
+			JudgeBreak_ExsPlusVal = 25, // Break時、EXS増加係数 100=1.0
+			
+			EnemyGRDBreak_AttackPlusVal = 110, // 相手がブレイク時の攻撃力増加係数
+		}
+		
+		GaugePlus_DamageMinVal = 50, //ダメージのゲージ増加量の保証割合
+		//これを下げすぎるとコンボ頑張ってもゲージが増えなくなる（stまでは100みたいなもの）
+
+		// 技タイプによるゲージ増加量の定義
+		// BMvTbl.SetMvAction() BMvTbl.GetMvAction() で指定
+		// pos -- 技タイプ番号 0-31
+		// gaugeplusval -- ゲージ増加係数 [ 攻撃側HIT、攻撃側GUARD、やられ側HIT、やられ側GUARD ]  値は100 = 1.0
+		MvActionParam = 
+		[
+			{ pos= def_MVA_None		, gaugeplusval=[ 110, 35, 35, 28 ],	finishtype=  1 }, // 技タイプ未設定
+			{ pos= def_MVA_Throw	, gaugeplusval=[  70, 35, 40, 28 ],	finishtype=  1 }, // 通常投げ
+			{ pos= def_MVA_EXAtk	, gaugeplusval=[  80, 25, 50, 28 ],	finishtype=  1 }, // 特殊技（FF）
+			{ pos= def_MVA_Skill	, gaugeplusval=[ 110, 35, 35, 28 ],	finishtype=  1 }, // 必殺技 CLR:[  65, 35, 50, 28 ]
+			{ pos= def_MVA_EXSkill	, gaugeplusval=[   0,  0, 35, 28 ],	finishtype=  1 }, // EX 必殺技
+			{ pos= def_MVA_SSSkill	, gaugeplusval=[  80, 35, 50, 28 ],	finishtype=  1 }, // SS 必殺技
+			{ pos= def_MVA_SPSkill	, gaugeplusval=[   0,  0, 35, 28 ],	finishtype=  2 }, // SP IW
+			{ pos= def_MVA_LASkill	, gaugeplusval=[   0,  0, 35, 28 ],	finishtype=  3 }, // LA IWE
+			{ pos= def_MVA_EXSystem , gaugeplusval=[   0,  0, 35, 28 ],	finishtype=  1 }, // EX(特殊) VO・IWE攻撃
+		]
+	}//
+
+	// 
+	// { num=80, minus=0 }, // 80ポイント「以上」では0
+	// { num=50, minus=2 }, // 79-50ポイントでは2
+	
+	// コンボポイントによる地上のけぞり補正テーブル（減算値）
+	tbl.CP_VecMinus_Ground <- [
+		{ num=35, minus=0  },
+		{ num=29, minus=1  },
+		{ num=24, minus=3  },
+		{ num=19, minus=4  },
+		{ num=14, minus=5  },
+		{ num=10, minus=7  },
+		{ num= 6, minus=10 },
+		{ num= 3, minus=14 },
+		{ num= 0, minus=99 },
+	];
+	
+	// コンボポイントによる空中受け身時間補正テーブル（減算値）
+	tbl.CP_VecMinus_Air <- [
+		{ num=65, minus=0  }, //100～65
+		{ num=36, minus=1  }, // 64～36
+		{ num=28, minus=3  }, // 35～28
+		{ num=22, minus=4  }, // 27～22
+		{ num=17, minus=5  },
+		{ num=13, minus=6  },
+		{ num= 9, minus=8  },
+		{ num= 6, minus=10 },
+		{ num= 3, minus=15 },
+		{ num= 0, minus=99 },
+	];
+
+	// コンボポイントによる空中のけぞり補正テーブル（減算値）
+	tbl.CP_VecMinus_AirBound <- [
+		{ num=65, minus=0  },
+		{ num=36, minus=1  },
+		{ num=28, minus=3  },
+		{ num=22, minus=4  },
+		{ num=17, minus=5  },
+		{ num=13, minus=6  },
+		{ num= 9, minus=8  },
+		{ num= 6, minus=10 },
+		{ num= 3, minus=15 },
+		{ num= 0, minus=99 },
+	];
+	
+	// コンボ時間でのコンボポイント修正テーブル（乗算値）
+	// 時間経過後の攻撃のタイミングで修正
+	// TSで見る 一周840F 半周420F 210F　
+	tbl.CP_Time_Val <- [
+		{ num=210,  val=100},
+		{ num=420,  val=90 },
+		{ num=630,  val=90 },
+		{ num=840,  val=90 },
+		{ num=1260, val=80 }, //（この辺からは救済措置用すっぽ抜け注意）
+		{ num=1680, val=80 },
+		{ num=9999, val=80 },
+	];
+
+	// GRD1個=10000
+	// (420-210)*50=10500 ※約1個
+	tbl.GRD.BoundTimePlus <- [
+		{ time=210,  val=0  }, // 
+		{ time=420,  val=0  }, // CLR:32
+		{ time=630,  val=0  }, // CLR:64
+		{ time=9999, val=0  }, // これで最大2個に制限がかかったはず	
+	]; // 
+
+	return tbl;
+}

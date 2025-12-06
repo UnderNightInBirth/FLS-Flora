@@ -1,0 +1,113 @@
+local t = {}; // Collects all the move data
+local chrFunc = {};
+
+//-----------------------------------------------------------------------------
+// Variables
+//-----------------------------------------------------------------------------
+// (Sca) LP 3 - Can't Knife?
+// (Obj) LP 20 - Knife Tracker (0 off, 1 active, 2 spinning, 3 grounded)
+// (Obj) LP 21 - Back Corner Check
+//
+
+chrFunc.DrawTracer <- function(rate=1)
+{
+	local vec = BMvTbl.GetVector( 0 );
+	
+	//Battle_Std.DrawDebugAttackInfo("drawtracer");
+	local s = BMvTbl.GetMvStatus();
+	if( s.isUpdate && s.MvCount > 0 )
+	{
+		local frame = rate;
+		if( s.MvCount%frame==0 )
+		{
+			local objlen = 100/frame; // 発生するオブジェクトの大きさ
+			//local vec = BMvTbl.GetVector( {  flags=_Vector_Normal } ); // 現在のベクトル取得
+			//local eff = Battle_Std.CreateObjectEX({ pat="KnifeTrail" });
+			local eff = BMvEff.CreateObject( {  start_pat="KnifeTrail", mvname="Mv_Obj_KnifeTrail" } );
+			if( eff.push() )
+			{
+				//BMvEff.SetObjectFlags( { flags=_ObjFlags_FromParentStop|_ObjFlags_ToParentStop|_ObjFlags_NoGround } );
+				
+				//Battle_Std.DrawDebugRect({});
+				
+				local ps = BMvEff.GetAngle_FromVector( { x=vec.x, y=vec.y } ); // ベクトルからPointStatus取得
+				
+				//local dif = ps.distance + 1168;
+				local dif = ps.distance * 1.1322;
+				
+				//Battle_Std.DrawDebugAttackInfo("drawtracer "+ps.distance+" d "+dif+" ang "+ps.angle);
+				BMvTbl.SetAngle( { angle_float = ps.angle } ); // 角度設定
+				BMvTbl.SetScale( { y=( ( dif ) ) } ); // 拡大値設定
+				BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround } );
+				
+				//BMvTbl.SetVector( { x=vec.x, addx=vec.addx, y=vec.y, addy=vec.addy, flags=_Vector_Normal });
+				
+				eff.pop();
+			}
+		}
+	}
+}
+
+t.Mv_Neutral <-
+{
+	function FrameUpdate_After()
+	{
+		// BMvEff.AttackInfoString_Set({ word=BMvTbl.GetLP(3) });
+	}
+}
+
+t.Mv_Skill_0202A <-
+{
+    function FrameUpdate_After()
+    {
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 10:
+			BMvEff.CreateObject( { x=128, y=-256, id=1, start_pat="Knife", mvname="Mv_Obj_Knife", flags=_Position_ToolShift|_ObjFlags_EraseParentDamage } );
+			BMvTbl.SetLP(3,1);
+			break;
+		}
+	}
+}
+
+t.Mv_Obj_Knife <-
+{
+	function Init_After()
+	{
+		BMvTbl.SetLP(20,1); // Set Active
+		BMvTbl.SetLP(21,0); // Set Active
+		BMvTbl.SetVector( { x=4500, y=0, flags=_Vector_Normal } );
+		BMvTbl.JumpFrameID(1);
+	}
+	function FrameUpdate_After() : (chrFunc)
+	{
+		chrFunc.DrawTracer(1);
+		local dist = Battle_Std.CheckFromtDispCornerDistance(50); // Check if Camera Corner
+		local bdist = Battle_Std.CheckBackDispCornerDistance(0); // Check if Camera Back Corner
+		if( dist && BMvTbl.GetLP(20) )
+		{
+			BMvTbl.SetLP(20,2); // Set Spinning
+			BMvTbl.JumpFrameID(2);
+			BMvTbl.SetVector( { x=-1800, y=-3100, yadd=100, addy=120, flags=_Vector_Normal } );
+		}
+		if( BMvTbl.GetLP(20) == 2 )
+		{
+			BMvTbl.SetAngle( { angle=BMvTbl.GetAngle()+1300 } );
+			if (bdist && !BMvTbl.GetLP(21) ) // Using corner check to only apply once for when the screen is moving
+			{
+				BMvTbl.SetLP(21,1);
+				local vec = BMvTbl.GetVector(0);
+				BMvTbl.SetVector( { x=-3*vec.x, flags=_Vector_Normal|_VecFlag_Add } );		
+			}
+			if (BMvTbl.GetPosition().y >= -38*128) // A little off the ground so it's sticking up
+			{
+				BMvTbl.SetAngle( { angle=0 } );
+				BMvTbl.SetLP(20,3); // Set Grounded
+				BMvTbl.JumpFrameID(3);
+				Battle_Std.InitVector();
+			}
+		}
+	}
+}
+
+

@@ -22,9 +22,9 @@ local t = {};
 //
 // LP 30 - 214BC Enemy Capture
 // LP 31 - Shinken count
+// LP 32 - IC214 Muki Check
 //
 //
-
 
 t.Mv_RoundWinPattern <-
 {
@@ -131,7 +131,7 @@ t.Mv_RoundWinPattern <-
 			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=17, } );
 			// break;
 		// }
-	// }
+	}
 	// function Finalize() // 移行時に呼び出される
 	// {
 		// if(BMvTbl.GetFinalizeCode() == 256)
@@ -418,10 +418,6 @@ t.Mv_Skill_J214EX_Hit <-
 		BMvEff.CameraShift_Clear();
 	}	
 }
-
-
-
-
 
 t.Mv_Skill_63214EX <-
 {
@@ -786,11 +782,261 @@ t.Mv_FireBall_Pan <-
 
 
 
+//-----------------------------------------------------------------------------
+// 214
+//-----------------------------------------------------------------------------
 
 
+local floraA = BMvEff.GetPatternNum( { datatype=0, pat="floraA" } );
+local floraB = BMvEff.GetPatternNum( { datatype=0, pat="floraB" } );
+local floraC = BMvEff.GetPatternNum( { datatype=0, pat="floraC" } );
+local leaf   = BMvEff.GetPatternNum( { datatype=0, pat="leaf" } );
 
+// local maketmpl_Flora = function( param={} )
+// {
+	// local ret_tmpl = {};
+	
+	// local mvparam = {
+	// }
+	
+	// local use_param = {
+		// head = 0,
+	// }
+	
+	// switch( param.type )
+	// {
+	// case "A":
+		// break;
+	// case "B":
+		// use_param.head = 1;
+		// break;	
+	// case "EX":
+		// use_param.head = 1;
+		// break;
+	// }
+	
+	// ret_tmpl.Init_After <- function() : (mvparam)
+	// {
 
+	// }
+	
+	// ret_tmpl.Update_After <- function() : (mvparam)
+	// {
+	
+	// }
 
+	// ret_tmpl.FrameUpdate_After <- function() : (use_param, mvparam, leaf)
+	// {
+		// switch( Battle_Std.GetUpdateFrameID() )
+		// {
+		// case 10:
+		
+			// // local eff = BMvEff.CreateObject( { start_pat=eff_pat_num } );
+			// local spawner = BMvEff.CreateObject( { start_pat=leaf, mvname="Mv_Obj_FloraSpawner", } );
+			// if( spawner.push() )
+			// {
+				// BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround } );
+				// BMvTbl.SetVector( { x=1000, y=-1000, addy=10, flags=_Vector_Normal} );
+				// spawner.pop();
+			// }
+
+			// break;
+		// }
+
+	// }
+	
+	// ret_tmpl.HitInterrupt_After <- function() : (mvparam,createStar)
+	// {
+	// }
+	
+	// return ret_tmpl;
+// }
+
+// t.Mv_Skill_214A <- maketmpl_Flora( { type="A" } );
+// t.Mv_Skill_214B <- maketmpl_Flora( { type="B" } );
+// t.Mv_Skill_214EX <- maketmpl_Flora( { type="EX" } );
+
+t.Mv_Skill_214B <-
+{
+	function Init_After()
+	{
+		BMvTbl.SetLP(32, BMvTbl.GetMuki() );
+	}
+	function FrameUpdate_After()
+	{
+		Battle_Std.SetPattern_NotHoldButton({ ButtonMask=(1<<1), CheckFrameID=100, EndFrameID=110, SetPattern="214B_End" } );
+    
+		switch( Battle_Std.GetUpdateFrameID() )
+		{
+		case 10:
+			// local eff = BMvEff.CreateObject( { start_pat=eff_pat_num } );
+			local spawner = Battle_Std.CreateObjectEX( { x=32, y=-300, pat="leafy", mvname="Mv_Obj_FloraSpawner", flags=_Position_ToolShift } );
+			if( spawner.push() )
+			{
+				// BMvEff.SetObjectFlags( { flags=_ObjFlags_NoGround } );
+				BMvTbl.SetVector( { x=1500, y=-1500, addx=-5, addy=50, flags=_Vector_Normal} );
+				spawner.pop();
+			}
+			break;
+		case 50:
+			local spawner = Battle_Std.CreateObjectEX( { x=32, y=-300, pat="SphereBloomB", mvname="Mv_Obj_SphereBloomB", flags=_Position_ToolShift } );
+			if( spawner.push() )
+			{
+				// BMvTbl.SetVector( { x=1500, y=-1500, addx=-5, addy=50, flags=_Vector_Normal} );
+				spawner.pop();
+			}
+			BMvTbl.SetFinalizeCode(10);
+			break;
+		case 200:
+			if( BMvTbl.GetMuki() != BMvTbl.GetLP(32) )
+			{
+				BMvTbl.SetMuki( _Direction_Auto );
+			}
+			break;
+		}
+
+	}
+	function Finalize()
+	{
+		Battle_Std.SwitchNextMoveTable("Mv_Neutral", [10,"Mv_Crouch_Wait"]);
+	}
+}
+
+t.Mv_Obj_FloraSpawner <-
+{
+	function Init_After()
+	{
+		// BMvTbl.SetPattern(0);
+	}
+	function FrameUpdate_After()
+	{
+		local s = BMvTbl.GetMvStatus(); // ステータス取得
+		if( s.MvCount%12 )
+		{
+			local eff = BMvEff.CreateObject( { x=0, y=0, start_pat="floraA"} );
+			local sign = 1;
+			if(!BMvEff.Random_Limit(1))
+			{
+				sign = -1;
+			}
+			if(eff.push())
+			{
+				BMvTbl.SetVector( { x=sign*BMvEff.Random_Limit(500), y=sign*BMvEff.Random_Limit(500), flags=_Vector_Normal} );
+				eff.pop()
+			}
+		}
+		if( s.MvCount%28 )
+		{
+			local eff = BMvEff.CreateObject( { x=0, y=0, start_pat="floraB"} );
+			local sign = 1;
+			if(!BMvEff.Random_Limit(1))
+			{
+				sign = -1;
+			}
+			if(eff.push())
+			{
+				BMvTbl.SetVector( { x=sign*BMvEff.Random_Limit(900), y=sign*BMvEff.Random_Limit(900), flags=_Vector_Normal} );
+				eff.pop()
+			}
+		}
+		if( s.MvCount%46 )
+		{
+			local eff = BMvEff.CreateObject( { x=0, y=0, start_pat="floraC"} );
+			local sign = 1;
+			if(!BMvEff.Random_Limit(1))
+			{
+				sign = -1;
+			}
+			if(eff.push())
+			{
+				BMvTbl.SetVector( { x=sign*BMvEff.Random_Limit(900), y=sign*BMvEff.Random_Limit(900), flags=_Vector_Normal} );
+				eff.pop()
+			}
+		}
+		if( s.MvCount%6 )
+		{
+			local eff = BMvEff.CreateObject( { x=0, y=0, start_pat="leaf"} );
+			local sign = 1;
+			if(!BMvEff.Random_Limit(1))
+			{
+				sign = -1;
+			}
+			if(eff.push())
+			{
+				BMvTbl.SetVector( { x=sign*BMvEff.Random_Limit(900), y=sign*BMvEff.Random_Limit(900), flags=_Vector_Normal} );
+				eff.pop()
+			}
+		}
+	}
+}
+
+t.Mv_Obj_SphereBloomB <-
+{
+	// function Init_After()
+	// {
+		// // BMvTbl.SetPattern(0);
+	// }
+	function FrameUpdate_After()
+	{
+		local s = BMvTbl.GetMvStatus(); // ステータス取得
+		// if( s.MvCount%12 )
+		// {
+			// local eff = BMvEff.CreateObject( { x=0, y=0, start_pat="floraA"} );
+			// local sign = 1;
+			// if(!BMvEff.Random_Limit(1))
+			// {
+				// sign = -1;
+			// }
+			// if(eff.push())
+			// {
+				// BMvTbl.SetVector( { x=sign*BMvEff.Random_Limit(500), y=sign*BMvEff.Random_Limit(500), flags=_Vector_Normal} );
+				// eff.pop()
+			// }
+		// }
+		// if( s.MvCount%28 )
+		// {
+			// local eff = BMvEff.CreateObject( { x=0, y=0, start_pat="floraB"} );
+			// local sign = 1;
+			// if(!BMvEff.Random_Limit(1))
+			// {
+				// sign = -1;
+			// }
+			// if(eff.push())
+			// {
+				// BMvTbl.SetVector( { x=sign*BMvEff.Random_Limit(900), y=sign*BMvEff.Random_Limit(900), flags=_Vector_Normal} );
+				// eff.pop()
+			// }
+		// }
+		// if( s.MvCount%46 )
+		// {
+			// local eff = BMvEff.CreateObject( { x=0, y=0, start_pat="floraC"} );
+			// local sign = 1;
+			// if(!BMvEff.Random_Limit(1))
+			// {
+				// sign = -1;
+			// }
+			// if(eff.push())
+			// {
+				// BMvTbl.SetVector( { x=sign*BMvEff.Random_Limit(900), y=sign*BMvEff.Random_Limit(900), flags=_Vector_Normal} );
+				// eff.pop()
+			// }
+		// }
+		// if( s.MvCount%6 )
+		// {
+			// local eff = BMvEff.CreateObject( { x=0, y=0, start_pat="leaf"} );
+			// local sign = 1;
+			// if(!BMvEff.Random_Limit(1))
+			// {
+				// sign = -1;
+			// }
+			// if(eff.push())
+			// {
+				// BMvTbl.SetVector( { x=sign*BMvEff.Random_Limit(900), y=sign*BMvEff.Random_Limit(900), flags=_Vector_Normal} );
+				// eff.pop()
+			// }
+		// }
+	}
+}
 
 
 
@@ -1132,6 +1378,12 @@ t.Mv_Atk_AirC <-
     {
 		Battle_Std.JumpFrameID_NotHoldButton({ mask=(1<<2), checkid=10, jumpid=20 });
     }
+	function HitInterrupt_After()
+	{
+		if( Battle_Std.SetImpactHitEffect( { aerial=1 } ) ) // 
+		{
+		}
+	}
 }
 
 t.Mv_Atk_StdB <-

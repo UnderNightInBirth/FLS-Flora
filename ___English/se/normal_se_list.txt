@@ -233,3 +233,9 @@ st[259] = 	{  file=anopath+"sys_010_s_0410", type=0, volumetype=1  };
 st[260] = 	{  file=anopath+"sys_010_s_0411", type=0, volumetype=1  };//0
 
 st[281] = 	{  file=anopath+"sys_010_s_0901", type=0, volumetype=1  };//セレクト ユアキャラクター
+
+
+
+st[300] = 	{  file=MOD+"738777__cheatinsloth__fountain-babbling", type=0, volumetype=1  };
+st[301] = 	{  file=MOD+"163615__leandrosntounis__waves-mid-on-rocks-close-distance", type=0, volumetype=1  };
+st[302] = 	{  file=MOD+"786144__paf60__heavy-rain", type=0, volumetype=1  };

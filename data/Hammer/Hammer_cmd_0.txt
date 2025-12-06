@@ -112,6 +112,10 @@ local t =
 	}
 	
 	
+	Skill_214A = {},
+	Skill_214B = {},
+	Skill_214EX = {},
+	
 	Skill_623A = {},
 	Skill_623B = {},
 	Skill_623EX = {},

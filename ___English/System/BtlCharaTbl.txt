@@ -488,18 +488,18 @@ chara_no[28] =
 	order = 101,
 };
 
-chara_no[32] = 
+chara_no[29] = 
 {
-	name_short = "Hammer",
-	name_long = "Hammer",
-	name_str = "Fat",
-	name_master = "Fat",
+	name_short = "Ryu",
+	name_long = "Ryu",
+	name_str = "Ryu",
+	name_master = "Ryu",
 	isAlive = 1,
 	
-	stage = 36, //arena
-	bgm = 143, //yuuya
+	stage = 40, //waves
+	bgm = 147, //temple
 	
-	order = 102,
+	order = 105,
 }; // 
 
 chara_no[30] =
@@ -530,19 +530,21 @@ chara_no[31] =
 	order = 104,
 };
 
-chara_no[29] = 
+chara_no[32] = 
 {
-	name_short = "Ryu",
-	name_long = "Ryu",
-	name_str = "Ryu",
-	name_master = "Ryu",
+	name_short = "Hammer",
+	name_long = "Hammer",
+	name_str = "Fat",
+	name_master = "Fat",
 	isAlive = 1,
 	
-	stage = 40, //waves
-	bgm = 147, //temple
+	stage = 36, //arena
+	bgm = 143, //yuuya
 	
-	order = 105,
+	order = 102,
 }; // 
+
+chara_no[35] = { norandom=1, name_short = "Reimu", name_long = "Reimu", name_str = "Reimu", name_master = "Reimu", isAlive = 1, stage = 8, bgm = 145, order = 107, };
 
 chara_no[39] = 
 {
@@ -558,22 +560,20 @@ chara_no[39] =
     order = 106,
 }; // 
 
-// chara_no[40] = 
-// {
-	// name_short = "Hermes",
-	// name_long = "Hermes",
-	// name_str = "Hermes",
-	// name_master = "Hermes",
-	// isAlive = 1,
+chara_no[40] = 
+{
+	name_short = "Hermes",
+	name_long = "Hermes",
+	name_str = "Hermes",
+	name_master = "Hermes",
+	isAlive = 1,
 	
-	// stage = 9,
-	// bgm = 199,
+	stage = 9,
+	bgm = 199,
 	
-	// order = 199,
-// }; // 
+	order = 199,
+}; // 
 
 // chara_no[33] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
 // chara_no[34] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
-chara_no[35] = { norandom=1, name_short = "Reimu", name_long = "Reimu", name_str = "Reimu", name_master = "Reimu", isAlive = 1, stage = 8, bgm = 145, order = 107, };
-// chara_no[36] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };
 // chara_no[37] = { norandom=1, name_short = "Dummy", name_long = "Dummy", name_str = "Dummy", name_master = "Dummy", isAlive = 1, };

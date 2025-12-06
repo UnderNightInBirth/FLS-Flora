@@ -1,5 +1,6 @@
 const Def_ChrNo_Riesbyfe	= 27;
 const Def_ChrNo_Rie	= 27;
+const Def_ChrNo_Chr027 = 27;
 
 const Def_ChrNo_Ingrid	= 28;
 const Def_ChrNo_Ing	= 28;
@@ -9,11 +10,15 @@ const Def_ChrNo_Fat	= 32;
 
 const Def_ChrNo_Dantes	= 30;
 const Def_ChrNo_Edo	= 30;
+const Def_ChrNo_Chr030 = 30;
 
 const Def_ChrNo_Ako = 31;
 
 const Def_ChrNo_Ryu = 29;
 
+const Def_ChrNo_Reimu = 35;
+const Def_ChrNo_Rei = 35;
+
 const Def_ChrNo_HydEX = 39;
 
-// const Def_ChrNo_Hermes = 40;
+const Def_ChrNo_Hermes = 40;

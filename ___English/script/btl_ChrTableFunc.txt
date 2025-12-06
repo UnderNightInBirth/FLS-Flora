@@ -897,10 +897,12 @@ function Battle_Std::MakeMoveTable( t, cmd, _ChrNum = 0 )
 	
 	//‚±‚êã‘‚«‚¾‚©‚ç‚ËI
 	local stdmv = Battle_Std.GetStdMoveTable( _ChrNum );
+	local env = Battle_Std.SetEnvNoise( _ChrNum ); // @@@@@@@@@@@@@@@@@@@ //
 	local ha6 = Battle_Std.GetHanteiTable( _ChrNum ); // @@@@@@@@@@@@@@@@@@@ //
 	Battle_Std.MergeTable( mv, stdmv ); //t‚É•W€Mv‚ğ‚Ô‚Á‚±‚İAskill‚à“ü‚é
+	Battle_Std.MergeTable( mv, env ); // @@@@@@@@@@@@@@@@@@@ //
 	Battle_Std.MergeTable( mv, ha6 ); // @@@@@@@@@@@@@@@@@@@ //
-	
+
 	if( Def_Dbg_LocalDebugScriptPath )
 	{
 		Battle_Std.DebugFunc.AddBtlDebugScript( mv );

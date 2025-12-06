@@ -1,0 +1,1 @@
+__dofile__( "./data/Reimu/Reimu_com_0.txt" );

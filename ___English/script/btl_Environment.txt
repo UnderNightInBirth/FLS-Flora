@@ -1,0 +1,64 @@
+Battle_Std.TestEnvNoise <- function() // This func is called within Std_MoveTable.Mv_Startup...
+{
+	if( BMvTbl.GetPlayerSide()==0 ) { BMvEff.CreateObject({ mvname="Mv_Null_Environment" }); } // Only one instance
+}
+
+function Battle_Std::SetEnvNoise( _ChrNo=0, ) {
+    
+	local Std_MoveTable = {}
+	
+	Std_MoveTable.Mv_Null_Environment <- //...and we merged this into Std_MoveTable to be called as the handler
+	{
+		function Init()
+		{
+			local stg = BMvEff.BG_GetNum();
+			local duration = null;
+			local envID = null;
+	
+			switch (stg) {
+				case 33: // fountain
+					duration = 28.79 * 60;
+					envID = 300; // 738777__cheatinsloth__fountain-babbling
+					break;
+				case 40: // ocean
+					duration = 73.52 * 60;
+					envID = 301; // waves
+					break;
+				case 32: // rain
+					duration = 20.37 * 60;
+					envID = 302; // heavy rain
+					break;
+			}
+	
+			BMvTbl.SetLP(100, stg);        // stage id
+			BMvTbl.SetLP(101, duration);   // duration ss:mm -> f
+			BMvTbl.SetLP(102, envID);      // se id
+			BMvTbl.SetLP(103, BMvTbl.GetMvStatus().MvCount); // init frametimer
+			
+			BSound.SE_Play({ num = envID });
+	
+			// Still should work during freezes and stuff but no luck if paused due to making it an object at all
+			BMvEff.SetObjectFlags({ flags=_ObjFlags_NoGround | _ObjFlags_NoRender | _ObjFlags_MoveTimeStopAll });
+			BMvEff.SetExist({ level = _Exist_NoHantei });
+		}
+		function FrameUpdate()
+		{
+			local duration = BMvTbl.GetLP(101);
+			local envID = BMvTbl.GetLP(102);
+			local inits = BMvTbl.GetLP(103);
+			local now = BMvTbl.GetMvStatus().MvCount;
+	
+			// BMvEff.AttackInfoString_Set({ word = now });
+	
+			if (duration != null
+				&& envID != null
+				&& (now - inits) >= duration)
+				{
+					BSound.SE_Play({ num = envID });
+					BMvTbl.SetLP(103, now);
+				}
+		}
+	}
+
+    return Std_MoveTable;
+}
