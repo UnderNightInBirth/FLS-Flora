@@ -26,6 +26,176 @@ local t = {};
 //
 
 
+t.Mv_RoundWinPattern <-
+{
+	function Init_After()
+	{
+		local enemyChrNo = Battle_Std.GetEnemyCharaNo();
+		if(enemyChrNo == Def_ChrNo_Izu)
+		{
+			BMvTbl.SetFinalizeCode(256);
+			// Battle_Std.SwitchNextMoveTable("Mv_Neutral", [256,"Mv_Skill_41236EX_Hit"]);
+			BMvTbl.SetPattern("Izumi");
+		}
+	}
+	function FrameUpdate_After()
+	{
+		if( BMvTbl.GetFinalizeCode() == 256 && Battle_Std.GetEnemyDistance() <= 25000 )
+		{
+			BMvTbl.SetFinalizeCode(128);
+			BMvTbl.JumpFrameID(100);
+			// BMvEff.ThrowParam( { pattern=910, x=350, y=0, } );
+			local enemy = BMvCore.GetEnemyCharaData();
+			// local ret = BMvEff.CapturePlayer( { target = enemy } );
+			
+			local enemy = BMvCore.GetNearEnemyCharaData();
+			if( enemy.push() )
+			{
+				BMvTbl.SetPattern(910);
+				
+				enemy.pop();
+			}		
+			//win910
+		}
+        // if(BMvTbl.GetMvStatus().FrameID==257)
+		// {
+			// local enemy = BMvCore.GetNearEnemyCharaData();
+			// if( enemy.push() )
+			// {
+				// if(BMvTbl.GetMvStatus().DataFrame==17)
+				// {
+					// BMvCore.CallEntryBCCachePreTransfer( { pat=910, frame=17, rest=30 } ); // 持ち上げのところ予約
+
+				// }
+				// enemy.pop();
+			// }		
+		// }
+		// local s = BMvTbl.GetMvStatus(); // ステータス取得
+		// local cp = BMvCore.GetCaptureCharaData();
+		// switch(Battle_Std.GetUpdateFrameID())
+		// {
+		// case 100:
+			// local enemy = BMvCore.GetEnemyCharaData();
+			// local ret = BMvEff.CapturePlayer( { target = enemy } );
+			// BMvEff.ThrowParam( { pattern=910 } );
+			// break;
+		// case 101:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=1, } );
+			// break;
+		// case 102:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=2, } );
+			// break;
+		// case 103:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=3, } );
+			// break;
+		// case 104:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=4, } );
+			// break;
+		// case 105:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=5, } );
+			// break;
+		// case 106:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=6, } );
+			// break;
+		// case 107:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=7, } );
+			// break;
+		// case 108:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=8, } );
+			// break;
+		// case 109:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=9, } );
+			// break;
+		// case 110:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=10, } );
+			// break;
+		// case 111:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=11, } );
+			// break;
+		// case 112:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=12, } );
+			// break;
+		// case 113:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=13, } );
+			// break;
+		// case 114:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=14, } );
+			// break;
+		// case 115:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=15, } );
+			// break;
+		// case 116:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=16, } );
+			// break;
+		// case 117:
+			// if(cp.isdone()) BMvEff.ThrowParam( {pattern=910, x=350, y=0, frame=17, } );
+			// break;
+		// }
+	// }
+	// function Finalize() // 移行時に呼び出される
+	// {
+		// if(BMvTbl.GetFinalizeCode() == 256)
+		// {
+			// Battle_Std.SwitchNextMoveTable("Mv_WinIzumi", [256,"Mv_WinIzumi"]);
+		// }
+		// Battle_Std.SwitchNextMoveTable("Mv_WinPatternEnd");
+	// }
+}
+
+t.Mv_WinIzumi <-
+{
+	function FrameUpdate() // フレーム更新処理
+	{
+		//常に相手のほうを向き続ける
+		BMvTbl.SetMuki( _Direction_Auto );
+		
+		BMvEff.AttackInfoString_Set({ word = Battle_Std.GetEnemyDistance() });
+		if( Battle_Std.CheckEnemyDistance( 300 ) )
+		{
+			// local enemy = BMvCore.GetEnemyCharaData();
+			// local ret = BMvEff.CapturePlayer( { target = enemy } );
+			// if( ret == 1 )
+			// {
+				// BMvTbl.SetFinalize(0);
+			// }
+			BMvTbl.JumpFrameID(256);
+			local enemy = BMvCore.GetNearEnemyCharaData();
+			if( enemy.push() )
+			{
+				// BMvCore.CallEntryBCCachePreTransfer( { pat=910, frame=0, rest=30 } ); // 持ち上げのところ予約
+				BMvTbl.SetPattern(910);
+				enemy.pop();
+			}		
+			//win910
+		}
+	}
+}
+
+// t.Mv_WinPatternEnd <-
+// {
+	// function Init_After() // 初回処理
+	// {
+		// BMvTbl.JumpFrameID( 256 );
+		
+		// local enemy = BMvCore.GetNearEnemyCharaData();
+		// if( enemy.push() )
+		// {
+			// BMvCore.CallEntryBCCachePreTransfer( { pat=330, frame=1, rest=30 } ); // 持ち上げのところ予約
+			
+			// enemy.pop();
+		// }		
+	// }
+	// function FrameUpdate_After()
+	// {
+		// local s = BMvTbl.GetMvStatus(); // ステータス取得
+		// switch(s.FrameID)
+		// {
+		// case 14330:
+			// Battle_Std.ThrowParam_WithHanteiEtc(330,1);	
+			// break;
+		// }
+	// }
+// }
 
 // local maketmpl_AirSlam = function( param={} )
 // {

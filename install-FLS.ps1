@@ -85,7 +85,7 @@ foreach ($junc in $chr.GetEnumerator()) {
 #hoping nobody uses an alt drive and i doubt most users bother with linuxfs... if it happens it happens
 $avater = Join-Path (Get-Location) "grpdat\Network\new\avater"
 $avadata = Join-Path $avater "data"
-$game = "C:\Program Files (x86)\Steam\steamapps\common\UNDER NIGHT IN-BIRTH II Sys Celes"
+$game = "C:\Program Files (x86)\Steam\steamapps\common\UNDER NIGHT IN-BIRTH II Sys Celes\data"
 datajunc -Jpath $avadata -Target $game
 
 Write-Host "If there are no errors, you're ready to play! Use Steam's Verify Integrity feature to return to vanilla."
