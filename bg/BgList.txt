@@ -57,7 +57,7 @@ BgList <-
 	// 0 ‚Í‘‚©‚È‚¢‚æ‚¤‚É
 	// “¯‚¶‚à‚Ì‚ð‘‚­‚Æ‚¢‚Á‚Ï‚¢o‚Ä‚­‚é‚Ì‚Å’ˆÓ
 	BgSelectList = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 16, 19, 23, 21, 20, 22, 24, 25, 26, 27,  //added missing stage 9 (boss)
-						30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 50, 90, 91, 45], 
+						30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 44, 50, 90, 91, 45], 
 	
 	/////////////////////////////////////////////////////////
 	Bg_001 =
@@ -1724,9 +1724,7 @@ BgList <-
 		StageSelTex = 41,
 	}
 
-	
-	
-	
+
 	Bg_050 =
 	{
 		Name = "ƒVƒGƒ‹‚Ì•”‰®i‰¼Ìj", // ‘SŠp32•¶Žš–¢–ž
@@ -1870,6 +1868,44 @@ BgList <-
 
 
 		StageSelTex = 29,
+	}
+	
+	Bg_044 =
+	{
+		Name = "ŽsŠX’n’†•EŒð·“_", // ‘SŠp32•¶Žš–¢–ž
+		DataFile = "bg001Net",
+
+		Scale = [ 2.0, 2.0, 2.0 ],
+		Position = [ 0.0, -0.05, 0.0 ],
+		ViewGrid = 1,
+		FOV = 45.0,
+		IsFog = 1,
+		FogStart = 50.0, FogEnd = 300.0, // ƒtƒHƒOŠJŽnˆÊ’uAI—¹ˆÊ’u
+		FogColor = [ 0.4, 0.0, 0.0, 1.0 ], // RGBA  0.39, 0.58, 0.92, 1.0 
+
+		MSAA = 4,
+		
+		StageW = 4096, // ¦1.06:(2560-128)
+
+		IsBloom = 1,
+		
+		BGBloomEnable = 1,			// OFF:0 / ON:1
+		BGBloomBlightness = 2.0,	// 0 ` 2
+		BGBloomPower = 3.00,			// 0.1 ` 5
+		BGBloomBiassR = 0.6,		// 0 ` 5
+		BGBloomBiassG = 0.5,		// 0 ` 5
+		BGBloomBiassB = 0.4,		// 0 ` 5
+		BGBloomBlurRadius = 5.80,	// 0 ` 10
+		BGBloomTextureSize = 256,	// 64 / 128 / 256 / 512 / 1024 ‚Ì“à‚Ç‚ê‚©BŒ©‚½–Ú‚ª‹–‚·ŒÀ‚èA‹É—Í¬‚³‚È’l‚ð‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢B
+		BGBloomAlpha = 0.8,			// 0 ` 1
+		BGTinyFXAAEnable = 0,		// OFF:0 / ON:1
+		BGTinyFXAAThreshold = 0.2,	// 0 ` 1
+		BGTinyFXAALerpT = 0.5,		// 0 ` 1
+		
+		ShadowScale  = 1.0, // 0.6
+		ShadowAlpha = 0.2, // 0.7
+
+		StageSelTex = 1,
 	}
 	
 

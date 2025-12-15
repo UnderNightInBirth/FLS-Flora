@@ -38,6 +38,9 @@
 039 = Sougetsu Clan Dojo
 040 = Crashing Waves by the Shoreline
 041 = Hillside Under the Hollow Night
+042 = Fateful Showdown
+043 = Town of Shadows
+044 = Metropolitan Center: Intersection (Virtual)
 050 = ???
 090 = <GR_BG_Stage090>
 091 = Moonlit Training Stage
