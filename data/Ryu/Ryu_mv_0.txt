@@ -264,7 +264,7 @@ t.Mv_Atk_StdB <-
 	function Init_After() : (check_NearAtk)
 	{
 		//近距離だったら別パターンにする
-		if( check_NearAtk( 280 )==1 )
+		if( check_NearAtk( 310 )==1 )
 		{
 			BMvTbl.SetPattern("Near_StdB");
 			Battle_Std.MoveCodeEx.AddFlag( 1, def_MC1_CharaFlag3 );
@@ -311,7 +311,7 @@ t.Mv_Atk_StdC <-
 	function Init_After() : (check_NearAtk)
 	{
 		//近距離だったら別パターンにする
-		if( check_NearAtk(225)==1 )
+		if( check_NearAtk(250)==1 )
 		{
 			BMvTbl.SetPattern("Near_StdC");
 			Battle_Std.MoveCodeEx.AddFlag( 1, def_MC1_CharaFlag3 );
@@ -640,7 +640,7 @@ t.Mv_Skill_41236SP <-
 	function Init_After()
 	{
 		BMvTbl.SetFinalizeCode(0); //初期状態が0でない＋GetFinalizeCodeで分岐してるので初期化
-		BMvEff.PcAfterImage_Set( {  type=0, range=12, delay=3, color=0xFFA80319, blendmode=0 } );
+		BMvEff.PcAfterImage_Set( {  type=0, range=15, delay=3, color=0xFFA80319, blendmode=0 } );
 	}
 	function FrameUpdate_After()
 	{
