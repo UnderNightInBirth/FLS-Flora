@@ -2,7 +2,7 @@
 
 <img src="https://github.com/user-attachments/assets/0ce958e8-e2f4-4f7b-a095-f958366e3cf0">
 
-FLS Flora Status: Ver 1.35 ✅
+FLS Flora Status: Ver 1.35.01 ✅
 
 # Quick Start:
 
