@@ -63,7 +63,7 @@ local t =
 	Skill_J63214A = {},
 	Skill_J63214B = {},
 
-	Atk_Std4B = {},
+	// Atk_Std4B = {},
 	Atk_Std6B = {},
 	Atk_Std4C = {},
 	Atk_Std6C = {},
