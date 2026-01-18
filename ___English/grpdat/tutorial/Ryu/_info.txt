@@ -15,6 +15,26 @@ skill= { recipe = [
 	} );
 }
 
+{ tmp.append( {
+            title=Def_TCName_BNB,
+            cat=Def_TCNum_Level2,
+            enemy = "—§",
+            stringID="chr_lv0_fastpushback01",
+            expl = Def_TCInfo_BNBLv1,
+            pos = "’†‰›",
+            skill={ recipe = ["2A","2C","NC","jc","JB","JC","J214B","NB","4C","41236B","2C","41236A"] },
+} ); }
+
+{ tmp.append( {
+            title=Def_TCName_BNBLv1,
+            cat=Def_TCNum_Level3,
+            enemy = "—§",
+            stringID="chr_lv0_fastpushback01",
+            expl = Def_TCInfo_Expl_PokePushBack_Rampage,
+            pos = "”÷‹ß",
+            skill={ recipe = ["2C","C","6C","236A","66","i4C","41236B","2B","NB","jc","JB","JC","J214B","NB","41236A"] },
+} ); }
+
 Table  <- GetMissionListTable();
 local skillParam = { charaNo = Def_ChrNo_Ryu, }
 Table.listcount = tmp.len();

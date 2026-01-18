@@ -334,6 +334,21 @@ GetSkillCheckTable <- function( param={} )
 	case Def_ChrNo_Izu:
 		ret_param.enemy = Def_ChrNo_Hyd;
 		break;
+		
+	// @@@@@@@@@@@@@@@@@@@ //
+	case Def_ChrNo_Rie:
+		ret_param.enemy = Def_ChrNo_Elt;
+		break;
+	case Def_ChrNo_Ako:
+		ret_param.enemy = Def_ChrNo_Hyd;
+		break;
+	case Def_ChrNo_Ing:
+		ret_param.enemy = Def_ChrNo_Ryu;
+		break;
+	case Def_ChrNo_Ryu:
+		ret_param.enemy = Def_ChrNo_Hyd;
+		break;
+		
 	default:
 		ret_param.enemy = Def_ChrNo_Hyd;
 		break;
@@ -1999,6 +2014,21 @@ local skillList =
 		common = { type=0,  text=WAAir+"\\@236+C@",  mvname=["Mv_Skill_J236C","Mv_FireBall_J236C"] },
 		[Def_ChrNo_Ako] = { type=0,  text=WAAir+"\\@236+C@",  mvname=["Mv_Skill_J236C","Mv_FireBall_J236C"] }, // @@@ //
 	},
+	["akoiJ236B"] = // @@@ what did i even do differently //
+	{
+		common = { type=0,  text=WAAir+"\\@236+B@",  mvname=["Mv_Skill_J236B","Mv_FireBall_J236B"] },
+		[Def_ChrNo_Ako] = { type=0,  text=WIC+WAAir+"\\@236+B@",  mvname=["Mv_Skill_J236B","Mv_FireBall_J236B"] }, // @@@ //
+	},
+	["akoiJ236A"] = // @@@ what did i even do differently //
+	{
+		common = { type=0,  text=WAAir+"\\@236+A@",  mvname=["Mv_Skill_J236A","Mv_FireBall_J236A"] },
+		[Def_ChrNo_Ako] = { type=0,  text=WIC+WAAir+"\\@236+A@",  mvname=["Mv_Skill_J236A","Mv_FireBall_J236A"] }, // @@@ //
+	},
+	["akoiJ236C"] = // @@@ what did i even do differently //
+	{
+		common = { type=0,  text=WAAir+"\\@236+C@",  mvname=["Mv_Skill_J236C","Mv_FireBall_J236C"] },
+		[Def_ChrNo_Ako] = { type=0,  text=WIC+WAAir+"\\@236+C@",  mvname=["Mv_Skill_J236C","Mv_FireBall_J236C"] }, // @@@ //
+	},
 	["Kuo_J236C"] = { type=0,  text=WAAir+"\\@6+B+C@",  mvname=["Mv_Skill_J236C","Mv_FireBall_J236C"] },
 	["J236EX"] = 
 	{
@@ -2241,10 +2271,28 @@ local skillList =
 	["632146C"] = { type=0,  text="\\@632146+C@",  mvname="Mv_Skill_63214C" },
 	["632146EX"] = { type=0,  text="\\@632146+C@",  mvname="Mv_Skill_63214EX" },
 	["632146AorC"] = { type=0,  text="\\@632146+AorC@",  mvname=["Mv_Skill_63214A","Mv_Skill_63214C","Mv_Skill_63214EX"] },//¦ƒI[ƒKípŽw“ì—p
+	// @@@ //
+	["41236A"] = {
+		common = { type=0,  text="\\@41236A@",  mvname="Mv_Skill_41236A" },
+	},
+	["41236B"] = {
+		common = { type=0,  text="\\@41236B@",  mvname="Mv_Skill_41236B" },
+	},
+	["J63214A"] = {
+		common = { type=0,  text=WAAir+"\\@63214A@",  mvname="Mv_Skill_J63214A" },
+	},
+	["J63214B"] = {
+		common = { type=0,  text=WAAir+"\\@63214B@",  mvname="Mv_Skill_J63214B" },
+	},
+	["J63214EX"] = {
+		common = { type=0,  text=WAAir+"\\@63214C@",  mvname="Mv_Skill_J63214EX" },
+	},
+	// @@@ //
 	["41236EX"] = {
 		common = { type=0,  text="\\@236B+C@",  mvname="Mv_Skill_41236EX" },
 		[Def_ChrNo_Hyd] = { type=0,  text="\\@236B+C@",  mvname="Mv_Skill_41236EX", pat=277 },
 		[Def_ChrNo_Hil] = { type=0,  text="\\@236B+C@",  mvname="Mv_HomingObject" },
+		[Def_ChrNo_Ryu] = { type=0,  text="\\@41236C@", mvname="Mv_Skill_41236EX" }, // @@@ //
 	},
 	["J41236EX"] = {
 		common = { type=0,  text=WAAir+"\\@236B+C@",  mvname=["Mv_Skill_J41236EX","Mv_FireBall_236EX","Mv_FireBall_236EX1","Mv_FireBall_236EX2","Mv_FireBall_236EX3","Mv_FireBall_236EX4"] },
