@@ -19,21 +19,22 @@ This modification relies on plenty of external sources for its assets. Without t
 
 - Ported from MBTL
 - All assets retained
+- Modified from the original mod to meet UNiB standards
 
 ### Ako
 
 - Ported from DFCI
 - Portrait Art: [JuNjUnBeAr](https://www.pixiv.net/en/artworks/56407234)
 
-### FLS Ryu (by StockSoul)
+### FLS Ryu (by StockSoul & modified by Fatih)
 
 - Sourced from the Street Fighter franchise
 - Sprites collected from [Vyn's MUGEN port](https://mugenguild.com/forum/topics/evil-ryu-updated-31102020-175984.0.html)
 - Portrait Art: Official Art by Kinu Nishimura (formerly CAPCOM)
 
-### In-Birth (EX) Hyde
+### In-Birth (EX) Hyde (by ReallyReal)
 
-- Joint collab mainly by StockSoul and ReallyReal
+- Reimagined Hyde moveset featuring stances and assists
 
 ### Celica (by InvertedKnight)
 
@@ -42,10 +43,6 @@ This modification relies on plenty of external sources for its assets. Without t
 ### Saki (by InvertedKnight)
 
 - COMING SOON
-
-### Yuuki (by WanderingSosuke)
-
-- Ported from DFCI
 
 ### Hermes
 
