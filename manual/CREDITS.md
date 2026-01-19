@@ -36,16 +36,6 @@ This modification relies on plenty of external sources for its assets. Without t
 
 - Reimagined Hyde moveset featuring stances and assists
 
-### Celica (by InvertedKnight)
-
-- COMING SOON
-
-### Saki (by InvertedKnight)
-
-- COMING SOON
-
-### Hermes
-
 ## BGM
 
 (some of these may or may not be here as "good" bgms are decided)
@@ -111,3 +101,8 @@ Most other edits within FLS Flora can be assumed to be the work of Fatih.
 - InvertedKnight
 - SegGel2009
 - Wolfedge75
+
+### Mission Makers
+
+- 2ndinsight
+- saturnael

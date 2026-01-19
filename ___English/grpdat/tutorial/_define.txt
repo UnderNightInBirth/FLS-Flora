@@ -346,9 +346,10 @@ GetSkillCheckTable <- function( param={} )
 		ret_param.enemy = Def_ChrNo_Ryu;
 		break;
 	case Def_ChrNo_Ryu:
-		ret_param.enemy = Def_ChrNo_Hyd;
+		ret_param.enemy = Def_ChrNo_Ing;
 		break;
-		
+	// @@@@@@@@@@@@@@@@@@@ //
+
 	default:
 		ret_param.enemy = Def_ChrNo_Hyd;
 		break;
