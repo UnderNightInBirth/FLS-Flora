@@ -755,13 +755,41 @@ t.Mv_Atk_Std4C <-
 	}
 }
 
-t.Mv_Skill_623A <-
+
+//-----------------------------------------------------------------------------
+// 	623
+//-----------------------------------------------------------------------------
+
+local maketmpl_DP = function( param={} )
 {
-	function FrameUpdate_After()
+	local ret_tmpl = {};
+
+	local mvParam =
 	{
-		Battle_Std.JumpFrameID_NotHoldButton({ mask=(1<<0), checkid=[100,200], jumpid=[101,201], endid=250 });
+		charge = 0,
 	}
-	function HitInterrupt_After() : (set_blackfiredamage)
+
+	switch( param.type )
+	{
+	case "A":
+		mvParam.charge = 1;
+		break;
+	case "B":
+		break;
+	case "EX":
+		break;
+	}
+	
+	ret_tmpl.FrameUpdate_After <- function() : (mvParam)
+	{
+		if(mvParam.charge)
+		{
+			Battle_Std.JumpFrameID_NotHoldButton({ mask=(1<<0), checkid=[100,200], jumpid=[101,201], endid=250 });
+		}
+	}
+
+	
+	ret_tmpl.HitInterrupt_After <- function()
 	{
 		if( Battle_Std.CheckDamageTiming() )
 		{
@@ -769,8 +797,14 @@ t.Mv_Skill_623A <-
 		}
 		set_blackfiredamage();
 	}
+	
+	return ret_tmpl;
+
 }
 
+t.Mv_Skill_623A <- maketmpl_DP( { type="A" } );
+t.Mv_Skill_623B <- maketmpl_DP( { type="B" } );
+t.Mv_Skill_623EX <- maketmpl_DP( { type="EX" } );
 
 //-----------------------------------------------------------------------------
 // 	U ’nãƒr[ƒ€
