@@ -9,11 +9,16 @@ t.Mv_Atk_DashStdC <-
 {
 	function Init_After()
 	{
+		BMvEff.PcAfterImage_Set( {  type=0, range=15, delay=3, color=0xFFA80319, blendmode=1 } );
 		local vp = BMvEff.GRD_GetJudgeResult() > 0;
 		local player = BMvCore.GetPlayerCharaData();
 		if( player.push() )
 		{
-			if( vp ) BMvTbl.SetSuperArmorFlag( { val=1, time=20, flag=0 } );
+			if( vp )
+			{
+				BMvTbl.SetSuperArmorFlag( { val=1, time=20, flag=0 } );
+				BMvEff.SetCharaColor({ color=0xFF0000, time=30, type=2 });
+			}
 			player.pop();
 		}
 	}
@@ -23,7 +28,7 @@ t.Mv_Atk_DashStdC <-
         local p_muki = BMvTbl.GetMuki();
 		
         local corner_distance = Battle_Std.GetFrontCornerDistance();
-		if( corner_distance < 1000 || BMvTbl.GetMvStatus().MvCount > 200) BMvTbl.SetFinalize();
+		if( corner_distance < 18000 || BMvTbl.GetMvStatus().MvCount > 140) BMvTbl.SetFinalize();
 	}
 	function HitInterrupt_After()
 	{
@@ -36,6 +41,10 @@ t.Mv_Atk_DashStdC <-
 			Battle_Std.MoveCodeEx.AddFlag( 1, def_MC1_ChainShiftOK ); // ƒc[ƒ‹‚ÅCS‰Â‚È‚ç‹óU‚èCS‰Â”\
 			BMvTbl.SetPattern("DashC_Miss");
 		}
+	}
+	function LastUpdate_After()
+	{
+		BMvEff.PcAfterImage_Clear();
 	}
 }
 
