@@ -4,6 +4,10 @@ This modification relies on plenty of external sources for its assets. Without t
 
 ## Character-Related
 
+### Tsurugi
+
+- Artwork Replacement by Wolfedge75
+
 ### Riesbyfe
 
 - Sourced from Melty Blood: Actress Again
