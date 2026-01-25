@@ -1,0 +1,460 @@
+__dofile__( "./data/_combase.txt" );
+// chr013
+
+//-------------------------------------------------------------
+// com動作生成
+
+local com = CCom(110); // COM用オブジェクト　最大数はできるだけギリギリに
+com.SetGuardAvg( 40 ); // ガード確率
+
+// 共通処理
+AddBasicMove( com, {
+	MoveFactor_Offence = 150, // 攻撃的な行動の発動率にかかる係数（50～150が目安）
+	MoveFactor_Diffence = 50, // 防御的な行動の発動率にかかる係数（50～150が目安）
+	
+	Skill_GuardIrekomi = def_CN_Skill_236A, // ガードされたときに入れ込む必殺技
+	Skill_HitIrekomi = def_CN_Skill_236B, // ヒットしたときに入れ込む必殺技
+	Skill_Taiku = def_CN_Skill_623A, // 対空で使う必殺技
+	Skill_Muteki = def_CN_Skill_623EX, // 無敵技
+	Skill_Kensei = def_CN_Skill_214A, // 牽制で使う必殺技
+	SKill_TuigekiEx = def_CN_Skill_214EX, // 追撃で使うＥＸ必殺技
+	
+	Atk_Taiku = "2B", // 対空で使う攻撃
+	Atk_Tobikomi = "C", // 飛び込みからのジャンプ攻撃
+	Atk_KenseiAir = "B", // 空中でけん制に使う攻撃
+	Atk_Teida = "C", // 低空ダッシュからのジャンプ攻撃
+	// Atk_AirBackDashAtk = "C", // グラつぶし低空バックダッシュで使う攻撃　バックダッシュ性能良すぎて当たらない
+	
+	Combo_Hiroi = { recipe = [ "B","B","623A" ] }, // 拾いコン
+	Combo_Aerial = { recipe = [ "B","GuardEnd","C",["9jc",14],{dl=7},"B","C","A+D" ] }, // エリアルコン
+	Combo_CroAKiso = { recipe=["2A","C","2C","B","2B",] }, // 基礎コン
+	
+	//-------キャラ固有の連携、コンボ--------
+	//※UNIと違いヒット確認までの連携、ヒット後のコンボ、ガード時の連携に分けて記述する
+	First_Seq = [ // First_Sequence 入れ込んでヒット確認する、ダッシュからの連携の始動　2~3ヒットくらいの連携を登録する
+		{ // 連携
+			xlen = 40000, // 発動距離
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "*A",{dl=4, random=4},"C" ], fintag="renkei_1" },
+				{ recipe=[ "*2A",{dl=4, random=4},"C" ], fintag="renkei_1" },
+				{ recipe=[ "*2A",{dl=7, random=4},"*2A",{dl=7, random=4},"2C" ], fintag="renkei_2" },
+				{ recipe=[ "A+D", ],  }, // 投げコンは汎用からも行けるように固有行動の最後に追加
+			],
+		},
+	], //First_Seq
+	Kensei_Seq = [ // 牽制技からの連携の始動　2~3ヒットくらいの連携を登録する
+		{ // 連携
+			x_range = [30000,45000], // 近距離
+			y_range = [0,20000], // 相手の位置が高すぎるとダメ
+			flag = ["OFFENCE"],
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "B",{dl=8, random=5},"C" ], fintag="Fin_Skill" },
+			],
+		},
+		{ // 連携
+			x_range = [0,62000], // 近距離
+			y_range = [20000,90000], // 相手が空中
+			flag = ["DIFFENCE"],
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "9", "B","C","GuardEnd",["9jc",14],{dl=7},"B","C","A+D" ],  },
+				{ recipe=[ "8", "B","C","GuardEnd",["9jc",14],{dl=7},"B","C","A+D" ],  },
+				{ recipe=[ "7", "B","C","GuardEnd",["9jc",14],{dl=7},"B","C","A+D" ],  },
+			],
+		},
+		{ // 連携
+			x_range = [40000,60000], // 近距離
+			y_range = [0,20000], // 相手の位置が高すぎるとダメ
+			flag = ["OFFENCE"],
+			comlv = [3,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "9","AirDash_F","A",{landwait=30},"*2A",{dl=4, random=4},"*2A",{dl=4, random=4},"2C" ], fintag="renkei_2" },
+				{ recipe=[ "9","AirDash_F","C",{landwait=30},"*2B","2C" ], fintag="renkei_2" },
+			],
+		},
+		{ // 連携
+			x_range = [20000,100000], // 中距離
+			flag = ["DIFFENCE"],
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "7", "AirDash_B","C", ],  },
+				{ recipe=[ "7",{dl=10}, ["J214A",30] ], },
+				{ recipe=[ "7",{dl=10}, ["J214B",40] ], },
+			],
+		},
+		{ // 連携
+			x_range = [0,60000], // 近距離
+			y_range = [0,20000], // 相手の位置が高すぎるとダメ
+			flag = ["OFFENCE"],
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "C", ], fintag="renkei_1" },
+				{ recipe=[ "2C", ], fintag="renkei_2" },
+				{ recipe=[ "214A", ], fintag="Fin_EXAD" },
+				{ recipe=[ "623B", ], },
+				{ recipe=[ "22B", ], },
+				{ recipe=[ "236B","C", ], },
+			],
+		},
+		{ // 連携
+			x_range = [0,60000], // 近距離
+			hazi_xlen = 80000,
+			y_range = [0,20000], // 相手の位置が高すぎるとダメ
+			flag = ["OFFENCE"],
+			gauge=[99,0],
+			comlv = [4,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "623B","214EX",{wait=60},"A","B","C","3C",{dl=20}], fintag="Fin_Aerial" },
+			],
+		},
+		{ // 連携
+			x_range = [30000,70000], // 近距離
+			y_range = [0,20000], // 相手の位置が高すぎるとダメ
+			flag = ["MD","OFFENCE"],
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "236B","C","MD", ], fintag="renkei_MD" },
+			],
+		},
+		
+		{ // 連携
+			x_range = [60000,75000], // 近距離
+			y_range = [0,20000], // 相手の位置が高すぎるとダメ
+			flag = ["MD","OFFENCE"],
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "236A","C","MD", ], fintag="renkei_MD" },
+			],
+		},
+		{ // 連携
+			x_range = [30000,100000], // 中距離
+			y_range = [0,20000], // 相手の位置が高すぎるとダメ
+			flag = ["OFFENCE"],
+			moon = 3000,
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "6BC", ], },
+				{ recipe=[ "4BC", ], },
+				{ recipe=[ "2BC", ], },
+			],
+		},
+		{ // 連携
+			x_range = [10000,70000], // 中距離
+			y_range = [0,70000],
+			flag = ["DIFFENCE"],
+			moon = 3000,
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "3BC",{irekomi=33},], fintag="Fin_3BC" },
+			],
+		},
+		{ // 連携
+			x_range = [60000,80000], // 中距離
+			flag = ["OFFENCE"],
+			moon = 3000,
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "9",{dl=7, random=3},"J6BC", ],  },
+				{ recipe=[ "7",{dl=7, random=3},["J4BC",30],"9jc",{dl=20,random=10},"C","B" ],  },
+			],
+		},
+	], //Kensei_Seq
+	Combo_Seq = [ // 連携がヒットした時のコンボ
+		{ // 連携
+			fintag = "renkei_1",
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "2C","3C",{dl=20}, ], fintag="Fin_Aerial" },
+			],
+		},
+		{ // 連携
+			fintag = "renkei_2",
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "C","3C",{dl=20}, ], fintag="Fin_Aerial" },
+			],
+		},
+		{ // 連携
+			fintag = "renkei_1",
+			comlv = [4,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "2C","2C","B",["214A",40],{wait=60},"2B","3C",{dl=20}, ], fintag="Fin_Aerial" },
+			],
+		},
+		{ // 連携
+			fintag = "renkei_2",
+			comlv = [4,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "C","B",["214A",40],{wait=60},"2C","3C",{dl=20}, ], fintag="Fin_Aerial" },
+			],
+		},
+		{ // 連携
+			fintag = "renkei_MD",
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ {dl=17},"C","B","3C",{dl=20}, ], fintag="Fin_Aerial" },
+			],
+		},
+	], //Combo_Seq
+	Guarded_Seq = [ // 連携がガードされた後の固め連携
+		{ // 連携
+			fintag = "renkei_1",
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "2B", ],  }, // 出し切り
+				{ recipe=[ "2B",{dl=10, random=14},"2C",{dl=10, random=14},"214A" ],  },
+				{ recipe=[ "2B",{dl=10, random=14},"2C","2A" ],  },
+				{ recipe=[ "2B",{dl=10, random=14},"2C","2A" ],  },
+				{ recipe=[ "2C", ], fintag="Fin_Skill" },
+			],
+		},
+		{ // 連携
+			fintag = "renkei_2",
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "C",{wait=2} ],  }, // 出し切り
+				{ recipe=[ "C",{dl=10, random=10},"214A" ],  },
+				{ recipe=[ "C","A" ],  },
+				{ recipe=[ "C", ], fintag="Fin_Skill" },
+				{ recipe=[ "C", ], fintag="Fin_Skill" },
+			],
+		},
+		{ // 連携
+			fintag = "Fin_Skill",
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ {dl=10, random=10},"236A" ],  },
+				{ recipe=[ {dl=10, random=10},"236A" ],  },
+				{ recipe=[ {dl=10, random=10},"236A",{dl=10, random=8},"A" ],  },
+				{ recipe=[ {dl=10, random=10},"236A",{dl=10, random=8},"B" ],  },
+				{ recipe=[ {dl=10, random=10},"236A",{dl=10, random=8},"C" ],  },
+			],
+		},
+		{ // 連携
+			fintag = "Fin_Skill",
+			comlv = [4,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "236B","C" ], fintag="Fin_EXAD" },
+				{ recipe=[ "623B" ],  },
+				{ recipe=[ "22B" ],  },
+			],
+		},
+		{ // 連携
+			fintag = "Fin_EXAD", // ガード時に入れ込む超技、ヒット分岐のためFinで始まる
+			gauge = [99,0], // 1ゲージ必要
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ "GuardEnd", ],  }, // EX技入れ込まないパターンもある
+				{ recipe=[ "214EX" ],  },
+			],
+		},
+		{ // 連携
+			fintag = "Fin_3BC",
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ {nmcancelwait=60},"7",{dl=3,random=5},"AirDash_B" ], },
+				{ recipe=[ {nmcancelwait=60},"7",{dl=3,random=5},"B" ], },
+			],
+		},
+	], //Guarded_Seq
+	Follow_Seq = [ // 空振り後のフォロー
+		{ // 連携
+			fintag = "Fin_3BC",
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ {nmcancelwait=60},"7",{dl=3,random=5},"AirDash_B" ], },
+				{ recipe=[ {nmcancelwait=60},"7",{dl=3,random=5},"B" ], },
+			],
+		},
+	], //Follow_Seq
+	Finish_Seq = [ // コンボの〆
+		{ // 連携
+			fintag = "Fin_Aerial",
+			comlv = [0,3],
+			// debug = 1,
+			list = [
+				{ recipe = [ "B","C","A+D" ] },
+			],
+		},
+		{ // 連携
+			fintag = "Fin_Aerial",
+			comlv = [4,4],
+			// debug = 1,
+			list = [
+				{ recipe = [ "B","C",["9jc",14],{dl=7},"B","C","A+D" ] },
+			],
+		},
+		{ // 連携
+			fintag = "Fin_Skill",
+			// debug = 1,
+			list =
+			[
+				{ recipe=[ "236A",{dl=12},"A" ], fintag="Fin_EXAD" },
+			]
+		},
+		{ // 連携
+			fintag = "Fin_EXAD",
+			y_range = [0,20000], // 相手の位置が高すぎるとダメ
+			gauge = [99,0], // 1ゲージ必要
+			// debug = 1,
+			list =
+			[
+				{ recipe=[ "236EX" ] },
+			]
+		},
+		{ // 連携
+			fintag = "Fin_EXAD",
+			gauge = [300,0], // 3ゲージ必要
+			// debug = 1,
+			list =
+			[
+				{ recipe=[ "AD" ] },
+			]
+		},
+		{ // 連携
+			fintag = "Fin_3BC",
+			comlv = [0,4],
+			// debug = 1,
+			list = [
+				{ recipe=[ {nmcancelwait=60},"9",{dl=5},"A+D" ],  },
+			],
+		},
+	], //Finish_Seq
+} );
+
+local stmp = 0;
+local mtmp = 0;
+local nowskillnum = 100;
+
+// 固有処理
+
+{	// 空中必殺技をおもむろに出す
+	stmp = com.GetSkill(nowskillnum); nowskillnum++;
+	// stmp.SetFlags( _eComSkillType_NoInterrupt | _eComSkillType_Interrupt ); // どこでも割り込み仕様
+	
+	stmp.SetLotWait( 0 ); // 終了、失敗時のウェイト
+	stmp.SetLotFailedAvg( 0 ); // 失敗確率
+	stmp.checkfunc = function() // チェック
+	{
+		local st = BCom.GetStatus();
+		//print( format(" Len:%d, %d\n",st.GetELenX(), st.GetELenY() ))
+		if( st.CheckPState( _eComState_Damage ) ) return 0; // 自分がやられ中はダメ
+		if( st.GetELenX() > 30000 ) return 0; // 近くないとダメ
+		if( st.CheckPosState( _PosState_Ground ) ) return 0; // 空中じゃないとだめ
+		if( st.CheckPosState_Enemy( _PosState_Ground ) ) return 0; // 相手が地上のときはだめ
+		if( st.GetELenY() >= 53000 ) return 0; // 自分より高い位置
+		if( st.GetELenY() <= 0 ) return 0; // 自分より高い位置
+		if( Battle_Std.CheckEnemyisUkemi() ) return 0;//相手が受け身中は無効
+
+		return com_frequency1; //com_frequency2; 当てるのがむずいので頻度少なめ
+	}
+	stmp.updatefunc = function() // 採用時の更新
+	{
+		local st = BCom.GetStatus();
+		
+		if( BCom.GetMoveTag() == "jp" ) // 
+		{
+			local next_ar = ["J236A","J236B"];
+			local next = next_ar[ BMvEff.Random_Limit(next_ar.len()) ];
+			
+			// print("\n next:"+next);
+			BCom.Move_Jump( next );
+		}	
+		return 1;
+	}
+	
+	// 
+	mtmp = stmp.PlusMove(); // 動き追加
+	mtmp.SetTag( "jp" );
+	mtmp.Set( 0, 0,  2, 0,  _eComMoveFlag_MoveEnd );
+	
+	mtmp = stmp.PlusMove(); // 動き追加
+	mtmp.SetTag( "J236A" );
+	mtmp.SetSpSkill( def_CN_Skill_J236A );
+	mtmp.Set( 0, 0,  30, 0,  _eComMoveFlag_HitEnd|_eComMoveFlag_GroundEnd|_eComMoveFlag_ThroughEnd| _eComMoveFlag_MoveEnd );
+	
+	mtmp = stmp.PlusMove(); // 動き追加
+	mtmp.SetTag( "J236B" );
+	mtmp.SetSpSkill( def_CN_Skill_J236B );
+	mtmp.Set( 0, 0,  30, 0,  _eComMoveFlag_HitEnd|_eComMoveFlag_GroundEnd|_eComMoveFlag_ThroughEnd| _eComMoveFlag_MoveEnd );
+}
+
+local ComMoveNum_ThrowAdd = nowskillnum;
+{	// 投げ派生コンボ
+	stmp = com.GetSkill(nowskillnum); nowskillnum++;
+	stmp.SetFlags( _eComSkillType_Interrupt ); // どこでも割り込み仕様
+	stmp.SetLotWait( 0 ); // 終了、失敗時のウェイト
+	stmp.SetLotFailedAvg( 0 ); // 失敗確率
+	stmp.checkfunc = function() : (ComMoveNum_ThrowAdd)// チェック
+	{
+		if( !Battle_Std.IsMatchMvNameArray(["Mv_Throw_F_Hit"]) )return 0;
+
+		local st = BCom.GetStatus();
+		if( !st.CheckEState( _eComState_Damage ) ) return 0; // 相手がやられ中じゃないとダメ
+		if( st.GetSkill() == ComMoveNum_ThrowAdd ) return 0; // この行動中でした
+
+		return com_frequency4;
+	}
+	stmp.updatefunc = function() // 採用時の更新
+	{
+		if( BCom.GetMoveTag() == "jp" ) // 
+		{
+			if( Battle_Std.GetFrontCornerDistance() <=50000 ) //　端が近い
+			{
+				BCom.Move_Jump( "Combo_Damage" );
+			}
+			else
+			{
+				BCom.Move_Jump( "Combo_Hakobi" );
+			}
+		}
+		return 1;
+	}
+	mtmp = stmp.PlusMove(); // 動き追加
+	mtmp.Set( 0, 0,  20, 0,  _eComMoveFlag_MoveableNext ); // 入力可能になるまでちょっと待つ、行動可能になったら次へ
+	
+	// 投げからのコンボ
+	mtmp = stmp.PlusMove(); // 動き追加
+	mtmp.SetTag( "jp" ); // 分岐
+	mtmp.Set( 0, 0,  2, 0,  _eComMoveFlag_MoveEnd );
+	
+	// ダメージ重視コンボ
+	mtmp = stmp.PlusMove(); // 動き追加
+	stmp.PlusTagChainCombo( "Combo_Damage", ["2C","2C","i214A",{wait=40},"B","C","3C",{dl=20}], "Fin_Aerial" );
+	
+	// 運び重視コンボ
+	mtmp = stmp.PlusMove(); // 動き追加
+	stmp.PlusTagChainCombo( "Combo_Hakobi", ["2C","C","B",["214A",40],{wait=40},"2C","3C",{dl=20}], "Fin_Aerial" );
+}
+
+// 最後にglobal_com_tmpへ渡す
+ComBase_GlobalComTmp_Set( com );
+
+print("\n\n>com Loaded<\n")
+

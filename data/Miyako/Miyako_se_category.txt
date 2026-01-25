@@ -1,0 +1,700 @@
+//-----------------------------------------------------------------------------
+// ＳＥ定義
+//-----------------------------------------------------------------------------
+
+Battle_Std.SeTable[Def_ChrNo_Miyako] = {};
+local se = Battle_Std.SeTable[Def_ChrNo_Miyako];
+
+
+// se["登場"] <- {
+	// selist = {
+		// common = [100,101,102,103,104,105],
+		// [Def_ChrNo_Chr002] = [740],//achievement_slot = 60　※スクリプト側
+		// // [Def_ChrNo_Chr003] = [700],//achievement_slot = 61　※スクリプト側
+	// },
+// }
+
+// se["登場ピンチ"] <- {
+	// selist = {
+		// common = [110,111,112],
+	// },
+// }
+
+// se["ラウンド勝利"] <- {
+	// selist = 
+	// {
+		// common = [120,121,122,123], 
+	// },
+	// [120] = { pattern = 955 },// 「ＹＥＳ！」
+	// [121] = { pattern = 955 },// 「やー♪」
+	// [122] = { pattern = 955 },// 「どうだっ！」
+	// [123] = { pattern = 950 },// 「はー、せいやっ！」
+// }
+
+// se["ラウンド勝利_タイムアップ"] <- {
+	// selist = 
+	// {
+		// common = [120,121], 
+	// },
+	// [120] = { pattern = 955 },// 「ＹＥＳ！」
+	// [121] = { pattern = 955 },// 「やー♪」
+// }
+
+// // 決着勝利_通常/辛勝/楽勝/タイムアップachievement_slot 70：遠野秋葉
+// // 71：遠野志貴
+// se["決着勝利_通常"] <- {
+	// selist = {
+		// common = [128,129,130,131],
+		// [Def_ChrNo_Chr002] = [741],//achievement_slot = 70
+		// [Def_ChrNo_Chr003] = [709,710,730],//achievement_slot = 71		
+	// },
+	// [128] = { pattern = 956 },// 「押忍！ありがとうございました！」
+	// [129] = { pattern = 950 },// 「ん～～～、ぜっこーちょー！」
+	// [130] = { pattern = 956 },// 「オッス！　勉強になりました！」
+	// [131] = { pattern = 950 },// 「見たか！これがあたしの八極拳だいっ！」
+	// //シキ
+	// [709] = { achievement_slot = 71, pattern = 955 },//　「ありがとうございましたー！」
+	// [710] = { achievement_slot = 71, pattern = 950 },//　「これがあたしの八極拳ですっ！」
+	// [730] = { achievement_slot = 71, pattern = 955 },//　「えへへ、お兄ちゃんつかまえた！」
+	// //アキハ
+	// [741] = { achievement_slot = 70, pattern = 950 },//「お兄ちゃんはあたしのお兄ちゃんなんだからーっ！」
+// }
+// se["決着勝利_辛勝"] <- {
+	// selist = {
+		// common = [132],
+		// [Def_ChrNo_Chr002] = [741],
+		// [Def_ChrNo_Chr003] = [715],//achievement_slot = 75
+	// },
+	// [132] = { pattern = 950 },// 「やったー！あたしの勝ちーっ！」
+	// // 遠野志貴
+	// [715] = { achievement_slot = 71, pattern = 956 },//　「さすがお兄ちゃん……よくわかんない強さでした……」
+	// // 遠野秋葉
+	// [741] = { achievement_slot = 70, pattern = 950 },//「お兄ちゃんはあたしのお兄ちゃんなんだからーっ！」
+// }
+// se["決着勝利_圧勝"] <- {
+	// selist = {
+		// common = [133],
+		// [Def_ChrNo_Chr002] = [741],
+		// [Def_ChrNo_Chr003] = [720],
+	// },
+	// [133] = { pattern = 950 },// 「えっへん、完全勝利！」
+	// // 遠野志貴
+	// [720] = { achievement_slot = 71, pattern = 950 }, //　「やったね、完全勝利！」
+	// // 遠野秋葉
+	// [741] = { achievement_slot = 70, pattern = 950 },//「お兄ちゃんはあたしのお兄ちゃんなんだからーっ！」
+// }
+
+// // 55：(条件付き勝利)対遠野志貴タイムアップ勝利
+// se["決着勝利_タイムアップ"] <- {
+	// selist = {
+		// common = [128,129,130,131],
+		// [Def_ChrNo_Chr002] = [741],
+		// [Def_ChrNo_Chr003] = [709,710,730],
+	// },
+	// [128] = { pattern = 956 },// 「押忍！ありがとうございました！」
+	// [129] = { pattern = 950 },// 「ん～～～、ぜっこーちょー！」
+	// [130] = { pattern = 956 },// 「オッス！　勉強になりました！」
+	// [131] = { pattern = 950 },// 「見たか！これがあたしの八極拳だいっ！」
+	// //シキ
+	// [709] = { achievement_slot = [55,71], pattern = 950 },//　「ありがとうございましたー！」
+	// [710] = { achievement_slot = [55,71], pattern = 950 },//　「これがあたしの八極拳ですっ！」
+	// [730] = { achievement_slot = [55,71], pattern = 955 },//　「えへへ、お兄ちゃんつかまえた！」
+	// //アキハ
+	// [741] = { achievement_slot = 70, pattern = 950 },//「お兄ちゃんはあたしのお兄ちゃんなんだからーっ！」	
+// }
+
+// se["挑発"] <- {
+	// selist = { common = [140,141], },
+	// [140] = { achievement_slot = 81 },
+	// [141] = { achievement_slot = 81 },
+// }
+
+// se["タイムアップ敗北"] <- {
+	// selist = { common = [150,151], },
+	// [Def_ChrNo_Chr003] = [150],//achievement_slot = 55
+// }
+
+// se["立ち弱攻撃"] <- {
+	// Param0 = 10,
+	// average = 75,
+	// selist = { common = [160], }
+// }
+// se["立ち中攻撃"] <- {
+	// Param0=10,
+	// average = 100,
+	// selist = { common = [166,169], }
+// }
+// se["立ち強攻撃"] <- [
+	// {
+		// Param0=10,
+		// average = 100,
+		// selist = { common = [173,221], }
+	// },
+]
+se["しゃがみ弱攻撃"] <- {
+	Param0=10,
+	average = 75,
+	selist = { common = [161,164], }
+}
+se["しゃがみ中攻撃"] <- {
+	Param0=10,
+	average = 100,
+	selist = { common = [168], }
+}
+se["しゃがみ強攻撃"] <- {
+	Param0=10,
+	average = 100,
+	selist = { common = [172,174], }
+}
+se["ジャンプ弱攻撃"] <- {
+	Param0=10,
+	average = 75,
+	selist = { common = [162], }
+}
+se["ジャンプ中攻撃"] <- {
+	Param0=10,
+	average = 100,
+	selist = { common = [167], }
+}
+se["ジャンプ強攻撃"] <- [
+	{
+		Param0=10,
+		average = 100,
+		selist = { common = [175,177], }
+	},
+]
+
+// se["リープ攻撃"] <- {
+	// selist = { common = [175,177], }
+// }
+
+// se["投げ成功"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [240,241], }
+	// },
+// ]
+
+// se["空中投げ成功"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [242,243], }
+	// },
+// ]
+
+
+// se["投げスカり"] <- {
+	// selist = { common = [250,251,252], }
+// };
+
+// se["投げ抜け"] <- {
+	// selist = { common = [260,261], }
+// }
+
+// se["振り向き"] <- {
+	// selist = { common = [270,271], }
+// }
+
+// /*
+// se["ジャンプ"] <- {
+	// average = 75,
+	// selist = { common = [280,281,282], }
+// }
+// */
+
+// se["前ダッシュ"] <- {
+	// average = 80,
+	// selist = { common = [290,291], }
+// }
+
+// se["空中前ダッシュ"] <- {
+	// selist = { common = [292,293], }
+// }
+
+// se["後ろダッシュ"] <- {
+	// selist = { common = [301,302], }
+// }
+
+// se["空中後ろダッシュ"] <- {
+	// selist = { common = [300], }
+// }
+
+// se["ガード弱"] <- {
+	// average = 50,
+	// selist = { common = [310,311,312], }
+// }
+
+// se["ガード中"] <- {
+	// average = 75,
+	// selist = { common = [320,321,322], }
+// }
+
+// se["ガード強"] <- {
+	// average = 100,
+	// selist = { common = [330,331,332], }
+// }
+
+// se["中段ガード成功"] <- {
+	// selist = { common = [340,341,342], }
+// }
+
+// se["ガード失敗"] <- {
+	// selist = { common = [350,351,352], }
+// }
+
+// se["受け身"] <- {
+	// selist = { common = [360,361,362,363], }
+// }
+
+// se["シールド発動"] <- {
+	// selist = { common = [370,371,372], }
+// }
+
+// se["シールド成功"] <- {
+	// selist = { common = [380,381,382,383], }
+// }
+
+// se["シールド反撃"] <- {
+	// selist = { common = [390,391,392], }
+// }
+
+// se["シールド裏反撃"] <- {
+	// selist = { common = [395,396,397], }
+// }
+
+// se["やられ弱"] <- {
+	// average = 50,
+	// selist = { common = [400,401,402], }
+// }
+
+// se["やられ中"] <- {
+	// average = 75,
+	// selist = { common = [410,411,412], }
+// }
+
+// se["やられ強"] <- {
+	// average = 100,
+	// selist = { common = [420,421,422], }
+// }
+
+// se["ラウンドＫＯ"] <- {
+	// dying = 1,
+	// average = 100,
+	// selist = { common = [431,432], },
+// }
+// se["決着ＫＯ"] <- {
+	// dying = 1,
+	// selist = { common = [440,441], }
+// }
+
+// se["ラウンドＫＯ_膝崩れ"] <- {
+	// dying = 1,
+	// average = 100,
+	// selist = { common = [430], },
+// }
+// se["決着ＫＯ_膝崩れ"] <- {
+	// dying = 1,
+	// selist = { common = [430], }
+// }
+
+// se["起き上がり"] <- {
+	// selist = { common = [450,451], }
+// }
+
+// se["起き上がり瀕死"] <- {
+	// selist = { common = [460], }
+// }
+
+// se["本気を出す"] <- {
+	// selist = { common = [470,471], }
+// }
+
+// se["ゲージ溜め"] <- {
+	// selist = { common = [480,481], }
+// }
+
+// se["強制開放"] <- {
+	// selist = { common = [490,491], }
+// }
+
+// se["ラストアーク攻撃"] <- {
+	// selist = { common = [222], }
+// }
+
+// //-----------------連携---------------------
+// se["Mv_Atk_RapidRelayAtk_FU"] <- [
+	// {
+		// Param0=10,
+		// selist = { common = [162], }
+	// }
+// ]
+
+// se["Mv_Skill_RapidStdB_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [181,182], }
+	// },
+// ]
+
+// se["Mv_Atk_Std6B_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [231], }
+	// },
+// ]
+
+// se["Mv_Atk_2C_2C_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [193], }
+	// },
+	// {
+		// Param0=20,//タメ
+		// selist = { common = [193], }
+	// },
+// ]
+
+// //-----------------必殺技---------------------
+
+// // 236
+// se["Mv_Skill_236A_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [500], }
+	// },
+// ]
+
+// se["Mv_Skill_236B_FU"] <-
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [502], }
+	// },
+// ]
+
+// se["Mv_Skill_236BC_FU"] <-
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [501], }
+	// },
+// ]
+
+// se["Mv_Skill_236EX_Init"] <- {
+	// average = 100,
+	// selist = { common = [505,506], }
+// }
+
+// // 214
+// se["Mv_Skill_214A_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [532], }
+	// },
+	// {
+		// Param0=20,//ため
+		// selist = { common = [232], }
+	// },
+// ]
+
+// se["Mv_Skill_214B_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [530], }
+	// },
+	// {
+		// Param0=15,
+		// selist = { common = [531], }
+	// },
+	// {
+		// Param0=20,//ため
+		// selist = { common = [170], }
+	// },
+	// {
+		// Param0=25,
+		// selist = { common = [192], }
+	// },
+// ]
+
+// se["Mv_Skill_214BC_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [532], }
+	// },
+// ]
+
+// se["Mv_Skill_214EX_Init"] <- 
+// [
+	// {
+		// selist = { common = [535,536,537], }
+	// },
+
+// ]
+
+
+
+// se["Mv_Skill_236A_AddA_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [510,512], }
+	// },
+// ]
+
+// se["Mv_Skill_236B_AddA_FU"] <- se["Mv_Skill_236A_AddA_FU"];
+
+// se["Mv_Skill_236A_AddB_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [520,522], }
+	// },
+// ]
+// se["Mv_Skill_236B_AddB_FU"] <- se["Mv_Skill_236A_AddB_FU"];
+// se["Mv_Skill_DashRoll_FU"] <- se["Mv_Skill_236A_AddB_FU"];
+
+// se["Mv_Skill_236A_AddC_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [525,211], }
+	// },
+// ]
+// se["Mv_Skill_236B_AddC_FU"] <- se["Mv_Skill_236A_AddC_FU"];
+
+// se["Mv_Skill_623A_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [540,541], }
+	
+	// },
+// ]
+
+// se["Mv_Skill_623B_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [540,541], }
+	// },
+// ]
+
+// se["Mv_Skill_623BC_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [540,541], }
+	// },
+// ]
+
+// se["Mv_Skill_623EX_Init"] <- {
+	// average = 100,
+	// selist = { common = [545,546,547,548], }
+// }
+
+// // 22
+// se["Mv_Skill_0202A_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [551,553], }
+	// },
+// ]
+
+// se["Mv_Skill_0202B_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [552], }
+	// },
+// ]
+
+// se["Mv_Skill_0202BC_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [551,553], }
+	// },
+// ]
+
+// se["Mv_Skill_0202EX_Init"] <- 
+// [
+	// {
+		// selist = { common = [555,556], },
+		// [555] = { delayframe=3 },//XXX:おかしい
+	// },
+// ]
+
+
+// // J236
+// se["Mv_Skill_J236A_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [570,571], }
+	
+	// },
+// ]
+
+// se["Mv_Skill_J236B_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [570,571], }
+	// },
+// ]
+
+// se["Mv_Skill_J236BC_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [570,571], }
+	// },
+// ]
+
+// se["Mv_Skill_J236EX_Init"] <- {
+	// average = 100,
+	// selist = { common = [572], }
+// }
+
+// // J214
+// se["Mv_Skill_J214A_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [580,581], }
+	
+	// },
+// ]
+
+// se["Mv_Skill_J214B_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [580,581], }
+	// },
+// ]
+
+// se["Mv_Skill_J214BC_FU"] <- 
+// [
+	// {
+		// Param0=10,
+		// selist = { common = [580,581], }
+	// },
+// ]
+
+// se["Mv_Skill_J214EX_Init"] <- {
+	// average = 100,
+	// selist = { common = [582], }
+// }
+
+
+// se["Mv_Skill_41236SP_Init"] <- {
+	// selist = 
+	// {
+		// common = [600,601,610,611,612],
+	// }
+// }
+
+// /*
+// se["Mv_Skill_41236SP_FU"] <- [
+	// {
+		// Param0=10,
+		// LastSE=625,
+		// selist = {
+		// common = [626],
+		// },
+	// },
+// ]
+// */
+
+// se["ラストアーク成立"] <- {
+	// selist = 
+	// {
+		// common = [620],
+	// }
+// }
+
+// se["Mv_Skill_LastArc_Hit_FU"] <- [
+	// {
+		// MvCount = 70,
+		// selist = {
+			// common = [621],
+		// },
+	// },
+	// {
+		// MvCount = 210,
+		// selist = {
+			// common = [622],
+		// },
+	// },
+	// {
+		// MvCount = 320,
+		// selist = {
+			// common = [623],
+		// },
+	// },
+	// {
+		// MvCount = 410,
+		// selist = {
+			// common = [624],
+		// },
+	// },
+	
+	// // パンダ師匠のボイス
+	// {
+		// MvCount = 40,
+		// selist = {
+			// common = [640],
+		// },
+	// },
+	// {
+		// MvCount = 80,
+		// selist = {
+			// common = [641],
+		// },
+	// },
+	// {
+		// MvCount = 195,
+		// selist = {
+			// common = [642],
+		// },
+	// },
+	// {
+		// MvCount = 320, // 都古に合わせる
+		// selist = {
+			// common = [643],// 「極彩と……」
+		// },
+	// },
+	// {
+		// MvCount = 410, // 都古に合わせる
+		// selist = {
+			// common = [644],// 「散れ！」
+		// },
+	// },
+// ]
+
+// //以下は未使用だけど音声は使っている
+// se["chr016_LastArcDamage_0"] <- {
+	// selist = 
+	// {
+		// common = [650],//あぶないミヤコ
+	// }
+// }
+
+// se["chr016_LastArcDamage_1"] <- {
+	// selist = 
+	// {
+		// common = [651],//シショー
+	// }
+// }
+

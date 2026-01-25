@@ -1,0 +1,122 @@
+//コマンドテーブル skillは格ゲーコマンド表記
+local t = {
+
+	// Skill_DashRoll =
+	// {
+		// num = def_CN_Skill_AddCommand1,
+		// command = ["6+A+B"],
+		// flags = [ "roundstart","lastdelay" ],
+		// CmdCheck = 
+		// {
+			// SkillType = "AddCommand",
+			// // SkillType = "None",
+			// MvCheck = { DoujiOnly = ["Mv_Dash_F"], MvCount = { Only="Mv_Dash_F", Limit = 4 } },
+			// // FrameIDCheck = { Only = 100 },//1つ前の行動のFrameIDは取得できない
+		// },
+		// function CmdBeforeFunc()
+		// {
+			// if( BMvTbl.GetPP(def_PP_CmdStatus)&def_PP_CS_DoujiDash_F ) return 0;
+			// return 1;
+		// }
+		// UpdateTable = { name = "Mv_Skill_DashRoll", }	
+	// }
+	
+	Skill_236A = {},
+	Skill_236BorC = {},
+	Skill_236EX = {},
+	Skill_236BC = {},
+	
+	Skill_236A_AddA = {},
+	Skill_236A_AddB = {},
+	Skill_236A_AddC = {},
+	
+	Skill_236B_AddA = {},
+	Skill_236B_AddB = {},
+	Skill_236B_AddC = {},
+	
+	Skill_623A = {},
+	Skill_623BorC = {},
+	Skill_623EX = {},
+	Skill_623BC = {},
+	
+	Skill_214A = {},
+	Skill_214BorC = {},
+	Skill_214EX = {},
+	Skill_214BC = {},
+	
+	Skill_0202A = {},
+	Skill_0202BorC = {},
+	Skill_0202EX = {},
+	Skill_0202BC = {},
+	
+	Skill_J236A = {},
+	Skill_J236BorC = {},
+	Skill_J236EX = {},
+	Skill_J236BC = {},
+	
+	Skill_J214A = {},
+	Skill_J214BorC = {},
+	Skill_J214EX = {},
+	Skill_J214BC = {},
+	
+	Atk_2C_2C = {},
+	Atk_Std3C = {},
+	Atk_Std6B = {},
+	Atk_Std6C = {},
+	Throw_A = {
+		CmdCheck = { SkillType = "AirThrow" },
+	},
+	
+	Skill_41236SP = {},
+	
+	// Skill_LastArcBlast = {},
+	// LastArc <- {};	
+	
+	MultiJump_F = {},
+	MultiJump_N = {},
+	MultiJump_B = {},
+
+}
+
+
+local ar =
+[
+	{
+		CheckMoveName="Mv_Atk_StdA",
+		UpdateMoveName="Mv_Atk_StdB",
+	},
+	{
+		ResetTmplName="Atk_StdB",
+		CheckMoveName="Mv_Atk_StdB",
+		UpdateMoveName="Mv_Atk_StdC",
+	},
+	{
+		ResetTmplName="Atk_StdC",
+		CheckMoveName="Mv_Atk_StdC",
+		UpdateMoveName="Mv_Skill_214A",
+	},
+	{
+		ResetTmplName="Skill_214A",
+		CheckMoveName="Mv_Skill_214A",
+		UpdateMoveName="Mv_Skill_SSRelayAtk",
+		CmdCheck = 
+		{
+			SkillType = "AddCommand",
+		}
+		CmdTmplFlags=def_CMDFlags_AnnounceSmaetSteer,
+	},
+	{
+		CheckMoveName="Mv_Skill_SSRelayAtk",
+		UpdateMoveName="Mv_Skill_41236SP",
+		CmdCheck = 
+		{
+			Cost = { ComboGauge = 20000 },
+			SkillType = "SpSpecial",
+			HitStatus="Damage",
+		}
+	},
+]
+Battle_Std.MakeStdCombo( t, ar );
+
+MIYAKO_CommandTable <- Battle_Std.MakeCommandTable( { command=t } );
+

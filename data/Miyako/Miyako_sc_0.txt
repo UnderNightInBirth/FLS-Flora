@@ -1,0 +1,8 @@
+_dp("\n[_sc.txt]");
+
+Battle_Status <-
+{
+	HpDivValue = [ 11700 ],
+}
+
+Battle_Std.InsertTable( Battle_Status, Battle_Std.GetStd_BattleStatusTable() ); //デフォルト
