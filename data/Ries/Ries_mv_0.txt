@@ -61,7 +61,7 @@ t.Mv_Startup <-
     {
 		BMvTbl.SetLP(11, 0); // Reset the Beast Mode once-per-round counter
 		BMvTbl.SetPP(10, 0); // Set flag to not allow multijump
-
+		
         if( Battle_Std.CheckTrainingCharaGaugeMode() ) // Check if we're in training with character specifics on
         {
             BMvEff.GRD_SetBreak( 0, def_GRDBF_NormalAtkDmg, def_GRDBF_NormalAtkDmg ); // GRD Break
@@ -1212,19 +1212,17 @@ t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
             }
 			BMvTbl.SetPP(10,1);
             BMvEff.CreateObject( { mvname="Mv_Obj_BeastMode" } );
-			Battle_Std.CreateObjectEX( { x=-128, y=-480, pat="Timer", mvname="Mv_Obj_Timer", flags=_Position_ToolShift } );
+			// Battle_Std.CreateObjectEX( { x=-128, y=-480, pat="Timer", mvname="Mv_Obj_Timer", objectflags=_ObjFlags_NoCamera|_ObjFlags_NoGround, flags=_Position_ToolShift } );
+			Battle_Std.CreateObjectEX( { pat="Timer", mvname="Mv_Obj_Timer", objectflags=_ObjFlags_NoCamera|_ObjFlags_NoGround, flags=_Position_ToolShift } );
 			BMvEff.SetBgSpeculer( { color=0x00999999 } );
 
 			local player = BMvCore.GetPlayerCharaData();
 			if (player.push() )
 			{
 				Battle_Std.MoveCode.AddFlag(def_MC_EnableCansel_SkilltoJump);
-				if( !Battle_Std.CheckPlayerisDamage() )
-				{
-					BMvTbl.SetSuperArmorFlag( { val=1, time=60, flag=0 } ) // Rampage
-				}
 				player.pop();
 			}
+			BMvEff.CreateObject( { mvname="Mv_Null_ArmorMng" } );
 			break;
 		case 2:
 			BMvTbl.JumpFrameID(3);
@@ -1248,6 +1246,26 @@ t.Mv_Skill_020202EX <- // Uses rotation input. Main Install mv
     {
         BSound.BGM_SetFade( { val=100, time=4 } );
     }
+}
+
+t.Mv_Null_ArmorMng <-
+{
+	function Update_After()
+	{
+		local player = BMvCore.GetPlayerCharaData();
+		if( player.push() )
+		{
+			if( !Battle_Std.CheckPlayerisDamage() )
+			{
+				BMvTbl.SetSuperArmorFlag( { val=1, time=2, flag=0 } );
+			}
+			player.pop();
+		}
+		if ( BMvTbl.GetPP(CDef_Rie_PP_InstallTimer) <= 500 )
+		{
+			BMvTbl.SetFinalize();
+		}
+	}
 }
 
 // t.DamageImpact <- function(info) : (chrFunc)
@@ -1341,10 +1359,17 @@ t.Mv_Obj_Timer <-
 {
 	function Init()
 	{
-		BMvEff.SetObjectFlags( { flags=_ObjFlags_MoveTimeStopAll|_ObjFlags_NoGround|_ObjFlags_NoCamera|_ObjFlags_NoRenderOrder|_ObjFlags_NoRenderBlackOut } );
-		BMvTbl.SetPosition( x=-128 * 128, y=-480 * 1024 );
+		BMvEff.SetObjectFlags( { flags=_ObjFlags_MoveTimeStopAll|_ObjFlags_NoGround|_ObjFlags_NoCamera|_ObjFlags_NoRenderBlackOut } );
+		// BMvTbl.SetPosition( x=-128 * 128, y=-480 * 1024 );
 		BMvTbl.SetMuki( _Direction_Right );
 		BMvTbl.SetPrio( _CharaPrio_Parent_BG );
+		local pl = BMvTbl.GetPlayerSide();
+		local posst = { x=48<<8, y=100, margin=64<<7 } ; //left edge
+		local pos = { x=posst.x, y=posst.y };
+		if( pl==0 ) { pos.x = -posst.x; }
+		else { pos.x = posst.x*0.68; }
+		BMvTbl.SetPosition( { x=pos.x, y=-250<<8 } );
+		BMvTbl.SetScale( { x=20000, y=20000 } );
 		
 	}
 	function FrameUpdate_After()
@@ -1372,18 +1397,23 @@ t.Mv_Obj_Timer <-
 			break;			
 		case 5:
 			BMvTbl.JumpFrameID(5);
+			BMvEff.SetCharaColor( { color = 0xFF0000, type = 1, intime = 0, time = 1 } );
 			break;
 		case 6:
 			BMvTbl.JumpFrameID(6);
+			BMvEff.SetCharaColor( { color = 0xFF0000, type = 1, intime = 0, time = 1 } );
 			break;			
 		case 7:
 			BMvTbl.JumpFrameID(7);
+			BMvEff.SetCharaColor( { color = 0xFF0000, type = 0, intime = 0, time = 1 } );
 			break;			
 		case 8:
 			BMvTbl.JumpFrameID(8);
+			BMvEff.SetCharaColor( { color = 0xFF0000, type = 0, intime = 0, time = 1 } );
 			break;			
 		case 9:
 			BMvTbl.JumpFrameID(9);
+			BMvEff.SetCharaColor( { color = 0xFF0000, type = 0, intime = 0, time = 1 } );
 			break;
 		default:
 			BMvTbl.JumpFrameID(9);
@@ -1416,7 +1446,7 @@ t.Mv_Obj_BeastMode <- // TODO This is the visual timer, time to make it into a r
 
         BMvTbl.AddPP(CDef_Rie_PP_InstallTimer, -1);
         // BMvTbl.SetScale({ x=(100*BMvTbl.GetPP(CDef_Rie_PP_InstallTimer)) });
-        BMvEff.AttackInfoString_Set({ word = BMvTbl.GetPP(CDef_Rie_PP_InstallTimer) });
+        // BMvEff.AttackInfoString_Set({ word = BMvTbl.GetPP(CDef_Rie_PP_InstallTimer) });
 
         if ( BMvTbl.GetPP(CDef_Rie_PP_InstallTimer) <= 0 )
         {
