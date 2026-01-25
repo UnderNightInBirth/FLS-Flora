@@ -1,9 +1,7 @@
 local t = {};
 
-//-----------------------------------------------------------------------------
-// å≈óLä÷êî
-//-----------------------------------------------------------------------------
-
+t.Mv_Walk_F <- { function FrameUpdate_After() {	BMvTbl.SetVector( { x=1300, y=0, addx=0, addy=0, flags=_Vector_Normal } ); } }
+t.Mv_Walk_B <- { function FrameUpdate_After() { BMvTbl.SetVector( { x=-800, y=0, addx=0, addy=0, flags=_Vector_Normal } ); } }
 
 t.Mv_Atk_DashStdC <-
 {
@@ -28,6 +26,7 @@ t.Mv_Atk_DashStdC <-
         local p_muki = BMvTbl.GetMuki();
 		
         local corner_distance = Battle_Std.GetFrontCornerDistance();
+
 		if( corner_distance < 18000 || BMvTbl.GetMvStatus().MvCount > 140) BMvTbl.SetFinalize();
 	}
 	function HitInterrupt_After()
@@ -64,6 +63,10 @@ t.Mv_Skill_SSRelayAtk <- // Steer Ender
 			local set_posx = -32*128*-muki; // teleport offset
 			local set_posy = -300*128; // teleport offset
 			BMvTbl.SetPosition({ x=epos.x+set_posx, y=epos.y+set_posy }); // teleport beside enemy
+			if( Battle_Std.CheckEnemyisDamage() )
+			{
+				BMvTbl.JumpFrameID(12);
+			}
             break;
         }
 	}
