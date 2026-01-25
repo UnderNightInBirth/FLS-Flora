@@ -43,8 +43,8 @@ local t =
 
 
 
-    Skill_J236A = { },
-    Skill_J236B = { },
+    Skill_J236A = { CmdCheck = { BallLimit = { [2] = 1 } } },
+    Skill_J236B = { CmdCheck = { BallLimit = { [4] = 1 } } },
     Skill_J236C = { },
 	
 	

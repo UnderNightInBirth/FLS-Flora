@@ -859,10 +859,10 @@ t.Mv_Skill_J236A <-
 		switch( Battle_Std.GetUpdateFrameID() )
 		{
 		case 5:
-			if(BMvTbl.GetLP(11))
-			{
-				BMvTbl.SetPattern("J236A_Atk");
-			}
+			// if(BMvTbl.GetLP(11))
+			// {
+				// BMvTbl.SetPattern("J236A_Atk");
+			// }
 		    Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<0), CheckFrameID=5, SetPattern="J236A_Atk" } );
 			break;
 		case 10:
@@ -870,7 +870,7 @@ t.Mv_Skill_J236A <-
 			break;
 		case 256:
 			BMvTbl.SetMuki(_Direction_Auto);
-			Battle_Std.CreateFireBall({ x=128, y=-455, mv="Mv_FireBall_J236A", pat="FB_J236A"});
+			Battle_Std.CreateFireBall({ x=128, y=-355, mv="Mv_FireBall_J236A", pat="FB_J236A", ball=2});
 			break;
 		}
 	}
@@ -903,10 +903,10 @@ t.Mv_Skill_J236B <-
 		switch( Battle_Std.GetUpdateFrameID() )
 		{
 		case 5:
-			if(BMvTbl.GetLP(11))
-			{
-				BMvTbl.SetPattern("J236B_Atk");
-			}
+			// if(BMvTbl.GetLP(11))
+			// {
+				// BMvTbl.SetPattern("J236B_Atk");
+			// }
 		    Battle_Std.SetPattern_NotHoldButton( { ButtonMask=(1<<1), CheckFrameID=5, SetPattern="J236B_Atk" } );
 			break;
 		case 10:
@@ -943,15 +943,12 @@ t.Mv_FireBall_J236A <-
 	}
 	function FrameUpdate_After()
 	{
-		// local s = BMvTbl.GetMvStatus();
-		// if( s.MvCount%5==0 )
-		// {
-			// Battle_Std.CreateObjectEX( { pat="236TamaFragment", FrameID=[10,20,30], objectflags=_ObjFlags_NoGround } );
-		// }
+		if( Battle_Std.GetUpdateFrameID() == 0 && ( Battle_Std.CheckPlayerisDamage( 1 ) || BMvTbl.GetPosition().y >= -7500 ) ) BMvTbl.JumpFrameID(256);
+				BMvEff.AttackInfoString_Set({ word = BMvTbl.GetPosition().y });
+
 	}
 	function HitInterrupt_After()
 	{
-
 		if( Battle_Std.CheckDamageTiming() )
 		{
 			BMvTbl.JumpFrameID(256);
@@ -989,7 +986,7 @@ t.Mv_FireBall_J236B <-
 	function FrameUpdate_After()
 	{
 		local s = BMvTbl.GetMvStatus();
-		if( s.MvCount>=160 && BMvTbl.GetLP(0)==0 )
+		if( ( s.MvCount>=120 && BMvTbl.GetLP(0)==0 ) || Battle_Std.CheckPlayerisDamage( 1 ) )
 		{
 			BMvTbl.SetLP(0,1);
 			BMvTbl.JumpFrameID(256);
@@ -997,11 +994,7 @@ t.Mv_FireBall_J236B <-
 	}
 	function HitInterrupt_After()
 	{
-		if( Battle_Std.CheckGuardTiming() )
-		{
-			BMvTbl.JumpFrameID(256);
-		}
-		if( Battle_Std.CheckDamageTiming() )
+		if( Battle_Std.CheckGuardTiming() || Battle_Std.CheckDamageTiming() )
 		{
 			BMvTbl.JumpFrameID(256);
 		}
