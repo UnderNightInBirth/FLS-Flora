@@ -57,6 +57,100 @@ st[30] = {volumetype=1, path=1, file="SND_PL0F_30", type=0, category=1, };
 st[31] = {volumetype=1, path=1, file="SND_PL0F_31", type=0, category=-1, };
 st[32] = {volumetype=1, path=1, file="SND_PL0F_32", type=0, category=-1, };
 
+
+st[100] = {volumetype=1, path=1, file="TVC_01", type=0, category=-1, }; // A
+st[101] = {volumetype=1, path=1, file="TVC_02", type=0, category=-1, }; // 2A
+st[102] = {volumetype=1, path=1, file="TVC_03", type=0, category=-1, }; // 4C
+st[103] = {volumetype=1, path=1, file="TVC_04", type=0, category=-1, }; // B
+
+st[105] = {volumetype=1, path=1, file="TVC_06", type=0, category=-1, }; // tsei 6c
+st[106] = {volumetype=1, path=1, file="TVC_07", type=0, category=-1, };
+st[107] = {volumetype=1, path=1, file="TVC_08", type=0, category=-1, };
+st[108] = {volumetype=1, path=1, file="TVC_09", type=0, category=-1, };
+st[109] = {volumetype=1, path=1, file="TVC_10", type=0, category=-1, };
+
+st[300] = {volumetype=1, path=1, file="TVC_Die", type=0, category=-1, };
+st[310] = {volumetype=1, path=1, file="TVC_Hadoken", type=0, category=-1, };
+st[312] = {volumetype=1, path=1, file="TVC_Shoryuken", type=0, category=-1, };
+st[311] = {volumetype=1, path=1, file="TVC_HadokenEX", type=0, category=-1, };
+st[313] = {volumetype=1, path=1, file="TVC_Tatsumaki", type=0, category=-1, };
+st[320] = {volumetype=1, path=1, file="TVC_Nikita", type=0, category=-1, };
+st[330] = {volumetype=1, path=1, file="TVC_Shinku", type=0, category=-1, };
+
+st[340] = {volumetype=1, path=1, file="TVC_Win", type=0, category=-1, };
+
+
+st[120] = {volumetype=1, path=1, file="og_doriya", type=0, category=-1, };
+st[125] = {volumetype=1, path=1, file="og_yell", type=0, category=-1, }; //3c
+
+st[255] = {volumetype=1, path=1, file="og_hadoken", type=0, category=-1, };
+st[264] = {volumetype=1, path=1, file="og_messatsu", type=0, category=-1, };
+st[265] = {volumetype=1, path=1, file="og_Shoryu", type=0, category=-1, };
+
+st[500] = {volumetype=1, path=1, file="STRM_08837", type=0, category=-1, }; //ware...
+st[501] = {volumetype=1, path=1, file="STRM_08838", type=0, category=-1, }; //ware wa ken wo kirameshi
+st[502] = {volumetype=1, path=1, file="STRM_08839", type=0, category=-1, }; //+ mononari
+st[503] = {volumetype=1, path=1, file="STRM_08840", type=0, category=-1, }; //subete o...
+st[510] = {volumetype=1, path=1, file="STRM_08815", type=0, category=-1, }; //metsu
+st[511] = {volumetype=1, path=1, file="STRM_08816", type=0, category=-1, }; //zetsu
+st[512] = {volumetype=1, path=1, file="STRM_08817", type=0, category=-1, }; //korosu
+st[520] = {volumetype=1, path=1, file="STRM_08818", type=0, category=-1, }; //maken
+st[521] = {volumetype=1, path=1, file="STRM_08819", type=0, category=-1, }; //maken
+st[522] = {volumetype=1, path=1, file="STRM_08820", type=0, category=-1, }; //maken
+st[523] = {volumetype=1, path=1, file="STRM_08821", type=0, category=-1, }; //maken
+
+st[530] = {volumetype=1, path=1, file="SQ_08959", type=0, category=-1, }; //maken
+st[531] = {volumetype=1, path=1, file="SQ_08960", type=0, category=-1, }; //maken
+st[532] = {volumetype=1, path=1, file="SQ_08966", type=0, category=-1, }; //maken
+st[533] = {volumetype=1, path=1, file="SQ_08969", type=0, category=-1, }; //maken
+st[534] = {volumetype=1, path=1, file="SQ_08970", type=0, category=-1, }; //maken
+st[535] = {volumetype=1, path=1, file="SQ_08976", type=0, category=-1, }; //maken
+st[536] = {volumetype=1, path=1, file="SQ_08979", type=0, category=-1, }; //maken
+st[537] = {volumetype=1, path=1, file="SQ_08980", type=0, category=-1, }; //maken
+st[538] = {volumetype=1, path=1, file="SQ_08981", type=0, category=-1, }; //maken
+st[539] = {volumetype=1, path=1, file="SQ_08982", type=0, category=-1, }; //maken
+
+st[540] = {volumetype=1, path=1, file="SQ_08983", type=0, category=-1, }; //maken
+st[541] = {volumetype=1, path=1, file="SQ_08984", type=0, category=-1, }; //maken
+st[542] = {volumetype=1, path=1, file="SQ_08986", type=0, category=-1, }; //maken
+
+st[545] = {volumetype=1, path=1, file="SQ_05334", type=0, category=-1, }; //maken
+st[546] = {volumetype=1, path=1, file="SQ_05373", type=0, category=-1, }; //maken
+st[547] = {volumetype=1, path=1, file="SQ_05391", type=0, category=-1, }; //maken
+st[548] = {volumetype=1, path=1, file="SQ_05395", type=0, category=-1, }; //maken
+
+st[550] = {volumetype=1, path=1, file="STRM_08834", type=0, category=-1, }; //maken
+st[551] = {volumetype=1, path=1, file="STRM_08835", type=0, category=-1, }; //maken
+st[552] = {volumetype=1, path=1, file="STRM_08836", type=0, category=-1, }; //maken
+
+st[555] = {volumetype=1, path=1, file="STRM_08822", type=0, category=-1, }; //maken
+st[556] = {volumetype=1, path=1, file="STRM_08823", type=0, category=-1, }; //maken
+st[557] = {volumetype=1, path=1, file="STRM_08824", type=0, category=-1, }; //maken
+st[558] = {volumetype=1, path=1, file="STRM_08825", type=0, category=-1, }; //maken
+
+
+st[560] = {volumetype=1, path=1, file="STRM_08826", type=0, category=-1, }; //maken
+st[561] = {volumetype=1, path=1, file="STRM_08827", type=0, category=-1, }; //maken
+st[562] = {volumetype=1, path=1, file="STRM_08828", type=0, category=-1, }; //maken
+st[563] = {volumetype=1, path=1, file="STRM_08829", type=0, category=-1, }; //maken
+
+st[565] = {volumetype=1, path=1, file="SQ_08962", type=0, category=-1, }; //maken
+st[566] = {volumetype=1, path=1, file="SQ_08963", type=0, category=-1, }; //maken
+st[567] = {volumetype=1, path=1, file="SQ_08964", type=0, category=-1, }; //maken
+st[568] = {volumetype=1, path=1, file="SQ_08965", type=0, category=-1, }; //maken
+
+st[570] = {volumetype=1, path=1, file="SQ_05387", type=0, category=-1, }; //maken
+st[571] = {volumetype=1, path=1, file="SQ_05388", type=0, category=-1, }; //maken
+st[572] = {volumetype=1, path=1, file="SQ_05389", type=0, category=-1, }; //maken
+st[573] = {volumetype=1, path=1, file="SQ_05390", type=0, category=-1, }; //maken
+
+st[575] = {volumetype=1, path=1, file="STRM_08830", type=0, category=-1, }; //maken
+st[576] = {volumetype=1, path=1, file="STRM_08831", type=0, category=-1, }; //maken
+st[577] = {volumetype=1, path=1, file="STRM_08832", type=0, category=-1, }; //maken
+st[578] = {volumetype=1, path=1, file="STRM_08833", type=0, category=-1, }; //maken
+
+
+
 //st[10] = { volumetype=0, path=2, file="SE_BigBomb_Short", type=1, category=-1, }; //ê_ïóÇ∆Ç«Çﬂîöî≠
 //
 //st[15] = { volumetype=0, path=0, file="SE011", type=1, category=-1, }; // ÉrÉäÉrÉä
