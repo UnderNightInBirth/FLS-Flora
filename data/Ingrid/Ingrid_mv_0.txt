@@ -465,6 +465,18 @@ t.Mv_FireBall_236C <- {
 				local enemyPos = BMvTbl.GetPosition();
 				enemy.pop();
 	
+				// FASTSLOW
+				// local offsetX = enemyPos.x - myPos.x;
+				// local offsetY = enemyPos.y - myPos.y;
+				// local frame = 10;
+				
+				// local moveX = offsetX / frame;
+				// local moveY = offsetY / frame;
+				
+				// BMvTbl.SetPosition({ x=moveX, y=moveY, flags=_Position_Add });
+				// BMvTbl.SetVector({ x=moveX, y=moveY, flags=_Vector_Normal });
+				
+				// SLOWFAST
 				local ex = (enemyPos.x + 400*128) - myPos.x;
 				local ey = (enemyPos.y - 200*128) - myPos.y;
 				local frame = 12;
@@ -477,6 +489,27 @@ t.Mv_FireBall_236C <- {
 				
 				BMvTbl.SetPosition({ x=moveX, y=0, flags=_Position_Add });
 				BMvTbl.SetVector({ x=moveX, y=moveY, flags=_Vector_Normal });
+							
+				//LINEAR
+				
+				// local offsetX = enemyPos.x - myPos.x;
+				// local offsetY = enemyPos.y - myPos.y;
+				
+				// local ax = abs(offsetX);
+				// local ay = abs(offsetY);
+				// local max = (ax > ay) ? ax : ay;
+				
+				// local speed = 20; // fixed move speed per frame
+				
+				// if(max > 0) {
+					// local moveX = offsetX / max * speed;
+					// local moveY = offsetY / max * speed;
+				
+					// BMvTbl.SetPosition({ x=moveX, y=moveY, flags=_Position_Add });
+					// BMvTbl.SetVector({ x=moveX, y=moveY, flags=_Vector_Normal });
+				// }
+			
+				
 			}
         }
     }

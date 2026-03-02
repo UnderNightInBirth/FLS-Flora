@@ -13,270 +13,270 @@ SeList_Table.Path.append( "./se/normal_se/" ); // 0: Global SE
 SeList_Table.Path.append( "./se/battle_se/Ako/" ); // 1: Character Voice
 SeList_Table.Path.append( "./se/battle_se/" ); // 2: Battle SE
 
-SeList_Table.Status.resize(650); // ç¢ºä¿
-local st = SeList_Table.Status; // ç™»éŒ²ã—ã‚„ã™ã„ã‚ˆã†ã«çœç•¥
+SeList_Table.Status.resize(650); // Šm•Û
+local st = SeList_Table.Status; // “o˜^‚µ‚â‚·‚¢‚æ‚¤‚ÉÈ—ª
 
 
-st[50] = { path=1, file="Heal", type=1, category=4, }; // ãƒ’ãƒ¼ãƒ«ï¼ˆ214ï¼‰
-st[51] = { path=1, file="Magic_Chant", type=1, category=4, }; // é­”æ³•è© å”±
-st[52] = { path=1, file="Soiya", type=1, category=4, }; // ã‚½ã‚¤ãƒ¤ã§ãƒãƒ¼ã‚’æ­¢ã‚ãŸéŸ³
-st[53] = { path=1, file="GroundCrap", type=1, category=4, }; // åºŠãƒãƒ³
-st[54] = { path=1, file="Levelup", type=1, category=4, }; // ãƒ¬ãƒ™ãƒ«ã‚¢ãƒƒãƒ—
+st[50] = { path=1, file="Heal", type=1, category=4, }; // ƒq[ƒ‹i214j
+st[51] = { path=1, file="Magic_Chant", type=1, category=4, }; // –‚–@‰r¥
+st[52] = { path=1, file="Soiya", type=1, category=4, }; // ƒ\ƒCƒ„‚Åƒo[‚ğ~‚ß‚½‰¹
+st[53] = { path=1, file="GroundCrap", type=1, category=4, }; // °ƒoƒ“
+st[54] = { path=1, file="Levelup", type=1, category=4, }; // ƒŒƒxƒ‹ƒAƒbƒv
 
-st[60] = { volumetype=0, path=2, file="SE_Skating", type=1, category=-1, }; //ãƒ€ãƒƒã‚·ãƒ¥
-st[61] = { volumetype=0, path=2, file="SE_IceLong", type=1, category=-1, }; //æ°·ã‚„ã‚‰ã‚Œç‰¹å¤§
-st[62] = { volumetype=0, path=2, file="SE_IceShort", type=1, category=-1, }; //æ°·ã‚„ã‚‰ã‚Œ
-st[63] = { volumetype=0, path=2, file="SE_LaserBeam", type=1, category=-1, }; // ãƒ“ãƒ¼ãƒ 
-st[64] = { volumetype=0, path=2, type=1, category=-1, file="SE_ManaBurst" }; //é­”åŠ›å¼¾è‡¨ç•Œ
-st[65] = { path=2, file="SE_ManaCharge", type=1, category=-1, }; //çˆ†å¼¾çˆ†ç™ºå‰é›†ä¸­
-st[66] = { volumetype=0, path=2, file="SE_BombInsulator", type=1, category=-1, }; // IW ãƒ“ãƒ¼ãƒ 
-st[67] = { volumetype=0, path=2, file="SE_BombSlash", type=1, category=-1, }; // IWE ãƒ“ãƒ¼ãƒ ç ´è£‚
+st[60] = { volumetype=0, path=2, file="SE_Skating", type=1, category=-1, }; //ƒ_ƒbƒVƒ…
+st[61] = { volumetype=0, path=2, file="SE_IceLong", type=1, category=-1, }; //•X‚â‚ç‚ê“Á‘å
+st[62] = { volumetype=0, path=2, file="SE_IceShort", type=1, category=-1, }; //•X‚â‚ç‚ê
+st[63] = { volumetype=0, path=2, file="SE_LaserBeam", type=1, category=-1, }; // ƒr[ƒ€
+st[64] = { volumetype=0, path=2, type=1, category=-1, file="SE_ManaBurst" }; //–‚—Í’e—ÕŠE
+st[65] = { path=2, file="SE_ManaCharge", type=1, category=-1, }; //”š’e”š”­‘OW’†
+st[66] = { volumetype=0, path=2, file="SE_BombInsulator", type=1, category=-1, }; // IW ƒr[ƒ€
+st[67] = { volumetype=0, path=2, file="SE_BombSlash", type=1, category=-1, }; // IWE ƒr[ƒ€”j—ô
 
-st[90] = { volumetype=1, path=1, file="Ako00_2076", type=0, category=1}; // ãƒªã‚¢å……ãƒãƒƒãƒˆã‚²ãƒ¼ãƒãƒ¼â€¦â€¦æ•µã§ã™ã­ã€‚
-st[91] = { volumetype=1, path=1, file="Ako00_2077", type=0, category=1}; // ã‚ã€ãƒ‹ãƒ¼ãƒˆå¸«åŒ ï¼ã“ã‚“ã«ã¡ã‚ãƒ¼ï¼ï¼
-st[92] = { volumetype=1, path=1, file="Ako00_2079", type=0, category=1}; // å¯æ„›ã„ã¯â€¦â€¦æ­£ç¾©ã§ã™ï¼
-st[93] = { volumetype=1, path=1, file="Ako00_2080", type=0, category=1}; // äººç”Ÿã£ã¦è¶…é›£é–¢ã‚¯ã‚¨ã‚¹ãƒˆã§ã™ã­â€¦â€¦
-
-
-st[100] = { volumetype=1, path=1, file="Ako00_2000", type=0, category=1}; // è² ã‘ã¦ã‚‚æ€’ã‚‰ã‚Œãªã„ã§ã™ã‚ˆã­ï¼Ÿ
-st[101] = { volumetype=1, path=1, file="Ako00_2001", type=0, category=1}; // ç§ã ã£ã¦ä¸€åº¦ãã‚‰ã„ã¯å‹ã£ã¦ã¿ã›ã¾ã™ï¼
-st[102] = { volumetype=1, path=1, file="Ako00_2002", type=0, category=1}; // ãƒ«ã‚·ã‚¢ãƒ³ã«ã¯æ‰‹ã‚’å‡ºã•ã›ã¾ã›ã‚“ï¼
-st[103] = { volumetype=1, path=1, file="Ako00_2003", type=0, category=1}; // ãã®ãã‚Œã„ãªé ­ã‚’ãµã£ã¨ã°ã—ã¦ã‚„ã‚Šã¾ã™ï¼
-
-st[110] = { volumetype=1, path=1, file="Ako00_2100", type=0, category=1}; // ãƒªã‚¢å……ã ã„ã°ãã¯ã¤ã§ã™ï¼
-st[111] = { volumetype=1, path=1, file="Ako00_2101", type=0, category=1}; // ã‚„ã‚Šã¾ã—ãŸãƒ¼ï¼
-st[112] = { volumetype=1, path=1, file="Ako00_2102", type=0, category=1}; // ã¤ã€ç–²ã‚Œã¾ã—ãŸãƒ¼
-st[113] = { volumetype=1, path=1, file="Ako00_2103", type=0, category=1}; // ã‚¢ã‚³ã¡ã‚ƒã‚“å¤§å‹åˆ©ã§ã™ã­ï¼
-
-st[122] = { volumetype=1, path=1, file="Ako00_2152", type=0, category=1}; // ã‚Œã€ãƒ¬ãƒ™ãƒ«ã‚¢ãƒƒãƒ—ã—ã¾ã—ãŸï¼
-st[123] = { volumetype=1, path=1, file="Ako00_2153", type=0, category=1}; // ã›ã€æˆé•·ã—ã¾ã—ãŸãƒ¼ï¼
-
-st[130] = { volumetype=1, path=1, file="Ako00_2200", type=0, category=1}; // ãŸã¯ãƒ¼â€¦â€¦ã€‚
-st[131] = { volumetype=1, path=1, file="Ako00_2201", type=0, category=1}; // æ™‚ã™ã§ã«æ™‚é–“åˆ‡ã‚Œã§ã™â€¦â€¦ã€‚
-
-st[140] = { volumetype=1, path=1, file="Ako00_2300", type=0, category=1}; // ã¯ 
-st[141] = { volumetype=1, path=1, file="Ako00_2301", type=0, category=1}; // ã‚ˆ 2a
-st[142] = { volumetype=1, path=1, file="Ako00_2302", type=0, category=1}; // ãµ
-st[143] = { volumetype=1, path=1, file="Ako00_2303", type=0, category=1}; // ã‚„ 5a
-st[144] = { volumetype=1, path=1, file="Ako00_2304", type=0, category=1}; // ãŸ 
-
-st[150] = { volumetype=1, path=1, file="Ako00_2400", type=0, category=1}; // ãˆã„ã£
-st[151] = { volumetype=1, path=1, file="Ako00_2401", type=0, category=1}; // ã¦ã„ã£ 5b
-st[152] = { volumetype=1, path=1, file="Ako00_2402", type=0, category=1}; // ã‚„ã‚ã£ 2b
-st[153] = { volumetype=1, path=1, file="Ako00_2403", type=0, category=1}; // ã›ã„ã£ 5b
-st[154] = { volumetype=1, path=1, file="Ako00_2404", type=0, category=1}; // ã¨ã†ã£ 2b
-st[155] = { volumetype=1, path=1, file="Ako00_2405", type=0, category=1}; // ã¦ã‚„ã£
-st[156] = { volumetype=1, path=1, file="Ako00_2406", type=0, category=1}; // ã¯ã‚ã£
-
-st[160] = { volumetype=1, path=1, file="Ako00_2500", type=0, category=1}; // ãˆãƒ¼ã„ã£ï¼ 5c
-st[161] = { volumetype=1, path=1, file="Ako00_2501", type=0, category=1}; // ã¨ãƒ¼ã£ï¼
-st[162] = { volumetype=1, path=1, file="Ako00_2502", type=0, category=1}; // ã‚„ããƒ¼ã£ï¼ 5c
-st[163] = { volumetype=1, path=1, file="Ako00_2503_c", type=0, category=1}; // ãˆã„ã‚„ãƒ¼ã£ï¼ 
-st[164] = { volumetype=1, path=1, file="Ako00_2504", type=0, category=1}; // ã¯ããƒ¼ã£ï¼
-st[165] = { volumetype=1, path=1, file="Ako00_2505", type=0, category=1}; // ãŸããƒ¼ã£ï¼
-st[166] = { volumetype=1, path=1, file="Ako00_2506", type=0, category=1}; // ã¦ã‚„ãƒ¼ã£ï¼
-
-st[170] = { volumetype=1, path=1, file="Ako00_2600_b", type=0, category=1}; // ã‚ã‚ã‚ã£ï¼2c
-
-st[176] = { volumetype=1, path=1, file="Ako00_2606", type=0, category=1}; // ã“ã†ã—ã¦â€¦â€¦
-st[177] = { volumetype=1, path=1, file="Ako00_2607", type=0, category=1}; // ã“ã†ã§ã™ï¼
-
-st[180] = { volumetype=1, path=1, file="Ako00_2700_s0", type=0, category=1}; // ãˆã„ã‚„ã£ã€€ãŸã‚ã£ï¼
-st[181] = { volumetype=1, path=1, file="Ako00_2700_s1", type=0, category=1}; // ãˆã„ã‚„ã£ã€€ãŸã‚ã£ï¼
-st[182] = { volumetype=1, path=1, file="Ako00_2701_s0", type=0, category=1}; // åˆºã—ã¾ã™ã£ã€€ã›ã‚„ã£ï¼
-st[183] = { volumetype=1, path=1, file="Ako00_2701_s1", type=0, category=1}; // åˆºã—ã¾ã™ã£ã€€ã›ã‚„ã£ï¼
-st[184] = { volumetype=1, path=1, file="Ako00_2702_s0", type=0, category=1}; // å‹•ã‹ãªã„ã€€ã§ã£ï¼
-st[185] = { volumetype=1, path=1, file="Ako00_2702_s1", type=0, category=1}; // å‹•ã‹ãªã„ã€€ã§ã£ï¼
+st[90] = { volumetype=1, path=1, file="Ako00_2076", type=0, category=1}; // ƒŠƒA[ƒlƒbƒgƒQ[ƒ}[cc“G‚Å‚·‚ËB
+st[91] = { volumetype=1, path=1, file="Ako00_2077", type=0, category=1}; // ‚ Aƒj[ƒgt I‚±‚ñ‚É‚¿‚í[II
+st[92] = { volumetype=1, path=1, file="Ako00_2079", type=0, category=1}; // ‰Âˆ¤‚¢‚Ícc³‹`‚Å‚·I
+st[93] = { volumetype=1, path=1, file="Ako00_2080", type=0, category=1}; // l¶‚Á‚Ä’´“ïŠÖƒNƒGƒXƒg‚Å‚·‚Ëcc
 
 
-st[200] = { volumetype=1, path=1, file="Ako00_2900", type=0, category=1}; // ã„ã‚„ã£ï¼
-st[201] = { volumetype=1, path=1, file="Ako00_2901", type=0, category=1}; // è§¦ã‚‰ãªã„ã§ï¼
+st[100] = { volumetype=1, path=1, file="Ako00_2000", type=0, category=1}; // •‰‚¯‚Ä‚à“{‚ç‚ê‚È‚¢‚Å‚·‚æ‚ËH
+st[101] = { volumetype=1, path=1, file="Ako00_2001", type=0, category=1}; // „‚¾‚Á‚Äˆê“x‚®‚ç‚¢‚ÍŸ‚Á‚Ä‚İ‚¹‚Ü‚·I
+st[102] = { volumetype=1, path=1, file="Ako00_2002", type=0, category=1}; // ƒ‹ƒVƒAƒ“‚É‚Íè‚ğo‚³‚¹‚Ü‚¹‚ñI
+st[103] = { volumetype=1, path=1, file="Ako00_2003", type=0, category=1}; // ‚»‚Ì‚«‚ê‚¢‚È“ª‚ğ‚Ó‚Á‚Æ‚Î‚µ‚Ä‚â‚è‚Ü‚·I
 
-st[230] = { volumetype=1, path=1, file="Ako00_3300", type=0, category=1}; // ãµãˆãˆãˆ
-st[232] = { volumetype=1, path=1, file="Ako00_3302", type=0, category=1}; // ã‚ãƒ¼ã‚“ã£
+st[110] = { volumetype=1, path=1, file="Ako00_2100", type=0, category=1}; // ƒŠƒA[‚¾‚¢‚Î‚­‚Í‚Â‚Å‚·I
+st[111] = { volumetype=1, path=1, file="Ako00_2101", type=0, category=1}; // ‚â‚è‚Ü‚µ‚½[I
+st[112] = { volumetype=1, path=1, file="Ako00_2102", type=0, category=1}; // ‚ÂA”æ‚ê‚Ü‚µ‚½[
+st[113] = { volumetype=1, path=1, file="Ako00_2103", type=0, category=1}; // ƒAƒR‚¿‚á‚ñ‘åŸ—˜‚Å‚·‚ËI
 
-st[240] = { volumetype=1, path=1, file="Ako00_3400", type=0, category=1}; // ã‚ˆã£
-st[241] = { volumetype=1, path=1, file="Ako00_3401", type=0, category=1}; // ãŠã£ã¨
-st[242] = { volumetype=1, path=1, file="Ako00_3402", type=0, category=1}; // ã•ã•ã£
+st[122] = { volumetype=1, path=1, file="Ako00_2152", type=0, category=1}; // ‚êAƒŒƒxƒ‹ƒAƒbƒv‚µ‚Ü‚µ‚½I
+st[123] = { volumetype=1, path=1, file="Ako00_2153", type=0, category=1}; // ‚¹A¬’·‚µ‚Ü‚µ‚½[I
 
-st[250] = { volumetype=1, path=1, file="Ako00_3500", type=0, category=1}; // ãµãµ
-st[251] = { volumetype=1, path=1, file="Ako00_3501", type=0, category=1}; // ç”˜ã„ã§ã™
-st[252] = { volumetype=1, path=1, file="Ako00_3502", type=0, category=1}; // å¹³æ°—ã§ã™
+st[130] = { volumetype=1, path=1, file="Ako00_2200", type=0, category=1}; // ‚½‚Í[ccB
+st[131] = { volumetype=1, path=1, file="Ako00_2201", type=0, category=1}; // ‚·‚Å‚ÉŠÔØ‚ê‚Å‚·ccB
 
-st[260] = { volumetype=1, path=1, file="Ako00_3600", type=0, category=1}; // ã‚ã‚ï¼ï¼Ÿ
-st[261] = { volumetype=1, path=1, file="Ako00_3601", type=0, category=1}; // ã¾ã ã§ã™ï¼
-st[262] = { volumetype=1, path=1, file="Ako00_3602", type=0, category=1}; // ã‚€ã…ãƒ¼
+st[140] = { volumetype=1, path=1, file="Ako00_2300", type=0, category=1}; // ‚Í 
+st[141] = { volumetype=1, path=1, file="Ako00_2301", type=0, category=1}; // ‚æ 2a
+st[142] = { volumetype=1, path=1, file="Ako00_2302", type=0, category=1}; // ‚Ó
+st[143] = { volumetype=1, path=1, file="Ako00_2303", type=0, category=1}; // ‚â 5a
+st[144] = { volumetype=1, path=1, file="Ako00_2304", type=0, category=1}; // ‚½ 
 
-st[270] = { volumetype=1, path=1, file="Ako00_3700", type=0, category=1}; // ã„ãŸâ€¦ã£
-st[271] = { volumetype=1, path=1, file="Ako00_3701", type=0, category=1}; // ã¤ã‚ˆâ€¦ã£
-st[272] = { volumetype=1, path=1, file="Ako00_3702", type=0, category=1}; // ã‚ã¶ãªâ€¦ã£
+st[150] = { volumetype=1, path=1, file="Ako00_2400", type=0, category=1}; // ‚¦‚¢‚Á
+st[151] = { volumetype=1, path=1, file="Ako00_2401", type=0, category=1}; // ‚Ä‚¢‚Á 5b
+st[152] = { volumetype=1, path=1, file="Ako00_2402", type=0, category=1}; // ‚â‚ ‚Á 2b
+st[153] = { volumetype=1, path=1, file="Ako00_2403", type=0, category=1}; // ‚¹‚¢‚Á 5b
+st[154] = { volumetype=1, path=1, file="Ako00_2404", type=0, category=1}; // ‚Æ‚¤‚Á 2b
+st[155] = { volumetype=1, path=1, file="Ako00_2405", type=0, category=1}; // ‚Ä‚â‚Á
+st[156] = { volumetype=1, path=1, file="Ako00_2406", type=0, category=1}; // ‚Í‚ ‚Á
 
-st[280] = { volumetype=1, path=1, file="Ako00_3800", type=0, category=1}; // è¦‹ãˆã¾ã™
-st[281] = { volumetype=1, path=1, file="Ako00_3801", type=0, category=1}; // ãµãµãƒ¼ã‚“
-st[282] = { volumetype=1, path=1, file="Ako00_3802", type=0, category=1}; // ç”˜ã„ã§ã™ã­
+st[160] = { volumetype=1, path=1, file="Ako00_2500", type=0, category=1}; // ‚¦[‚¢‚ÁI 5c
+st[161] = { volumetype=1, path=1, file="Ako00_2501", type=0, category=1}; // ‚Æ[‚ÁI
+st[162] = { volumetype=1, path=1, file="Ako00_2502", type=0, category=1}; // ‚â‚Ÿ[‚ÁI 5c
+st[163] = { volumetype=1, path=1, file="Ako00_2503_c", type=0, category=1}; // ‚¦‚¢‚â[‚ÁI 
+st[164] = { volumetype=1, path=1, file="Ako00_2504", type=0, category=1}; // ‚Í‚Ÿ[‚ÁI
+st[165] = { volumetype=1, path=1, file="Ako00_2505", type=0, category=1}; // ‚½‚Ÿ[‚ÁI
+st[166] = { volumetype=1, path=1, file="Ako00_2506", type=0, category=1}; // ‚Ä‚â[‚ÁI
 
-st[290] = { volumetype=1, path=1, file="Ako00_3900", type=0, category=1}; // ã†ãã£ï¼ï¼Ÿ
-st[291] = { volumetype=1, path=1, file="Ako00_3901", type=0, category=1}; // ã‚ã‚Œã‚Œã£ï¼ï¼Ÿ
-st[292] = { volumetype=1, path=1, file="Ako00_3902", type=0, category=1}; // ãªã‚“ã§ã£ï¼ï¼Ÿ
+st[170] = { volumetype=1, path=1, file="Ako00_2600_b", type=0, category=1}; // ‚í‚í‚í‚ÁI2c
 
-st[300] = { volumetype=1, path=1, file="Ako00_4000", type=0, category=1}; // ã†ã‚“ã—ã‚‡
-st[301] = { volumetype=1, path=1, file="Ako00_4001", type=0, category=1}; // å¤±æ•—ã—ã¾ã—ãŸ
-st[302] = { volumetype=1, path=1, file="Ako00_4002", type=0, category=1}; // ã¾ã•ã«å¤–é“ã§ã™
+st[176] = { volumetype=1, path=1, file="Ako00_2606", type=0, category=1}; // ‚±‚¤‚µ‚Äcc
+st[177] = { volumetype=1, path=1, file="Ako00_2607", type=0, category=1}; // ‚±‚¤‚Å‚·I
 
-st[330] = { volumetype=1, path=1, file="Ako00_4300", type=0, category=1}; // ãã‚ƒã£ï¼
-st[331] = { volumetype=1, path=1, file="Ako00_4301", type=0, category=1}; // ã²ã‚ƒã£ï¼
-st[332] = { volumetype=1, path=1, file="Ako00_4302", type=0, category=1}; // ã‚ãã£ï¼
-
-st[340] = { volumetype=1, path=1, file="Ako00_4400", type=0, category=1}; // ã²ã„ã£ï¼
-st[341] = { volumetype=1, path=1, file="Ako00_4401", type=0, category=1}; // ãã‚ƒã‚“ã£ï¼
-st[342] = { volumetype=1, path=1, file="Ako00_4402", type=0, category=1}; // ã²ã‚ƒã†ã£ï¼
-
-st[350] = { volumetype=1, path=1, file="Ako00_4500", type=0, category=1}; // ãã‚ƒãƒ¼ã£ï¼
-st[351] = { volumetype=1, path=1, file="Ako00_4501", type=0, category=1}; // ç„¡ç†ã§ã™ãƒ¼ï¼
-st[352] = { volumetype=1, path=1, file="Ako00_4502", type=0, category=1}; // ç—›ã„ã§ã™ã£ï¼
-
-st[370] = { volumetype=1, path=1, file="Ako00_4700", type=0, category=1 }; // ã„ã‚„ãƒ¼ã£ï¼
-st[371] = { volumetype=1, path=1, file="Ako00_4701", type=0, category=1 }; // ãƒ«ã‚·ã‚¢ãƒ¼ãƒ³ã£ï¼
-st[372] = { volumetype=1, path=1, file="Ako00_4702", type=0, category=1 }; // å˜˜ã§ã™ãƒ¼ã£ï¼
-
-st[380] = { volumetype=1, path=1, file="Ako00_4800", type=0, category=1 }; // ç„¡ç†ã§ãšã†ã…ã…ã…
-st[381] = { volumetype=1, path=1, file="Ako00_4801", type=0, category=1 }; // å‡ºè·ã¯å«Œã§ã™â€¦â€¦
-st[382] = { volumetype=1, path=1, file="Ako00_4802", type=0, category=1 }; // æ˜æ—¥ã‹ã‚‰æœ¬æ°—å‡ºã—ã¾ã™â€¦â€¦
-
-st[390] = { volumetype=1, path=1, file="Ako00_4900", type=0, category=1}; // ã„ãŸãŸâ€¦
-st[391] = { volumetype=1, path=1, file="Ako00_4901", type=0, category=1}; // ã‚ˆã„ã—ã‚‡
-st[392] = { volumetype=1, path=1, file="Ako00_4902", type=0, category=1}; // ã†ã†ã†
+st[180] = { volumetype=1, path=1, file="Ako00_2700_s0", type=0, category=1}; // ‚¦‚¢‚â‚Á@‚½‚ ‚ÁI
+st[181] = { volumetype=1, path=1, file="Ako00_2700_s1", type=0, category=1}; // ‚¦‚¢‚â‚Á@‚½‚ ‚ÁI
+st[182] = { volumetype=1, path=1, file="Ako00_2701_s0", type=0, category=1}; // h‚µ‚Ü‚·‚Á@‚¹‚â‚ÁI
+st[183] = { volumetype=1, path=1, file="Ako00_2701_s1", type=0, category=1}; // h‚µ‚Ü‚·‚Á@‚¹‚â‚ÁI
+st[184] = { volumetype=1, path=1, file="Ako00_2702_s0", type=0, category=1}; // “®‚©‚È‚¢@‚Å‚ÁI
+st[185] = { volumetype=1, path=1, file="Ako00_2702_s1", type=0, category=1}; // “®‚©‚È‚¢@‚Å‚ÁI
 
 
-st[410] = { volumetype=1, path=1, file="Ako00_5100", type=0, category=1}; // æœ¬æ°—å‡ºã—ã¾ã™ï¼
-st[411] = { volumetype=1, path=1, file="Ako00_5101", type=0, category=1}; // ãƒãƒ•ã‚’ã‹ã‘ã¾ã™ï¼
-st[412] = { volumetype=1, path=1, file="Ako00_5102", type=0, category=1}; // ã¯ã‚ã‚ã‚ã‚ã£ï¼
+st[200] = { volumetype=1, path=1, file="Ako00_2900", type=0, category=1}; // ‚¢‚â‚ÁI
+st[201] = { volumetype=1, path=1, file="Ako00_2901", type=0, category=1}; // G‚ç‚È‚¢‚ÅI
 
-st[420] = { volumetype=1, path=1, file="Ako00_5200", type=0, category=1}; // ç¶šã‘ã¾ã™ï¼
-st[421] = { volumetype=1, path=1, file="Ako00_5201", type=0, category=1}; // ã¾ã ã¾ã ï¼
+st[230] = { volumetype=1, path=1, file="Ako00_3300", type=0, category=1}; // ‚Ó‚¦‚¦‚¦
+st[232] = { volumetype=1, path=1, file="Ako00_3302", type=0, category=1}; // ‚í[‚ñ‚Á
 
-st[430] = { volumetype=1, path=1, file="Ako00_5300", type=0, category=1}; // æ¥ãªã„ã§ã£ï¼
-st[431] = { volumetype=1, path=1, file="Ako00_5301", type=0, category=1}; // ã‚„ã‚ã¦ãã ã•ã„ï¼
-st[432] = { volumetype=1, path=1, file="Ako00_5302", type=0, category=1}; // å¾…ã£ã¦ãã ã•ã„ï¼
+st[240] = { volumetype=1, path=1, file="Ako00_3400", type=0, category=1}; // ‚æ‚Á
+st[241] = { volumetype=1, path=1, file="Ako00_3401", type=0, category=1}; // ‚¨‚Á‚Æ
+st[242] = { volumetype=1, path=1, file="Ako00_3402", type=0, category=1}; // ‚³‚³‚Á
 
-st[440] = { volumetype=1, path=1, file="Ako00_5400", type=0, category=1}; // ä»Šã§ã™ï¼
-st[441] = { volumetype=1, path=1, file="Ako00_5401", type=0, category=1}; // è¡Œã£ã¦ãã ã•ã„ï¼
-st[442] = { volumetype=1, path=1, file="Ako00_5402", type=0, category=1}; // ãã“ï¼
+st[250] = { volumetype=1, path=1, file="Ako00_3500", type=0, category=1}; // ‚Ó‚Ó
+st[251] = { volumetype=1, path=1, file="Ako00_3501", type=0, category=1}; // ŠÃ‚¢‚Å‚·
+st[252] = { volumetype=1, path=1, file="Ako00_3502", type=0, category=1}; // •½‹C‚Å‚·
+
+st[260] = { volumetype=1, path=1, file="Ako00_3600", type=0, category=1}; // ‚í‚íIH
+st[261] = { volumetype=1, path=1, file="Ako00_3601", type=0, category=1}; // ‚Ü‚¾‚Å‚·I
+st[262] = { volumetype=1, path=1, file="Ako00_3602", type=0, category=1}; // ‚Ş‚£[
+
+st[270] = { volumetype=1, path=1, file="Ako00_3700", type=0, category=1}; // ‚¢‚½c‚Á
+st[271] = { volumetype=1, path=1, file="Ako00_3701", type=0, category=1}; // ‚Â‚æc‚Á
+st[272] = { volumetype=1, path=1, file="Ako00_3702", type=0, category=1}; // ‚ ‚Ô‚Èc‚Á
+
+st[280] = { volumetype=1, path=1, file="Ako00_3800", type=0, category=1}; // Œ©‚¦‚Ü‚·
+st[281] = { volumetype=1, path=1, file="Ako00_3801", type=0, category=1}; // ‚Ó‚Ó[‚ñ
+st[282] = { volumetype=1, path=1, file="Ako00_3802", type=0, category=1}; // ŠÃ‚¢‚Å‚·‚Ë
+
+st[290] = { volumetype=1, path=1, file="Ako00_3900", type=0, category=1}; // ‚¤‚»‚ÁIH
+st[291] = { volumetype=1, path=1, file="Ako00_3901", type=0, category=1}; // ‚ ‚ê‚ê‚ÁIH
+st[292] = { volumetype=1, path=1, file="Ako00_3902", type=0, category=1}; // ‚È‚ñ‚Å‚ÁIH
+
+st[300] = { volumetype=1, path=1, file="Ako00_4000", type=0, category=1}; // ‚¤‚ñ‚µ‚å
+st[301] = { volumetype=1, path=1, file="Ako00_4001", type=0, category=1}; // ¸”s‚µ‚Ü‚µ‚½
+st[302] = { volumetype=1, path=1, file="Ako00_4002", type=0, category=1}; // ‚Ü‚³‚ÉŠO“¹‚Å‚·
+
+st[330] = { volumetype=1, path=1, file="Ako00_4300", type=0, category=1}; // ‚«‚á‚ÁI
+st[331] = { volumetype=1, path=1, file="Ako00_4301", type=0, category=1}; // ‚Ğ‚á‚ÁI
+st[332] = { volumetype=1, path=1, file="Ako00_4302", type=0, category=1}; // ‚í‚Ÿ‚ÁI
+
+st[340] = { volumetype=1, path=1, file="Ako00_4400", type=0, category=1}; // ‚Ğ‚¢‚ÁI
+st[341] = { volumetype=1, path=1, file="Ako00_4401", type=0, category=1}; // ‚«‚á‚ñ‚ÁI
+st[342] = { volumetype=1, path=1, file="Ako00_4402", type=0, category=1}; // ‚Ğ‚á‚¤‚ÁI
+
+st[350] = { volumetype=1, path=1, file="Ako00_4500", type=0, category=1}; // ‚«‚á[‚ÁI
+st[351] = { volumetype=1, path=1, file="Ako00_4501", type=0, category=1}; // –³—‚Å‚·[I
+st[352] = { volumetype=1, path=1, file="Ako00_4502", type=0, category=1}; // ’É‚¢‚Å‚·‚ÁI
+
+st[370] = { volumetype=1, path=1, file="Ako00_4700", type=0, category=1 }; // ‚¢‚â[‚ÁI
+st[371] = { volumetype=1, path=1, file="Ako00_4701", type=0, category=1 }; // ƒ‹ƒVƒA[ƒ“‚ÁI
+st[372] = { volumetype=1, path=1, file="Ako00_4702", type=0, category=1 }; // ‰R‚Å‚·[‚ÁI
+
+st[380] = { volumetype=1, path=1, file="Ako00_4800", type=0, category=1 }; // –³—‚Å‚¸‚¤‚£‚£‚£
+st[381] = { volumetype=1, path=1, file="Ako00_4801", type=0, category=1 }; // o‰×‚ÍŒ™‚Å‚·cc
+st[382] = { volumetype=1, path=1, file="Ako00_4802", type=0, category=1 }; // –¾“ú‚©‚ç–{‹Co‚µ‚Ü‚·cc
+
+st[390] = { volumetype=1, path=1, file="Ako00_4900", type=0, category=1}; // ‚¢‚½‚½c
+st[391] = { volumetype=1, path=1, file="Ako00_4901", type=0, category=1}; // ‚æ‚¢‚µ‚å
+st[392] = { volumetype=1, path=1, file="Ako00_4902", type=0, category=1}; // ‚¤‚¤‚¤
 
 
-st[465] = { volumetype=1, path=1, file="Ako00_5700", type=0, category=1}; // åŠ©ã‘ã¦ãƒ«ã‚·ã‚¢ãƒ³ï¼
-st[466] = { volumetype=1, path=1, file="Ako00_5701", type=0, category=1}; // ãƒ«ã‚·ã‚¢ãƒ³æ„›ã—ã¦ã‚‹
-st[467] = { volumetype=1, path=1, file="Ako00_5702", type=0, category=1}; // ãƒ«ã‚·ã‚¢ãƒ³ï¼
+st[410] = { volumetype=1, path=1, file="Ako00_5100", type=0, category=1}; // –{‹Co‚µ‚Ü‚·I
+st[411] = { volumetype=1, path=1, file="Ako00_5101", type=0, category=1}; // ƒoƒt‚ğ‚©‚¯‚Ü‚·I
+st[412] = { volumetype=1, path=1, file="Ako00_5102", type=0, category=1}; // ‚Í‚ ‚ ‚ ‚ ‚ÁI
 
-st[470] = { volumetype=1, path=1, file="Ako00_6100", type=0, category=3}; // ãƒ†ãƒ³ã‚·ãƒ§ãƒ³ä¸ŠãŒã£ã¦ãã¾ã—ãŸï¼
-st[471] = { volumetype=1, path=1, file="Ako00_6101", type=0, category=3}; // ã„ã„æ„Ÿã˜ã§ã™ï¼
-st[472] = { volumetype=1, path=1, file="Ako00_6102", type=0, category=3}; // æ¥ã¾ã—ãŸï¼
-st[480] = { volumetype=1, path=1, file="Ako00_6200", type=0, category=3}; // ã¾ã è«¦ã‚ã¾ã›ã‚“
-st[481] = { volumetype=1, path=1, file="Ako00_6201", type=0, category=3}; // è² ã‘ã‚‰ã‚Œãªã„ã§ã™ï¼
-st[482] = { volumetype=1, path=1, file="Ako00_6202", type=0, category=3}; // ç§ã®æ€’ã‚ŠãŒæœ‰é ‚å¤©ã§ã™ï¼
+st[420] = { volumetype=1, path=1, file="Ako00_5200", type=0, category=1}; // ‘±‚¯‚Ü‚·I
+st[421] = { volumetype=1, path=1, file="Ako00_5201", type=0, category=1}; // ‚Ü‚¾‚Ü‚¾I
 
-st[510] = { volumetype=1, path=1, file="Ako00_7000", type=0, category=1}; // ã‚¢ã‚¤ã‚¹ãƒœãƒ«ãƒˆï¼
-st[511] = { volumetype=1, path=1, file="Ako00_7001", type=0, category=1}; // ã‚µãƒ³ãƒ€ãƒ¼ã‚¹ãƒ”ã‚¢ï¼
-st[512] = { volumetype=1, path=1, file="Ako00_7002", type=0, category=1}; // ãƒ•ãƒ¬ã‚¤ãƒ ãƒãƒ£ãƒ¼ã‚¸ï¼
-st[513] = { volumetype=1, path=1, file="Ako00_7003_b", type=0, category=1}; // ãƒ¡ãƒ†ã‚ªã‚¹ãƒˆãƒ©ã‚¤ã‚¯ï¼
+st[430] = { volumetype=1, path=1, file="Ako00_5300", type=0, category=1}; // —ˆ‚È‚¢‚Å‚ÁI
+st[431] = { volumetype=1, path=1, file="Ako00_5301", type=0, category=1}; // ‚â‚ß‚Ä‚­‚¾‚³‚¢I
+st[432] = { volumetype=1, path=1, file="Ako00_5302", type=0, category=1}; // ‘Ò‚Á‚Ä‚­‚¾‚³‚¢I
+
+st[440] = { volumetype=1, path=1, file="Ako00_5400", type=0, category=1}; // ¡‚Å‚·I
+st[441] = { volumetype=1, path=1, file="Ako00_5401", type=0, category=1}; // s‚Á‚Ä‚­‚¾‚³‚¢I
+st[442] = { volumetype=1, path=1, file="Ako00_5402", type=0, category=1}; // ‚»‚±I
 
 
-st[520] = { volumetype=1, path=1, file="Ako00_7100", type=0, category=1}; // ãƒ’ãƒ¼ãƒ«ï¼
-st[521] = { volumetype=1, path=1, file="Ako00_7101", type=0, category=1}; // å›å¾©ã—ã¾ã™ï¼
-st[522] = { volumetype=1, path=1, file="Ako00_7102", type=0, category=1}; // ã‚„ã‚Šã¾ã™ï¼ã€€â€»ãƒ’ãƒ¼ãƒ«ã˜ã‚ƒãªã„ã¨ãã“ã‚Œã«ã™ã‚‹
-st[523] = { volumetype=1, path=1, file="Ako00_7103_b", type=0, category=1}; // ãƒã‚¤ãƒ’ãƒ¼ãƒ«ï¼
+st[465] = { volumetype=1, path=1, file="Ako00_5700", type=0, category=1}; // •‚¯‚Äƒ‹ƒVƒAƒ“I
+st[466] = { volumetype=1, path=1, file="Ako00_5701", type=0, category=1}; // ƒ‹ƒVƒAƒ“ˆ¤‚µ‚Ä‚é
+st[467] = { volumetype=1, path=1, file="Ako00_5702", type=0, category=1}; // ƒ‹ƒVƒAƒ“I
 
-st[530] = { volumetype=1, path=1, file="Ako00_7200_b", type=0, category=1}; // å›ã‚Šã¾ã™ï¼
-st[531] = { volumetype=1, path=1, file="Ako00_7201", type=0, category=1}; // ã¨ã‚Šã‚ƒãƒ¼ï¼
-st[532] = { volumetype=1, path=1, file="Ako00_7202", type=0, category=1}; // ã‚ã‚ã‚ã‚ï¼
-st[533] = { volumetype=1, path=1, file="Ako00_7203", type=0, category=1}; // ãˆã„ãˆã„ã£ï¼
+st[470] = { volumetype=1, path=1, file="Ako00_6100", type=0, category=3}; // ƒeƒ“ƒVƒ‡ƒ“ã‚ª‚Á‚Ä‚«‚Ü‚µ‚½I
+st[471] = { volumetype=1, path=1, file="Ako00_6101", type=0, category=3}; // ‚¢‚¢Š´‚¶‚Å‚·I
+st[472] = { volumetype=1, path=1, file="Ako00_6102", type=0, category=3}; // —ˆ‚Ü‚µ‚½I
+st[480] = { volumetype=1, path=1, file="Ako00_6200", type=0, category=3}; // ‚Ü‚¾’ú‚ß‚Ü‚¹‚ñ
+st[481] = { volumetype=1, path=1, file="Ako00_6201", type=0, category=3}; // •‰‚¯‚ç‚ê‚È‚¢‚Å‚·I
+st[482] = { volumetype=1, path=1, file="Ako00_6202", type=0, category=3}; // „‚Ì“{‚è‚ª—L’¸“V‚Å‚·I
 
-st[540] = { volumetype=1, path=1, file="Ako00_7300", type=0, category=1}; // çªæ’ƒã§ã™ãƒ¼ï¼
-// st[541] = { volumetype=1, path=1, file="Ako00_7301", type=0, category=1}; // ã„ã£ãã¾ãƒ¼ã™ï¼
-st[542] = { volumetype=1, path=1, file="Ako00_7302", type=0, category=1}; // ã©ã„ã¦ãã ã•ã„ï¼
-st[543] = { volumetype=1, path=1, file="Ako00_7303", type=0, category=1}; // é‚ªé­”ã—ãªã„ã§ï¼
+st[510] = { volumetype=1, path=1, file="Ako00_7000", type=0, category=1}; // ƒAƒCƒXƒ{ƒ‹ƒgI
+st[511] = { volumetype=1, path=1, file="Ako00_7001", type=0, category=1}; // ƒTƒ“ƒ_[ƒXƒsƒAI
+st[512] = { volumetype=1, path=1, file="Ako00_7002", type=0, category=1}; // ƒtƒŒƒCƒ€ƒ`ƒƒ[ƒWI
+st[513] = { volumetype=1, path=1, file="Ako00_7003_b", type=0, category=1}; // ƒƒeƒIƒXƒgƒ‰ƒCƒNI
 
-st[550] = { volumetype=1, path=1, file="Ako00_7400_b", type=0, category=1}; // ãã„ã‚„ï¼
-// st[551] = { volumetype=1, path=1, file="Ako00_7401", type=0, category=1}; // é£›ã°ã—ã¾ã™ï¼
-st[552] = { volumetype=1, path=1, file="Ako00_7402_b", type=0, category=1}; // ãã‚Œã£ï¼
-// st[553] = { volumetype=1, path=1, file="Ako00_7303", type=0, category=1}; // ã‚ˆã„ã—ã‚‡ï¼
 
-st[560] = { volumetype=1, path=1, file="Ako00_7600_b", type=0, category=1}; // ã“ã‚ŒãŒèª²é‡‘ã®åŠ›ã§ã™ï¼
-st[561] = { volumetype=1, path=1, file="Ako00_7601_b", type=0, category=1}; // ã©ãƒ¼ã‚“ï¼
-// st[562] = { volumetype=1, path=1, file="Ako00_7602", type=0, category=1}; // ã›ãƒ¼ã®ï¼
-st[563] = { volumetype=1, path=1, file="Ako00_7603_b", type=0, category=1}; // ã‚«ã‚­ãƒ¼ãƒ³ï¼
+st[520] = { volumetype=1, path=1, file="Ako00_7100", type=0, category=1}; // ƒq[ƒ‹I
+st[521] = { volumetype=1, path=1, file="Ako00_7101", type=0, category=1}; // ‰ñ•œ‚µ‚Ü‚·I
+st[522] = { volumetype=1, path=1, file="Ako00_7102", type=0, category=1}; // ‚â‚è‚Ü‚·I@¦ƒq[ƒ‹‚¶‚á‚È‚¢‚Æ‚«‚±‚ê‚É‚·‚é
+st[523] = { volumetype=1, path=1, file="Ako00_7103_b", type=0, category=1}; // ƒnƒCƒq[ƒ‹I
 
-st[570] = { volumetype=1, path=1, file="Ako00_8000_s0", type=0, category=1}; // ãƒ«ã‚·ã‚¢ãƒ³æ„›ã—ã¦ã‚‹ï¼
-st[571] = { volumetype=1, path=1, file="Ako00_8000_s1", type=0, category=1}; // ãšã£ã¨ä¸€ç·’ã§ã™ï¼
-st[572] = { volumetype=1, path=1, file="Ako00_8000_s2", type=0, category=1}; // ã‚¨ã‚¯ã‚¹ãƒˆãƒ©ãƒ€ãƒ¡ãƒ¼ã‚¸ï¼
-st[573] = { volumetype=1, path=1, file="Ako00_8001_s0", type=0, category=1}; // ãƒ«ã‚·ã‚¢ãƒ³ãŠé¡˜ã„ã—ã¾ã™ï¼
-st[574] = { volumetype=1, path=1, file="Ako00_8001_s1", type=0, category=1}; // é ‘å¼µã£ã¦ï¼
-st[575] = { volumetype=1, path=1, file="Ako00_8001_s2", type=0, category=1}; // ã„ã£ã‘ãˆãˆãƒ¼ï¼
-st[576] = { volumetype=1, path=1, file="Ako00_8002_s0", type=0, category=1}; // ãƒ«ã‚·ã‚¢ãƒ¼ãƒ³ï¼
-st[577] = { volumetype=1, path=1, file="Ako00_8002_s1", type=0, category=1}; // ãƒ¡ã‚¤ãƒ³ç›¾æ¥ãŸï¼
-st[578] = { volumetype=1, path=1, file="Ako00_8002_s2", type=0, category=1}; // ã“ã‚Œã§å‹ã¤ã‚Šã¾ã™ï¼
+st[530] = { volumetype=1, path=1, file="Ako00_7200_b", type=0, category=1}; // ‰ñ‚è‚Ü‚·I
+st[531] = { volumetype=1, path=1, file="Ako00_7201", type=0, category=1}; // ‚Æ‚è‚á[I
+st[532] = { volumetype=1, path=1, file="Ako00_7202", type=0, category=1}; // ‚ ‚í‚í‚íI
+st[533] = { volumetype=1, path=1, file="Ako00_7203", type=0, category=1}; // ‚¦‚¢‚¦‚¢‚ÁI
 
-// st[580] = { volumetype=1, path=1, file="Rus00_8010_s0", type=0, category=2}; // æ€¥ã«å‘¼ã¶ãªï¼
-// st[581] = { volumetype=1, path=1, file="Rus00_8010_s1", type=0, category=2}; // ã‚ã‚ã‚‚ã…ã€å–°ã‚‰ãˆãƒ¼ï¼
-st[582] = { volumetype=1, path=1, file="Rus00_8011_s0", type=0, category=2}; // ã›ãˆã„ã£ï¼
-st[583] = { volumetype=1, path=1, file="Rus00_8011_b_s1", type=0, category=2}; // ã‚ªãƒ¼ãƒãƒ¼ãƒ‰ï¼ã€€ã‚·ãƒ¼ãƒ«ãƒ‰ã‚©ï¼ï¼
-st[584] = { volumetype=1, path=1, file="Rus00_8012_s0", type=0, category=2}; // ã§ã‚Šã‚ƒãã£ï¼
-st[585] = { volumetype=1, path=1, file="Rus00_8012_s1", type=0, category=2}; // ãƒˆãƒ‰ãƒ¡ã ãããƒ¼ãƒ¼ã£ï¼
+st[540] = { volumetype=1, path=1, file="Ako00_7300", type=0, category=1}; // “ËŒ‚‚Å‚·[I
+// st[541] = { volumetype=1, path=1, file="Ako00_7301", type=0, category=1}; // ‚¢‚Á‚«‚Ü[‚·I
+st[542] = { volumetype=1, path=1, file="Ako00_7302", type=0, category=1}; // ‚Ç‚¢‚Ä‚­‚¾‚³‚¢I
+st[543] = { volumetype=1, path=1, file="Ako00_7303", type=0, category=1}; // ×–‚‚µ‚È‚¢‚ÅI
 
-st[590] = { volumetype=1, path=1, file="Ako00_8100_s0", type=0, category=1}; // ã„ãã¾ã™ï¼
-st[591] = { volumetype=1, path=1, file="Ako00_8100_s1", type=0, category=1}; // ã‚„ããããƒ¼ï¼
-st[592] = { volumetype=1, path=1, file="Ako00_8100_s2", type=0, category=1}; // ã“ã‚ŒãŒæ„›ã®åŠ›ã§ã™
-st[593] = { volumetype=1, path=1, file="Ako00_8101_s0", type=0, category=1}; // é€ƒãŒã—ã¾ã›ã‚“ï¼
-st[594] = { volumetype=1, path=1, file="Ako00_8101_s1", type=0, category=1}; // ãã„ã‚„ããƒ¼ãƒ¼ãƒ¼ã£ï¼
-st[595] = { volumetype=1, path=1, file="Ako00_8101_s2", type=0, category=1}; // ã©ã‚“ã©ã‚“ã„ãã¾ã™ï¼
-st[596] = { volumetype=1, path=1, file="Ako00_8102_s0", type=0, category=1}; // ã“ã‚Œã§ã£ï¼
-st[597] = { volumetype=1, path=1, file="Ako00_8102_s1", type=0, category=1}; // ãŸããããƒ¼ï¼
-st[598] = { volumetype=1, path=1, file="Ako00_8102_s2", type=0, category=1}; // å‡ºã—æƒœã—ã¿ã¯ãªã—ã§ã™ï¼
+st[550] = { volumetype=1, path=1, file="Ako00_7400_b", type=0, category=1}; // ‚»‚¢‚âI
+// st[551] = { volumetype=1, path=1, file="Ako00_7401", type=0, category=1}; // ”ò‚Î‚µ‚Ü‚·I
+st[552] = { volumetype=1, path=1, file="Ako00_7402_b", type=0, category=1}; // ‚»‚ê‚ÁI
+// st[553] = { volumetype=1, path=1, file="Ako00_7303", type=0, category=1}; // ‚æ‚¢‚µ‚åI
 
-st[640] = { volumetype=1, path=1, file="Monster_Footstep", type=1, category=4, }; // ãƒ‰ãƒ‰ãƒ‰ãƒ‰
-st[641] = { volumetype=1, path=1, file="Monster_Footstep_Large", type=1, category=4, }; // ãƒ‰ãƒ‰ãƒ‰ãƒ‰(å¤§)
+st[560] = { volumetype=1, path=1, file="Ako00_7600_b", type=0, category=1}; // ‚±‚ê‚ª‰Û‹à‚Ì—Í‚Å‚·I
+st[561] = { volumetype=1, path=1, file="Ako00_7601_b", type=0, category=1}; // ‚Ç[‚ñI
+// st[562] = { volumetype=1, path=1, file="Ako00_7602", type=0, category=1}; // ‚¹[‚ÌI
+st[563] = { volumetype=1, path=1, file="Ako00_7603_b", type=0, category=1}; // ƒJƒL[ƒ“I
 
-// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å‹åˆ©	win?
-st[190] = { volumetype=1, path=1, file="Rus00_2100", type=0, category=2}; // ã‚ˆã—ã€ã‚¯ã‚¨ã‚¹ãƒˆã‚¯ãƒªã‚¢ã 
-st[191] = { volumetype=1, path=1, file="Rus00_2101", type=0, category=2}; // ãŸã€è€ãˆãŸãƒ¼ï¼å‹ã£ãŸããƒ¼ï¼
+st[570] = { volumetype=1, path=1, file="Ako00_8000_s0", type=0, category=1}; // ƒ‹ƒVƒAƒ“ˆ¤‚µ‚Ä‚éI
+st[571] = { volumetype=1, path=1, file="Ako00_8000_s1", type=0, category=1}; // ‚¸‚Á‚Æˆê‚Å‚·I
+st[572] = { volumetype=1, path=1, file="Ako00_8000_s2", type=0, category=1}; // ƒGƒNƒXƒgƒ‰ƒ_ƒ[ƒWI
+st[573] = { volumetype=1, path=1, file="Ako00_8001_s0", type=0, category=1}; // ƒ‹ƒVƒAƒ“‚¨Šè‚¢‚µ‚Ü‚·I
+st[574] = { volumetype=1, path=1, file="Ako00_8001_s1", type=0, category=1}; // Šæ’£‚Á‚ÄI
+st[575] = { volumetype=1, path=1, file="Ako00_8001_s2", type=0, category=1}; // ‚¢‚Á‚¯‚¦‚¦[I
+st[576] = { volumetype=1, path=1, file="Ako00_8002_s0", type=0, category=1}; // ƒ‹ƒVƒA[ƒ“I
+st[577] = { volumetype=1, path=1, file="Ako00_8002_s1", type=0, category=1}; // ƒƒCƒ“‚—ˆ‚½I
+st[578] = { volumetype=1, path=1, file="Ako00_8002_s2", type=0, category=1}; // ‚±‚ê‚ÅŸ‚Â‚è‚Ü‚·I
 
-// ãƒ©ã‚¦ãƒ³ãƒ‰æ•—åŒ—	 round lose
-st[192] = { volumetype=1, path=1, file="Rus00_2200", type=0, category=2}; // ä»Šã®ãƒãƒ¡ã§ã—ã‚‡ï¼Ÿä¿ºã®ã‚·ãƒã˜ã‚ƒãƒãƒ¼ã‚«ãƒ³ã ã‹ã‚‰
-st[193] = { volumetype=1, path=1, file="Rus00_2201", type=0, category=2}; // ã‚ã‚ã‚ä¿ºã®çµŒé¨“å€¤ãŒï¼
+// st[580] = { volumetype=1, path=1, file="Rus00_8010_s0", type=0, category=2}; // ‹}‚ÉŒÄ‚Ô‚ÈI
+// st[581] = { volumetype=1, path=1, file="Rus00_8010_s1", type=0, category=2}; // ‚ ‚ ‚à‚£A‹ò‚ç‚¦[I
+st[582] = { volumetype=1, path=1, file="Rus00_8011_s0", type=0, category=2}; // ‚¹‚¦‚¢‚ÁI
+st[583] = { volumetype=1, path=1, file="Rus00_8011_b_s1", type=0, category=2}; // ƒI[ƒo[ƒhI@ƒV[ƒ‹ƒhƒHII
+st[584] = { volumetype=1, path=1, file="Rus00_8012_s0", type=0, category=2}; // ‚Å‚è‚á‚Ÿ‚ÁI
+st[585] = { volumetype=1, path=1, file="Rus00_8012_s1", type=0, category=2}; // ƒgƒhƒ‚¾‚Ÿ‚Ÿ[[‚ÁI
 
-// æ’¤é€€	 //retreat
-st[194] = { volumetype=1, path=1, file="Rus00_4000", type=0, category=2}; // ä¸‹ãŒã‚‹
-st[195] = { volumetype=1, path=1, file="Rus00_4001", type=0, category=2}; // å‡ºç›´ã™
+st[590] = { volumetype=1, path=1, file="Ako00_8100_s0", type=0, category=1}; // ‚¢‚«‚Ü‚·I
+st[591] = { volumetype=1, path=1, file="Ako00_8100_s1", type=0, category=1}; // ‚â‚Ÿ‚Ÿ‚Ÿ[I
+st[592] = { volumetype=1, path=1, file="Ako00_8100_s2", type=0, category=1}; // ‚±‚ê‚ªˆ¤‚Ì—Í‚Å‚·
+st[593] = { volumetype=1, path=1, file="Ako00_8101_s0", type=0, category=1}; // “¦‚ª‚µ‚Ü‚¹‚ñI
+st[594] = { volumetype=1, path=1, file="Ako00_8101_s1", type=0, category=1}; // ‚»‚¢‚â‚Ÿ[[[‚ÁI
+st[595] = { volumetype=1, path=1, file="Ako00_8101_s2", type=0, category=1}; // ‚Ç‚ñ‚Ç‚ñ‚¢‚«‚Ü‚·I
+st[596] = { volumetype=1, path=1, file="Ako00_8102_s0", type=0, category=1}; // ‚±‚ê‚Å‚ÁI
+st[597] = { volumetype=1, path=1, file="Ako00_8102_s1", type=0, category=1}; // ‚½‚Ÿ‚Ÿ‚Ÿ[I
+st[598] = { volumetype=1, path=1, file="Ako00_8102_s2", type=0, category=1}; // o‚µÉ‚µ‚İ‚Í‚È‚µ‚Å‚·I
 
-// ãƒ€ãƒ¡ãƒ¼ã‚¸	damage
-// st[140] = { path=1, file="Rus00_4500", type=0, category=2}; // ã†ã‚ã£ï¼
-st[196] = { volumetype=1, path=1, file="Rus00_4501", type=0, category=2}; // ã„ã¦ã£ï¼
-st[197] = { volumetype=1, path=1, file="Rus00_4502", type=0, category=2}; // ã’ã’ã£ï¼
+st[640] = { volumetype=1, path=1, file="Monster_Footstep", type=1, category=4, }; // ƒhƒhƒhƒh
+st[641] = { volumetype=1, path=1, file="Monster_Footstep_Large", type=1, category=4, }; // ƒhƒhƒhƒh(‘å)
 
-// ãƒ€ã‚¦ãƒ³ï¼ˆ1ï½2ç§’ç¨‹åº¦ï¼‰	down
-st[198] = { volumetype=1, path=1, file="Rus00_4600", type=0, category=2}; // åºŠãƒšãƒ­çŠ¶æ…‹â€¦â€¦
+// ƒvƒŒƒCƒ„[Ÿ—˜	win?
+st[190] = { volumetype=1, path=1, file="Rus00_2100", type=0, category=2}; // ‚æ‚µAƒNƒGƒXƒgƒNƒŠƒA‚¾
+st[191] = { volumetype=1, path=1, file="Rus00_2101", type=0, category=2}; // ‚½A‘Ï‚¦‚½[IŸ‚Á‚½‚¼[I
 
-// æˆ¦é—˜æº–å‚™å®Œäº†	 ready
-st[210] = { volumetype=1, path=1, file="Rus00_4900", type=0, category=2}; // ã‚ˆã—ã€ãƒªãƒˆãƒ©ã‚¤ã ï¼
-st[211] = { volumetype=1, path=1, file="Rus00_4901", type=0, category=2}; // ä»•åˆ‡ã‚ŠãªãŠã—ã ï¼
+// ƒ‰ƒEƒ“ƒh”s–k	 round lose
+st[192] = { volumetype=1, path=1, file="Rus00_2200", type=0, category=2}; // ¡‚Ìƒnƒ‚Å‚µ‚åH‰´‚ÌƒVƒ}‚¶‚áƒm[ƒJƒ“‚¾‚©‚ç
+st[193] = { volumetype=1, path=1, file="Rus00_2201", type=0, category=2}; // ‚ ‚ ‚ ‰´‚ÌŒoŒ±’l‚ªI
 
-// å¿…æ®ºæŠ€ï¼‘	
-st[212] = { volumetype=1, path=1, file="Rus00_7000_s0", type=0, category=2}; // å®ˆã‚‹ï¼ã€€ãŠã‚Šã‚ƒã‚ã£ï¼ shld start
-st[213] = { volumetype=1, path=1, file="Rus00_7000_s1", type=0, category=2}; // å®ˆã‚‹ï¼ã€€ãŠã‚Šã‚ƒã‚ã£ï¼
-st[214] = { volumetype=1, path=1, file="Rus00_7001_s0", type=0, category=2}; // ã‚¬ãƒ¼ãƒ‰ï¼ã€€ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ï¼ shld start
-st[215] = { volumetype=1, path=1, file="Rus00_7001_b_s1", type=0, category=2}; // ã‚¬ãƒ¼ãƒ‰ï¼ã€€ã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ï¼
-// st[174] = { path=1, file="Rus00_7002_s0", type=0, category=2}; // é˜²ããã‚‹ï¼ã€€å–°ã‚‰ãˆï¼
-st[216] = { volumetype=1, path=1, file="Rus00_7002_s1", type=0, category=2}; // é˜²ããã‚‹ï¼ã€€å–°ã‚‰ãˆï¼
+// “P‘Ş	 //retreat
+st[194] = { volumetype=1, path=1, file="Rus00_4000", type=0, category=2}; // ‰º‚ª‚é
+st[195] = { volumetype=1, path=1, file="Rus00_4001", type=0, category=2}; // o’¼‚·
+
+// ƒ_ƒ[ƒW	damage
+// st[140] = { path=1, file="Rus00_4500", type=0, category=2}; // ‚¤‚í‚ÁI
+st[196] = { volumetype=1, path=1, file="Rus00_4501", type=0, category=2}; // ‚¢‚Ä‚ÁI
+st[197] = { volumetype=1, path=1, file="Rus00_4502", type=0, category=2}; // ‚°‚°‚ÁI
+
+// ƒ_ƒEƒ“i1`2•b’ö“xj	down
+st[198] = { volumetype=1, path=1, file="Rus00_4600", type=0, category=2}; // °ƒyƒó‘Ôcc
+
+// í“¬€”õŠ®—¹	 ready
+st[210] = { volumetype=1, path=1, file="Rus00_4900", type=0, category=2}; // ‚æ‚µAƒŠƒgƒ‰ƒC‚¾I
+st[211] = { volumetype=1, path=1, file="Rus00_4901", type=0, category=2}; // dØ‚è‚È‚¨‚µ‚¾I
+
+// •KE‹Z‚P	
+st[212] = { volumetype=1, path=1, file="Rus00_7000_s0", type=0, category=2}; // ç‚éI@‚¨‚è‚á‚ ‚ÁI shld start
+st[213] = { volumetype=1, path=1, file="Rus00_7000_s1", type=0, category=2}; // ç‚éI@‚¨‚è‚á‚ ‚ÁI
+st[214] = { volumetype=1, path=1, file="Rus00_7001_s0", type=0, category=2}; // ƒK[ƒhI@ƒJƒEƒ“ƒ^[I shld start
+st[215] = { volumetype=1, path=1, file="Rus00_7001_b_s1", type=0, category=2}; // ƒK[ƒhI@ƒJƒEƒ“ƒ^[I
+// st[174] = { path=1, file="Rus00_7002_s0", type=0, category=2}; // –h‚¬‚«‚éI@‹ò‚ç‚¦I
+st[216] = { volumetype=1, path=1, file="Rus00_7002_s1", type=0, category=2}; // –h‚¬‚«‚éI@‹ò‚ç‚¦I
 st[81] = { volumetype=1, path=1, file="Rus00_7003_s1", type=0, category=2}; 
-st[217] = { volumetype=1, path=1, file="Rus00_7003_s0", type=0, category=2}; // ã‚·ãƒ¼ãƒ«ãƒ‰ï¼ã€€å¹ãé£›ã¹ï¼ shld start
-st[218] = { volumetype=1, path=1, file="Rus00_7003_b_s1", type=0, category=2}; // ã‚·ãƒ¼ãƒ«ãƒ‰ï¼ã€€å¹ãé£›ã¹ï¼
+st[217] = { volumetype=1, path=1, file="Rus00_7003_s0", type=0, category=2}; // ƒV[ƒ‹ƒhI@‚«”ò‚×I shld start
+st[218] = { volumetype=1, path=1, file="Rus00_7003_b_s1", type=0, category=2}; // ƒV[ƒ‹ƒhI@‚«”ò‚×I
 
-// å¿…æ®ºæŠ€ï¼’
-st[219] = { volumetype=1, path=1, file="Rus00_7100_s0", type=0, category=2}; // é¤ŒæŒã£ã¦æ¥ãŸãï¼ã€€ã†ãŠãŠãŠãŠãŠãŠï¼ï¼
-st[220] = { volumetype=1, path=1, file="Rus00_7100_s1", type=0, category=2}; // é¤ŒæŒã£ã¦æ¥ãŸãï¼ã€€ã†ãŠãŠãŠãŠãŠãŠï¼ï¼
-st[221] = { volumetype=1, path=1, file="Rus00_7101_s0", type=0, category=2}; // æ€¥ã’ãˆãˆãˆãˆï¼ã€€ã†ã‚ã‚ã‚ã‚ã‚ã‚ã‚ï¼ï¼
-st[222] = { volumetype=1, path=1, file="Rus00_7101_s1", type=0, category=2}; // æ€¥ã’ãˆãˆãˆãˆï¼ã€€ã†ã‚ã‚ã‚ã‚ã‚ã‚ã‚ï¼ï¼
-st[223] = { volumetype=1, path=1, file="Rus00_7102_s0", type=0, category=2}; // é€£ã‚Œã¦ããŸãï¼ã€€ã¡ã‚‡ã£ã¨ã¯å—ã‘æŒã£ã¦ãã‚Œï¼ï¼
-st[224] = { volumetype=1, path=1, file="Rus00_7102_s1", type=0, category=2}; // é€£ã‚Œã¦ããŸãï¼ã€€ã¡ã‚‡ã£ã¨ã¯å—ã‘æŒã£ã¦ãã‚Œï¼ï¼
-st[225] = { volumetype=1, path=1, file="Rus00_7103_s0", type=0, category=2}; // ãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼ãƒˆãƒ¬ã‚¤ãƒ³ã ï¼ã€€é€ƒã’ã‚ãŠãŠãŠãŠï¼ï¼
-st[226] = { volumetype=1, path=1, file="Rus00_7103_s1", type=0, category=2}; // ãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼ãƒˆãƒ¬ã‚¤ãƒ³ã ï¼ã€€é€ƒã’ã‚ãŠãŠãŠãŠï¼ï¼
+// •KE‹Z‚Q
+st[219] = { volumetype=1, path=1, file="Rus00_7100_s0", type=0, category=2}; // ‰a‚Á‚Ä—ˆ‚½‚¼I@‚¤‚¨‚¨‚¨‚¨‚¨‚¨II
+st[220] = { volumetype=1, path=1, file="Rus00_7100_s1", type=0, category=2}; // ‰a‚Á‚Ä—ˆ‚½‚¼I@‚¤‚¨‚¨‚¨‚¨‚¨‚¨II
+st[221] = { volumetype=1, path=1, file="Rus00_7101_s0", type=0, category=2}; // ‹}‚°‚¦‚¦‚¦‚¦I@‚¤‚í‚ ‚ ‚ ‚ ‚ ‚ II
+st[222] = { volumetype=1, path=1, file="Rus00_7101_s1", type=0, category=2}; // ‹}‚°‚¦‚¦‚¦‚¦I@‚¤‚í‚ ‚ ‚ ‚ ‚ ‚ II
+st[223] = { volumetype=1, path=1, file="Rus00_7102_s0", type=0, category=2}; // ˜A‚ê‚Ä‚«‚½‚¼I@‚¿‚å‚Á‚Æ‚Íó‚¯‚Á‚Ä‚­‚êII
+st[224] = { volumetype=1, path=1, file="Rus00_7102_s1", type=0, category=2}; // ˜A‚ê‚Ä‚«‚½‚¼I@‚¿‚å‚Á‚Æ‚Íó‚¯‚Á‚Ä‚­‚êII
+st[225] = { volumetype=1, path=1, file="Rus00_7103_s0", type=0, category=2}; // ƒ‚ƒ“ƒXƒ^[ƒgƒŒƒCƒ“‚¾I@“¦‚°‚ë‚¨‚¨‚¨‚¨II
+st[226] = { volumetype=1, path=1, file="Rus00_7103_s1", type=0, category=2}; // ƒ‚ƒ“ƒXƒ^[ƒgƒŒƒCƒ“‚¾I@“¦‚°‚ë‚¨‚¨‚¨‚¨II
