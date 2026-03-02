@@ -57,7 +57,7 @@ BgList <-
 	// 0 ‚Í‘‚©‚È‚¢‚æ‚¤‚É
 	// “¯‚¶‚à‚Ì‚ð‘‚­‚Æ‚¢‚Á‚Ï‚¢o‚Ä‚­‚é‚Ì‚Å’ˆÓ
 	BgSelectList = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 16, 19, 23, 21, 20, 22, 24, 25, 26, 27,  //added missing stage 9 (boss)
-						30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 44, 50, 90, 91, 45], 
+						30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 50, 90, 91, 45], 
 	
 	/////////////////////////////////////////////////////////
 	Bg_001 =
@@ -921,7 +921,7 @@ BgList <-
 		ShadowAlpha = 0.5, // 0.7
 
 		StageSelTex = 22,
-		DLCFlag=1<<0,
+		// DLCFlag=1<<0,
 	}
 	/////////////////////////////////////////////////////////
 	Bg_023 =
@@ -1121,7 +1121,7 @@ BgList <-
 		BGTinyFXAALerpT = 0.5,		// 0 ` 1
 
 		StageSelTex = 27,
-		//DLCFlag=1<<0, // –³—¿’Ç‰Á
+		DLCFlag=1<<0, // –³—¿’Ç‰Á
 	}
 	/////////////////////////////////////////////////////////
 
@@ -1725,6 +1725,104 @@ BgList <-
 	}
 
 
+/////////////////////////////////////////////////////////    
+    Bg_042 =
+    {
+        Name = "042", // Fateful Showdown
+        DataFile = "bg068",
+
+        // RandomDisable = 1, // ƒ‰ƒ“ƒ_ƒ€‹ÖŽ~‚©
+        // VsDisable = 1, // ‘Îí‹ÖŽ~‚©
+        Scale = [ 0.2, 0.2, 0.2 ],
+        Position = [ 0.0, 0.0, -0.2 ],
+        ViewGrid = 0,
+        FOV = 50.0,
+        ViewRotationX = 1.0
+        ViewTranslationY = 0.3
+
+        IsFog = 0,
+        FogStart = 2.0, FogEnd = 9000.0,
+        FogColor = [ 0.5, 0.55, 0.3, 1.0 ], // RGBA
+
+        MSAA = 2,
+        StageW = 4096, // 2560,4096
+        
+
+        IsBloom = 0,
+        
+        BGBloomEnable = 1,
+        BGBloomBlightness = 1.5,
+        BGBloomPower = 2.50,
+        BGBloomBlurRadius = 1.00,
+        BGBloomTextureSize = 256,
+        BGBloomAlpha = 0.6,
+        BGTinyFXAAEnable = 0,
+        BGTinyFXAAThreshold = 0.2,
+        BGTinyFXAALerpT = 0.5,
+        
+        
+
+        ShadowScale = 0.6,
+        ShadowAlpha = 0.7,
+
+        
+
+        StageSelTex = 42,
+    }
+    ///////////////////////////////////////////////////////// 
+    Bg_043 =
+    {
+        Name = "043", // shadow town
+        DataFile = "bg069",
+
+        // RandomDisable = 1, // ƒ‰ƒ“ƒ_ƒ€‹ÖŽ~‚©
+        // VsDisable = 1, // ‘Îí‹ÖŽ~‚©
+        Scale = [ 0.2, 0.2, 0.2 ],
+        Position = [ 0.0, 0.0, -0.2 ],
+        ViewGrid = 0,
+        FOV = 50.0,
+        ViewRotationX = 1.0
+        ViewTranslationY = 0.3
+
+        IsFog = 0,
+        FogStart = 2.0, FogEnd = 9000.0,
+        FogColor = [ 0.5, 0.55, 0.3, 1.0 ], // RGBA
+
+        MSAA = 2,
+        StageW = 4096, // 2560,4096
+        
+        ShadowLightType = 1,
+        LightColor = [ 0.38, 0.90, 0.86, 1.0 ], // 
+        ShadowReflexColor = [ 1.0, 1.0, 1.0, 0.6 ], // RGBA
+        
+        ShadowScale  = 1.0, // 0.6
+        ShadowAlpha = 1.0, // 0.7
+
+        IsBloom = 0,
+        
+        BGBloomEnable = 0,            // OFF:0 / ON:1
+        BGBloomBlightness = 1.7,    // 0 ` 2
+        BGBloomPower = 2.00,            // 0.1 ` 5
+        BGBloomBiassR = 0.6,        // 0 ` 5
+        BGBloomBiassG = 0.6,        // 0 ` 5
+        BGBloomBiassB = 1.3,        // 0 ` 5
+        BGBloomBlurRadius = 1.30,    // 0 ` 10
+        BGBloomTextureSize = 128,    // 64 / 128 / 256 / 512 / 1024 ‚Ì“à‚Ç‚ê‚©BŒ©‚½–Ú‚ª‹–‚·ŒÀ‚èA‹É—Í¬‚³‚È’l‚ð‘I‘ð‚µ‚Ä‚­‚¾‚³‚¢B
+        BGBloomAlpha = 0.4,            // 0 ` 1
+        BGTinyFXAAEnable = 0,        // OFF:0 / ON:1
+        BGTinyFXAAThreshold = 0.2,    // 0 ` 1
+        BGTinyFXAALerpT = 0.5,        // 0 ` 1
+
+        // ƒLƒƒƒ‰‚Éæ‚¹‚éƒOƒ‰ƒfƒJƒ‰[
+        BgCharaYBaseColor   = [  0,   0,   0, 255],    // ‘«Œ³
+        BgCharaYHeightColor = [255, 255, 255, 255],    // “ªæ
+
+
+        StageSelTex = 43,
+    }
+	
+	
+	
 	Bg_050 =
 	{
 		Name = "ƒVƒGƒ‹‚Ì•”‰®i‰¼Ìj", // ‘SŠp32•¶Žš–¢–ž
