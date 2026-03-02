@@ -4,7 +4,7 @@ This modification relies on plenty of external sources for its assets. Without t
 
 ## Character-Related
 
-### Tsurugi
+### Tsurugi / Kaguya / Kuon
 
 - Artwork Replacement by Wolfedge75
 

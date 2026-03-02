@@ -3,9 +3,9 @@
 # as the game uses said d files as a lookup of sorts.
 # Redistributing the d files was becoming problematic, so this script was made
 # to make things easier to maintain.
-
+Set-Location -Path $PSScriptRoot
 $dlist = @{
-	"lzwp1onbeaejbkCh" = @("gauge_00.dds","gauge_01.dds","gauge_02.dds","demo_logo00.dds","sys_combo00.pat","gauge_chr019.dds")
+	"lzwp1onbeaejbkCh" = @("gauge_00.dds","gauge_01.dds","gauge_02.dds","demo_logo00.dds","sys_combo00.pat","gauge_chr019.dds","gauge_chr022.dds","gauge_chr023.dds")
 	"oMtaqooqotvvonnpwmq" = @("mainmenu_bg00.pat","BtlCharaTbl_str.ini","network00.pat","csel00.pat","cmddef_name.ini")
 	"rcwWiiqjmxpmojs" = @("stringfile.csv")
 	"fmjisrkojmp" = @("BgList.txt","BgList_str.txt")

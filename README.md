@@ -52,7 +52,7 @@ This modpack includes:
 </table>
 
 
-[A VOD of some online matches in action can be watched here.](https://youtu.be/mOypLX7B9Ok?t=1454)
+[A VOD of some online matches in action can be found on this page, along with other videos.](https://odysee.com/@Fatih:e)
 
 # Installing
 
