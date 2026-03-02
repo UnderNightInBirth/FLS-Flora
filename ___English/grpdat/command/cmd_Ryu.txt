@@ -33,7 +33,7 @@ tbl.append( { type = 1, text = "/def_ex_n", info = "/def_ex_i"  } );
 tbl.append( { type = 1, text = "", cmd = "/c_2A", info = "" } );
 tbl.append( { type = 1, text = "", cmd = "/c_Add/c_2A", info = "" } );
 tbl.append( { type = 1, text = "", cmd = "/c_2B", info = "" } );
-tbl.append( { type = 1, text = "", cmd = "/c_4B", info = "" } );
+// tbl.append( { type = 1, text = "", cmd = "/c_4B", info = "" } );
 tbl.append( { type = 1, text = "", cmd = "/c_6B", info = "" } );
 tbl.append( { type = 1, text = "", cmd = "/c_4C", info = "" } );
 tbl.append( { type = 1, text = "", cmd = "/c_6C", info = "" } );

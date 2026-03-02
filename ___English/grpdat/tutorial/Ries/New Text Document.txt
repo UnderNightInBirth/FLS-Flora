@@ -1,0 +1,49 @@
+ezBRoundStart
+b c 236b
+
+ezStdBnb
+a b 6b c 236a
+
+ez66cStarter
+66c 214[a] 66c 236B
+
+ez214ICpoke
+214[a] j[C]
+
+ez2a214
+2a 2a 2b 2c 214a
+
+ezReverseSS
+2a 2b 3b b 6b c a a a a a a
+
+ezBnBw214
+2a 2b 2c 214a 3b jabc jad
+
+ezCornerCarry
+2a 2b 2c 3b 6[c] 66c 236b
+
+mdFFLoop
+2c 3b ff 2b ff 2b ff 2b ff 2b 236a
+
+mdic6cConf
+6[c] c 6[b] 214a 3b jc j6c 6[b] 236b
+
+mdBnBcornerlow
+2a 2a 2b 2c 3b jbc j6c 6[b] [ff] 2b 236b
+
+mdATCounter
+jad(CH) 2c c jabc j214a 2c c SS
+
+mdCornerCarry
+2c 3b 6[c] dash c 6[b] 214b 66c 214[b]
+
+
+mdBMaxRange
+b c 214b dash 2b b SS
+
+hd66cStarter
+66c 214[a] 66b 623a a jabc 214b 2b c AB
+
+hd214wAssault
+214[a] 6d 214a 2c c 6[b] jabc 214b 2c c 236b
+
