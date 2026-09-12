@@ -4,6 +4,8 @@
 
 FLS Flora Status: Ver 1.35.01 ✅
 
+> ⚠️ **Repo Status:** This modpack is no longer being maintained for the foreseeable future. Further updates are not guaranteed. Issues and PRs, if any, will still be open for submissions.
+
 # Quick Start:
 
 [![Download Latest Version](https://img.shields.io/github/last-commit/UnderNightInBirth/FLS-Flora/game?style=for-the-badge&logo=steam&logoColor=white&label=Download%20Latest%20Version&color=9370DB)](https://github.com/UnderNightInBirth/FLS-Flora/archive/refs/heads/game.zip)
@@ -75,8 +77,7 @@ When you want to uninstall, clean up the extra folders from the repo and use Ste
 This mod is a joint effort among those who spent the time learning the intricacies of the game engine. If you have ideas, want to learn how to add content, or just have a few small contributions such as palettes, you are free to make a pull request or join the discussion on Discord.
 [![Discord](https://img.shields.io/badge/Discord-220077?logo=discord)](https://discord.gg/invite/yAfMaD34eV)
 
-If you need to contact the maintainer directly, the best place to do so is through Steam.
-[![Steam](https://img.shields.io/badge/Steam-231f20?logo=steam)](https://steamcommunity.com/id/Fatih120/)
+You can also use the following Steam Group for the same, or if you need to contact the maintainer directly. [![Steam Group: FLS Flora](https://img.shields.io/badge/Steam-231f20?logo=steam)]([https://steamcommunity.com/id/Fatih120/](https://steamcommunity.com/groups/FLSFlora))
 
 Any shoutouts, playtests, and videos are welcome and appreciated!
 
