@@ -2,9 +2,11 @@
 
 <img src="https://github.com/user-attachments/assets/0ce958e8-e2f4-4f7b-a095-f958366e3cf0">
 
-FLS Flora Status: Ver 1.35.01 ✅
+FLS Flora Status: Ver 1.35.01 ❌ (Outdated)
 
 > ⚠️ **Repo Status:** This modpack is no longer being maintained for the foreseeable future. Further updates are not guaranteed. Issues and PRs, if any, will still be open for submissions.
+
+> ⚠️ **Branch Note:** You're viewing the old README of the `old-standalone` branch which was the system in place before the use of the UNI2 improvement mod. This is a legacy branch and will not be updated.
 
 # Quick Start:
 
